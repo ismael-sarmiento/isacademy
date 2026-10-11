@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "title": "IsAcademy · Python, SQL, AI and Data tutoring with Ismael Sarmiento",
+    "description": "Online Python, SQL, AI, Big Data and Data Engineering classes: theory you understand, real practice and a method that motivates. Thesis support and career guidance."
+  },
+  "intro": {
+    "skip": "Skip intro",
+    "hook": "Artificial Intelligence (AI) gives you answers. <b>Here we teach you how to think.</b>",
+    "enter": "Enter the academy"
+  },
+  "nav": {
+    "label": "Sections",
+    "about": "About us",
+    "method": "Method",
+    "subjects": "Subjects",
+    "why": "Why us",
+    "reviews": "Reviews",
+    "resources": "Resources",
+    "cta": "Book a class",
+    "langLabel": "Switch to Spanish",
+    "langShort": "ES",
+    "themeLabel": "Toggle light / dark mode",
+    "home": "IsAcademy, home"
+  },
+  "hero": {
+    "eyebrow": "Online academy for programming, data and AI",
+    "title": "Learn to think with data and AI, not just to use them.",
+    "sub": "Personalised Python, SQL, AI, Big Data and Data Engineering classes, with thesis support and career guidance. Theory you understand, real practice and a method that motivates.",
+    "cta1": "Book your class",
+    "cta2": "See subjects",
+    "trust": [
+      "Rated 5 ★",
+      "10+ years in the tech industry",
+      "10+ years training professionals",
+      "Online classes",
+      "Free open classes every two weeks"
+    ],
+    "lessons": [
+      {
+        "tab": "python.py",
+        "note": "And why does it work?",
+        "code": "# Class · Python with real data\nimport pandas as pd\n\nsales = pd.read_csv(\"sales.csv\")\nmean = sales[\"amount\"].mean()\nprint(f\"Mean: {mean:.2f} €\")\n# → Mean: 48.73 €"
+      },
+      {
+        "tab": "big_data.py",
+        "note": "Why Spark and not pandas?",
+        "code": "# Class · Big Data with PySpark\nfrom pyspark.sql import SparkSession, functions as F\n\nspark = SparkSession.builder.getOrCreate()\ndf = spark.read.parquet(\"data/sales/\")\ndf.groupBy(\"country\").agg(F.sum(\"amount\")).show()\n# → millions of rows, processed in parallel"
+      },
+      {
+        "tab": "which_model.py",
+        "note": "Which one would you pick?",
+        "code": "# Class · AI: which model should I choose?\nneed = {\"task\": \"summarise\", \"privacy\": \"high\", \"budget\": 0}\n\nif need[\"privacy\"] == \"high\":\n    option = \"open model on your own computer\"\nelse:\n    option = \"a provider's API\"\nprint(option)  # → open model on your own computer"
+      },
+      {
+        "tab": "free_ai.py",
+        "note": "AI without spending a cent",
+        "code": "# Class · Free AI with open models\n# First, in the terminal: ollama pull llama3.2\nimport ollama\n\nanswer = ollama.chat(model=\"llama3.2\", messages=[\n    {\"role\": \"user\", \"content\": \"What is a DataFrame?\"},\n])\nprint(answer[\"message\"][\"content\"])\n# → your own model, local and free"
+      },
+      {
+        "tab": "analysis.sql",
+        "note": "Which question does it answer?",
+        "code": "-- Class · Analytical SQL\nSELECT country, SUM(amount) AS total\nFROM sales\nGROUP BY country\nORDER BY total DESC\nLIMIT 5;\n-- → the 5 best-selling markets"
+      }
+    ],
+    "tabsLabel": "Sample mini-lessons"
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "Learning is still a human thing",
+    "p1": "IsAcademy was born from a simple idea: in an increasingly artificial world, real learning needs a person who listens, explains and challenges you.",
+    "p2": "Founded by Ismael Sarmiento, a professional passionate about data and teaching, with over 10 years in the tech industry and over 10 years training professionals and teaching classes. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
+    "p3": "We use AI as a tool, never as a shortcut: we want you to understand what you do and to solve problems on your own.",
+    "role": "Founder and tutor",
+    "badges": [
+      "Verified tutor on tusclasesparticulares",
+      "Live online classes"
+    ]
+  },
+  "method": {
+    "eyebrow": "Method",
+    "title": "Theory you understand, practice you apply",
+    "lead": "We combine clear explanations, practice with real cases and challenges with visible progress (gamification), a very effective method to stay motivated and turn study into a habit.",
+    "pillars": [
+      {
+        "t": "Theory you understand",
+        "d": "Solid foundations explained clearly, no magic formulas. You'll know the why behind everything."
+      },
+      {
+        "t": "Real practice",
+        "d": "From the first class you work on real industry cases and projects, not filler exercises."
+      },
+      {
+        "t": "Challenges and visible progress",
+        "d": "Clear goals and achievements that keep you motivated and turn study into a habit."
+      }
+    ],
+    "stepsTitle": "How we work with you",
+    "steps": [
+      {
+        "t": "Assessment",
+        "d": "In a first session we look at your starting point and what you want to achieve."
+      },
+      {
+        "t": "Personal plan",
+        "d": "We design a roadmap for you: topics, pace and clear goals."
+      },
+      {
+        "t": "Guided practice",
+        "d": "Every concept is worked through exercises and challenges, with just enough theory to understand it."
+      },
+      {
+        "t": "Real project",
+        "d": "You apply what you learn in your own project, ready to show in class, in your thesis or in an interview."
+      }
+    ],
+    "midCta": "Sounds right? Book your class →"
+  },
+  "subjects": {
+    "eyebrow": "Subjects",
+    "title": "What do you want to master?",
+    "lead": "Choose where to start. Every subject adapts to your level, from zero to advanced.",
+    "groups": {
+      "programming": "Programming",
+      "dataai": "Data and AI",
+      "support": "Guidance"
+    },
+    "learn": "What you'll learn",
+    "learnAlt": "How we support you",
+    "how": "How we work on it",
+    "items": [
+      {
+        "id": "python",
+        "name": "Python",
+        "short": "From zero to programming with confidence.",
+        "learn": [
+          "Syntax and programming logic from the ground up",
+          "Functions, modules and good practices",
+          "Automation and working with data"
+        ],
+        "how": "Every concept is learned by writing code: mini-challenges in class and a personal project that grows with you.",
+        "cta": "Book your Python class",
+        "group": "programming",
+        "alt": false
+      },
+      {
+        "id": "oop",
+        "name": "Object-oriented programming",
+        "short": "Clean, maintainable code design.",
+        "learn": [
+          "Classes, inheritance and composition",
+          "Design principles and patterns",
+          "Refactoring and tests"
+        ],
+        "how": "We design small systems together and improve them until the code speaks for itself.",
+        "cta": "Book your OOP class",
+        "group": "programming",
+        "alt": false
+      },
+      {
+        "id": "sql",
+        "name": "SQL",
+        "short": "Queries and modelling on real databases.",
+        "learn": [
+          "SELECT, JOIN and aggregations without fear",
+          "Data modelling and normalisation",
+          "Optimisation and analytical queries"
+        ],
+        "how": "We practise on realistic databases, answering business questions just like on the job.",
+        "cta": "Book your SQL class",
+        "group": "dataai",
+        "alt": false
+      },
+      {
+        "id": "analytics",
+        "name": "Data analytics",
+        "short": "From data to decisions.",
+        "learn": [
+          "Cleaning and analysis with pandas",
+          "Clear, honest visualisation",
+          "Storytelling with data"
+        ],
+        "how": "We start from a real question and finish with an analysis you could present in a meeting.",
+        "cta": "Book your analytics class",
+        "group": "dataai",
+        "alt": false
+      },
+      {
+        "id": "bigdata",
+        "name": "Big Data · Spark",
+        "short": "Distributed processing at scale.",
+        "learn": [
+          "Distributed processing concepts",
+          "Apache Spark and PySpark",
+          "Cloud data platforms"
+        ],
+        "how": "We work with real data volumes to understand why and when Big Data is needed.",
+        "cta": "Book your Big Data class",
+        "group": "dataai",
+        "alt": false
+      },
+      {
+        "id": "de",
+        "name": "Data Engineering",
+        "short": "Pipelines, orchestration and data quality.",
+        "learn": [
+          "ETL/ELT pipeline design",
+          "Orchestration with tools like Airflow",
+          "Data quality and governance"
+        ],
+        "how": "We build a complete pipeline step by step, using the practices companies actually use.",
+        "cta": "Book your Data Engineering class",
+        "group": "dataai",
+        "alt": false
+      },
+      {
+        "id": "ia",
+        "name": "Artificial Intelligence",
+        "short": "Machine learning and generative AI, with judgement.",
+        "learn": [
+          "Machine learning fundamentals",
+          "Generative AI and language models",
+          "Using AI without switching off your own thinking"
+        ],
+        "how": "You learn just enough theory not to treat AI as a black box, then apply it to practical cases.",
+        "cta": "Book your AI class",
+        "group": "dataai",
+        "alt": false
+      },
+      {
+        "id": "tfg",
+        "name": "Thesis · Master's thesis",
+        "short": "We guide you from idea to defence. The work is yours; the method and the confidence, ours.",
+        "learn": [
+          "Choosing and framing the topic",
+          "Guidance and review of the technical work",
+          "Write-up review and defence rehearsal"
+        ],
+        "how": "We support you through every phase with regular reviews, so you reach your defence confident and in command of your own work.",
+        "cta": "Tell us about your thesis and we'll plan it",
+        "alt": true,
+        "group": "support"
+      },
+      {
+        "id": "careers",
+        "name": "Career guidance",
+        "short": "Data Engineer, Data Scientist or AI specialist.",
+        "learn": [
+          "A roadmap for your profile and goal",
+          "CV, portfolio and LinkedIn",
+          "Technical interview preparation"
+        ],
+        "how": "Guidance from inside the industry: what is really asked for and how to keep growing once you're in.",
+        "cta": "Book your guidance session",
+        "alt": true,
+        "group": "support"
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why us",
+    "title": "What makes us different",
+    "items": [
+      {
+        "t": "Real industry experience",
+        "d": "You learn from someone who works with data and AI, not just someone who studied them."
+      },
+      {
+        "t": "Tailored classes",
+        "d": "Your level, goals and pace set the plan, not a fixed syllabus."
+      },
+      {
+        "t": "Learning by doing",
+        "d": "Projects and practical cases from day one."
+      },
+      {
+        "t": "Using AI wisely",
+        "d": "You learn to use AI wisely, without depending on it."
+      },
+      {
+        "t": "Personal support",
+        "d": "We answer your questions clearly and patiently, without rushing."
+      },
+      {
+        "t": "Online and flexible",
+        "d": "Online classes in the morning, midday or afternoon."
+      }
+    ]
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What our students say",
+    "items": [
+      {
+        "name": "Vicente O C",
+        "date": "May 2024",
+        "text": "Clear and direct in his explanations, he helps you with what you need to know."
+      },
+      {
+        "name": "Marc",
+        "date": "January 2023",
+        "text": "Totally recommended. Everything was perfect, very well explained and I'm very happy with the classes."
+      },
+      {
+        "name": "Aday",
+        "date": "January 2023",
+        "text": "A great teacher, straight to the point, and he makes you find the answer yourself."
+      },
+      {
+        "name": "PT",
+        "date": "January 2023",
+        "text": "An extraordinary teacher and an unrivalled educator. He goes all out for your learning."
+      }
+    ],
+    "source": "See all reviews on tusclasesparticulares (Spanish)",
+    "translated": "Translated from Spanish",
+    "starsLabel": "5 out of 5 stars"
+  },
+  "resources": {
+    "eyebrow": "Resources",
+    "title": "Resources to keep learning",
+    "lead": "Data and AI curiosities, a Python console to practise and, very soon, a 3D world to walk around the academy.",
+    "worldTag": "Coming soon",
+    "worldTitle": "IsAcademy 3D World",
+    "worldDesc": "An open 3D world to walk around the academy, talk to its characters and discover curiosities from the world of data and AI.",
+    "factsTitle": "Data and AI curiosities",
+    "factsNext": "Show another",
+    "facts": [
+      "Python is named after the comedy group Monty Python, not the snake.",
+      "The most famous computer «bug» was a real moth stuck in a relay of the Harvard Mark II computer, in 1947.",
+      "SQL was born at IBM in the 1970s under the name SEQUEL.",
+      "The term «Artificial Intelligence» was coined in 1956, at the Dartmouth conference.",
+      "In the 19th century Ada Lovelace wrote what is considered the first algorithm intended for a machine.",
+      "Apache Spark started in 2009 as a research project at the University of California, Berkeley.",
+      "Hadoop is named after the toy elephant of one of its creators' son.",
+      "In 1997, IBM's Deep Blue beat world chess champion Garry Kasparov.",
+      "In 2016, AlphaGo beat Lee Sedol, one of the best Go players in the world.",
+      "Type «import this» in Python and you get the Zen of Python: 19 principles for writing good code.",
+      "The word «algorithm» comes from the name of the 9th-century Persian mathematician al-Khwarizmi.",
+      "In 1950 Alan Turing proposed a test to tell whether a machine can imitate a human: the Turing test.",
+      "A byte has 8 bits, enough to represent 256 different values.",
+      "The relational model behind SQL databases was proposed by Edgar F. Codd in 1970.",
+      "The pandas library takes its name from «panel data», a data type used in econometrics.",
+      "Grace Hopper built one of the first compilers and championed programming with words instead of numbers.",
+      "Python was created by Guido van Rossum and first released in 1991.",
+      "Arthur Samuel popularised the term «machine learning» in 1959 with a program that learned to play checkers.",
+      "The perceptron, one of the first artificial neural networks, dates from 1958.",
+      "Much of a data scientist's work is cleaning and preparing data, not training models."
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Your questions, answered",
+    "items": [
+      {
+        "q": "What are the open classes?",
+        "a": "Free online sessions we hold every two weeks to answer questions live. Anyone can join, even if they're not a student yet."
+      },
+      {
+        "q": "Are classes online?",
+        "a": "Yes. We work online, with screen sharing and live practical exercises."
+      },
+      {
+        "q": "Do I need prior knowledge?",
+        "a": "No. We start from your level, whether from zero or to polish what you already know."
+      },
+      {
+        "q": "Who are the classes for?",
+        "a": "For students, university students and professionals who want to learn, reskill or keep growing."
+      },
+      {
+        "q": "How do you help with my thesis?",
+        "a": "We guide you through the whole process: topic, planning, technical questions, write-up review and defence rehearsal, always making sure the work is yours."
+      },
+      {
+        "q": "How much do classes cost?",
+        "a": "It depends on your goal and frequency. Message us and we'll tell you, with no commitment."
+      },
+      {
+        "q": "What do I need for online classes?",
+        "a": "A computer with an internet connection. We'll help you set up your environment in the first session."
+      },
+      {
+        "q": "How do I book?",
+        "a": "From «Book a class». While we activate WhatsApp and phone, you can message us on tusclasesparticulares."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Book your class",
+    "title": "Shall we start?",
+    "sub": "Tell us what you want to learn and we'll propose a plan, with no commitment. And if you just have questions, join the next open class.",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "profile": "Message us on tusclasesparticulares ↗",
+    "waText": "Hi Ismael, I'm interested in {aula} at IsAcademy",
+    "note": "Online classes, adapted to your level, goals and pace.",
+    "interest": "You chose: {aula}. Mention it in your message.",
+    "profileNote": "We'll reply and set a day and time to start.",
+    "soonLine": "WhatsApp and phone: very soon.",
+    "newTab": "(opens in a new tab)"
+  },
+  "footer": {
+    "rights": "© 2026 IsAcademy · by Ismael Sarmiento",
+    "legal": "Legal notice and privacy · coming soon",
+    "top": "Back to top"
+  },
+  "open": {
+    "eyebrow": "Open classes",
+    "title": "Every two weeks, a free open class",
+    "desc": "We open an online classroom to answer questions live: Python, SQL, data or AI. Bring your questions, even if you're not a student yet.",
+    "cta": "Ask for the next open class link",
+    "badge": "Free · Online",
+    "interestName": "the next open class"
+  },
+  "console": {
+    "title": "Online Python console",
+    "desc": "Practise Python right in your browser, nothing to install. Try the examples or write your own code.",
+    "open": "Open console",
+    "loading": "Loading Python… (first time only, a few seconds)",
+    "run": "Run",
+    "reset": "Reset",
+    "examples": "Examples",
+    "output": "Output",
+    "ready": "Python ready. Press «Run» or Ctrl/⌘ + Enter.",
+    "error": "Python could not be loaded. Check your connection and try again.",
+    "editorLabel": "Python code editor",
+    "samples": [
+      {
+        "name": "Hello, Python",
+        "code": "name = \"IsAcademy\"\nprint(f\"Hello from {name}!\")\n\nfor i in range(1, 4):\n    print(\"Step\", i)"
+      },
+      {
+        "name": "Lists",
+        "code": "grades = [7.5, 9, 6, 8.25]\nmean = sum(grades) / len(grades)\nprint(\"Mean:\", round(mean, 2))\nprint(\"Passed:\", [g for g in grades if g >= 5])"
+      },
+      {
+        "name": "pandas",
+        "code": "import pandas as pd\n\nsales = pd.DataFrame({\n    \"country\": [\"ES\", \"MX\", \"ES\", \"AR\"],\n    \"amount\": [120, 80, 45, 60],\n})\nprint(sales.groupby(\"country\")[\"amount\"].sum())"
+      },
+      {
+        "name": "Mini challenge",
+        "code": "# Challenge: complete the function so it returns\n# only the words longer than 4 letters.\ndef long_words(words):\n    # Your code here\n    return []\n\nprint(long_words([\"data\", \"AI\", \"python\", \"sql\"]))\n# Expected: ['python']"
+      }
+    ]
+  }
+}
