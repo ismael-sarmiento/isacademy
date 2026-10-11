@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>IsAcademy · Clases de Python, SQL, IA y Data con Ismael Sarmiento</title>
+  <meta name="description" content="Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional.">
+  <meta name="theme-color" content="#1c2547">
+  <link rel="canonical" href="https://ismael-sarmiento.github.io/isacademy/">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="IsAcademy · Aquí te enseñamos a pensar">
+  <meta property="og:description" content="Clases online de Python, SQL, IA y datos: teoría que se entiende, práctica real y un método que motiva. Aulas abiertas gratuitas cada 15 días.">
+  <meta property="og:url" content="https://ismael-sarmiento.github.io/isacademy/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:image" content="https://ismael-sarmiento.github.io/isacademy/assets/brand/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/main.css?v=20261011c">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "IsAcademy",
+    "slogan": "La Inteligencia Artificial te da respuestas. Aquí te enseñamos a pensar.",
+    "url": "https://ismael-sarmiento.github.io/isacademy/",
+    "founder": { "@type": "Person", "name": "Ismael Sarmiento" },
+    "knowsAbout": ["Python", "SQL", "Inteligencia Artificial", "Big Data", "Apache Spark", "Data Engineering", "Analítica de datos", "Programación orientada a objetos", "TFG", "Máster", "Orientación profesional"]
+  }
+  </script>
+</head>
+<body>
+  <!-- ========== INTRO ========== -->
+  <section id="intro" aria-labelledby="introTitle">
+    <svg id="circuit" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M1600 150 H1380 L1340 190 H1180"/><circle cx="1180" cy="190" r="5"/>
+      <path d="M1600 210 H1440 L1400 250 H1290"/><circle cx="1290" cy="250" r="5"/>
+      <path d="M0 720 H200 L240 680 H380"/><circle cx="380" cy="680" r="5"/>
+      <path d="M0 780 H260 L300 740 H460"/><circle cx="460" cy="740" r="5"/>
+    </svg>
+    <div class="intro-top">
+      <button class="btn btn-sm" data-action="lang" data-i18n-aria="nav.langLabel"><span data-i18n="nav.langShort">EN</span></button>
+      <button class="btn btn-sm btn-icon" data-action="theme" data-i18n-aria="nav.themeLabel">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+      </button>
+      <button id="skip" class="btn btn-sm" data-i18n="intro.skip">Saltar intro</button>
+    </div>
+    <div class="stage">
+      <h1 id="introTitle" class="sr-only">IsAcademy by Ismael Sarmiento</h1>
+      <svg class="logo" viewBox="0 0 1000 330" aria-hidden="true">
+        <defs>
+          <linearGradient id="inkEdge" x1="0" x2="1">
+            <stop offset="0" stop-color="#fff"/><stop offset=".9" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="ink" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="330">
+            <rect id="inkRect" x="0" y="0" width="0" height="330" fill="url(#inkEdge)"/>
+          </mask>
+        </defs>
+        <g id="gIs">
+          <text class="is is-stroke" x="70" y="250">Is</text>
+          <text class="is is-fill" x="70" y="250" mask="url(#ink)">Is</text>
+        </g>
+        <g id="gAc">
+          <text class="academy" x="296" y="245"></text>
+          <rect class="cursor" x="330" y="136" width="14" height="112" rx="3">
+            <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/>
+          </rect>
+          <text class="by" x="892" y="300" text-anchor="end">by Ismael Sarmiento</text>
+        </g>
+      </svg>
+      <p class="hook" data-i18n-html="intro.hook">La Inteligencia Artificial (IA) te da respuestas. <b>Aquí te enseñamos a pensar.</b></p>
+      <div class="intro-actions">
+        <button class="btn btn-primary btn-lg" data-action="enter" data-i18n="intro.enter">Entrar a la academia</button>
+      </div>
+    </div>
+
+    <!-- hands used by the opening animation (drawn by js/opening.js) -->
+    <svg id="handHuman" class="hand" viewBox="0 0 320 160" aria-hidden="true"></svg>
+    <svg id="handRobot" class="hand" viewBox="0 0 320 160" aria-hidden="true"></svg>
+  </section>
+
+  <!-- ========== SITE ========== -->
+  <header class="topbar" id="top">
+    <div class="topbar-row container">
+      <a class="brand" href="#hero" data-i18n-aria="nav.home"><span class="brand-is">Is</span><span class="brand-ac">Academy</span></a>
+      <nav class="sections" data-i18n-aria="nav.label">
+        <a href="#quienes" data-i18n="nav.about">Quiénes somos</a>
+        <a href="#metodologia" data-i18n="nav.method">Metodología</a>
+        <a href="#materias" data-i18n="nav.subjects">Materias</a>
+        <a href="#por-que" data-i18n="nav.why">Por qué elegirnos</a>
+        <a href="#opiniones" data-i18n="nav.reviews">Opiniones</a>
+        <a href="#recursos" data-i18n="nav.resources">Recursos</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="#contacto" data-i18n="nav.cta">Reservar clase</a>
+      </nav>
+      <div class="tools">
+        <a class="btn btn-primary cta-top" href="#contacto" data-i18n="nav.cta">Reservar clase</a>
+        <button class="btn btn-icon" data-action="lang" data-i18n-aria="nav.langLabel"><span data-i18n="nav.langShort">EN</span></button>
+        <button class="btn btn-icon" data-action="theme" data-i18n-aria="nav.themeLabel">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="site">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+          <h1 data-i18n="hero.title">Aprende a pensar con datos e IA, no solo a usarlos.</h1>
+          <p class="lead" data-i18n="hero.sub"></p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" href="#contacto" data-i18n="hero.cta1">Reserva tu clase</a>
+            <a class="btn btn-lg" href="#materias" data-i18n="hero.cta2">Ver materias</a>
+          </div>
+          <ul class="trust" id="trust"></ul>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="code-card">
+            <div class="code-bar"><i></i><i></i><i></i><div class="code-tabs" id="codeTabs" role="tablist" data-i18n-aria="hero.tabsLabel"></div></div>
+            <pre id="heroCode" role="tabpanel"></pre>
+          </div>
+          <div class="handnote"><span id="heroNote"></span>
+            <svg viewBox="0 0 120 60"><path d="M10 10 C40 50 80 52 110 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M98 24 L111 29 L103 41" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN CLASSES -->
+    <section class="open-band" id="aulas-abiertas">
+      <div class="container open-row reveal">
+        <div>
+          <p class="eyebrow"><span data-i18n="open.eyebrow"></span> <span class="pill" data-i18n="open.badge"></span></p>
+          <h2 data-i18n="open.title"></h2>
+          <p data-i18n="open.desc"></p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="#contacto" data-book="open" data-i18n="open.cta"></a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="quienes">
+      <div class="container about-grid">
+        <div class="founder reveal">
+          <div class="avatar" aria-hidden="true"><span>IS</span></div>
+          <p class="founder-name">Ismael Sarmiento</p>
+          <p class="muted" data-i18n="about.role">Fundador y tutor</p>
+          <ul class="badges" id="aboutBadges"></ul>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow"></p>
+          <h2 data-i18n="about.title"></h2>
+          <p class="lead" data-i18n="about.p1"></p>
+          <p data-i18n="about.p2"></p>
+          <p data-i18n="about.p3"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section class="section alt" id="metodologia">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="method.eyebrow"></p>
+          <h2 data-i18n="method.title"></h2>
+          <p class="lead" data-i18n="method.lead"></p>
+        </div>
+        <div class="pillars" id="pillars"></div>
+        <h3 class="sub-title reveal" data-i18n="method.stepsTitle"></h3>
+        <ol class="steps" id="steps"></ol>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="method.midCta"></a></p>
+      </div>
+    </section>
+
+    <!-- SUBJECTS -->
+    <section class="section" id="materias">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="subjects.eyebrow"></p>
+          <h2 data-i18n="subjects.title"></h2>
+          <p class="lead" data-i18n="subjects.lead"></p>
+        </div>
+        <div class="subjects" id="subjects"></div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section alt" id="por-que">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="why.eyebrow"></p>
+          <h2 data-i18n="why.title"></h2>
+        </div>
+        <div class="why" id="why"></div>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="method.midCta"></a></p>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section" id="opiniones">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="reviews.eyebrow"></p>
+          <h2 data-i18n="reviews.title"></h2>
+        </div>
+        <div class="reviews" id="reviews"></div>
+        <p class="center reveal"><a id="reviewsLink" target="_blank" rel="noopener" data-i18n="reviews.source"></a></p>
+        <p class="mid-cta reveal"><a class="btn btn-primary" href="#contacto" data-i18n="method.midCta"></a></p>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="section alt" id="recursos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="resources.eyebrow"></p>
+          <h2 data-i18n="resources.title"></h2>
+          <p class="lead" data-i18n="resources.lead"></p>
+        </div>
+        <div class="resources">
+          <article class="world-card reveal">
+            <span class="tag" data-i18n="resources.worldTag"></span>
+            <h3 data-i18n="resources.worldTitle"></h3>
+            <p data-i18n="resources.worldDesc"></p>
+          </article>
+          <article class="facts-card reveal">
+            <h3 data-i18n="resources.factsTitle"></h3>
+            <p class="fact" id="fact" aria-live="polite"></p>
+            <button class="btn" data-action="fact" data-i18n="resources.factsNext"></button>
+          </article>
+          <article class="console-card reveal" id="consola">
+            <div class="console-head">
+              <div>
+                <h3 data-i18n="console.title"></h3>
+                <p class="muted" data-i18n="console.desc"></p>
+              </div>
+              <button class="btn btn-primary" data-action="console-open" data-i18n="console.open"></button>
+            </div>
+            <div class="console-body" id="consoleBody" hidden>
+              <div class="console-bar">
+                <span class="muted" data-i18n="console.examples"></span>
+                <div class="samples" id="samples"></div>
+                <span class="spacer"></span>
+                <button class="btn btn-sm" data-action="console-reset" data-i18n="console.reset"></button>
+                <button class="btn btn-sm btn-primary" data-action="console-run" data-i18n="console.run" disabled></button>
+              </div>
+              <textarea id="pyEditor" spellcheck="false" autocapitalize="off" data-i18n-aria="console.editorLabel"></textarea>
+              <p class="console-label" data-i18n="console.output"></p>
+              <pre id="pyOut" aria-live="polite"></pre>
+            </div>
+          </article>
+        </div>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="method.midCta"></a></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="faq.eyebrow"></p>
+          <h2 data-i18n="faq.title"></h2>
+        </div>
+        <div class="faq" id="faqList"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="contact-card reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow"></p>
+          <h2 data-i18n="contact.title"></h2>
+          <p class="lead" data-i18n="contact.sub"></p>
+          <p class="interest" id="interest" hidden></p>
+          <div id="contactBlock"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <span data-i18n="footer.rights"></span>
+      <span class="muted" data-i18n="footer.legal"></span>
+      <a href="#hero" data-i18n="footer.top"></a>
+    </div>
+  </footer>
+
+  <noscript><div style="padding:24px"><h1>IsAcademy · Aquí te enseñamos a pensar</h1>
+    <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
+    <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
+    <p>Activa JavaScript para ver la web completa.</p></div></noscript>
+  <script type="module" src="js/app.js?v=20261011c"></script>
+</body>
+</html>
