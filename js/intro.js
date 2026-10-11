@@ -1,0 +1,107 @@
+// Logo intro: the calligraphic "Is" is sketched by hand, then an AI "decodes" the word Academy.
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const GLYPHS = '01<>/{}#$%&@=+*ABCDEFXYZ';
+const DASH = 3000;
+let skipped = false;
+
+function animate(duration, step) {
+  return new Promise(resolve => {
+    const t0 = performance.now();
+    function tick(now) {
+      const p = skipped ? 1 : Math.min(1, (now - t0) / duration);
+      step(p);
+      if (p < 1) requestAnimationFrame(tick); else resolve();
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+const easeInOut = p => (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+
+async function sketchIs(svg) {
+  const stroke = svg.querySelector('.is-stroke');
+  const ink = svg.querySelector('#inkRect');
+  const box = svg.querySelector('.is-fill').getBBox();
+  stroke.style.strokeDasharray = String(DASH);
+  // 1) the outline is sketched, 2) ink fills it from left to right
+  await animate(1500, p => { stroke.style.strokeDashoffset = String(DASH * (1 - easeInOut(p))); });
+  await animate(700, p => { ink.setAttribute('x', String(box.x - 20)); ink.setAttribute('width', String((box.width + 60) * easeInOut(p))); });
+}
+
+function placeCursor(svg) {
+  const text = svg.querySelector('.academy');
+  const x = Number(text.getAttribute('x')) + (text.textContent ? text.getComputedTextLength() : 0);
+  svg.querySelector('.cursor').setAttribute('x', String(x + 8));
+}
+
+async function typeAcademy(svg) {
+  const word = 'Academy';
+  const text = svg.querySelector('.academy');
+  for (let i = 0; i <= word.length && !skipped; i++) {
+    for (let k = 0; k < 3 && !skipped; k++) {
+      const noise = Array.from({ length: Math.min(2, word.length - i) }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('');
+      text.textContent = word.slice(0, i) + noise;
+      placeCursor(svg);
+      await sleep(32);
+    }
+  }
+  text.textContent = word;
+  placeCursor(svg);
+  hideCursor(svg);
+}
+
+// the AI cursor only lives while typing; the final logo has no trailing bar
+function hideCursor(svg) {
+  const c = svg.querySelector('.cursor');
+  setTimeout(() => {
+    // the blink is a SMIL animation, which overrides CSS: remove it before fading out
+    c.querySelector('animate')?.remove();
+    c.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: 'forwards' });
+  }, 500);
+}
+
+function drawCircuit(root) {
+  root.querySelectorAll('#circuit path').forEach((path, i) => {
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = String(len);
+    path.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: 1400, delay: i * 120, fill: 'forwards', easing: 'ease-out' });
+  });
+}
+
+function finalState(root) {
+  const svg = root.querySelector('svg.logo');
+  const stroke = svg.querySelector('.is-stroke');
+  stroke.style.strokeDasharray = String(DASH); stroke.style.strokeDashoffset = '0';
+  svg.querySelector('#inkRect').setAttribute('width', '1000');
+  svg.querySelector('.academy').textContent = 'Academy';
+  placeCursor(svg);
+  const cursor = svg.querySelector('.cursor');
+  cursor.querySelector('animate')?.remove();
+  cursor.style.opacity = '0';
+  svg.querySelector('.by').style.opacity = 1;
+  root.querySelectorAll('#circuit path').forEach(p => { p.getAnimations().forEach(a => a.cancel()); p.style.strokeDasharray = 'none'; p.style.strokeDashoffset = '0'; });
+  root.querySelectorAll('.hook, .intro-actions').forEach(el => el.classList.add('show'));
+  root.querySelector('#skip').hidden = true;
+}
+
+export async function runIntro(root) {
+  const svg = root.querySelector('svg.logo');
+  // hide the circuit traces until they are drawn
+  root.querySelectorAll('#circuit path').forEach(p => { const len = p.getTotalLength(); p.style.strokeDasharray = String(len); p.style.strokeDashoffset = String(len); });
+  root.querySelector('#skip').addEventListener('click', () => { skipped = true; finalState(root); root.querySelector('[data-action="enter"]').focus(); });
+  await document.fonts.ready;
+  // the intro plays on every visit; reduced-motion users get the final logo directly
+  if (reduced) { skipped = true; finalState(root); return; }
+  await sleep(250);
+  await sketchIs(svg);
+  if (skipped) return;
+  drawCircuit(root);
+  await typeAcademy(svg);
+  if (skipped) return;
+  await animate(500, p => { svg.querySelector('.by').style.opacity = p; });
+  root.querySelector('.hook').classList.add('show');
+  await sleep(600);
+  root.querySelector('.intro-actions').classList.add('show');
+  root.querySelector('#skip').hidden = true;
+}
