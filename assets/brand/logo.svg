@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" role="img" aria-labelledby="t">
+  <title id="t">IsAcademy by Ismael Sarmiento</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Allura&amp;family=Space+Grotesk:wght@400;500&amp;display=swap');
+    .is { font-family: 'Allura', 'Snell Roundhand', cursive; font-size: 300px; fill: #c8953f; }
+    .academy { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 150px; fill: #1c2547; letter-spacing: -2px; }
+    .by { font-family: 'Space Grotesk', sans-serif; font-size: 20px; letter-spacing: 6px; fill: #4a5170; }
+  </style>
+  <text class="is" x="70" y="250">Is</text>
+  <text class="academy" x="296" y="245">Academy</text>
+  <text class="by" x="892" y="300" text-anchor="end">by Ismael Sarmiento</text>
+</svg>
