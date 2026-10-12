@@ -22,7 +22,7 @@ export function onLangChange(fn) { listeners.push(fn); }
 
 export async function setLang(next, persist = false) {
   lang = SUPPORTED.includes(next) ? next : 'es';
-  const res = await fetch(`i18n/${lang}.json?v=20261012g`);
+  const res = await fetch(`i18n/${lang}.json?v=20261012j`);
   dict = await res.json();
   // only an explicit choice is remembered; otherwise the browser language keeps deciding
   if (persist) store(lang);
@@ -32,5 +32,7 @@ export async function setLang(next, persist = false) {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = t(el.dataset.i18nAlt); });
   listeners.forEach(fn => fn(lang));
 }

@@ -29,6 +29,13 @@ async function sketchIs(svg) {
   await animate(700, p => { ink.setAttribute('x', String(box.x - 20)); ink.setAttribute('width', String((box.width + 60) * easeInOut(p))); });
 }
 
+// The first letter of "Academy" is drawn larger (a capital that reads as a second word, not "Isa…")
+function setAcademy(svg, str) {
+  const text = svg.querySelector('.academy');
+  const safe = c => c.replace(/[<>&]/g, '');
+  text.innerHTML = str ? `<tspan class="big-a">${safe(str[0])}</tspan>${safe(str.slice(1))}` : '';
+}
+
 function placeCursor(svg) {
   const text = svg.querySelector('.academy');
   const x = Number(text.getAttribute('x')) + (text.textContent ? text.getComputedTextLength() : 0);
@@ -43,12 +50,12 @@ async function typeAcademy(svg) {
   for (let i = 0; i <= word.length && !skipped; i++) {
     for (let k = 0; k < 3 && !skipped; k++) {
       const noise = Array.from({ length: Math.min(2, word.length - i) }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('');
-      text.textContent = word.slice(0, i) + noise;
+      setAcademy(svg, word.slice(0, i) + noise);
       placeCursor(svg);
       await sleep(32);
     }
   }
-  text.textContent = word;
+  setAcademy(svg, word);
   placeCursor(svg);
 }
 
@@ -65,7 +72,7 @@ function finalState(root) {
   const stroke = svg.querySelector('.is-stroke');
   stroke.style.strokeDasharray = String(DASH); stroke.style.strokeDashoffset = '0';
   svg.querySelector('#inkRect').setAttribute('width', '1000');
-  svg.querySelector('.academy').textContent = 'Academy';
+  setAcademy(svg, 'Academy');
   placeCursor(svg);
   svg.querySelector('.by').style.opacity = 1;
   root.querySelectorAll('#circuit path').forEach(p => { p.getAnimations().forEach(a => a.cancel()); p.style.strokeDasharray = 'none'; p.style.strokeDashoffset = '0'; });

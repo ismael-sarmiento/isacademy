@@ -1,11 +1,11 @@
 // Wires the intro, the opening animation and the landing sections.
-import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261012g';
-import { initTheme, toggleTheme } from './theme.js?v=20261012g';
-import { runIntro } from './intro.js?v=20261012g';
-import { openAcademy, revealSite, finish } from './opening.js?v=20261012g';
-import { CONTACT } from './config.js?v=20261012g';
-import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261012g';
-import { initAssistant, refreshAssistant, showAssistant } from './assistant.js?v=20261012g';
+import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261012j';
+import { initTheme, toggleTheme } from './theme.js?v=20261012j';
+import { runIntro } from './intro.js?v=20261012j';
+import { openAcademy, revealSite, finish } from './opening.js?v=20261012j';
+import { CONTACT } from './config.js?v=20261012j';
+import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261012j';
+import { initAssistant, refreshAssistant, showAssistant } from './assistant.js?v=20261012j';
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -13,30 +13,77 @@ let interest = null; // id of the subject chosen from a "book" button, used in t
 let factOrder = [], factIdx = 0;
 
 // ---------- contact ----------
-const interestName = () => (interest === 'open' ? t('open.interestName') : interest ? t('subjects.items').find(x => x.id === interest)?.name : null);
 const external = label => `${esc(label)}<span class="sr-only"> ${esc(t('contact.newTab'))}</span>`;
 
-function contactBlock() {
-  const name = interestName();
-  const live = CONTACT.whatsapp || CONTACT.phone;
-  if (!live) {
-    // no number yet: the provisional profile is the main, clickable channel
-    return `<div class="contact-row"><a class="btn btn-primary btn-lg" href="${CONTACT.profileUrl}" target="_blank" rel="noopener">${external(t('contact.profile'))}</a></div>
-      <p class="contact-note">${esc(t('contact.profileNote'))}</p>
-      <p class="muted">${esc(t('contact.note'))}</p>
-      <p class="muted">${esc(t('contact.soonLine'))}</p>`;
-  }
-  const waText = encodeURIComponent(t('contact.waText').replace('{aula}', name || 'IsAcademy'));
-  const wa = CONTACT.whatsapp ? `<a class="btn btn-primary btn-lg" href="https://wa.me/${CONTACT.whatsapp}?text=${waText}" target="_blank" rel="noopener">${external(t('contact.whatsapp'))}</a>` : '';
-  const call = CONTACT.phone ? `<a class="btn btn-lg" href="tel:${CONTACT.phone}">${esc(t('contact.call'))}</a>` : '';
-  return `<div class="contact-row">${wa}${call}</div><p class="muted">${esc(t('contact.note'))}</p>`;
+// ---------- booking form (delivered by FormSubmit to CONTACT.formEmail) ----------
+function renderContact() {
+  const sel = $('#fInterest');
+  const current = interest || sel.value;
+  sel.innerHTML = `<option value="">${esc(t('contact.fChoose'))}</option>`
+    + t('subjects.items').map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('')
+    + `<option value="open">${esc(t('contact.fOpen'))}</option><option value="other">${esc(t('contact.fOther'))}</option>`;
+  if (current) sel.value = current;
+  $('#privacyText').textContent = t('contact.privacy').replace('{email}', CONTACT.publicEmail);
 }
 
-function renderContact() {
-  $('#contactBlock').innerHTML = contactBlock();
-  const tag = $('#interest'), name = interestName();
-  tag.hidden = !name;
-  if (name) tag.textContent = t('contact.interest').replace('{aula}', name);
+function fieldError(field, msg) {
+  const label = field.closest('label');
+  let err = label.querySelector('.f-error');
+  if (!msg) { err?.remove(); field.removeAttribute('aria-invalid'); return; }
+  if (!err) { err = document.createElement('span'); err.className = 'f-error'; label.appendChild(err); }
+  err.textContent = msg;
+  field.setAttribute('aria-invalid', 'true');
+}
+
+function validate(form) {
+  let first = null;
+  for (const name of ['name', 'email', 'interest', 'message']) {
+    const f = form.elements[name];
+    const empty = !f.value.trim();
+    const bad = name === 'email' && !empty && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim());
+    fieldError(f, empty ? t('contact.fRequired') : bad ? t('contact.fBadEmail') : '');
+    if ((empty || bad) && !first) first = f;
+  }
+  const priv = form.elements.privacy;
+  fieldError(priv, priv.checked ? '' : t('contact.fNeedPrivacy'));
+  if (!priv.checked && !first) first = priv;
+  first?.focus();
+  return !first;
+}
+
+async function submitForm(e) {
+  e.preventDefault();
+  const form = e.currentTarget, status = $('#formStatus'), btn = $('#formSend');
+  status.textContent = ''; status.className = 'f-status';
+  if (!validate(form)) return;
+  if (form.elements._honey.value) return; // bots fill the invisible field
+  const sel = form.elements.interest;
+  const data = {
+    name: form.elements.name.value.trim(),
+    email: form.elements.email.value.trim(),
+    phone: form.elements.phone.value.trim(),
+    interest: sel.options[sel.selectedIndex].text,
+    level: form.elements.level.value.trim(),
+    message: form.elements.message.value.trim(),
+    language: document.documentElement.lang,
+    _subject: `${t('contact.subject')}: ${sel.options[sel.selectedIndex].text}`,
+    _template: 'table',
+    _replyto: form.elements.email.value.trim(),
+  };
+  btn.disabled = true; btn.textContent = t('contact.fSending');
+  try {
+    const res = await fetch(`https://formsubmit.co/ajax/${CONTACT.formEmail}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || res.status);
+    form.reset(); interest = null; renderContact();
+    status.textContent = t('contact.fOk'); status.classList.add('ok');
+  } catch {
+    status.textContent = t('contact.fError'); status.classList.add('err');
+  } finally {
+    btn.disabled = false; btn.textContent = t('contact.fSend');
+  }
 }
 
 // ---------- sections ----------
@@ -187,6 +234,8 @@ async function boot() {
   onLangChange(() => { renderLists(); renderSamples(); refreshAssistant(); if ($('#codeTabs').children.length) { renderTabs(true); showLesson(lessonIdx, false); } });
   scrollSpy();
   initConsole();
+  $('#leadForm').addEventListener('submit', submitForm);
+  $('#leadForm').addEventListener('input', e => { if (e.target.getAttribute('aria-invalid')) fieldError(e.target, ''); });
   initAssistant(({ href, action, book }) => {
     if (book) { interest = book; renderContact(); }
     if (action === 'console-open') { document.getElementById('consola').scrollIntoView({ behavior: 'smooth' }); openConsole(); return; }
