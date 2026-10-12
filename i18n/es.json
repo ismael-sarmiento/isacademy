@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "IsAcademy · Clases de Python, SQL, IA y Data con Ismael Sarmiento",
+    "title": "IsAcademy · Humanos en un mundo artificial",
     "description": "Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional."
   },
   "intro": {
@@ -30,8 +30,7 @@
     "cta2": "Ver materias",
     "trust": [
       "Valoración de 5 ★",
-      "+10 años en el sector tecnológico",
-      "+10 años formando a profesionales",
+      "+10 años en tecnología y docencia",
       "Clases online",
       "Aulas abiertas gratis cada 15 días"
     ],
@@ -68,7 +67,7 @@
     "eyebrow": "Quiénes somos",
     "title": "Aprender sigue siendo algo humano",
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
-    "p2": "Fundada por Ismael Sarmiento, profesional apasionado por los datos y por la enseñanza, con más de 10 años en el sector tecnológico y más de 10 años formando a profesionales e impartiendo clases. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
+    "p2": "IsAcademy la fundó Ismael Sarmiento, profesional apasionado por los datos y por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
     "role": "Fundador y tutor",
     "badges": [
@@ -79,15 +78,15 @@
   "method": {
     "eyebrow": "Metodología",
     "title": "Teoría que se entiende, práctica que se aplica",
-    "lead": "Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible (gamificación), un método muy eficaz para mantener la motivación y convertir el estudio en hábito.",
+    "lead": "Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible (gamificación): así aprendes entendiendo, aplicando y sin perder la motivación.",
     "pillars": [
       {
-        "t": "Teoría que se entiende",
+        "t": "Bases sólidas",
         "d": "Bases sólidas explicadas con claridad, sin fórmulas mágicas. Sabrás el porqué de cada cosa."
       },
       {
         "t": "Práctica real",
-        "d": "Desde la primera clase trabajas con casos y proyectos del sector, no con ejercicios de relleno."
+        "d": "Desde las primeras clases trabajas con casos y proyectos del sector, no con ejercicios de relleno."
       },
       {
         "t": "Retos y progreso visible",
@@ -110,10 +109,9 @@
       },
       {
         "t": "Proyecto real",
-        "d": "Aplicas lo aprendido en un proyecto propio que podrás enseñar en clase, en tu TFG o en una entrevista."
+        "d": "Aplicas lo aprendido en un proyecto propio que podrás mostrar en clase, en tu TFG o en una entrevista."
       }
-    ],
-    "midCta": "¿Te encaja? Reserva tu clase →"
+    ]
   },
   "subjects": {
     "eyebrow": "Materias",
@@ -250,7 +248,7 @@
           "Preparación de entrevistas técnicas"
         ],
         "how": "Orientación desde dentro del sector: qué se pide de verdad y cómo seguir creciendo una vez dentro.",
-        "cta": "Agenda tu sesión de orientación",
+        "cta": "Reserva tu sesión de orientación",
         "alt": true,
         "group": "support"
       }
@@ -439,8 +437,875 @@
       },
       {
         "name": "Mini-reto",
-        "code": "# Reto: completa la función para que devuelva\n# solo las palabras de más de 4 letras.\ndef largas(palabras):\n    # Tu código aquí\n    return []\n\nprint(largas([\"datos\", \"IA\", \"python\", \"sql\"]))\n# Esperado: ['datos', 'python']"
+        "code": "# Reto: completa la función para que devuelva\n# solo las palabras de más de 4 letras.\ndef largas(palabras):\n    # Tu código aquí\n    return []\n\nresultado = largas([\"datos\", \"IA\", \"python\", \"sql\"])\nprint(resultado)\nprint(\"¡Reto superado!\" if resultado == [\"datos\", \"python\"] else \"Aún no: revisa la condición\")"
       }
     ]
+  },
+  "assistant": {
+    "name": "Is",
+    "subtitle": "Asistente de IsAcademy · respuestas automáticas",
+    "open": "¿Te ayudo?",
+    "openLabel": "Abrir el asistente de IsAcademy",
+    "close": "Cerrar el asistente",
+    "placeholder": "Escribe tu pregunta…",
+    "send": "Enviar",
+    "typing": "Is está escribiendo…",
+    "greeting": "¡Hola! Soy Is, el asistente de IsAcademy. Soy automático, pero conozco bien la academia: pregúntame por materias, cómo trabajamos, las aulas abiertas o cómo reservar.",
+    "suggestions": [
+      "¿Qué materias dais?",
+      "¿Qué son las aulas abiertas?",
+      "¿Cómo son las clases?",
+      "¿Cuánto cuesta?",
+      "¿Cómo reservo?"
+    ],
+    "fallback": "No tengo una respuesta automática para eso. Escríbenos y Ismael te contesta personalmente.",
+    "intents": [
+      {
+        "id": "greet",
+        "keys": [
+          "hola",
+          "buenas",
+          "buenos dias",
+          "buenas tardes",
+          "hey",
+          "saludos",
+          "que tal"
+        ],
+        "answer": "¡Hola! ¿En qué te puedo ayudar? Puedo contarte qué enseñamos, cómo trabajamos o cómo empezar.",
+        "generic": true
+      },
+      {
+        "id": "thanks",
+        "keys": [
+          "gracias",
+          "muchas gracias",
+          "genial",
+          "perfecto",
+          "vale gracias"
+        ],
+        "answer": "¡A ti! Cuando quieras dar el siguiente paso, reserva tu clase y lo vemos juntos.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ],
+        "generic": true
+      },
+      {
+        "id": "bye",
+        "keys": [
+          "adios",
+          "hasta luego",
+          "chao",
+          "nos vemos"
+        ],
+        "answer": "¡Hasta pronto! Aquí estaré si te surge cualquier duda.",
+        "generic": true
+      },
+      {
+        "id": "bot",
+        "keys": [
+          "eres un robot",
+          "eres humano",
+          "eres una ia",
+          "eres real",
+          "eres ismael",
+          "hablar con una persona",
+          "hablar con ismael",
+          "quien eres",
+          "hablo con",
+          "eres un bot",
+          "bot",
+          "una ia",
+          "estoy hablando",
+          "con quien hablo"
+        ],
+        "answer": "Soy un asistente automático: respondo con lo que sé de IsAcademy. Si quieres hablar con Ismael en persona, escríbenos desde «Reservar clase» y te responde él.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ],
+        "boost": 14
+      },
+      {
+        "id": "who",
+        "keys": [
+          "quien da las clases",
+          "quien ensena",
+          "quien es ismael",
+          "fundador",
+          "experiencia",
+          "quienes sois",
+          "el profesor",
+          "sobre ismael"
+        ],
+        "answer": "IsAcademy la fundó Ismael Sarmiento, profesional apasionado por los datos y por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
+        "actions": [
+          {
+            "label": "Quiénes somos",
+            "href": "#quienes"
+          },
+          {
+            "label": "Ver opiniones",
+            "href": "#opiniones"
+          }
+        ]
+      },
+      {
+        "id": "subjects",
+        "keys": [
+          "materias",
+          "que ensenais",
+          "asignaturas",
+          "cursos",
+          "que puedo aprender",
+          "que dais",
+          "temario",
+          "que clases",
+          "dais programacion",
+          "que materias",
+          "clases de programacion"
+        ],
+        "answer": "Damos Python, programación orientada a objetos, SQL, analítica de datos, Big Data con Spark, Data Engineering e Inteligencia Artificial. Además acompañamos en TFG/TFM y en orientación profesional.",
+        "actions": [
+          {
+            "label": "Ver materias",
+            "href": "#materias"
+          }
+        ]
+      },
+      {
+        "id": "python",
+        "keys": [
+          "python",
+          "aprender a programar",
+          "phyton",
+          "pyton",
+          "pyhton",
+          "pithon"
+        ],
+        "answer": "En Python empezamos desde tu nivel: sintaxis y lógica, funciones y buenas prácticas, y automatización y trabajo con datos. Cada concepto se aprende escribiendo código, con un proyecto propio que crece contigo.",
+        "actions": [
+          {
+            "label": "Ver Python",
+            "href": "#materia-python"
+          },
+          {
+            "label": "Reservar clase de Python",
+            "href": "#contacto",
+            "book": "python"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "sql",
+        "keys": [
+          "sql",
+          "base de datos",
+          "bases de datos",
+          "consultas",
+          "select",
+          "join",
+          "postgres",
+          "postgresql",
+          "mysql",
+          "oracle",
+          "sql server",
+          "entidad relacion",
+          "modelo entidad relacion",
+          "normalizacion"
+        ],
+        "answer": "En SQL trabajamos consultas, JOIN y agregaciones, modelado de datos y consultas analíticas, siempre sobre bases de datos realistas y preguntas de negocio.",
+        "actions": [
+          {
+            "label": "Ver SQL",
+            "href": "#materia-sql"
+          },
+          {
+            "label": "Reservar clase de SQL",
+            "href": "#contacto",
+            "book": "sql"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "ia",
+        "keys": [
+          "inteligencia artificial",
+          "ia",
+          "machine learning",
+          "aprendizaje automatico",
+          "chatgpt",
+          "llm",
+          "modelos de lenguaje",
+          "deep learning",
+          "inteligencia artifical",
+          "inteligencia artifial"
+        ],
+        "answer": "En IA vemos fundamentos de machine learning, IA generativa y modelos de lenguaje, y cómo usar la IA con criterio, sin dejar de pensar. La teoría justa para no usarla como caja negra, aplicada a casos prácticos.",
+        "actions": [
+          {
+            "label": "Ver IA",
+            "href": "#materia-ia"
+          },
+          {
+            "label": "Reservar clase de IA",
+            "href": "#contacto",
+            "book": "ia"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "freeai",
+        "keys": [
+          "ia gratis",
+          "modelos gratis",
+          "modelo gratis",
+          "ollama",
+          "modelos abiertos",
+          "open source",
+          "sin pagar",
+          "local",
+          "ia sin pagar",
+          "gratis la ia",
+          "usar ia gratis",
+          "chatgpt gratis",
+          "ia gratuita"
+        ],
+        "answer": "Sí se puede usar IA sin pagar: con modelos abiertos que corren en tu propio ordenador (por ejemplo con Ollama o Hugging Face). Es una de las mini-clases que tienes arriba en la página, y lo trabajamos a fondo en las clases de IA.",
+        "actions": [
+          {
+            "label": "Ver la mini-clase",
+            "href": "#hero"
+          },
+          {
+            "label": "Ver IA",
+            "href": "#materia-ia"
+          }
+        ],
+        "boost": 8
+      },
+      {
+        "id": "whichmodel",
+        "keys": [
+          "que modelo",
+          "elegir modelo",
+          "cual elijo",
+          "que ia uso",
+          "que herramienta de ia"
+        ],
+        "answer": "Depende de la tarea, la privacidad de tus datos y el presupuesto. Si los datos son sensibles, suele convenir un modelo abierto en local; si no, una API puede ser más cómoda. Lo decidimos juntos según tu caso.",
+        "actions": [
+          {
+            "label": "Ver IA",
+            "href": "#materia-ia"
+          }
+        ]
+      },
+      {
+        "id": "bigdata",
+        "keys": [
+          "big data",
+          "spark",
+          "pyspark",
+          "hadoop",
+          "grandes volumenes",
+          "datos masivos",
+          "aws",
+          "azure",
+          "gcp",
+          "nube",
+          "cloud",
+          "databricks"
+        ],
+        "answer": "En Big Data vemos procesamiento distribuido, Apache Spark y PySpark, y plataformas de datos en la nube, con volúmenes de verdad para entender cuándo hace falta.",
+        "actions": [
+          {
+            "label": "Ver Big Data",
+            "href": "#materia-bigdata"
+          },
+          {
+            "label": "Reservar clase de Big Data",
+            "href": "#contacto",
+            "book": "bigdata"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "de",
+        "keys": [
+          "data engineering",
+          "ingenieria de datos",
+          "ingeniero de datos",
+          "pipeline",
+          "pipelines",
+          "airflow",
+          "etl",
+          "elt",
+          "gobierno del dato",
+          "dbt",
+          "snowflake",
+          "kafka"
+        ],
+        "answer": "En Data Engineering construimos un pipeline completo paso a paso: diseño ETL/ELT, orquestación con herramientas como Airflow, y calidad y gobierno del dato.",
+        "actions": [
+          {
+            "label": "Ver Data Engineering",
+            "href": "#materia-de"
+          },
+          {
+            "label": "Reservar clase",
+            "href": "#contacto",
+            "book": "de"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "analytics",
+        "keys": [
+          "analitica",
+          "analisis de datos",
+          "pandas",
+          "visualizacion",
+          "graficos",
+          "dashboards",
+          "storytelling"
+        ],
+        "answer": "En analítica de datos trabajamos limpieza y análisis con pandas, visualización clara y contar historias con datos, partiendo de preguntas reales.",
+        "actions": [
+          {
+            "label": "Ver analítica",
+            "href": "#materia-analytics"
+          },
+          {
+            "label": "Reservar clase",
+            "href": "#contacto",
+            "book": "analytics"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "oop",
+        "keys": [
+          "poo",
+          "orientada a objetos",
+          "orientacion a objetos",
+          "clases y objetos",
+          "herencia",
+          "patrones de diseno",
+          "codigo limpio"
+        ],
+        "answer": "En programación orientada a objetos vemos clases, herencia y composición, principios de diseño y patrones, y refactorización con tests.",
+        "actions": [
+          {
+            "label": "Ver POO",
+            "href": "#materia-oop"
+          },
+          {
+            "label": "Reservar clase",
+            "href": "#contacto",
+            "book": "oop"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "tfg",
+        "keys": [
+          "tfg",
+          "tfm",
+          "trabajo de fin",
+          "trabajo fin",
+          "tesis",
+          "memoria",
+          "defensa",
+          "proyecto de fin",
+          "trabajo de fin de master",
+          "antes de entregar",
+          "revisar mi tfg",
+          "revisar mi tfm"
+        ],
+        "answer": "Te guiamos de la idea a la defensa: elección del tema, orientación y revisión del desarrollo técnico, revisión de la memoria y ensayo de la defensa. El trabajo es tuyo; el método y la seguridad, nuestros.",
+        "actions": [
+          {
+            "label": "Ver TFG · TFM",
+            "href": "#materia-tfg"
+          },
+          {
+            "label": "Cuéntanos tu TFG",
+            "href": "#contacto",
+            "book": "tfg"
+          }
+        ],
+        "boost": 20
+      },
+      {
+        "id": "careers",
+        "keys": [
+          "empleo",
+          "entrevista",
+          "entrevistas",
+          "cv",
+          "curriculum",
+          "linkedin",
+          "orientacion",
+          "carrera",
+          "data engineer",
+          "data scientist",
+          "cambiar de trabajo",
+          "reciclarme",
+          "buscar trabajo",
+          "encontrar trabajo",
+          "es tarde",
+          "a mi edad",
+          "con 35",
+          "con 40",
+          "hacer un master",
+          "que master"
+        ],
+        "answer": "En orientación profesional te ayudamos con una hoja de ruta según tu perfil, el CV, el portfolio y LinkedIn, y la preparación de entrevistas técnicas, con la visión de alguien que trabaja en el sector.",
+        "actions": [
+          {
+            "label": "Ver orientación",
+            "href": "#materia-careers"
+          },
+          {
+            "label": "Agendar sesión",
+            "href": "#contacto",
+            "book": "careers"
+          }
+        ],
+        "boost": 6
+      },
+      {
+        "id": "method",
+        "keys": [
+          "metodologia",
+          "como ensenais",
+          "metodo",
+          "gamificacion",
+          "como trabajais",
+          "como aprendo",
+          "practica",
+          "como funciona",
+          "que tal funciona",
+          "funciona"
+        ],
+        "answer": "Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible. Primero un diagnóstico, luego un plan a tu medida, práctica guiada y un proyecto real.",
+        "actions": [
+          {
+            "label": "Ver metodología",
+            "href": "#metodologia"
+          }
+        ]
+      },
+      {
+        "id": "open",
+        "keys": [
+          "aula abierta",
+          "aulas abiertas",
+          "dudas gratis",
+          "sesion gratis",
+          "sesiones gratis",
+          "gratis",
+          "quincenal",
+          "cada 15 dias",
+          "gratuita"
+        ],
+        "answer": "Cada 15 días abrimos un aula online y gratuita para resolver dudas en directo de Python, SQL, datos o IA. Cualquiera puede apuntarse: escríbenos y te mandamos la fecha y el enlace de la próxima.",
+        "actions": [
+          {
+            "label": "Pedir el enlace",
+            "href": "#contacto",
+            "book": "open"
+          }
+        ],
+        "boost": 4
+      },
+      {
+        "id": "price",
+        "keys": [
+          "precio",
+          "precios",
+          "cuesta",
+          "cuanto vale",
+          "cuanto es",
+          "tarifa",
+          "coste",
+          "euros",
+          "barato",
+          "caro",
+          "cuestan",
+          "cuanto cuestan",
+          "precio tiene",
+          "que precio"
+        ],
+        "answer": "El precio depende de tu objetivo y de la frecuencia de las clases. Escríbenos y te lo contamos, sin compromiso.",
+        "actions": [
+          {
+            "label": "Preguntar precio",
+            "href": "#contacto"
+          }
+        ],
+        "boost": 20
+      },
+      {
+        "id": "book",
+        "keys": [
+          "reservar",
+          "reserva",
+          "apuntarme",
+          "apuntar",
+          "contacto",
+          "contactar",
+          "whatsapp",
+          "telefono",
+          "email",
+          "correo",
+          "escribir",
+          "empezar",
+          "reservo",
+          "reservas",
+          "como reservo",
+          "quiero empezar",
+          "apuntarse"
+        ],
+        "answer": "Para reservar, pulsa «Reservar clase». Mientras activamos WhatsApp y teléfono, nos escribes por tusclasesparticulares y fijamos día y hora.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ],
+        "boost": 10
+      },
+      {
+        "id": "online",
+        "keys": [
+          "online",
+          "presencial",
+          "donde",
+          "zoom",
+          "como son las clases",
+          "en directo",
+          "videollamada",
+          "en madrid"
+        ],
+        "answer": "Las clases son online y en directo, con pantalla compartida y ejercicios prácticos. Así puedes conectarte desde donde estés.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "level",
+        "keys": [
+          "desde cero",
+          "principiante",
+          "nivel",
+          "sin experiencia",
+          "no se nada",
+          "avanzado",
+          "basico",
+          "de cero",
+          "conocimientos previos",
+          "sin conocimientos",
+          "empezar de cero",
+          "ni idea",
+          "nunca he programado",
+          "cero idea",
+          "partir de cero"
+        ],
+        "answer": "No necesitas conocimientos previos: empezamos desde tu nivel, ya sea desde cero o para perfeccionar lo que ya sabes.",
+        "actions": [
+          {
+            "label": "Ver metodología",
+            "href": "#metodologia"
+          }
+        ]
+      },
+      {
+        "id": "schedule",
+        "keys": [
+          "horario",
+          "horarios",
+          "cuando",
+          "dias",
+          "manana",
+          "tarde",
+          "fin de semana",
+          "disponibilidad",
+          "fines de semana",
+          "sabados",
+          "domingos",
+          "por la noche",
+          "19h",
+          "20h",
+          "21h",
+          "despues del trabajo",
+          "a ultima hora",
+          "por la tarde"
+        ],
+        "answer": "Hay disponibilidad de mañana, mediodía y tarde. Si necesitas otro horario, escríbenos y vemos si encaja.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "reqs",
+        "keys": [
+          "necesito instalar",
+          "que necesito",
+          "ordenador",
+          "instalar",
+          "requisitos",
+          "programas",
+          "software"
+        ],
+        "answer": "Solo necesitas un ordenador con conexión a internet. Te ayudamos a preparar el entorno en la primera sesión.",
+        "actions": []
+      },
+      {
+        "id": "console",
+        "keys": [
+          "consola",
+          "practicar",
+          "ejercicios",
+          "probar codigo",
+          "ejecutar codigo",
+          "jugar"
+        ],
+        "answer": "En Recursos tienes una consola de Python online para practicar sin instalar nada, con ejemplos y un mini-reto.",
+        "actions": [
+          {
+            "label": "Abrir la consola",
+            "action": "console-open"
+          }
+        ]
+      },
+      {
+        "id": "audience",
+        "keys": [
+          "para quien",
+          "a quien va",
+          "va dirigido",
+          "ninos",
+          "adolescentes",
+          "adultos",
+          "jubilados"
+        ],
+        "answer": "Las clases son para estudiantes, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo. Si tu caso es distinto, escríbenos y lo vemos.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "duration",
+        "keys": [
+          "cuanto dura",
+          "duracion",
+          "cuantas horas",
+          "cuanto tiempo",
+          "individual",
+          "cuantas clases",
+          "a la semana",
+          "frecuencia",
+          "cada cuanto"
+        ],
+        "answer": "Las clases son personalizadas y se adaptan a ti: la duración y la frecuencia las decidimos juntos según tu objetivo. Escríbenos y te proponemos un plan.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "first",
+        "keys": [
+          "primera clase",
+          "clase de prueba",
+          "primera sesion"
+        ],
+        "answer": "Empezamos con una primera sesión de diagnóstico para ver tu punto de partida y lo que quieres conseguir. Y si solo quieres resolver dudas, tienes las aulas abiertas gratuitas cada 15 días.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          },
+          {
+            "label": "Aulas abiertas",
+            "href": "#aulas-abiertas"
+          }
+        ]
+      },
+      {
+        "id": "admin",
+        "keys": [
+          "certificado",
+          "factura",
+          "descuento",
+          "empresa",
+          "empresas",
+          "bonificada",
+          "fundae"
+        ],
+        "answer": "Para temas de facturación, certificados, descuentos o formación para empresas, escríbenos y te respondemos personalmente.",
+        "actions": [
+          {
+            "label": "Escribirnos",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "solo",
+        "keys": [
+          "persona sola",
+          "una persona sola",
+          "academia de verdad",
+          "sois muchos",
+          "cuantos profesores"
+        ],
+        "boost": 6,
+        "answer": "Detrás de IsAcademy está Ismael Sarmiento: las clases las das directamente con él, con un trato cercano y personalizado.",
+        "actions": [
+          {
+            "label": "Quiénes somos",
+            "href": "#quienes"
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "keys": [
+          "bizum",
+          "tarjeta",
+          "transferencia",
+          "como se paga",
+          "forma de pago",
+          "formas de pago",
+          "pagar",
+          "paypal"
+        ],
+        "boost": 8,
+        "answer": "Las formas de pago te las contamos al reservar. Escríbenos y lo vemos contigo.",
+        "actions": [
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "whyus",
+        "keys": [
+          "diferencia",
+          "udemy",
+          "coursera",
+          "curso online",
+          "por que vosotros",
+          "por que elegiros",
+          "que os diferencia"
+        ],
+        "boost": 6,
+        "answer": "La diferencia es el trato humano: una persona que trabaja en el sector te explica, te corrige y adapta el plan a ti, con práctica real. La IA y los cursos grabados te dan respuestas; aquí te enseñamos a pensar.",
+        "actions": [
+          {
+            "label": "Por qué elegirnos",
+            "href": "#por-que"
+          }
+        ]
+      },
+      {
+        "id": "family",
+        "keys": [
+          "menores",
+          "menor de edad",
+          "mi hijo",
+          "mi hija",
+          "hijo",
+          "hija",
+          "bachillerato",
+          "instituto",
+          "eso",
+          "fp",
+          "17 anos",
+          "16 anos",
+          "estar presente",
+          "padre",
+          "madre"
+        ],
+        "boost": 10,
+        "answer": "Escríbenos contando la edad y el objetivo (por ejemplo, bachillerato, FP o preparar la universidad) e Ismael os confirma personalmente cómo puede ayudar. Las familias pueden escribirnos directamente.",
+        "actions": [
+          {
+            "label": "Escribirnos",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "group",
+        "keys": [
+          "en grupo",
+          "grupal",
+          "grupales",
+          "mas baratas",
+          "mas barato",
+          "con amigos"
+        ],
+        "boost": 6,
+        "answer": "Las clases son personalizadas. Si te apetece aprender en grupo y gratis, tienes las aulas abiertas cada 15 días.",
+        "actions": [
+          {
+            "label": "Aulas abiertas",
+            "href": "#aulas-abiertas"
+          }
+        ]
+      },
+      {
+        "id": "urgent",
+        "keys": [
+          "urgente",
+          "examen",
+          "manana el examen",
+          "para manana",
+          "hoy mismo",
+          "podeis hoy"
+        ],
+        "boost": 12,
+        "answer": "Si tienes un examen o algo urgente, escríbenos cuanto antes y te decimos si hay hueco.",
+        "actions": [
+          {
+            "label": "Escribirnos",
+            "href": "#contacto"
+          }
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "method": "¿Te encaja? Empezamos con un diagnóstico →",
+    "why": "Quiero empezar →",
+    "reviews": "Únete a ellos →",
+    "resources": "¿Prefieres aprender con alguien? Hablemos →"
   }
 }
