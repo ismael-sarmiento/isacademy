@@ -25,14 +25,14 @@
   "hero": {
     "eyebrow": "Online academy for programming, data and AI",
     "title": "Learn to think with data and AI, not just to use them.",
-    "sub": "Personalised Python, SQL, AI, Big Data and Data Engineering classes, with thesis support and career guidance. Theory you understand, real practice and a method that motivates.",
-    "cta1": "Book your class",
+    "sub": "Personalised Python, SQL, AI, Big Data and Data Engineering classes for all ages, with thesis support and career guidance. Theory you understand, real practice and a method that motivates.",
+    "cta1": "Get your free assessment",
     "cta2": "See subjects",
     "trust": [
       "Rated 5 ★",
       "10+ years in tech and teaching",
-      "Online classes",
-      "Free open classes every two weeks"
+      "Free initial assessment",
+      "All ages · online"
     ],
     "lessons": [
       {
@@ -67,13 +67,15 @@
     "eyebrow": "About us",
     "title": "Learning is still a human thing",
     "p1": "IsAcademy was born from a simple idea: in an increasingly artificial world, real learning needs a person who listens, explains and challenges you.",
-    "p2": "Founded by Ismael Sarmiento, a professional passionate about data and teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
+    "p2": "IsAcademy was founded by Ismael Sarmiento, a Lead Data Engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
     "p3": "We use AI as a tool, never as a shortcut: we want you to understand what you do and to solve problems on your own.",
-    "role": "Founder and tutor",
+    "role": "Founder and tutor · Lead Data Engineer",
     "badges": [
-      "Verified tutor on tusclasesparticulares",
+      "Rated 5 ★ by his students",
       "Live online classes"
-    ]
+    ],
+    "linkedin": "See LinkedIn profile ↗",
+    "photoAlt": "Ismael Sarmiento, founder of IsAcademy"
   },
   "method": {
     "eyebrow": "Method",
@@ -96,8 +98,8 @@
     "stepsTitle": "How we work with you",
     "steps": [
       {
-        "t": "Assessment",
-        "d": "In a first session we look at your starting point and what you want to achieve."
+        "t": "Free assessment",
+        "d": "We analyse your case at no cost: your starting point, what you want to achieve and how to get there."
       },
       {
         "t": "Personal plan",
@@ -351,7 +353,11 @@
     "items": [
       {
         "q": "What are the open classes?",
-        "a": "Free online sessions we hold every two weeks to answer questions live. Anyone can join, even if they're not a student yet."
+        "a": "Free online sessions we hold every two weeks to answer questions live. Anyone can join: message us through the form and we'll let you know about the next one."
+      },
+      {
+        "q": "Is the initial assessment free?",
+        "a": "Yes. We analyse your case at no cost and with no commitment: your level, your goal and the plan we propose."
       },
       {
         "q": "Are classes online?",
@@ -363,7 +369,7 @@
       },
       {
         "q": "Who are the classes for?",
-        "a": "For students, university students and professionals who want to learn, reskill or keep growing."
+        "a": "For all ages: school and high school students, university students and professionals who want to learn, reskill or keep growing."
       },
       {
         "q": "How do you help with my thesis?",
@@ -371,30 +377,47 @@
       },
       {
         "q": "How much do classes cost?",
-        "a": "It depends on your goal and frequency. Message us and we'll tell you, with no commitment."
+        "a": "The initial assessment of your case is free. After that, price and payment are agreed on demand, depending on your case and the subject."
       },
       {
         "q": "What do I need for online classes?",
-        "a": "A computer with an internet connection. We'll help you set up your environment in the first session."
+        "a": "A computer with an internet connection. We'll help you set up your environment in the first classes."
       },
       {
         "q": "How do I book?",
-        "a": "From \"Book a class\". While we activate WhatsApp and phone, you can message us on tusclasesparticulares."
+        "a": "Fill in the form in \"Book a class\" and we'll reply to set a day and time."
       }
     ]
   },
   "contact": {
     "eyebrow": "Book your class",
     "title": "Shall we start?",
-    "sub": "Tell us what you want to learn and we'll propose a plan, with no commitment. And if you just have questions, join the next open class.",
+    "sub": "Tell us what you want to learn and we'll propose a plan. The initial assessment of your case is free and with no commitment.",
+    "fName": "Name",
+    "fEmail": "Email",
+    "fPhone": "Phone (optional)",
+    "fInterest": "What are you interested in?",
+    "fChoose": "Choose an option",
+    "fOpen": "Open class (free)",
+    "fOther": "Something else",
+    "fLevel": "Age or level (optional)",
+    "fLevelPh": "E.g. final year of high school, university, working in marketing…",
+    "fMessage": "Tell us about your case",
+    "fMessagePh": "What you want to learn, when you need it, which times suit you…",
+    "fPrivacy": "I have read the privacy information and agree that IsAcademy may use my data to reply to my request.",
+    "fSend": "Send request",
+    "fSending": "Sending…",
+    "fOk": "Thank you! We've received your request and will reply as soon as possible.",
+    "fError": "It couldn't be sent. Please try again in a few minutes.",
+    "fRequired": "This field is required.",
+    "fBadEmail": "Check the email: it looks incomplete.",
+    "fNeedPrivacy": "We need your consent to be able to reply.",
+    "privacy": "Privacy information: data controller, Ismael Sarmiento (IsAcademy). Purpose: to reply to your request and, if you wish, organise your classes. Your data is not shared with third parties; the form is delivered by the FormSubmit service. You can access, correct or delete your data by writing to {email}.",
+    "subject": "New request on IsAcademy",
     "whatsapp": "WhatsApp",
     "call": "Call",
-    "profile": "Message us on tusclasesparticulares ↗",
     "waText": "Hi Ismael, I'm interested in {aula} at IsAcademy",
-    "note": "Online classes, adapted to your level, goals and pace.",
-    "interest": "You chose: {aula}. Mention it in your message.",
-    "profileNote": "We'll reply and set a day and time to start.",
-    "soonLine": "WhatsApp and phone: very soon.",
+    "interest": "You chose: {aula}.",
     "newTab": "(opens in a new tab)"
   },
   "footer": {
@@ -405,8 +428,8 @@
   "open": {
     "eyebrow": "Open classes",
     "title": "Every two weeks, a free open class",
-    "desc": "We open an online classroom to answer questions live: Python, SQL, data or AI. Bring your questions, even if you're not a student yet.",
-    "cta": "Ask for the next open class link",
+    "desc": "We open an online classroom to answer questions live: Python, SQL, data or AI. Bring your questions, even if you're not a student yet. Message us and we'll let you know about the next one.",
+    "cta": "Tell me about the next open class",
     "badge": "Free · Online",
     "interestName": "the next open class"
   },
@@ -442,15 +465,15 @@
     ]
   },
   "assistant": {
-    "name": "Is",
-    "subtitle": "IsAcademy assistant · automatic answers",
+    "name": "Alan",
+    "subtitle": "IsAcademy automatic assistant",
     "open": "Need help?",
     "openLabel": "Open the IsAcademy assistant",
     "close": "Close the assistant",
     "placeholder": "Type your question…",
     "send": "Send",
-    "typing": "Is is typing…",
-    "greeting": "Hi! I'm Is, the IsAcademy assistant. I'm automatic, but I know the academy well: ask me about subjects, how we work, the open classes or how to book.",
+    "typing": "Alan is typing…",
+    "greeting": "Hi! I'm Alan, the IsAcademy automatic assistant. I know the academy well: ask me about subjects, how we work, the open classes or how to book.",
     "suggestions": [
       "Which subjects do you teach?",
       "What are the open classes?",
@@ -458,7 +481,7 @@
       "How much does it cost?",
       "How do I book?"
     ],
-    "fallback": "I don't have an automatic answer for that. Message us and Ismael will reply personally.",
+    "fallback": "I don't have an automatic answer for that. Message us through the form and Ismael will reply personally.",
     "intents": [
       {
         "id": "greet",
@@ -517,7 +540,7 @@
           "am i talking",
           "talking to an ai"
         ],
-        "answer": "I'm an automatic assistant: I answer with what I know about IsAcademy. If you want to talk to Ismael in person, message us from \"Book a class\" and he'll reply.",
+        "answer": "I'm Alan, an automatic assistant: I answer with what I know about IsAcademy. If you want to talk to Ismael in person, fill in the form in \"Book a class\" and he'll reply.",
         "actions": [
           {
             "label": "Book a class",
@@ -537,7 +560,7 @@
           "the teacher",
           "the tutor"
         ],
-        "answer": "IsAcademy was founded by Ismael Sarmiento, a professional passionate about data and teaching, with over 10 years working in the tech industry and training professionals. His students rate him 5 ★.",
+        "answer": "IsAcademy was founded by Ismael Sarmiento, a Lead Data Engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. His students rate him 5 ★.",
         "actions": [
           {
             "label": "About us",
@@ -891,10 +914,10 @@
           "every two weeks",
           "fortnightly"
         ],
-        "answer": "Every two weeks we open a free online classroom to answer questions live about Python, SQL, data or AI. Anyone can join: message us and we'll send you the date and link of the next one.",
+        "answer": "Every two weeks we open a free online classroom to answer questions live about Python, SQL, data or AI. Anyone can join: message us through the form and we'll let you know about the next one.",
         "actions": [
           {
-            "label": "Ask for the link",
+            "label": "Tell me about the next one",
             "href": "#contacto",
             "book": "open"
           }
@@ -915,10 +938,10 @@
           "expensive",
           "how much is"
         ],
-        "answer": "The price depends on your goal and how often you have classes. Message us and we'll tell you, with no commitment.",
+        "answer": "The initial assessment of your case is free. After that, price and payment are agreed on demand, depending on your case and the subject.",
         "actions": [
           {
-            "label": "Ask about price",
+            "label": "Go to the form",
             "href": "#contacto"
           }
         ],
@@ -943,7 +966,7 @@
           "enrol",
           "enroll"
         ],
-        "answer": "To book, press \"Book a class\". While we activate WhatsApp and phone, message us on tusclasesparticulares and we'll set a day and time.",
+        "answer": "To book, fill in the form in \"Book a class\": tell us what you want to learn and we'll reply to set a day and time. The initial assessment is free.",
         "actions": [
           {
             "label": "Book a class",
@@ -1033,7 +1056,7 @@
           "software",
           "what do i need to install"
         ],
-        "answer": "You only need a computer with an internet connection. We'll help you set up your environment in the first session.",
+        "answer": "You only need a computer with an internet connection. We'll help you set up your environment in the first classes.",
         "actions": []
       },
       {
@@ -1060,12 +1083,9 @@
         "keys": [
           "who are the classes for",
           "who is it for",
-          "kids",
-          "children",
-          "teenagers",
           "adults"
         ],
-        "answer": "Classes are for students, university students and professionals who want to learn, reskill or keep growing. If your case is different, message us and we'll see.",
+        "answer": "Classes are for all ages: school and high school students, university students and professionals who want to learn, reskill or keep growing.",
         "actions": [
           {
             "label": "Book a class",
@@ -1097,9 +1117,14 @@
         "keys": [
           "first class",
           "trial class",
-          "first session"
+          "first session",
+          "free assessment",
+          "is it free",
+          "free first",
+          "initial assessment",
+          "the assessment"
         ],
-        "answer": "We start with a first assessment session to see where you are and what you want to achieve. And if you just want to ask questions, there are free open classes every two weeks.",
+        "answer": "Yes: we start with a free, no-commitment assessment of your case to see where you are and what you want to achieve.",
         "actions": [
           {
             "label": "Book a class",
@@ -1109,7 +1134,8 @@
             "label": "Open classes",
             "href": "#aulas-abiertas"
           }
-        ]
+        ],
+        "boost": 10
       },
       {
         "id": "admin",
@@ -1124,7 +1150,7 @@
         "answer": "For invoices, certificates, discounts or corporate training, message us and we'll reply personally.",
         "actions": [
           {
-            "label": "Message us",
+            "label": "Go to the form",
             "href": "#contacto"
           }
         ]
@@ -1156,7 +1182,7 @@
           "paypal"
         ],
         "boost": 8,
-        "answer": "We'll tell you the payment options when you book. Message us and we'll sort it out with you.",
+        "answer": "Payment is agreed on demand, depending on your case and the subject. Message us through the form and we'll sort it out with you.",
         "actions": [
           {
             "label": "Book a class",
@@ -1195,13 +1221,19 @@
           "secondary school",
           "17 years old",
           "16 years old",
-          "parent"
+          "parent",
+          "kids",
+          "children",
+          "child",
+          "primary school",
+          "all ages",
+          "age"
         ],
         "boost": 10,
-        "answer": "Message us with the age and the goal (for example high school or preparing for university) and Ismael will personally confirm how he can help. Families can message us directly.",
+        "answer": "Yes, we teach all ages: school, high school, vocational training, university and professionals. Families can message us through the form with the age and the goal, and the initial assessment is free.",
         "actions": [
           {
-            "label": "Message us",
+            "label": "Go to the form",
             "href": "#contacto"
           }
         ]
@@ -1235,7 +1267,7 @@
         "answer": "If you have an exam or something urgent, message us as soon as possible and we'll tell you if there's a slot.",
         "actions": [
           {
-            "label": "Message us",
+            "label": "Go to the form",
             "href": "#contacto"
           }
         ]
@@ -1243,7 +1275,7 @@
     ]
   },
   "cta": {
-    "method": "Sounds right? We start with an assessment →",
+    "method": "Sounds right? Get your free assessment →",
     "why": "I want to start →",
     "reviews": "Join them →",
     "resources": "Rather learn with someone? Let's talk →"

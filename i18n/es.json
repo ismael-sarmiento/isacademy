@@ -25,14 +25,14 @@
   "hero": {
     "eyebrow": "Academia online de programación, datos e IA",
     "title": "Aprende a pensar con datos e IA, no solo a usarlos.",
-    "sub": "Clases personalizadas de Python, SQL, IA, Big Data y Data Engineering, con apoyo en TFG/TFM y orientación profesional. Teoría que se entiende, práctica real y un método que motiva.",
-    "cta1": "Reserva tu clase",
+    "sub": "Clases personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional. Teoría que se entiende, práctica real y un método que motiva.",
+    "cta1": "Pide tu análisis gratuito",
     "cta2": "Ver materias",
     "trust": [
       "Valoración de 5 ★",
       "+10 años en tecnología y docencia",
-      "Clases online",
-      "Aulas abiertas gratis cada 15 días"
+      "Análisis inicial gratuito",
+      "Todas las edades · online"
     ],
     "lessons": [
       {
@@ -67,13 +67,15 @@
     "eyebrow": "Quiénes somos",
     "title": "Aprender sigue siendo algo humano",
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
-    "p2": "IsAcademy la fundó Ismael Sarmiento, profesional apasionado por los datos y por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
+    "p2": "IsAcademy la fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
-    "role": "Fundador y tutor",
+    "role": "Fundador y tutor · Lead Data Engineer",
     "badges": [
-      "Profesor verificado en tusclasesparticulares",
+      "Valoración de 5 ★ de sus alumnos",
       "Clases online, en directo"
-    ]
+    ],
+    "linkedin": "Ver perfil en LinkedIn ↗",
+    "photoAlt": "Ismael Sarmiento, fundador de IsAcademy"
   },
   "method": {
     "eyebrow": "Metodología",
@@ -96,8 +98,8 @@
     "stepsTitle": "Cómo trabajamos contigo",
     "steps": [
       {
-        "t": "Diagnóstico",
-        "d": "En una primera sesión vemos tu punto de partida y lo que quieres conseguir."
+        "t": "Análisis gratuito",
+        "d": "Analizamos tu caso sin coste: tu punto de partida, lo que quieres conseguir y cómo llegar."
       },
       {
         "t": "Plan personalizado",
@@ -351,7 +353,11 @@
     "items": [
       {
         "q": "¿Qué son las aulas abiertas?",
-        "a": "Sesiones online y gratuitas que celebramos cada 15 días para resolver dudas en directo. Cualquiera puede apuntarse, aunque todavía no sea alumno."
+        "a": "Sesiones online y gratuitas que celebramos cada 15 días para resolver dudas en directo. Cualquiera puede apuntarse: escríbenos por el formulario y te avisamos de la próxima."
+      },
+      {
+        "q": "¿El análisis inicial es gratis?",
+        "a": "Sí. Analizamos tu caso sin coste y sin compromiso: tu nivel, tu objetivo y el plan que te proponemos."
       },
       {
         "q": "¿Las clases son online?",
@@ -363,7 +369,7 @@
       },
       {
         "q": "¿Para quién son las clases?",
-        "a": "Para estudiantes, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo."
+        "a": "Para todas las edades: alumnos de colegio e instituto, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo."
       },
       {
         "q": "¿Cómo me ayudáis con el TFG o el TFM?",
@@ -371,30 +377,47 @@
       },
       {
         "q": "¿Cuánto cuestan las clases?",
-        "a": "Depende de tu objetivo y de la frecuencia. Escríbenos y te lo contamos, sin compromiso."
+        "a": "El análisis inicial de tu caso es gratuito. Después, el precio y la forma de pago se acuerdan a demanda, según tu caso y la temática."
       },
       {
         "q": "¿Qué necesito para las clases online?",
-        "a": "Un ordenador con conexión a internet. Te ayudamos a preparar el entorno en la primera sesión."
+        "a": "Un ordenador con conexión a internet. Te ayudamos a preparar el entorno en las primeras clases."
       },
       {
         "q": "¿Cómo reservo?",
-        "a": "Desde «Reservar clase». Mientras activamos WhatsApp y teléfono, puedes escribirnos en tusclasesparticulares."
+        "a": "Rellena el formulario de «Reservar clase» y te respondemos para fijar día y hora."
       }
     ]
   },
   "contact": {
     "eyebrow": "Reserva tu clase",
     "title": "¿Empezamos?",
-    "sub": "Cuéntanos qué quieres aprender y te proponemos un plan, sin compromiso. Y si solo tienes dudas, apúntate a la próxima aula abierta.",
+    "sub": "Cuéntanos qué quieres aprender y te proponemos un plan. El análisis inicial de tu caso es gratuito y sin compromiso.",
+    "fName": "Nombre",
+    "fEmail": "Email",
+    "fPhone": "Teléfono (opcional)",
+    "fInterest": "¿Qué te interesa?",
+    "fChoose": "Elige una opción",
+    "fOpen": "Aula abierta (gratuita)",
+    "fOther": "Otra cosa",
+    "fLevel": "Edad o nivel (opcional)",
+    "fLevelPh": "Ej.: 2.º de bachillerato, universidad, trabajo en marketing…",
+    "fMessage": "Cuéntanos tu caso",
+    "fMessagePh": "Qué quieres aprender, para cuándo lo necesitas, qué horario te viene bien…",
+    "fPrivacy": "He leído la información de privacidad y acepto que IsAcademy use mis datos para responder a mi solicitud.",
+    "fSend": "Enviar solicitud",
+    "fSending": "Enviando…",
+    "fOk": "¡Gracias! Hemos recibido tu solicitud y te responderemos lo antes posible.",
+    "fError": "No se ha podido enviar. Inténtalo de nuevo en unos minutos.",
+    "fRequired": "Este campo es obligatorio.",
+    "fBadEmail": "Revisa el email: parece incompleto.",
+    "fNeedPrivacy": "Necesitamos tu consentimiento para poder responderte.",
+    "privacy": "Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; el envío del formulario lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a {email}.",
+    "subject": "Nueva solicitud en IsAcademy",
     "whatsapp": "WhatsApp",
     "call": "Llamar",
-    "profile": "Escríbenos en tusclasesparticulares ↗",
     "waText": "Hola Ismael, me interesa {aula} en IsAcademy",
-    "note": "Clases online, adaptadas a tu nivel, tus objetivos y tu ritmo.",
-    "interest": "Has elegido: {aula}. Menciónalo en tu mensaje.",
-    "profileNote": "Te respondemos y fijamos día y hora para empezar.",
-    "soonLine": "WhatsApp y teléfono: muy pronto.",
+    "interest": "Has elegido: {aula}.",
     "newTab": "(se abre en una pestaña nueva)"
   },
   "footer": {
@@ -405,8 +428,8 @@
   "open": {
     "eyebrow": "Aulas abiertas",
     "title": "Cada 15 días, un aula abierta y gratuita",
-    "desc": "Abrimos un aula online para resolver dudas en directo: Python, SQL, datos o IA. Ven con tus preguntas, aunque todavía no seas alumno.",
-    "cta": "Pide el enlace de la próxima aula abierta",
+    "desc": "Abrimos un aula online para resolver dudas en directo: Python, SQL, datos o IA. Ven con tus preguntas, aunque todavía no seas alumno. Escríbenos y te avisamos de la próxima.",
+    "cta": "Avísame de la próxima aula abierta",
     "badge": "Gratis · Online",
     "interestName": "la próxima aula abierta"
   },
@@ -442,15 +465,15 @@
     ]
   },
   "assistant": {
-    "name": "Is",
-    "subtitle": "Asistente de IsAcademy · respuestas automáticas",
+    "name": "Alan",
+    "subtitle": "Asistente automático de IsAcademy",
     "open": "¿Te ayudo?",
     "openLabel": "Abrir el asistente de IsAcademy",
     "close": "Cerrar el asistente",
     "placeholder": "Escribe tu pregunta…",
     "send": "Enviar",
-    "typing": "Is está escribiendo…",
-    "greeting": "¡Hola! Soy Is, el asistente de IsAcademy. Soy automático, pero conozco bien la academia: pregúntame por materias, cómo trabajamos, las aulas abiertas o cómo reservar.",
+    "typing": "Alan está escribiendo…",
+    "greeting": "¡Hola! Soy Alan, el asistente automático de IsAcademy. Conozco bien la academia: pregúntame por materias, cómo trabajamos, las aulas abiertas o cómo reservar.",
     "suggestions": [
       "¿Qué materias dais?",
       "¿Qué son las aulas abiertas?",
@@ -458,7 +481,7 @@
       "¿Cuánto cuesta?",
       "¿Cómo reservo?"
     ],
-    "fallback": "No tengo una respuesta automática para eso. Escríbenos y Ismael te contesta personalmente.",
+    "fallback": "No tengo una respuesta automática para eso. Escríbenos por el formulario y Ismael te contesta personalmente.",
     "intents": [
       {
         "id": "greet",
@@ -521,7 +544,7 @@
           "estoy hablando",
           "con quien hablo"
         ],
-        "answer": "Soy un asistente automático: respondo con lo que sé de IsAcademy. Si quieres hablar con Ismael en persona, escríbenos desde «Reservar clase» y te responde él.",
+        "answer": "Soy Alan, un asistente automático: respondo con lo que sé de IsAcademy. Si quieres hablar con Ismael en persona, rellena el formulario de «Reservar clase» y te responde él.",
         "actions": [
           {
             "label": "Reservar clase",
@@ -542,7 +565,7 @@
           "el profesor",
           "sobre ismael"
         ],
-        "answer": "IsAcademy la fundó Ismael Sarmiento, profesional apasionado por los datos y por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
+        "answer": "IsAcademy la fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
         "actions": [
           {
             "label": "Quiénes somos",
@@ -921,10 +944,10 @@
           "cada 15 dias",
           "gratuita"
         ],
-        "answer": "Cada 15 días abrimos un aula online y gratuita para resolver dudas en directo de Python, SQL, datos o IA. Cualquiera puede apuntarse: escríbenos y te mandamos la fecha y el enlace de la próxima.",
+        "answer": "Cada 15 días abrimos un aula online y gratuita para resolver dudas en directo de Python, SQL, datos o IA. Cualquiera puede apuntarse: escríbenos por el formulario y te avisamos de la próxima.",
         "actions": [
           {
-            "label": "Pedir el enlace",
+            "label": "Avísame de la próxima",
             "href": "#contacto",
             "book": "open"
           }
@@ -949,10 +972,10 @@
           "precio tiene",
           "que precio"
         ],
-        "answer": "El precio depende de tu objetivo y de la frecuencia de las clases. Escríbenos y te lo contamos, sin compromiso.",
+        "answer": "El análisis inicial de tu caso es gratuito. Después, el precio y la forma de pago se acuerdan a demanda, según tu caso y la temática.",
         "actions": [
           {
-            "label": "Preguntar precio",
+            "label": "Ir al formulario",
             "href": "#contacto"
           }
         ],
@@ -979,7 +1002,7 @@
           "quiero empezar",
           "apuntarse"
         ],
-        "answer": "Para reservar, pulsa «Reservar clase». Mientras activamos WhatsApp y teléfono, nos escribes por tusclasesparticulares y fijamos día y hora.",
+        "answer": "Para reservar, rellena el formulario de «Reservar clase»: cuéntanos qué quieres aprender y te respondemos para fijar día y hora. El análisis inicial es gratuito.",
         "actions": [
           {
             "label": "Reservar clase",
@@ -1076,7 +1099,7 @@
           "programas",
           "software"
         ],
-        "answer": "Solo necesitas un ordenador con conexión a internet. Te ayudamos a preparar el entorno en la primera sesión.",
+        "answer": "Solo necesitas un ordenador con conexión a internet. Te ayudamos a preparar el entorno en las primeras clases.",
         "actions": []
       },
       {
@@ -1103,12 +1126,10 @@
           "para quien",
           "a quien va",
           "va dirigido",
-          "ninos",
-          "adolescentes",
           "adultos",
           "jubilados"
         ],
-        "answer": "Las clases son para estudiantes, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo. Si tu caso es distinto, escríbenos y lo vemos.",
+        "answer": "Las clases son para todas las edades: alumnos de colegio e instituto, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo.",
         "actions": [
           {
             "label": "Reservar clase",
@@ -1142,9 +1163,17 @@
         "keys": [
           "primera clase",
           "clase de prueba",
-          "primera sesion"
+          "primera sesion",
+          "analisis gratis",
+          "analisis gratuito",
+          "es gratis",
+          "gratis la primera",
+          "diagnostico",
+          "analisis inicial",
+          "el analisis",
+          "analisis del caso"
         ],
-        "answer": "Empezamos con una primera sesión de diagnóstico para ver tu punto de partida y lo que quieres conseguir. Y si solo quieres resolver dudas, tienes las aulas abiertas gratuitas cada 15 días.",
+        "answer": "Sí: empezamos con un análisis gratuito de tu caso, sin compromiso, para ver tu punto de partida y lo que quieres conseguir.",
         "actions": [
           {
             "label": "Reservar clase",
@@ -1154,7 +1183,8 @@
             "label": "Aulas abiertas",
             "href": "#aulas-abiertas"
           }
-        ]
+        ],
+        "boost": 10
       },
       {
         "id": "admin",
@@ -1170,7 +1200,7 @@
         "answer": "Para temas de facturación, certificados, descuentos o formación para empresas, escríbenos y te respondemos personalmente.",
         "actions": [
           {
-            "label": "Escribirnos",
+            "label": "Ir al formulario",
             "href": "#contacto"
           }
         ]
@@ -1206,7 +1236,7 @@
           "paypal"
         ],
         "boost": 8,
-        "answer": "Las formas de pago te las contamos al reservar. Escríbenos y lo vemos contigo.",
+        "answer": "La forma de pago se acuerda a demanda, según tu caso y la temática. Escríbenos por el formulario y lo vemos contigo.",
         "actions": [
           {
             "label": "Reservar clase",
@@ -1251,13 +1281,24 @@
           "16 anos",
           "estar presente",
           "padre",
-          "madre"
+          "madre",
+          "ninos",
+          "nino",
+          "nina",
+          "colegio",
+          "primaria",
+          "12 anos",
+          "13 anos",
+          "14 anos",
+          "15 anos",
+          "todas las edades",
+          "edad"
         ],
         "boost": 10,
-        "answer": "Escríbenos contando la edad y el objetivo (por ejemplo, bachillerato, FP o preparar la universidad) e Ismael os confirma personalmente cómo puede ayudar. Las familias pueden escribirnos directamente.",
+        "answer": "Sí, damos clase a todas las edades: colegio, instituto, bachillerato, FP, universidad y profesionales. Las familias pueden escribirnos por el formulario contando la edad y el objetivo, y el análisis inicial es gratuito.",
         "actions": [
           {
-            "label": "Escribirnos",
+            "label": "Ir al formulario",
             "href": "#contacto"
           }
         ]
@@ -1295,7 +1336,7 @@
         "answer": "Si tienes un examen o algo urgente, escríbenos cuanto antes y te decimos si hay hueco.",
         "actions": [
           {
-            "label": "Escribirnos",
+            "label": "Ir al formulario",
             "href": "#contacto"
           }
         ]
@@ -1303,7 +1344,7 @@
     ]
   },
   "cta": {
-    "method": "¿Te encaja? Empezamos con un diagnóstico →",
+    "method": "¿Te encaja? Pide tu análisis gratuito →",
     "why": "Quiero empezar →",
     "reviews": "Únete a ellos →",
     "resources": "¿Prefieres aprender con alguien? Hablemos →"
