@@ -77,6 +77,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .logo .academy { font-family: var(--font-sans); font-weight: 500; font-size: 150px; fill: var(--text); letter-spacing: -2px; }
 .logo .by { font-family: var(--font-sans); font-size: 20px; letter-spacing: 6px; fill: var(--text-2); opacity: 0; }
 .logo .cursor { fill: var(--gold); }
+.logo .big-a { font-size: 188px; }
+.brand-ac .big-a { font-size: 1.24em; line-height: 0; }
 .hook { font-size: clamp(16px, 2.2vw, 22px); color: var(--text-2); margin: 22px auto 0; max-width: 52ch; opacity: 0; transform: translateY(8px); transition: all .8s ease; }
 .hook b { color: var(--text); font-weight: 600; display: block; }
 .intro-actions { margin-top: 30px; opacity: 0; transition: opacity .8s ease; }
@@ -162,9 +164,8 @@ h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px; }
 /* about */
 .about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 56px; align-items: start; }
 .founder { text-align: center; padding: 32px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-.avatar { width: 132px; height: 132px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--navy), #2e3c74); border: 3px solid var(--gold); }
-.avatar span { font-family: var(--font-script); color: var(--gold-2); font-size: 64px; line-height: 1; }
+.founder-photo { display: block; width: 132px; height: 132px; margin: 0 auto 16px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: var(--shadow); }
+.founder .linkedin { margin-top: 14px; }
 .founder-name { font-size: 20px; font-weight: 600; margin: 0 0 2px; }
 .badges { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
 .badges li { font-size: 13px; padding: 8px 10px; border-radius: 10px; background: var(--bg-alt); }
@@ -264,11 +265,36 @@ h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px; }
 .mid-cta { text-align: center; margin: 36px 0 0; }
 .contact-card :focus-visible, .world-card :focus-visible, .code-card :focus-visible, .assistant-fab:focus-visible, .as-head :focus-visible { outline-color: #e2b25c; }
 .hero h1:focus { outline: none; }
-.interest { display: inline-block; font-size: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(226, 178, 92, .16); color: #f2d9a6; margin-bottom: 18px; }
 
 /* footer */
 .footer { padding: 28px 0 96px; border-top: 1px solid var(--line); font-size: 14px; }
 .footer-row { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+
+/* booking form */
+.lead-form { text-align: left; max-width: 640px; margin: 8px auto 0; display: grid; gap: 14px; }
+.lead-form label { display: grid; gap: 6px; font-size: 14px; color: #e7e9f5; font-weight: 500; }
+.lead-form input, .lead-form select, .lead-form textarea { font: inherit; font-size: 15px; font-weight: 400; padding: 12px 14px; border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .22); background: rgba(11, 16, 38, .55); color: #f6f1e7; width: 100%; }
+.lead-form textarea { resize: vertical; min-height: 110px; }
+.lead-form select option { color: #1c2547; background: #fff; }
+.lead-form ::placeholder { color: #8d94b8; }
+.lead-form input:focus-visible, .lead-form select:focus-visible, .lead-form textarea:focus-visible { outline: 2px solid #e2b25c; outline-offset: 1px; }
+.lead-form [aria-invalid="true"] { border-color: #ff8a73; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lead-form .check { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; font-weight: 400; color: #c9cde3; }
+.lead-form .check span { flex: 1; }
+.lead-form .check input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: #e2b25c; }
+.lead-form .check .f-error { flex-basis: 100%; }
+.f-error { color: #ffb4a3; font-size: 13px; font-weight: 400; }
+.lead-form .req { color: #e2b25c; }
+.lead-form .privacy { font-size: 12.5px; line-height: 1.5; margin: 0; color: #9da3c4; }
+.lead-form .btn-primary { justify-self: start; }
+.f-status { margin: 0; font-size: 15px; }
+.f-status:empty { display: none; }
+.f-status.ok { color: #9fe0b4; }
+.f-status.err { color: #ffb4a3; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+@media (max-width: 640px) { .f-row { grid-template-columns: 1fr; } .lead-form .btn-primary { justify-self: stretch; } }
 
 @keyframes blink { 50% { opacity: 0; } }
 
