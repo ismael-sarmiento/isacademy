@@ -2,7 +2,7 @@
 
 ## Pendientes del propietario (Ismael)
 
-- [ ] Subir el repositorio a GitHub y activar Pages (README → "Publicar en GitHub Pages").
+- [x] Publicado en https://ismael-sarmiento.github.io/isacademy/ (2026-10-11, subida web + Pages desde `main`).
 - [ ] **Aviso legal y privacidad** (LSSI) — aplazado por el propietario; necesario antes de promocionar la web.
 - [ ] Foto profesional para "Quiénes somos" (hoy: monograma "IS") y, si quiere, enlace a LinkedIn.
 - [ ] Publicar el número de WhatsApp/teléfono (`js/config.js`).

@@ -1,6 +1,6 @@
 # IsAcademy · Project context
 
-Última actualización: 2026-10-11
+Última actualización: 2026-10-12
 
 ## Objetivo
 
@@ -26,6 +26,10 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 | Gancho comercial | **Aulas abiertas**: sesiones online y gratuitas cada 15 días para resolver dudas (sustituye a "primera clase gratis") |
 | Recursos | Mundo IsAcademy 3D (fase aparte, "Próximamente") + widget de curiosidades de datos e IA |
 | Aldea anime 2D | **Retirada** (2026-10-10) |
+| Título de pestaña | "IsAcademy · Humanos en un mundo artificial" |
+| Cursor | Fino y largo, se queda parpadeando tras "Academy" |
+| Cinemática | v3 sobria: manos ilustradas con sombra, brillo discreto, estela sutil de tinta y píxeles; sin destellos ni rendija de luz; también en móvil |
+| Asistente | "Is": avatar ilustrado a color (piel morena en claro, tono medio en oscuro, por deseo del propietario) que se parece a Ismael sin ser él; cerebro local (intenciones en i18n); siempre se presenta como asistente automático |
 | Idiomas / temas | ES + EN · claro + oscuro |
 | Hosting | GitHub Pages: `ismael-sarmiento.github.io/isacademy` (repo `isacademy`) |
 
@@ -35,10 +39,13 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 2. **F1.1 · Reenfoque profesional: intro, apertura con manos y landing** (2026-10-10) ✅
 3. F2 · Mundo 3D de Recursos (Three.js): mundo abierto, personajes que cuentan curiosidades.
 4. F1.2 · Criterios del propietario (2026-10-11) ✅: aulas abiertas, scroll fluido, manos v2, hero dinámico, consola Python, fuentes locales, og:image.
-5. F3 · Pendiente: aviso legal (aplazado por el propietario), foto real.
+5. F1.3 · Cinemática v3, asistente "Is", revisión completa (2026-10-12) ✅
+6. Pendiente: aviso legal (aplazado por el propietario), foto real, mundo 3D.
 
 ## Trazabilidad
 
 - 2026-10-09 · F1: repo creado, intro animada, portada Aldea del Saber, paneles, ES/EN, claro/oscuro.
 - 2026-10-10 · F1.1: el propietario reenfoca a web profesional. Aldea 2D retirada; landing por secciones; Allura; apertura con manos; revisión independiente aplicada (contacto activo principal, enlaces directos, CTA en móvil, copy TFG ético, foco/inert).
 - 2026-10-11 · F1.2: criterios del propietario aplicados y revisión independiente (hero móvil, cursor, pausa del carrusel, foco de la consola) corregida.
+- 2026-10-12 · F1.3: título con eslogan, cursor persistente, cinemática v3, asistente local "Is" (61/61 preguntas de prueba), materias 3×3, CTAs variados, revisión independiente aplicada.
+- 2026-10-12 · F1.4: cinemática sin deslumbrar, avatar a color, asistente con respuestas honestas para menores/pago/urgencias/fechas (83/84), revisión como usuario aplicada.
