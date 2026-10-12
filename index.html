@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=20261012g">
+  <link rel="stylesheet" href="css/main.css?v=20261012j">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,7 +86,7 @@
   <!-- ========== SITE ========== -->
   <header class="topbar" id="top">
     <div class="topbar-row container">
-      <a class="brand" href="#hero" data-i18n-aria="nav.home"><span class="brand-is">Is</span><span class="brand-ac">Academy</span></a>
+      <a class="brand" href="#hero" data-i18n-aria="nav.home"><span class="brand-is">Is</span><span class="brand-ac"><span class="big-a">A</span>cademy</span></a>
       <nav class="sections" data-i18n-aria="nav.label">
         <a href="#quienes" data-i18n="nav.about">Quiénes somos</a>
         <a href="#metodologia" data-i18n="nav.method">Metodología</a>
@@ -148,10 +148,11 @@
     <section class="section" id="quienes">
       <div class="container about-grid">
         <div class="founder reveal">
-          <div class="avatar" aria-hidden="true"><span>IS</span></div>
+          <img class="founder-photo" src="assets/img/ismael.jpg" width="132" height="132" alt="Ismael Sarmiento" data-i18n-alt="about.photoAlt">
           <p class="founder-name">Ismael Sarmiento</p>
           <p class="muted" data-i18n="about.role">Fundador y tutor</p>
           <ul class="badges" id="aboutBadges"></ul>
+          <a class="btn btn-sm linkedin" id="linkedinLink" href="https://www.linkedin.com/in/ismael-sarmiento/" target="_blank" rel="noopener" data-i18n="about.linkedin">Ver perfil en LinkedIn ↗</a>
         </div>
         <div class="reveal">
           <p class="eyebrow" data-i18n="about.eyebrow"></p>
@@ -278,8 +279,23 @@
           <p class="eyebrow" data-i18n="contact.eyebrow"></p>
           <h2 data-i18n="contact.title"></h2>
           <p class="lead" data-i18n="contact.sub"></p>
-          <p class="interest" id="interest" hidden></p>
-          <div id="contactBlock"></div>
+          <form class="lead-form" id="leadForm" novalidate>
+            <div class="f-row">
+              <label><span class="lbl"><span data-i18n="contact.fName">Nombre</span> <span class="req" aria-hidden="true">*</span></span><input name="name" autocomplete="name" required maxlength="80"></label>
+              <label><span class="lbl"><span data-i18n="contact.fEmail">Email</span> <span class="req" aria-hidden="true">*</span></span><input name="email" type="email" autocomplete="email" required maxlength="120"></label>
+            </div>
+            <div class="f-row">
+              <label><span data-i18n="contact.fPhone">Teléfono (opcional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
+              <label><span class="lbl"><span data-i18n="contact.fInterest">¿Qué te interesa?</span> <span class="req" aria-hidden="true">*</span></span><select name="interest" id="fInterest" required></select></label>
+            </div>
+            <label><span data-i18n="contact.fLevel">Edad o nivel (opcional)</span><input name="level" maxlength="120" data-i18n-ph="contact.fLevelPh"></label>
+            <label><span class="lbl"><span data-i18n="contact.fMessage">Cuéntanos tu caso</span> <span class="req" aria-hidden="true">*</span></span><textarea name="message" rows="4" required maxlength="2000" data-i18n-ph="contact.fMessagePh"></textarea></label>
+            <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label class="check"><input type="checkbox" name="privacy" required><span data-i18n="contact.fPrivacy"></span></label>
+            <p class="privacy muted" id="privacyText"></p>
+            <p class="f-status" id="formStatus" role="status" aria-live="polite"></p>
+            <button class="btn btn-primary btn-lg" type="submit" id="formSend" data-i18n="contact.fSend">Enviar solicitud</button>
+          </form>
         </div>
       </div>
     </section>
@@ -315,6 +331,6 @@
     <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
     <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
     <p>Activa JavaScript para ver la web completa.</p></div></noscript>
-  <script type="module" src="js/app.js?v=20261012g"></script>
+  <script type="module" src="js/app.js?v=20261012j"></script>
 </body>
 </html>

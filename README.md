@@ -14,7 +14,8 @@ Su objetivo es captar alumnos: todas las secciones llevan al contacto.
 
 1. **Intro (en cada visita):** el "Is" caligráfico se esboza a mano y "Academy" se decodifica como una IA. Botones ES/EN y claro/oscuro, y "Entrar a la academia".
 2. **Apertura (cinemática):** manos ilustradas (humana dorada y robótica con LED) pellizcan las palabras; estela de tinta, píxeles, destello y rendija de luz abren la web. También en móvil.
-4. **Asistente "Is":** avatar ilustrado con chat local (sin servidor) que responde sobre la academia y deriva a la reserva.
+4. **Asistente "Alan":** avatar ilustrado con chat local (sin servidor) que responde sobre la academia y deriva al formulario.
+5. **Reservar clase:** formulario propio que llega por email vía FormSubmit (`js/config.js` → `formEmail`).
 3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos.
 
 Los enlaces directos (`/#contacto`, `/#materias`) saltan la intro.
@@ -33,10 +34,11 @@ js/avatar.js          Avatar SVG animado del asistente
 js/i18n.js            Carga i18n/<lang>.json y traduce [data-i18n]
 js/theme.js           Modo claro/oscuro (sigue al sistema, recuerda la elección)
 js/console.js         Consola de Python en el navegador (Pyodide desde jsDelivr, bajo demanda)
-js/config.js          Canales de contacto (WhatsApp / teléfono / perfil provisional)
+js/config.js          Email de destino del formulario (FormSubmit) y futuros WhatsApp/teléfono
 i18n/es.json, en.json Todos los textos (materias, FAQ, curiosidades, código del hero…)
 assets/brand/         logo.svg, favicon.svg y og.png (imagen al compartir, 1200×630)
 assets/fonts/         Allura y Space Grotesk alojadas en local (OFL)
+assets/img/           Foto del fundador
 docs/                 PROJECT_CONTEXT.md (decisiones) y TODO.md (pendientes)
 ```
 
@@ -119,9 +121,9 @@ Cuando haya dominio (p. ej. `isacademy.es`): *Settings → Pages → Custom doma
 que indique GitHub y activar *Enforce HTTPS*. Las rutas de ficheros son relativas, pero hay que actualizar la URL
 absoluta en `index.html`: `<link rel="canonical">`, `og:url` y la `url` del bloque JSON-LD.
 
-## Contacto
+## Contacto (formulario)
 
-Los canales se configuran en `js/config.js`. Mientras `whatsapp` y `phone` sean `null`, los botones muestran
-"Próximamente" y se ofrece como canal provisional el perfil de tusclasesparticulares. Para activar WhatsApp basta
-con poner el número (solo dígitos con prefijo, p. ej. `34600000000`): el botón abrirá `wa.me` con un mensaje
-prellenado según el aula.
+El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenvía al email de `js/config.js`.
+- **Activación:** el primer envío provoca un email de FormSubmit a esa dirección; hay que pulsar su enlace una vez.
+- **Ocultar el email:** tras activar, FormSubmit envía un alias aleatorio; sustituye `formEmail` por ese alias.
+- **Cambiar de correo:** edita `formEmail` y `publicEmail` y vuelve a activar.
