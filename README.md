@@ -13,7 +13,8 @@ Su objetivo es captar alumnos: todas las secciones llevan al contacto.
 ## Cómo funciona
 
 1. **Intro (en cada visita):** el "Is" caligráfico se esboza a mano y "Academy" se decodifica como una IA. Botones ES/EN y claro/oscuro, y "Entrar a la academia".
-2. **Apertura:** una mano humana se lleva el "Is" a la izquierda y una robótica "Academy" a la derecha (en móvil, solo se separan las palabras).
+2. **Apertura (cinemática):** manos ilustradas (humana dorada y robótica con LED) pellizcan las palabras; estela de tinta, píxeles, destello y rendija de luz abren la web. También en móvil.
+4. **Asistente "Is":** avatar ilustrado con chat local (sin servidor) que responde sobre la academia y deriva a la reserva.
 3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos.
 
 Los enlaces directos (`/#contacto`, `/#materias`) saltan la intro.
@@ -25,7 +26,10 @@ index.html            Intro + landing (secciones)
 css/main.css          Tokens de diseño (claro/oscuro), intro, manos, secciones
 js/app.js             Pinta las secciones desde i18n, scroll spy, contacto, curiosidades
 js/intro.js           Animación del logo
-js/opening.js         Apertura con las manos y paso a la landing
+js/opening.js         Cinemática de apertura (manos SVG, secuencia)
+js/fx.js              Partículas de la cinemática (destellos, tinta, píxeles, destello)
+js/assistant.js       Asistente "Is": motor de respuestas local + panel de chat
+js/avatar.js          Avatar SVG animado del asistente
 js/i18n.js            Carga i18n/<lang>.json y traduce [data-i18n]
 js/theme.js           Modo claro/oscuro (sigue al sistema, recuerda la elección)
 js/console.js         Consola de Python en el navegador (Pyodide desde jsDelivr, bajo demanda)
@@ -94,6 +98,13 @@ curl -sI https://ismael-sarmiento.github.io/isacademy/ | head -1   # → HTTP/2 
 ```
 
 Si no hay `gh`, los pasos 1 y 3 se hacen desde la web (ver opción A, pasos 1 y 5).
+
+### Estado del repositorio remoto
+
+El repositorio `ismael-sarmiento/isacademy` se publicó el 2026-10-11 **subiendo ficheros desde la web**, así que su
+historial (commits "feat: publish IsAcademy site (…)") es distinto del historial local de desarrollo, aunque el contenido es
+idéntico. Para trabajar con git en otro equipo, **clona el remoto** (`git clone https://github.com/ismael-sarmiento/isacademy.git`)
+en lugar de añadir el remoto a esta copia local; si no, el `push` será rechazado por historiales distintos.
 
 ### Actualizar la web más adelante
 

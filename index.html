@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>IsAcademy · Clases de Python, SQL, IA y Data con Ismael Sarmiento</title>
+  <title>IsAcademy · Humanos en un mundo artificial</title>
   <meta name="description" content="Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional.">
   <meta name="theme-color" content="#1c2547">
   <link rel="canonical" href="https://ismael-sarmiento.github.io/isacademy/">
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="IsAcademy · Aquí te enseñamos a pensar">
+  <meta property="og:title" content="IsAcademy · Humanos en un mundo artificial">
   <meta property="og:description" content="Clases online de Python, SQL, IA y datos: teoría que se entiende, práctica real y un método que motiva. Aulas abiertas gratuitas cada 15 días.">
   <meta property="og:url" content="https://ismael-sarmiento.github.io/isacademy/">
   <meta property="og:locale" content="es_ES">
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=20261011c">
+  <link rel="stylesheet" href="css/main.css?v=20261012g">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,7 +66,7 @@
         </g>
         <g id="gAc">
           <text class="academy" x="296" y="245"></text>
-          <rect class="cursor" x="330" y="136" width="14" height="112" rx="3">
+          <rect class="cursor" x="330" y="150" width="6" height="122" rx="3">
             <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/>
           </rect>
           <text class="by" x="892" y="300" text-anchor="end">by Ismael Sarmiento</text>
@@ -174,7 +174,7 @@
         <div class="pillars" id="pillars"></div>
         <h3 class="sub-title reveal" data-i18n="method.stepsTitle"></h3>
         <ol class="steps" id="steps"></ol>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="method.midCta"></a></p>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.method"></a></p>
       </div>
     </section>
 
@@ -198,7 +198,7 @@
           <h2 data-i18n="why.title"></h2>
         </div>
         <div class="why" id="why"></div>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="method.midCta"></a></p>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.why"></a></p>
       </div>
     </section>
 
@@ -211,7 +211,7 @@
         </div>
         <div class="reviews" id="reviews"></div>
         <p class="center reveal"><a id="reviewsLink" target="_blank" rel="noopener" data-i18n="reviews.source"></a></p>
-        <p class="mid-cta reveal"><a class="btn btn-primary" href="#contacto" data-i18n="method.midCta"></a></p>
+        <p class="mid-cta reveal"><a class="btn btn-primary" href="#contacto" data-i18n="cta.reviews"></a></p>
       </div>
     </section>
 
@@ -256,7 +256,7 @@
             </div>
           </article>
         </div>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="method.midCta"></a></p>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.resources"></a></p>
       </div>
     </section>
 
@@ -285,6 +285,24 @@
     </section>
   </main>
 
+  <!-- ========== ASSISTANT ========== -->
+  <button id="assistantFab" class="assistant-fab" type="button" aria-expanded="false" aria-controls="assistantPanel" hidden>
+    <span class="as-avatar"></span><span class="fab-label">¿Te ayudo?</span>
+  </button>
+  <section id="assistantPanel" class="assistant-panel" role="dialog" aria-labelledby="assistantName" hidden>
+    <header class="as-head">
+      <span class="as-avatar"></span>
+      <div><p class="as-name" id="assistantName">Is</p><p class="as-sub"></p></div>
+      <button id="assistantClose" class="btn btn-icon" type="button">✕</button>
+    </header>
+    <div class="as-log" id="assistantLog" aria-live="polite"></div>
+    <div class="as-chips" id="assistantChips"></div>
+    <form class="as-form" id="assistantForm">
+      <input id="assistantInput" type="text" autocomplete="off" maxlength="300">
+      <button id="assistantSend" class="btn btn-primary btn-icon" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 21 3l-8.5 18-2-7.5z" fill="currentColor"/></svg></button>
+    </form>
+  </section>
+
   <footer class="footer">
     <div class="container footer-row">
       <span data-i18n="footer.rights"></span>
@@ -297,6 +315,6 @@
     <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
     <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
     <p>Activa JavaScript para ver la web completa.</p></div></noscript>
-  <script type="module" src="js/app.js?v=20261011c"></script>
+  <script type="module" src="js/app.js?v=20261012g"></script>
 </body>
 </html>
