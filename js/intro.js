@@ -32,7 +32,9 @@ async function sketchIs(svg) {
 function placeCursor(svg) {
   const text = svg.querySelector('.academy');
   const x = Number(text.getAttribute('x')) + (text.textContent ? text.getComputedTextLength() : 0);
-  svg.querySelector('.cursor').setAttribute('x', String(x + 8));
+  svg.querySelector('.cursor').setAttribute('x', String(x + 28));
+  // "by Ismael Sarmiento" ends exactly where "Academy" ends
+  if (text.textContent === 'Academy') svg.querySelector('.by').setAttribute('x', String(x));
 }
 
 async function typeAcademy(svg) {
@@ -48,17 +50,6 @@ async function typeAcademy(svg) {
   }
   text.textContent = word;
   placeCursor(svg);
-  hideCursor(svg);
-}
-
-// the AI cursor only lives while typing; the final logo has no trailing bar
-function hideCursor(svg) {
-  const c = svg.querySelector('.cursor');
-  setTimeout(() => {
-    // the blink is a SMIL animation, which overrides CSS: remove it before fading out
-    c.querySelector('animate')?.remove();
-    c.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: 'forwards' });
-  }, 500);
 }
 
 function drawCircuit(root) {
@@ -76,9 +67,6 @@ function finalState(root) {
   svg.querySelector('#inkRect').setAttribute('width', '1000');
   svg.querySelector('.academy').textContent = 'Academy';
   placeCursor(svg);
-  const cursor = svg.querySelector('.cursor');
-  cursor.querySelector('animate')?.remove();
-  cursor.style.opacity = '0';
   svg.querySelector('.by').style.opacity = 1;
   root.querySelectorAll('#circuit path').forEach(p => { p.getAnimations().forEach(a => a.cancel()); p.style.strokeDasharray = 'none'; p.style.strokeDashoffset = '0'; });
   root.querySelectorAll('.hook, .intro-actions').forEach(el => el.classList.add('show'));

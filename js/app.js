@@ -1,14 +1,14 @@
 // Wires the intro, the opening animation and the landing sections.
-import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261011c';
-import { initTheme, toggleTheme } from './theme.js?v=20261011c';
-import { runIntro } from './intro.js?v=20261011c';
-import { openAcademy, revealSite, finish } from './opening.js?v=20261011c';
-import { CONTACT } from './config.js?v=20261011c';
-import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261011c';
+import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261012g';
+import { initTheme, toggleTheme } from './theme.js?v=20261012g';
+import { runIntro } from './intro.js?v=20261012g';
+import { openAcademy, revealSite, finish } from './opening.js?v=20261012g';
+import { CONTACT } from './config.js?v=20261012g';
+import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261012g';
+import { initAssistant, refreshAssistant, showAssistant } from './assistant.js?v=20261012g';
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const GROUPS = ['programming', 'dataai', 'support'];
 let interest = null; // id of the subject chosen from a "book" button, used in the contact block
 let factOrder = [], factIdx = 0;
 
@@ -23,7 +23,8 @@ function contactBlock() {
     // no number yet: the provisional profile is the main, clickable channel
     return `<div class="contact-row"><a class="btn btn-primary btn-lg" href="${CONTACT.profileUrl}" target="_blank" rel="noopener">${external(t('contact.profile'))}</a></div>
       <p class="contact-note">${esc(t('contact.profileNote'))}</p>
-      <p class="muted">${esc(t('contact.soonLine'))} ${esc(t('contact.note'))}</p>`;
+      <p class="muted">${esc(t('contact.note'))}</p>
+      <p class="muted">${esc(t('contact.soonLine'))}</p>`;
   }
   const waText = encodeURIComponent(t('contact.waText').replace('{aula}', name || 'IsAcademy'));
   const wa = CONTACT.whatsapp ? `<a class="btn btn-primary btn-lg" href="https://wa.me/${CONTACT.whatsapp}?text=${waText}" target="_blank" rel="noopener">${external(t('contact.whatsapp'))}</a>` : '';
@@ -46,20 +47,18 @@ function renderLists() {
     `<article class="card pillar reveal" style="--d:${i * .08}s"><span class="n">${i + 1}</span><h3>${esc(p.t)}</h3><p>${esc(p.d)}</p></article>`).join('');
   $('#steps').innerHTML = t('method.steps').map((s, i) => `<li class="reveal" style="--d:${i * .08}s"><h4>${esc(s.t)}</h4><p>${esc(s.d)}</p></li>`).join('');
 
+  // one balanced 3×3 grid; each card carries its group label
   const items = t('subjects.items');
-  $('#subjects').innerHTML = GROUPS.map(g => {
-    const list = items.filter(s => s.group === g);
-    return `<div class="subject-group reveal"><h3>${esc(t('subjects.groups.' + g))}</h3><div class="subject-grid">${list.map(s => `
-      <details class="subject" id="materia-${s.id}">
-        <summary><b>${esc(s.name)}</b><span>${esc(s.short)}</span></summary>
+  $('#subjects').innerHTML = `<div class="subject-grid">${items.map((s, i) => `
+      <details class="subject reveal" id="materia-${s.id}" style="--d:${(i % 3) * .06}s">
+        <summary><span class="sgroup">${esc(t('subjects.groups.' + s.group))}</span><b>${esc(s.name)}</b><span>${esc(s.short)}</span></summary>
         <div class="body">
           <h4>${esc(t(s.alt ? 'subjects.learnAlt' : 'subjects.learn'))}</h4>
           <ul>${s.learn.map(l => `<li>${esc(l)}</li>`).join('')}</ul>
           <h4>${esc(t('subjects.how'))}</h4><p>${esc(s.how)}</p>
           <a class="btn btn-primary" href="#contacto" data-book="${s.id}">${esc(s.cta)}</a>
         </div>
-      </details>`).join('')}</div></div>`;
-  }).join('');
+      </details>`).join('')}</div>`;
 
   $('#why').innerHTML = t('why.items').map((w, i) => `<article class="card reveal" style="--d:${(i % 3) * .08}s"><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p></article>`).join('');
 
@@ -185,9 +184,18 @@ async function boot() {
   initTheme();
   await setLang(detectLang());
   renderLists();
-  onLangChange(() => { renderLists(); renderSamples(); if ($('#codeTabs').children.length) { renderTabs(true); showLesson(lessonIdx, false); } });
+  onLangChange(() => { renderLists(); renderSamples(); refreshAssistant(); if ($('#codeTabs').children.length) { renderTabs(true); showLesson(lessonIdx, false); } });
   scrollSpy();
   initConsole();
+  initAssistant(({ href, action, book }) => {
+    if (book) { interest = book; renderContact(); }
+    if (action === 'console-open') { document.getElementById('consola').scrollIntoView({ behavior: 'smooth' }); openConsole(); return; }
+    if (href) {
+      const target = document.getElementById(href.slice(1));
+      if (target?.tagName === 'DETAILS') target.open = true;
+      target?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   document.addEventListener('click', e => {
     const lesson = e.target.closest('[data-lesson]');
