@@ -22,14 +22,17 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 | Confianza | "Valoración de 5 ★" (sin número de reseñas), "+10 años en el sector tecnológico", "+10 años formando a profesionales". Sin "adolescentes/adultos" |
 | Materias | Programación (Python, POO) · Datos e IA (SQL, Analítica, Big Data, Data Engineering, IA) · Acompañamiento (TFG/TFM, Orientación profesional) |
 | TFG/TFM | Se guía; el trabajo es del alumno (nunca "te lo hacemos") |
-| Contacto | Sin número aún: el canal activo principal es el perfil de tusclasesparticulares. WhatsApp/teléfono "muy pronto" (`js/config.js`). Sin precios |
+| Contacto | **Formulario propio** en «Reservar clase» (FormSubmit → ismael.sarmiento.barberia@gmail.com). tusclasesparticulares ya no es vía de contacto (solo enlace a valoraciones). Sin precios |
+| Hechos confirmados | Todas las edades; el análisis inicial del caso es gratuito; pago a demanda según el caso y la temática |
+| Fundador | Foto real, LinkedIn (linkedin.com/in/ismael-sarmiento) y "Lead Data Engineer especializado en gobierno del dato" |
+| Logo | La "A" de Academy un 25 % más grande para que no se lea "Isa…" |
 | Gancho comercial | **Aulas abiertas**: sesiones online y gratuitas cada 15 días para resolver dudas (sustituye a "primera clase gratis") |
 | Recursos | Mundo IsAcademy 3D (fase aparte, "Próximamente") + widget de curiosidades de datos e IA |
 | Aldea anime 2D | **Retirada** (2026-10-10) |
 | Título de pestaña | "IsAcademy · Humanos en un mundo artificial" |
 | Cursor | Fino y largo, se queda parpadeando tras "Academy" |
 | Cinemática | v3 sobria: manos ilustradas con sombra, brillo discreto, estela sutil de tinta y píxeles; sin destellos ni rendija de luz; también en móvil |
-| Asistente | "Is": avatar ilustrado a color (piel morena en claro, tono medio en oscuro, por deseo del propietario) que se parece a Ismael sin ser él; cerebro local (intenciones en i18n); siempre se presenta como asistente automático |
+| Asistente | **"Alan"** (antes "Is"): avatar ilustrado a color (piel morena en claro, tono medio en oscuro, por deseo del propietario) que se parece a Ismael sin ser él; cerebro local (intenciones en i18n); siempre se presenta como asistente automático |
 | Idiomas / temas | ES + EN · claro + oscuro |
 | Hosting | GitHub Pages: `ismael-sarmiento.github.io/isacademy` (repo `isacademy`) |
 
@@ -49,3 +52,4 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 - 2026-10-11 · F1.2: criterios del propietario aplicados y revisión independiente (hero móvil, cursor, pausa del carrusel, foco de la consola) corregida.
 - 2026-10-12 · F1.3: título con eslogan, cursor persistente, cinemática v3, asistente local "Is" (61/61 preguntas de prueba), materias 3×3, CTAs variados, revisión independiente aplicada.
 - 2026-10-12 · F1.4: cinemática sin deslumbrar, avatar a color, asistente con respuestas honestas para menores/pago/urgencias/fechas (83/84), revisión como usuario aplicada.
+- 2026-10-12 · F1.5: formulario propio (FormSubmit), foto y LinkedIn del fundador, asistente Alan, A grande, todas las edades, análisis gratuito, pago a demanda.
