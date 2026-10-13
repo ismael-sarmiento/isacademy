@@ -45,7 +45,7 @@ js/assistant.js         Asistente "Alan" · js/avatar.js su avatar
 js/prerender.js         Exporta el texto para tools/prerender.py
 i18n/es.json, en.json   Todos los textos
 assets/brand/           Iconos, og.png y logo · assets/brand/print/ logos y QR para imprimir
-tools/                  bump-version.sh, prerender.py, brand/ (logos y QR)
+tools/                  bump-version.sh, prerender.py, brand/ (logos y QR), qa/ (baterías de calidad)
 docs/                   PROJECT_CONTEXT.md, TODO.md, SEO.md
 ```
 
@@ -152,3 +152,12 @@ Sitio estático sin backend ni secretos. Medidas en el propio código:
 - **Anti-clickjacking**: la web sale de cualquier marco de otro dominio (GitHub Pages no permite `frame-ancestors`).
 - Todo el texto dinámico se escapa antes de pintarse; enlaces externos con `rel="noopener"`.
 - Recomendado al propietario: verificación en dos pasos en GitHub y en el Gmail de la academia.
+
+## Control de calidad (antes de cada publicación)
+
+1. `tools/qa/color-audit.js` en la consola del navegador: por tema debe haber **un dorado de marca** (logo, botones,
+   notas manuscritas, números, estrellas, bordes) y **un dorado de texto** (rótulos pequeños), más el dorado claro de
+   las superficies siempre oscuras (código, contacto, editor).
+2. `tools/qa/flows.js` con la web abierta: cada botón que lleva al formulario, pulsado después de los demás, deja
+   «¿Qué te interesa?» como debe (materia, aula abierta o vacío; lo elegido a mano no se pisa).
+3. Claro frente a oscuro, sección a sección, en 360, 768 px y escritorio; asistente, depurador y formulario simulado.
