@@ -3,15 +3,16 @@
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
-import { burst, ink, pixels } from './fx.js?v=20261013g';
+import { burst, ink, pixels } from './fx.js?v=20261013k';
 
 let running = false;
 
-// Hand art v3: viewBox 320×160, pointing right; the robot is mirrored. Fingertips pinch at ~(302, 86).
+// Hand art v4: viewBox 320×160, pointing right; the robot is mirrored. Fingertips pinch at ~(302, 86).
 // Illustrated look: gradient volume, rim light, nail and knuckle detail; the robot has metallic plates and LED joints.
 function humanHand() {
-  const contour = 'M70 58 C105 50 140 38 180 38 C200 38 214 42 226 48 C246 56 268 64 286 72 C294 75 300 77 303 79 C308 82 305 88 299 87 C288 86 274 83 260 83 C252 83 246 87 248 94 C262 92 282 90 296 90 C304 90 305 98 298 100 C284 103 266 107 250 111 C236 117 220 124 200 124 C160 124 110 116 70 108 Z';
-  const cuff = 'M-60 50 H70 Q82 50 82 62 V104 Q82 116 70 116 H-60 Z';
+  const contour = 'M120 60 C150 50 176 42 200 42 C214 42 224 45 234 50 C252 58 270 66 286 72 C294 75 300 77 303 79 C308 82 305 88 299 87 C288 86 274 83 260 83 C252 83 246 87 248 94 C262 92 282 90 296 90 C304 90 305 98 298 100 C284 103 266 107 250 111 C238 116 222 121 204 122 C176 122 146 116 120 110 Z';
+  const fingers = 'M198 114 C195 127 204 139 220 139 C236 139 249 131 254 119 C256 112 250 107 242 109 C228 113 212 115 198 114 Z';
+  const cuff = 'M-900 52 H128 Q140 52 140 64 V106 Q140 118 128 118 H-900 Z'; // long sleeve: it always enters from off-screen
   return `
   <defs>
     <linearGradient id="hh-skin" x1="0" y1="0" x2="0" y2="1">
@@ -21,36 +22,38 @@ function humanHand() {
       <stop offset="0" stop-color="#2e3c74"/><stop offset="1" stop-color="#121833"/>
     </linearGradient>
     <filter id="hh-shadow" x="-20%" y="-30%" width="140%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#05081a" flood-opacity=".38"/></filter>
-    <radialGradient id="hh-shade" cx="70%" cy="80%" r="60%">
-      <stop offset="0" stop-color="#5a3a10" stop-opacity=".45"/><stop offset="1" stop-color="#5a3a10" stop-opacity="0"/>
+    <radialGradient id="hh-shade" cx="70%" cy="85%" r="60%">
+      <stop offset="0" stop-color="#5a3a10" stop-opacity=".42"/><stop offset="1" stop-color="#5a3a10" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <g stroke-linecap="round" stroke-linejoin="round" filter="url(#hh-shadow)">
-    <!-- curled middle, ring and little fingers peeking under the palm -->
+    <!-- middle, ring and little fingers curled under the palm (back to front) -->
     <g fill="url(#hh-skin)" stroke="#7a5212" stroke-width="2">
-      <ellipse cx="208" cy="126" rx="11" ry="8"/>
-      <ellipse cx="224" cy="123" rx="11.5" ry="8.5"/>
-      <ellipse cx="240" cy="117" rx="11" ry="8.5"/>
+      <rect x="196" y="112" width="24" height="15" rx="7.5" transform="rotate(-8 208 119.5)"/>
+      <rect x="212" y="113" width="27" height="16" rx="8" transform="rotate(-14 225.5 121)"/>
+      <rect x="228" y="109" width="28" height="17" rx="8.5" transform="rotate(-22 242 117.5)"/>
+    </g>
+    <g fill="none" stroke="#7a5212" stroke-width="1.4" opacity=".6">
+      <path d="M210 115 C211 119 211 122 210 125"/><path d="M227 116 C228 120 228 124 227 127"/><path d="M244 112 C245 116 245 120 243 123"/>
     </g>
     <path d="${contour}" fill="url(#hh-skin)" stroke="#7a5212" stroke-width="2.2"/>
     <path d="${contour}" fill="url(#hh-shade)"/>
-    <path d="M96 56 C132 46 168 38 196 40 C214 42 232 48 252 58" fill="none" stroke="#fff6dc" stroke-opacity=".7" stroke-width="3"/>
+    <path d="M146 54 C172 46 194 43 212 44 C228 46 242 52 258 60" fill="none" stroke="#fff6dc" stroke-opacity=".7" stroke-width="3"/>
     <g fill="none" stroke="#7a5212" stroke-width="1.8" opacity=".8">
       <path d="M222 73 C240 71 254 76 256 84"/>
       <path d="M250 111 C246 105 246 99 250 95"/>
-      <path d="M249 95 C236 104 222 113 204 119" opacity=".85"/>
+      <path d="M249 95 C238 103 224 110 208 114" opacity=".85"/>
       <path d="M214 74 C226 70 238 72 246 78" opacity=".5"/>
-      <path d="M190 40 C194 44 194 49 190 53" opacity=".6"/>
-      <path d="M228 50 C231 53 231 57 228 61" opacity=".6"/>
+      <path d="M232 49 C235 52 235 57 232 61" opacity=".6"/>
       <path d="M264 62 C266 65 266 69 264 72" opacity=".55"/>
-      <path d="M120 104 C160 108 196 108 228 104" opacity=".35"/>
+      <path d="M150 104 C176 109 200 110 222 107" opacity=".3"/>
     </g>
     <path d="M286 72 C294 74 300 77 302 81 C298 82 292 80 286 77 Z" fill="#fff3d6" stroke="#7a5212" stroke-width="1.2"/>
     <path d="M285 91 C292 91 297 93 298 97 C293 97 288 95 285 94 Z" fill="#fff3d6" stroke="#7a5212" stroke-width="1.2"/>
     <path d="${cuff}" fill="url(#hh-cuff)" stroke="#e2b25c" stroke-width="2.2"/>
-    <path d="M-60 56 H72" stroke="#e2b25c" stroke-opacity=".35" stroke-width="2"/>
-    <g fill="none" stroke="#e2b25c" stroke-width="1.6" opacity=".7"><path d="M62 52 V114" stroke-dasharray="3 4"/></g>
-    <circle cx="44" cy="82" r="5" fill="#e2b25c" stroke="#7a5212" stroke-width="1.2"/>
+    <path d="M-900 58 H130" stroke="#e2b25c" stroke-opacity=".35" stroke-width="2"/>
+    <g fill="none" stroke="#e2b25c" stroke-width="1.6" opacity=".7"><path d="M120 54 V116" stroke-dasharray="3 4"/></g>
+    <circle cx="100" cy="85" r="5" fill="#e2b25c" stroke="#7a5212" stroke-width="1.2"/>
   </g>`;
 }
 
@@ -73,8 +76,8 @@ function robotHand() {
   <g stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#rh-shadow)">
     ${seg(212, 96, 232, 98, 13)}
     ${seg(212, 82, 240, 85, 15)}
-    <rect x="-60" y="58" width="140" height="48" rx="8" fill="url(#rh-plate)" stroke="#c9d4ff" stroke-width="1.6"/>
-    <path d="M-56 63 H76" stroke="#e8eeff" stroke-opacity=".45" stroke-width="2"/>
+    <rect x="-900" y="58" width="980" height="48" rx="8" fill="url(#rh-plate)" stroke="#c9d4ff" stroke-width="1.6"/>
+    <path d="M-896 63 H76" stroke="#e8eeff" stroke-opacity=".45" stroke-width="2"/>
     <g stroke="#5fd0ff" stroke-width="1.6" opacity=".9" filter="url(#rh-glow)"><path d="M-10 60 V104 M30 60 V104"/></g>
     <rect x="64" y="52" width="18" height="60" rx="5" fill="url(#rh-metal)" stroke="#c9d4ff" stroke-width="1.6"/>
     <path d="M92 56 L194 48 L214 60 L214 98 L196 116 L92 110 Z" fill="url(#rh-plate)" stroke="#c9d4ff" stroke-width="1.8"/>
