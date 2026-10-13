@@ -1,5 +1,7 @@
 // Lightweight particle FX for the opening cinematic: discreet glints, gold ink drops and digital pixels.
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+import { reducedMotion } from './core/dom.js';
+
+const reduced = reducedMotion();
 let cv, ctx, dpr = 1, particles = [], running = false;
 const MAX = innerWidth < 640 ? 260 : 600;
 

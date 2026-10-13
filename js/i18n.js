@@ -1,5 +1,8 @@
 // Loads i18n/<lang>.json and applies it to [data-i18n] / [data-i18n-html] / [data-i18n-aria] nodes.
+import { SITE } from './config.js';
 const SUPPORTED = ['es', 'en'];
+// the import map in index.html loads every module as file.js?v=<version>: the texts follow the same version
+const VERSION = new URL(import.meta.url).searchParams.get('v') || 'dev';
 const listeners = [];
 let dict = {};
 let lang = 'es';
@@ -16,13 +19,12 @@ export function detectLang() {
   return SUPPORTED.includes(s) ? s : 'es';
 }
 
-const BASE_URL = 'https://ismael-sarmiento.github.io/isacademy/';
 // keep the address, the canonical link and og tags in line with the language shown, so every version is shareable
 function syncUrl() {
   const url = new URL(location.href);
   if (lang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
   if (url.href !== location.href) history.replaceState(history.state, '', url);
-  const canonical = lang === 'en' ? `${BASE_URL}?lang=en` : BASE_URL;
+  const canonical = lang === 'en' ? `${SITE.baseUrl}?lang=en` : SITE.baseUrl;
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
   document.querySelector('meta[property="og:locale"]')?.setAttribute('content', lang === 'en' ? 'en_GB' : 'es_ES');
@@ -37,7 +39,7 @@ export function onLangChange(fn) { listeners.push(fn); }
 
 export async function setLang(next, persist = false) {
   lang = SUPPORTED.includes(next) ? next : 'es';
-  const res = await fetch(`i18n/${lang}.json?v=20261013l`);
+  const res = await fetch(`i18n/${lang}.json?v=${VERSION}`);
   dict = await res.json();
   // only an explicit choice is remembered
   if (persist) store(lang);

@@ -1,9 +1,9 @@
 // Opening: a human hand takes the "Is" to the left, a robotic hand takes "Academy" to the right,
 // and the academy landing appears in between.
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
-import { burst, ink, pixels } from './fx.js?v=20261013l';
+import { burst, ink, pixels } from './fx.js';
+import { reducedMotion } from './core/dom.js';
 
 let running = false;
 
@@ -129,7 +129,7 @@ export async function openAcademy(intro) {
   // safety net: never leave the visitor stuck on the intro if animations stall
   const safety = setTimeout(() => { revealSite({ animate: false }); finish(intro); }, 6500);
 
-  if (reduced) {
+  if (reducedMotion()) {
     revealSite();
     await done(intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: 'forwards' }));
     finish(intro);

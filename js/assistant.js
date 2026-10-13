@@ -1,10 +1,9 @@
 // "Alan" assistant: a local, private FAQ assistant (no server). Matches the question against the
 // knowledge base in i18n (assistant.intents) and answers with a human tone plus action buttons.
-import { t } from './i18n.js?v=20261013l';
-import { avatarSVG } from './avatar.js?v=20261013l';
+import { $, esc, isPhone } from './core/dom.js';
+import { t } from './i18n.js';
+import { avatarSVG } from './avatar.js';
 
-const $ = sel => document.querySelector(sel);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const norm = s => ' ' + s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9ñ+#\s]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
 let started = false, onAction = () => {};
 
@@ -129,7 +128,7 @@ export function initAssistant(actionHandler) {
     const { asHref, asAction, asBook } = b.dataset;
     onAction({ href: asHref, action: asAction, book: asBook });
     // on phones the panel covers the page: close it so the visitor sees where they went
-    if (matchMedia('(max-width: 640px)').matches) closePanel();
+    if (isPhone()) closePanel();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#assistantPanel').hidden) closePanel(); });
 }

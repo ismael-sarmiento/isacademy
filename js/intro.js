@@ -1,6 +1,6 @@
 // Logo intro: the calligraphic "Is" is sketched by hand, then an AI "decodes" the word Academy.
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+import { sleep, reducedMotion } from './core/dom.js';
+
 const GLYPHS = '01<>/{}#$%&@=+*ABCDEFXYZ';
 const DASH = 3000;
 let skipped = false;
@@ -93,7 +93,7 @@ export async function runIntro(root) {
   root.querySelector('#skip').addEventListener('click', () => { skipped = true; finalState(root); root.querySelector('[data-action="enter"]').focus(); });
   await document.fonts.ready;
   // the intro plays on every visit; reduced-motion users get the final logo directly
-  if (reduced) { skipped = true; finalState(root); return; }
+  if (reducedMotion()) { skipped = true; finalState(root); return; }
   await sleep(250);
   await sketchIs(svg);
   if (skipped) return;
