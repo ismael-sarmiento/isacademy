@@ -27,7 +27,9 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 | Fundador | Foto real, LinkedIn (linkedin.com/in/ismael-sarmiento) y "Lead Data Engineer especializado en gobierno del dato" |
 | Logo | La "A" de Academy un 25 % más grande para que no se lea "Isa…" |
 | Gancho comercial | **Aulas abiertas**: sesiones online y gratuitas cada 15 días para resolver dudas (sustituye a "primera clase gratis") |
-| Recursos | Mundo IsAcademy 3D (fase aparte, "Próximamente") + widget de curiosidades de datos e IA |
+| Recursos | Mundo IsAcademy 3D (fase aparte, "Próximamente") + curiosidades de datos e IA + consola de Python con depurador paso a paso |
+| Marca para imprimir | `assets/brand/print/`: logo claro/oscuro, wordmark, monograma «Is», QR (simple y con logo), todo en trazados |
+| Seguridad | CSP en meta, SRI en Pyodide, anti-clickjacking, sin secretos ni analítica |
 | Aldea anime 2D | **Retirada** (2026-10-10) |
 | Título de pestaña | "IsAcademy · Humanos en un mundo artificial" |
 | Cursor | Fino y largo, se queda parpadeando tras "Academy" |
@@ -44,7 +46,8 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 4. F1.2 · Criterios del propietario (2026-10-11) ✅: aulas abiertas, scroll fluido, manos v2, hero dinámico, consola Python, fuentes locales, og:image.
 5. F1.3–F1.5 · Cinemática v3, asistente, formulario, foto (2026-10-12) ✅
 6. F1.6 · Validación 360 y pulido (2026-10-13) ✅
-7. Pendiente: aviso legal (aplazado por el propietario), mundo 3D.
+7. F1.7 · Depurador, seguridad, pulido visual y recursos de marca (2026-10-13) ✅
+8. Pendiente: aviso legal (aplazado por el propietario), mundo 3D.
 
 ## Trazabilidad
 
@@ -55,3 +58,4 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 - 2026-10-12 · F1.4: cinemática sin deslumbrar, avatar a color, asistente con respuestas honestas para menores/pago/urgencias/fechas (83/84), revisión como usuario aplicada.
 - 2026-10-12 · F1.5: formulario propio (FormSubmit), foto y LinkedIn del fundador, asistente Alan, A grande, todas las edades, análisis gratuito, pago a demanda.
 - 2026-10-13 · F1.6: formulario al correo de la academia (activado); validación 360: asistente (local, ESO, opiniones, otras materias, «hazme el trabajo», mundo 3D), menú móvil en 2 filas, aula abierta sin mensaje obligatorio, iconos PNG con Allura, og.png con A grande, pie con email y LinkedIn, comillas y fechas en español, limpieza de código.
+- 2026-10-13 · F1.7: depurador paso a paso (sys.settrace), CSP + SRI + anti-clickjacking, contraste AA, puntos del circuito sincronizados, viñeta clara más suave, mano humana v4 (pendiente de OK), hero sin frase repetida, curiosidades 4 y 12 precisas, email con campos en español, logos/monograma/QR para carteles.
