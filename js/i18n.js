@@ -37,10 +37,16 @@ export function t(path) {
 export function currentLang() { return lang; }
 export function onLangChange(fn) { listeners.push(fn); }
 
+// texts of any language, fetched once (the form needs the Spanish names even when the page is in English)
+const cache = {};
+export function dictionary(code) {
+  cache[code] ??= fetch(`i18n/${code}.json?v=${VERSION}`).then(res => res.json());
+  return cache[code];
+}
+
 export async function setLang(next, persist = false) {
   lang = SUPPORTED.includes(next) ? next : 'es';
-  const res = await fetch(`i18n/${lang}.json?v=${VERSION}`);
-  dict = await res.json();
+  dict = await dictionary(lang);
   // only an explicit choice is remembered
   if (persist) store(lang);
   document.documentElement.lang = lang;

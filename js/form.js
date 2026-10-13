@@ -1,6 +1,6 @@
 // Booking form: options, validation and delivery by FormSubmit to CONTACT.formEmail.
 import { $, esc } from './core/dom.js';
-import { t, currentLang } from './i18n.js';
+import { t, currentLang, dictionary } from './i18n.js';
 import { CONTACT } from './config.js';
 
 let interest = null; // subject chosen from a "book" button, kept until the visitor sends or changes it
@@ -22,7 +22,12 @@ export function renderForm() {
   $('#footerMail').textContent = CONTACT.publicEmail;
 }
 
+// id: a subject, "open" or "other" from a button that books something specific;
+// null from a generic link ("Reservar clase", "Pide tu análisis gratuito"…): it clears a choice made by another
+// button, but never what the visitor picked by hand in the form
 export function setInterest(id) {
+  const sel = $('#fInterest');
+  if (id === null && interest && sel.value === interest) sel.value = '';
   interest = id;
   renderForm();
 }
@@ -65,10 +70,17 @@ function validate(f) {
 
 // ---------- the email Ismael receives ----------
 // FormSubmit turns each key into a row of its "box" template, so keys are labels written for him in Spanish
-function buildEmail(f) {
+// the subject is always written in Spanish for Ismael, whatever language the visitor uses
+async function subjectInSpanish(id) {
+  const es = await dictionary('es');
+  if (id === 'open') return es.contact.fOpen;
+  if (id === 'other') return es.contact.fOther;
+  return es.subjects.items.find(s => s.id === id)?.name ?? id;
+}
+
+async function buildEmail(f) {
   const v = name => f.elements[name].value.trim();
-  const sel = f.elements.interest;
-  const subject = sel.options[sel.selectedIndex].text;
+  const subject = await subjectInSpanish(f.elements.interest.value);
   const language = currentLang() === 'en' ? 'Inglés' : 'Español';
   const summary = `${v('name')} quiere información sobre «${subject}».${v('level') ? ` Edad o nivel: ${v('level')}.` : ''} Idioma: ${language}.`;
   return {
@@ -95,7 +107,7 @@ async function submit(e) {
   btn.disabled = true; btn.textContent = t('contact.fSending');
   try {
     const res = await fetch(`https://formsubmit.co/ajax/${CONTACT.formEmail}`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(buildEmail(f)),
+      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(await buildEmail(f)),
     });
     const json = await res.json().catch(() => ({}));
     if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || res.status);

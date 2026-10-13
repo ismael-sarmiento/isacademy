@@ -33,15 +33,16 @@ const ACTIONS = {
 };
 
 function onClick(e) {
-  const el = e.target.closest('[data-action], [data-book]');
+  const el = e.target.closest('[data-action], [data-book], a[href="#contacto"]');
   if (!el) return;
-  if (el.dataset.book) { setInterest(el.dataset.book); return; }
+  // every way into the form says what it books: a subject, the open class, or nothing specific
+  if (el.matches('[data-book], a[href="#contacto"]')) { setInterest(el.dataset.book || null); return; }
   ACTIONS[el.dataset.action]?.();
 }
 
 // the assistant's answer buttons reuse the same navigation as the page
 function onAssistantAction({ href, action, book }) {
-  if (book) setInterest(book);
+  if (book || href === '#contacto') setInterest(book || null);
   if (action === 'console-open') { $('#consola').scrollIntoView({ behavior: scrollBehavior() }); openConsole(); return; }
   if (!href) return;
   const target = document.getElementById(href.slice(1));
