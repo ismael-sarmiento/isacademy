@@ -43,17 +43,17 @@
       {
         "tab": "big_data.py",
         "note": "Why Spark and not pandas?",
-        "code": "# Class · Big Data with PySpark\nfrom pyspark.sql import SparkSession, functions as F\n\nspark = SparkSession.builder.getOrCreate()\ndf = spark.read.parquet(\"data/sales/\")\ndf.groupBy(\"country\").agg(F.sum(\"amount\")).show()\n# → millions of rows, processed in parallel"
+        "code": "# Class · Big Data with PySpark\nfrom pyspark.sql import functions as F\n\ndf = spark.read.parquet(\"sales/\")\n(df.groupBy(\"country\")\n   .agg(F.sum(\"amount\"))\n   .show())\n# → millions of rows, in parallel"
       },
       {
         "tab": "which_model.py",
         "note": "Which one would you pick?",
-        "code": "# Class · AI: which model should I choose?\nneed = {\"task\": \"summarise\", \"privacy\": \"high\", \"budget\": 0}\n\nif need[\"privacy\"] == \"high\":\n    option = \"open model on your own computer\"\nelse:\n    option = \"a provider's API\"\nprint(option)  # → open model on your own computer"
+        "code": "# Class · AI: which model?\nsensitive_data = True\nif sensitive_data:\n    option = \"open model, run locally\"\nelse:\n    option = \"a provider's API\"\nprint(option)\n# → open model, run locally"
       },
       {
         "tab": "free_ai.py",
         "note": "AI without spending a cent",
-        "code": "# Class · Free AI with open models\n# First, in the terminal: ollama pull llama3.2\nimport ollama\n\nanswer = ollama.chat(model=\"llama3.2\", messages=[\n    {\"role\": \"user\", \"content\": \"What is a DataFrame?\"},\n])\nprint(answer[\"message\"][\"content\"])\n# → your own model, local and free"
+        "code": "# Class · Free AI, run locally\n# First: ollama pull llama3.2\nimport ollama\n\nr = ollama.generate(model=\"llama3.2\",\n    prompt=\"What is a DataFrame?\")\nprint(r[\"response\"])\n# → your own model, for free"
       },
       {
         "tab": "analysis.sql",
@@ -67,7 +67,7 @@
     "eyebrow": "About us",
     "title": "Learning is still a human thing",
     "p1": "IsAcademy was born from a simple idea: in an increasingly artificial world, real learning needs a person who listens, explains and challenges you.",
-    "p2": "IsAcademy was founded by Ismael Sarmiento, a Lead Data Engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
+    "p2": "It was founded by Ismael Sarmiento, a Lead Data Engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
     "p3": "We use AI as a tool, never as a shortcut: we want you to understand what you do and to solve problems on your own.",
     "role": "Founder and tutor · Lead Data Engineer",
     "badges": [
@@ -84,7 +84,7 @@
     "pillars": [
       {
         "t": "Solid foundations",
-        "d": "Solid foundations explained clearly, no magic formulas. You'll know the why behind everything."
+        "d": "Clear explanations, no magic formulas: you'll know the why behind everything."
       },
       {
         "t": "Real practice",
@@ -291,7 +291,7 @@
     "title": "What our students say",
     "items": [
       {
-        "name": "Vicente O C",
+        "name": "Vicente O. C.",
         "date": "May 2024",
         "text": "Clear and direct in his explanations, he helps you with what you need to know."
       },
@@ -414,15 +414,10 @@
     "fNeedPrivacy": "We need your consent to be able to reply.",
     "privacy": "Privacy information: data controller, Ismael Sarmiento (IsAcademy). Purpose: to reply to your request and, if you wish, organise your classes. Your data is not shared with third parties; the form is delivered by the FormSubmit service. You can access, correct or delete your data by writing to {email}.",
     "subject": "New request on IsAcademy",
-    "whatsapp": "WhatsApp",
-    "call": "Call",
-    "waText": "Hi Ismael, I'm interested in {aula} at IsAcademy",
-    "interest": "You chose: {aula}.",
     "newTab": "(opens in a new tab)"
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by Ismael Sarmiento",
-    "legal": "Legal notice and privacy · coming soon",
     "top": "Back to top"
   },
   "open": {
@@ -430,8 +425,7 @@
     "title": "Every two weeks, a free open class",
     "desc": "We open an online classroom to answer questions live: Python, SQL, data or AI. Bring your questions, even if you're not a student yet. Message us and we'll let you know about the next one.",
     "cta": "Tell me about the next open class",
-    "badge": "Free · Online",
-    "interestName": "the next open class"
+    "badge": "Free · Online"
   },
   "console": {
     "title": "Online Python console",
@@ -442,7 +436,7 @@
     "reset": "Reset",
     "examples": "Examples",
     "output": "Output",
-    "ready": "Python ready. Press «Run» or Ctrl/⌘ + Enter.",
+    "ready": "Python ready. Press \"Run\" or Ctrl/⌘ + Enter.",
     "error": "Python could not be loaded. Check your connection and try again.",
     "editorLabel": "Python code editor",
     "samples": [
@@ -538,7 +532,10 @@
           "a bot",
           "bot",
           "am i talking",
-          "talking to an ai"
+          "talking to an ai",
+          "your name",
+          "what is your name",
+          "alan"
         ],
         "answer": "I'm Alan, an automatic assistant: I answer with what I know about IsAcademy. If you want to talk to Ismael in person, fill in the form in \"Book a class\" and he'll reply.",
         "actions": [
@@ -548,6 +545,29 @@
           }
         ],
         "boost": 14
+      },
+      {
+        "id": "reviews",
+        "keys": [
+          "reviews",
+          "review",
+          "testimonials",
+          "ratings",
+          "rating",
+          "good teacher",
+          "recommended",
+          "worth it",
+          "stars",
+          "what do students say"
+        ],
+        "boost": 8,
+        "answer": "Students rate Ismael 5 ★: they highlight that he explains clearly, gets to the point and makes you think. You'll find some reviews here on the site and all of them on his tusclasesparticulares profile.",
+        "actions": [
+          {
+            "label": "See reviews",
+            "href": "#opiniones"
+          }
+        ]
       },
       {
         "id": "who",
@@ -683,8 +703,13 @@
           "without paying",
           "local model",
           "ai for free",
-          "for free",
-          "free of charge"
+          "local ai",
+          "run locally",
+          "local models",
+          "free ai models",
+          "locally",
+          "ai locally",
+          "run ai"
         ],
         "answer": "Yes, you can use AI for free: with open models running on your own computer (for example with Ollama or Hugging Face). It's one of the mini-lessons at the top of the page, and we go deep into it in our AI classes.",
         "actions": [
@@ -895,7 +920,7 @@
           "how does it work",
           "how it works"
         ],
-        "answer": "We combine clear explanations, practice with real cases and challenges with visible progress. First an assessment, then a plan for you, guided practice and a real project.",
+        "answer": "We combine clear explanations, practice with real cases and challenges with visible progress. First a free assessment of your case, then a plan for you, guided practice and a real project.",
         "actions": [
           {
             "label": "See method",
@@ -923,6 +948,88 @@
           }
         ],
         "boost": 4
+      },
+      {
+        "id": "doit",
+        "keys": [
+          "do my thesis",
+          "do my homework",
+          "do my assignment",
+          "do it for me",
+          "write my thesis",
+          "write my essay",
+          "do my exam",
+          "do my project",
+          "do the work for me"
+        ],
+        "boost": 26,
+        "answer": "We don't do assignments, projects or exams for you: we guide you so you do them yourself, understand them and can defend them. That way what you learn is truly yours.",
+        "actions": [
+          {
+            "label": "How we work",
+            "href": "#metodologia"
+          },
+          {
+            "label": "Book a class",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "other",
+        "keys": [
+          "excel",
+          "java",
+          "javascript",
+          "typescript",
+          "html",
+          "css",
+          "php",
+          "c++",
+          "c#",
+          "r language",
+          "in r",
+          "maths",
+          "math",
+          "power bi",
+          "tableau",
+          "other subject",
+          "other subjects",
+          "another language"
+        ],
+        "boost": 6,
+        "answer": "We focus on programming, data and AI: Python, OOP, SQL, analytics, Big Data, Data Engineering and AI, plus thesis support and career guidance. If you're looking for another subject, tell us in the form and we'll honestly let you know whether we can help.",
+        "actions": [
+          {
+            "label": "See subjects",
+            "href": "#materias"
+          },
+          {
+            "label": "Go to the form",
+            "href": "#contacto",
+            "book": "other"
+          }
+        ]
+      },
+      {
+        "id": "world",
+        "keys": [
+          "3d",
+          "3d world",
+          "open world",
+          "video game",
+          "game",
+          "metaverse",
+          "coming soon"
+        ],
+        "boost": 6,
+        "answer": "The IsAcademy 3D World is in the works: an open world to walk around the academy and discover data and AI curiosities. Meanwhile, Resources has curiosities and a Python console to practise.",
+        "actions": [
+          {
+            "label": "See Resources",
+            "href": "#recursos"
+          }
+        ]
       },
       {
         "id": "price",
@@ -985,7 +1092,13 @@
           "what are the classes like",
           "live",
           "video call",
-          "in-person"
+          "in-person",
+          "physical location",
+          "location",
+          "based",
+          "address",
+          "office",
+          "premises"
         ],
         "answer": "Classes are online and live, with screen sharing and practical exercises, so you can join from wherever you are.",
         "actions": [
@@ -1227,7 +1340,9 @@
           "child",
           "primary school",
           "all ages",
-          "age"
+          "age",
+          "gcse",
+          "a levels"
         ],
         "boost": 10,
         "answer": "Yes, we teach all ages: school, high school, vocational training, university and professionals. Families can message us through the form with the age and the goal, and the initial assessment is free.",

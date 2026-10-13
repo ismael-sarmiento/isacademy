@@ -43,17 +43,17 @@
       {
         "tab": "big_data.py",
         "note": "¿Por qué Spark y no pandas?",
-        "code": "# Clase · Big Data con PySpark\nfrom pyspark.sql import SparkSession, functions as F\n\nspark = SparkSession.builder.getOrCreate()\ndf = spark.read.parquet(\"datos/ventas/\")\ndf.groupBy(\"pais\").agg(F.sum(\"importe\")).show()\n# → millones de filas, procesadas en paralelo"
+        "code": "# Clase · Big Data con PySpark\nfrom pyspark.sql import functions as F\n\ndf = spark.read.parquet(\"ventas/\")\n(df.groupBy(\"pais\")\n   .agg(F.sum(\"importe\"))\n   .show())\n# → millones de filas, en paralelo"
       },
       {
         "tab": "que_modelo.py",
         "note": "¿Cuál elegirías tú?",
-        "code": "# Clase · IA: ¿qué modelo elijo?\nnecesidad = {\"tarea\": \"resumir\", \"privacidad\": \"alta\", \"presupuesto\": 0}\n\nif necesidad[\"privacidad\"] == \"alta\":\n    opcion = \"modelo abierto en tu ordenador\"\nelse:\n    opcion = \"API de un proveedor\"\nprint(opcion)  # → modelo abierto en tu ordenador"
+        "code": "# Clase · IA: ¿qué modelo elijo?\ndatos_sensibles = True\nif datos_sensibles:\n    opcion = \"modelo abierto en local\"\nelse:\n    opcion = \"API de un proveedor\"\nprint(opcion)\n# → modelo abierto en local"
       },
       {
         "tab": "ia_gratis.py",
         "note": "IA sin pagar ni un euro",
-        "code": "# Clase · IA gratis con modelos abiertos\n# Antes, en la terminal: ollama pull llama3.2\nimport ollama\n\nrespuesta = ollama.chat(model=\"llama3.2\", messages=[\n    {\"role\": \"user\", \"content\": \"¿Qué es un DataFrame?\"},\n])\nprint(respuesta[\"message\"][\"content\"])\n# → tu propio modelo, en local y gratis"
+        "code": "# Clase · IA gratis, en local\n# Antes: ollama pull llama3.2\nimport ollama\n\nr = ollama.generate(model=\"llama3.2\",\n    prompt=\"¿Qué es un DataFrame?\")\nprint(r[\"response\"])\n# → tu propio modelo, gratis"
       },
       {
         "tab": "analisis.sql",
@@ -67,7 +67,7 @@
     "eyebrow": "Quiénes somos",
     "title": "Aprender sigue siendo algo humano",
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
-    "p2": "IsAcademy la fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
+    "p2": "La fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
     "role": "Fundador y tutor · Lead Data Engineer",
     "badges": [
@@ -84,7 +84,7 @@
     "pillars": [
       {
         "t": "Bases sólidas",
-        "d": "Bases sólidas explicadas con claridad, sin fórmulas mágicas. Sabrás el porqué de cada cosa."
+        "d": "Explicaciones claras, sin fórmulas mágicas: sabrás el porqué de cada cosa."
       },
       {
         "t": "Práctica real",
@@ -291,23 +291,23 @@
     "title": "Lo que dicen nuestros alumnos",
     "items": [
       {
-        "name": "Vicente O C",
-        "date": "Mayo 2024",
+        "name": "Vicente O. C.",
+        "date": "mayo de 2024",
         "text": "Claro y directo en sus explicaciones, te ayuda en lo que necesitas saber."
       },
       {
         "name": "Marc",
-        "date": "Enero 2023",
+        "date": "enero de 2023",
         "text": "Totalmente recomendable. Todo perfecto, muy bien explicado y muy contento con las clases."
       },
       {
         "name": "Aday",
-        "date": "Enero 2023",
+        "date": "enero de 2023",
         "text": "Un profe genial, directo al grano y hace que saques tú mismo la respuesta."
       },
       {
         "name": "PT",
-        "date": "Enero 2023",
+        "date": "enero de 2023",
         "text": "Un profesor extraordinario y un pedagogo sin igual. Se desvive por el aprendizaje."
       }
     ],
@@ -414,15 +414,10 @@
     "fNeedPrivacy": "Necesitamos tu consentimiento para poder responderte.",
     "privacy": "Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; el envío del formulario lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a {email}.",
     "subject": "Nueva solicitud en IsAcademy",
-    "whatsapp": "WhatsApp",
-    "call": "Llamar",
-    "waText": "Hola Ismael, me interesa {aula} en IsAcademy",
-    "interest": "Has elegido: {aula}.",
     "newTab": "(se abre en una pestaña nueva)"
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by Ismael Sarmiento",
-    "legal": "Aviso legal y privacidad · próximamente",
     "top": "Volver arriba"
   },
   "open": {
@@ -430,8 +425,7 @@
     "title": "Cada 15 días, un aula abierta y gratuita",
     "desc": "Abrimos un aula online para resolver dudas en directo: Python, SQL, datos o IA. Ven con tus preguntas, aunque todavía no seas alumno. Escríbenos y te avisamos de la próxima.",
     "cta": "Avísame de la próxima aula abierta",
-    "badge": "Gratis · Online",
-    "interestName": "la próxima aula abierta"
+    "badge": "Gratis · Online"
   },
   "console": {
     "title": "Consola de Python online",
@@ -542,7 +536,10 @@
           "bot",
           "una ia",
           "estoy hablando",
-          "con quien hablo"
+          "con quien hablo",
+          "como te llamas",
+          "tu nombre",
+          "alan"
         ],
         "answer": "Soy Alan, un asistente automático: respondo con lo que sé de IsAcademy. Si quieres hablar con Ismael en persona, rellena el formulario de «Reservar clase» y te responde él.",
         "actions": [
@@ -552,6 +549,30 @@
           }
         ],
         "boost": 14
+      },
+      {
+        "id": "reviews",
+        "keys": [
+          "opiniones",
+          "opinan",
+          "resenas",
+          "valoraciones",
+          "valoracion",
+          "testimonios",
+          "recomendable",
+          "buen profesor",
+          "que tal es",
+          "merece la pena",
+          "estrellas"
+        ],
+        "boost": 8,
+        "answer": "Sus alumnos valoran a Ismael con 5 ★: destacan que explica claro, va al grano y te hace pensar. Tienes algunas opiniones aquí en la web y todas en su perfil de tusclasesparticulares.",
+        "actions": [
+          {
+            "label": "Ver opiniones",
+            "href": "#opiniones"
+          }
+        ]
       },
       {
         "id": "who",
@@ -590,7 +611,9 @@
           "que clases",
           "dais programacion",
           "que materias",
-          "clases de programacion"
+          "clases de programacion",
+          "que haceis",
+          "a que os dedicais"
         ],
         "answer": "Damos Python, programación orientada a objetos, SQL, analítica de datos, Big Data con Spark, Data Engineering e Inteligencia Artificial. Además acompañamos en TFG/TFM y en orientación profesional.",
         "actions": [
@@ -694,12 +717,15 @@
           "modelos abiertos",
           "open source",
           "sin pagar",
-          "local",
           "ia sin pagar",
           "gratis la ia",
           "usar ia gratis",
           "chatgpt gratis",
-          "ia gratuita"
+          "ia gratuita",
+          "en local",
+          "ia local",
+          "modelo local",
+          "modelos locales"
         ],
         "answer": "Sí se puede usar IA sin pagar: con modelos abiertos que corren en tu propio ordenador (por ejemplo con Ollama o Hugging Face). Es una de las mini-clases que tienes arriba en la página, y lo trabajamos a fondo en las clases de IA.",
         "actions": [
@@ -923,7 +949,7 @@
           "que tal funciona",
           "funciona"
         ],
-        "answer": "Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible. Primero un diagnóstico, luego un plan a tu medida, práctica guiada y un proyecto real.",
+        "answer": "Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible. Primero un análisis gratuito de tu caso, luego un plan a tu medida, práctica guiada y un proyecto real.",
         "actions": [
           {
             "label": "Ver metodología",
@@ -953,6 +979,107 @@
           }
         ],
         "boost": 4
+      },
+      {
+        "id": "doit",
+        "keys": [
+          "hacer el tfg por mi",
+          "hacerme el tfg",
+          "hacerme el",
+          "hacerme la",
+          "hacerme los",
+          "me hagais el",
+          "me hagais la",
+          "me hagais los",
+          "me haceis el",
+          "me haceis la",
+          "me haceis los",
+          "haceis trabajos",
+          "hacer trabajos",
+          "hacer el trabajo por mi",
+          "hacer la practica por mi",
+          "hacerme los deberes",
+          "hacer el examen",
+          "me lo haceis",
+          "me lo hagais",
+          "hacer los deberes",
+          "hacer el tfg",
+          "hacer mi tfg",
+          "hacer el tfm",
+          "hacer mi tfm",
+          "hacerme mi",
+          "hacer los trabajos"
+        ],
+        "boost": 26,
+        "answer": "No hacemos trabajos, prácticas ni exámenes por ti: te guiamos para que los hagas tú, los entiendas y sepas defenderlos. Así lo que aprendes es tuyo de verdad.",
+        "actions": [
+          {
+            "label": "Cómo trabajamos",
+            "href": "#metodologia"
+          },
+          {
+            "label": "Reservar clase",
+            "href": "#contacto"
+          }
+        ]
+      },
+      {
+        "id": "other",
+        "keys": [
+          "excel",
+          "java",
+          "javascript",
+          "typescript",
+          "html",
+          "css",
+          "php",
+          "c++",
+          "c#",
+          "lenguaje r",
+          "clases de r",
+          "en r",
+          "matematicas",
+          "mates",
+          "fisica cuantica",
+          "power bi",
+          "tableau",
+          "otra materia",
+          "otras materias",
+          "otro lenguaje"
+        ],
+        "boost": 6,
+        "answer": "Nos centramos en programación, datos e IA: Python, POO, SQL, analítica, Big Data, Data Engineering e IA, además de TFG/TFM y orientación profesional. Si buscas otra materia, cuéntanoslo en el formulario y te decimos con sinceridad si podemos ayudarte.",
+        "actions": [
+          {
+            "label": "Ver materias",
+            "href": "#materias"
+          },
+          {
+            "label": "Ir al formulario",
+            "href": "#contacto",
+            "book": "other"
+          }
+        ]
+      },
+      {
+        "id": "world",
+        "keys": [
+          "3d",
+          "mundo 3d",
+          "mundo abierto",
+          "videojuego",
+          "juego",
+          "metaverso",
+          "proximamente"
+        ],
+        "boost": 6,
+        "answer": "El Mundo IsAcademy 3D está en preparación: un mundo abierto para recorrer la academia y descubrir curiosidades de datos e IA. Mientras tanto, en Recursos tienes curiosidades y una consola de Python para practicar.",
+        "actions": [
+          {
+            "label": "Ver Recursos",
+            "href": "#recursos"
+          }
+        ]
       },
       {
         "id": "price",
@@ -1021,7 +1148,13 @@
           "como son las clases",
           "en directo",
           "videollamada",
-          "en madrid"
+          "en madrid",
+          "local",
+          "teneis local",
+          "academia fisica",
+          "ubicados",
+          "direccion",
+          "en persona"
         ],
         "answer": "Las clases son online y en directo, con pantalla compartida y ejercicios prácticos. Así puedes conectarte desde donde estés.",
         "actions": [
@@ -1275,7 +1408,6 @@
           "hija",
           "bachillerato",
           "instituto",
-          "eso",
           "fp",
           "17 anos",
           "16 anos",
@@ -1292,7 +1424,10 @@
           "14 anos",
           "15 anos",
           "todas las edades",
-          "edad"
+          "edad",
+          "la eso",
+          "de la eso",
+          "secundaria"
         ],
         "boost": 10,
         "answer": "Sí, damos clase a todas las edades: colegio, instituto, bachillerato, FP, universidad y profesionales. Las familias pueden escribirnos por el formulario contando la edad y el objetivo, y el análisis inicial es gratuito.",
