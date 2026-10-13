@@ -49,7 +49,8 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 6. F1.6 · Validación 360 y pulido (2026-10-13) ✅
 7. F1.7 · Depurador, seguridad, pulido visual y recursos de marca (2026-10-13) ✅
 8. F1.8 · SEO, idioma por defecto, #hero, mejoras de UX (2026-10-13) ✅
-9. Pendiente: aviso legal (aplazado por el propietario), Search Console, mundo 3D.
+9. F1.9 · Código modular, tokens de diseño, movimiento sutil y pasada de textos (2026-10-14) ✅
+10. Pendiente: aviso legal (aplazado por el propietario), Search Console, mundo 3D.
 
 ## Trazabilidad
 
@@ -62,3 +63,4 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 - 2026-10-13 · F1.6: formulario al correo de la academia (activado); validación 360: asistente (local, ESO, opiniones, otras materias, «hazme el trabajo», mundo 3D), menú móvil en 2 filas, aula abierta sin mensaje obligatorio, iconos PNG con Allura, og.png con A grande, pie con email y LinkedIn, comillas y fechas en español, limpieza de código.
 - 2026-10-13 · F1.7: depurador paso a paso (sys.settrace), CSP + SRI + anti-clickjacking, contraste AA, puntos del circuito sincronizados, viñeta clara más suave, mano humana v4 (pendiente de OK), hero sin frase repetida, curiosidades 4 y 12 precisas, email con campos en español, logos/monograma/QR para carteles.
 - 2026-10-13 · F1.8: mano v4 publicada; SEO (español por defecto, hreflang, prerender, título con palabras clave, h3 en materias, cursos en JSON-LD, sitemap, docs/SEO.md); #hero ya no salta la intro; sugerencias de Alan en varias filas; mini-reto sin líneas largas; foco dorado en el editor.
+- 2026-10-14 · F1.9: app.js dividido en módulos (sections, form, lessons, nav, prerender, debugger, core/*); import map como única fuente de versión (CSP con hash); CSS con tokens y base `.card`; micro-interacciones (botones, tarjetas con brillo, progreso de lectura, details suaves); textos coherentes (sin duplicados, éxito del formulario más claro); email con plantilla box, resumen y asunto con materia y nombre.
