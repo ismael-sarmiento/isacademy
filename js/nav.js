@@ -1,5 +1,5 @@
 // Page navigation and motion: reveal on scroll, active menu item, home links, scroll progress and card spotlight.
-import { $, $$, scrollBehavior, reducedMotion } from './core/dom.js';
+import { $, $$, scrollBehavior, reducedMotion, isPhone } from './core/dom.js';
 
 // ---------- reveal on scroll ----------
 let revealObserver;
@@ -64,9 +64,24 @@ function initSpotlight() {
   }, { passive: true });
 }
 
+// ---------- phones: the assistant button steps aside over the booking form and while typing ----------
+// so it never covers the send button, the code editor or sits on top of the keyboard
+function initFabTuck() {
+  const fab = $('#assistantFab');
+  let overForm = false, typing = false;
+  const update = () => fab.classList.toggle('fab-tucked', isPhone() && (overForm || typing));
+  new IntersectionObserver(([e]) => { overForm = e.isIntersecting; update(); }, { threshold: .15 }).observe($('#contacto'));
+  document.addEventListener('focusin', e => {
+    if (e.target.matches('input:not([type="checkbox"]), textarea, select') && !e.target.closest('#assistantPanel')) { typing = true; update(); }
+  });
+  document.addEventListener('focusout', () => { typing = false; update(); });
+  addEventListener('resize', update, { passive: true });
+}
+
 export function initNav() {
   initScrollSpy();
   initHomeLinks();
   initScrollProgress();
   initSpotlight();
+  initFabTuck();
 }
