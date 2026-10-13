@@ -71,7 +71,7 @@
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
     "role": "Fundador y tutor · Lead Data Engineer",
     "badges": [
-      "Valoración de 5 ★ de sus alumnos",
+      "5 ★ según sus alumnos",
       "Clases online, en directo"
     ],
     "linkedin": "Ver perfil en LinkedIn ↗",
@@ -269,8 +269,8 @@
         "d": "Tu nivel, tus objetivos y tu ritmo marcan el plan, no un temario cerrado."
       },
       {
-        "t": "Aprender haciendo",
-        "d": "Proyectos y casos prácticos desde el primer día."
+        "t": "Para todas las edades",
+        "d": "Del colegio a la universidad o tu primer empleo en datos: adaptamos el lenguaje y el ritmo a cada alumno."
       },
       {
         "t": "Criterio frente a la IA",
@@ -282,7 +282,7 @@
       },
       {
         "t": "Online y flexible",
-        "d": "Clases online en horario de mañana, mediodía o tarde."
+        "d": "Desde donde estés, en horario de mañana, mediodía o tarde."
       }
     ]
   },
@@ -385,7 +385,7 @@
       },
       {
         "q": "¿Cómo reservo?",
-        "a": "Rellena el formulario de «Reservar clase» y te respondemos para fijar día y hora."
+        "a": "Rellena el formulario de «Reservar clase»: te escribimos para hacer el análisis gratuito de tu caso y fijar día y hora."
       }
     ]
   },
@@ -407,7 +407,7 @@
     "fPrivacy": "He leído la información de privacidad y acepto que IsAcademy use mis datos para responder a mi solicitud.",
     "fSend": "Enviar solicitud",
     "fSending": "Enviando…",
-    "fOk": "¡Gracias! Hemos recibido tu solicitud y te responderemos lo antes posible.",
+    "fOk": "¡Gracias! Hemos recibido tu solicitud. Te escribiremos pronto a tu email para hacer el análisis gratuito de tu caso.",
     "fError": "No se ha podido enviar. Inténtalo de nuevo en unos minutos.",
     "fRequired": "Este campo es obligatorio.",
     "fBadEmail": "Revisa el email: parece incompleto.",
@@ -1178,7 +1178,7 @@
           "quiero empezar",
           "apuntarse"
         ],
-        "answer": "Para reservar, rellena el formulario de «Reservar clase»: cuéntanos qué quieres aprender y te respondemos para fijar día y hora. El análisis inicial es gratuito.",
+        "answer": "Para reservar, rellena el formulario de «Reservar clase»: cuéntanos qué quieres aprender y te escribimos para hacer el análisis gratuito de tu caso y fijar día y hora.",
         "actions": [
           {
             "label": "Reservar clase",
@@ -1528,9 +1528,9 @@
     ]
   },
   "cta": {
-    "method": "¿Te encaja? Pide tu análisis gratuito →",
-    "why": "Quiero empezar →",
-    "reviews": "Únete a ellos →",
-    "resources": "¿Prefieres aprender con alguien? Hablemos →"
+    "method": "¿Te encaja? Pide tu análisis gratuito",
+    "why": "Quiero empezar",
+    "reviews": "Únete a ellos",
+    "resources": "¿Prefieres aprender con alguien? Hablemos"
   }
 }

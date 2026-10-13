@@ -71,7 +71,7 @@
     "p3": "We use AI as a tool, never as a shortcut: we want you to understand what you do and to solve problems on your own.",
     "role": "Founder and tutor · Lead Data Engineer",
     "badges": [
-      "Rated 5 ★ by his students",
+      "5 ★ from his students",
       "Live online classes"
     ],
     "linkedin": "See LinkedIn profile ↗",
@@ -269,8 +269,8 @@
         "d": "Your level, goals and pace set the plan, not a fixed syllabus."
       },
       {
-        "t": "Learning by doing",
-        "d": "Projects and practical cases from day one."
+        "t": "For all ages",
+        "d": "From school to university or your first data job: we adapt the language and the pace to each student."
       },
       {
         "t": "Using AI wisely",
@@ -282,7 +282,7 @@
       },
       {
         "t": "Online and flexible",
-        "d": "Online classes in the morning, midday or afternoon."
+        "d": "From wherever you are, in the morning, at midday or in the afternoon."
       }
     ]
   },
@@ -385,7 +385,7 @@
       },
       {
         "q": "How do I book?",
-        "a": "Fill in the form in \"Book a class\" and we'll reply to set a day and time."
+        "a": "Fill in the form in “Book a class”: we’ll get back to you to do the free assessment of your case and set a day and time."
       }
     ]
   },
@@ -407,7 +407,7 @@
     "fPrivacy": "I have read the privacy information and agree that IsAcademy may use my data to reply to my request.",
     "fSend": "Send request",
     "fSending": "Sending…",
-    "fOk": "Thank you! We've received your request and will reply as soon as possible.",
+    "fOk": "Thank you! We’ve received your request. We’ll write to you soon to do the free assessment of your case.",
     "fError": "It couldn't be sent. Please try again in a few minutes.",
     "fRequired": "This field is required.",
     "fBadEmail": "Check the email: it looks incomplete.",
@@ -1120,7 +1120,7 @@
           "enrol",
           "enroll"
         ],
-        "answer": "To book, fill in the form in \"Book a class\": tell us what you want to learn and we'll reply to set a day and time. The initial assessment is free.",
+        "answer": "To book, fill in the form in “Book a class”: tell us what you want to learn and we’ll get back to you to do the free assessment of your case and set a day and time.",
         "actions": [
           {
             "label": "Book a class",
@@ -1437,9 +1437,9 @@
     ]
   },
   "cta": {
-    "method": "Sounds right? Get your free assessment →",
-    "why": "I want to start →",
-    "reviews": "Join them →",
-    "resources": "Rather learn with someone? Let's talk →"
+    "method": "Sounds right? Get your free assessment",
+    "why": "I want to start",
+    "reviews": "Join them",
+    "resources": "Rather learn with someone? Let's talk"
   }
 }
