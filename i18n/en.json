@@ -25,7 +25,7 @@
   "hero": {
     "eyebrow": "Online academy for programming, data and AI",
     "title": "Learn to think with data and AI, not just to use them.",
-    "sub": "Personalised Python, SQL, AI, Big Data and Data Engineering classes for all ages, with thesis support and career guidance. Theory you understand, real practice and a method that motivates.",
+    "sub": "Personalised Python, SQL, AI, Big Data and Data Engineering classes for all ages, with thesis support and career guidance, taught by someone who works in the industry every day.",
     "cta1": "Get your free assessment",
     "cta2": "See subjects",
     "trust": [
@@ -326,23 +326,23 @@
     "factsNext": "Show another",
     "facts": [
       "Python is named after the comedy group Monty Python, not the snake.",
-      "The most famous computer «bug» was a real moth stuck in a relay of the Harvard Mark II computer, in 1947.",
+      "The most famous computer “bug” was a real moth stuck in a relay of the Harvard Mark II computer, in 1947.",
       "SQL was born at IBM in the 1970s under the name SEQUEL.",
-      "The term «Artificial Intelligence» was coined in 1956, at the Dartmouth conference.",
+      "John McCarthy coined the term “Artificial Intelligence” in 1955, in the proposal for the Dartmouth conference held in 1956.",
       "In the 19th century Ada Lovelace wrote what is considered the first algorithm intended for a machine.",
       "Apache Spark started in 2009 as a research project at the University of California, Berkeley.",
       "Hadoop is named after the toy elephant of one of its creators' son.",
       "In 1997, IBM's Deep Blue beat world chess champion Garry Kasparov.",
       "In 2016, AlphaGo beat Lee Sedol, one of the best Go players in the world.",
-      "Type «import this» in Python and you get the Zen of Python: 19 principles for writing good code.",
-      "The word «algorithm» comes from the name of the 9th-century Persian mathematician al-Khwarizmi.",
-      "In 1950 Alan Turing proposed a test to tell whether a machine can imitate a human: the Turing test.",
+      "Type “import this” in Python and you get the Zen of Python: 19 principles for writing good code.",
+      "The word “algorithm” comes from the name of the 9th-century Persian mathematician al-Khwarizmi.",
+      "In 1950 Alan Turing proposed the “imitation game”, now the Turing test: can a machine pass as human in a conversation?",
       "A byte has 8 bits, enough to represent 256 different values.",
       "The relational model behind SQL databases was proposed by Edgar F. Codd in 1970.",
-      "The pandas library takes its name from «panel data», a data type used in econometrics.",
+      "The pandas library takes its name from “panel data”, a data type used in econometrics.",
       "Grace Hopper built one of the first compilers and championed programming with words instead of numbers.",
       "Python was created by Guido van Rossum and first released in 1991.",
-      "Arthur Samuel popularised the term «machine learning» in 1959 with a program that learned to play checkers.",
+      "Arthur Samuel popularised the term “machine learning” in 1959 with a program that learned to play checkers.",
       "The perceptron, one of the first artificial neural networks, dates from 1958.",
       "Much of a data scientist's work is cleaning and preparing data, not training models."
     ]
@@ -413,7 +413,6 @@
     "fBadEmail": "Check the email: it looks incomplete.",
     "fNeedPrivacy": "We need your consent to be able to reply.",
     "privacy": "Privacy information: data controller, Ismael Sarmiento (IsAcademy). Purpose: to reply to your request and, if you wish, organise your classes. Your data is not shared with third parties; the form is delivered by the FormSubmit service. You can access, correct or delete your data by writing to {email}.",
-    "subject": "New request on IsAcademy",
     "newTab": "(opens in a new tab)"
   },
   "footer": {
@@ -429,7 +428,7 @@
   },
   "console": {
     "title": "Online Python console",
-    "desc": "Practise Python right in your browser, nothing to install. Try the examples or write your own code.",
+    "desc": "Practise Python right in your browser, nothing to install. Try the examples, write your own code and watch it run step by step.",
     "open": "Open console",
     "loading": "Loading Python… (first time only, a few seconds)",
     "run": "Run",
@@ -453,10 +452,39 @@
         "code": "import pandas as pd\n\nsales = pd.DataFrame({\n    \"country\": [\"ES\", \"MX\", \"ES\", \"AR\"],\n    \"amount\": [120, 80, 45, 60],\n})\nprint(sales.groupby(\"country\")[\"amount\"].sum())"
       },
       {
+        "name": "Functions",
+        "code": "def double(n):\n    result = n * 2\n    return result\n\nnumbers = [3, 5, 8]\ndoubles = []\nfor n in numbers:\n    doubles.append(double(n))\nprint(doubles)"
+      },
+      {
         "name": "Mini challenge",
         "code": "# Challenge: complete the function so it returns\n# only the words longer than 4 letters.\ndef long_words(words):\n    # Your code here\n    return []\n\nresult = long_words([\"data\", \"AI\", \"python\", \"sql\"])\nprint(result)\nprint(\"Challenge passed!\" if result == [\"python\"] else \"Not yet: check the condition\")"
       }
-    ]
+    ],
+    "debug": "Step by step",
+    "debugLabel": "Run step by step in the debugger",
+    "dbg": {
+      "toolbar": "Debugger controls",
+      "first": "Go to the first step",
+      "prev": "Previous step",
+      "nextBtn": "Next step",
+      "last": "Go to the last step",
+      "cont": "Continue ▶▶",
+      "exit": "Back to editing",
+      "timeline": "Execution timeline",
+      "step": "Step {i} of {n}",
+      "vars": "Variables",
+      "varsIn": "Variables in {f}()",
+      "noVars": "No variables yet",
+      "stack": "Call stack",
+      "main": "main program",
+      "next": "Next line to run: {l}",
+      "returns": "{f}() returns {v}",
+      "error": "Error on line {l} → {m}",
+      "limit": "More than {n} steps: is there an infinite loop? Showing the first ones.",
+      "end": "End of the program. These are the final variables.",
+      "bp": "Breakpoint on line {l}",
+      "hint": "Click a line number to set a breakpoint and use “Continue”. Use ← → to step forwards and back."
+    }
   },
   "assistant": {
     "name": "Alan",
@@ -1028,6 +1056,25 @@
           {
             "label": "See Resources",
             "href": "#recursos"
+          }
+        ]
+      },
+      {
+        "id": "debug",
+        "keys": [
+          "debug",
+          "debugger",
+          "step by step",
+          "line by line",
+          "see variables",
+          "breakpoint"
+        ],
+        "boost": 8,
+        "answer": "Resources has a Python console with a debugger: press “Step by step” and watch your code run line by line, with every variable's value, function calls and breakpoints.",
+        "actions": [
+          {
+            "label": "Open the console",
+            "action": "console-open"
           }
         ]
       },

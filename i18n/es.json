@@ -25,7 +25,7 @@
   "hero": {
     "eyebrow": "Academia online de programación, datos e IA",
     "title": "Aprende a pensar con datos e IA, no solo a usarlos.",
-    "sub": "Clases personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional. Teoría que se entiende, práctica real y un método que motiva.",
+    "sub": "Clases personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional, de la mano de alguien que trabaja cada día en el sector.",
     "cta1": "Pide tu análisis gratuito",
     "cta2": "Ver materias",
     "trust": [
@@ -328,7 +328,7 @@
       "Python debe su nombre al grupo de humor Monty Python, no a la serpiente.",
       "El caso más famoso de «bug» informático fue una polilla real atrapada en un relé del ordenador Harvard Mark II, en 1947.",
       "SQL nació en IBM en los años 70 con el nombre de SEQUEL.",
-      "El término «Inteligencia Artificial» se acuñó en 1956, en la conferencia de Dartmouth.",
+      "John McCarthy acuñó el término «Inteligencia Artificial» en 1955, en la propuesta de la conferencia de Dartmouth, celebrada en 1956.",
       "Ada Lovelace escribió en el siglo XIX el que se considera el primer algoritmo pensado para una máquina.",
       "Apache Spark nació en 2009 como proyecto de investigación en la Universidad de California, Berkeley.",
       "El nombre de Hadoop viene del elefante de peluche del hijo de uno de sus creadores.",
@@ -336,7 +336,7 @@
       "En 2016, AlphaGo venció a Lee Sedol, uno de los mejores jugadores de Go del mundo.",
       "Si escribes «import this» en Python, aparece el Zen de Python: 19 principios para escribir buen código.",
       "La palabra «algoritmo» viene del nombre del matemático persa al-Juarismi, del siglo IX.",
-      "Alan Turing propuso en 1950 una prueba para saber si una máquina puede imitar a un humano: el test de Turing.",
+      "En 1950, Alan Turing propuso el «juego de la imitación», hoy test de Turing: ¿puede una máquina hacerse pasar por humana en una conversación?",
       "Un byte tiene 8 bits, suficientes para representar 256 valores distintos.",
       "El modelo relacional en el que se basan las bases de datos SQL lo propuso Edgar F. Codd en 1970.",
       "La librería pandas toma su nombre de «panel data», un tipo de datos usado en econometría.",
@@ -413,7 +413,6 @@
     "fBadEmail": "Revisa el email: parece incompleto.",
     "fNeedPrivacy": "Necesitamos tu consentimiento para poder responderte.",
     "privacy": "Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; el envío del formulario lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a {email}.",
-    "subject": "Nueva solicitud en IsAcademy",
     "newTab": "(se abre en una pestaña nueva)"
   },
   "footer": {
@@ -429,7 +428,7 @@
   },
   "console": {
     "title": "Consola de Python online",
-    "desc": "Practica Python directamente en el navegador, sin instalar nada. Prueba los ejemplos o escribe tu propio código.",
+    "desc": "Practica Python directamente en el navegador, sin instalar nada. Prueba los ejemplos, escribe tu propio código y míralo ejecutarse paso a paso.",
     "open": "Abrir consola",
     "loading": "Cargando Python… (solo la primera vez, unos segundos)",
     "run": "Ejecutar",
@@ -453,10 +452,39 @@
         "code": "import pandas as pd\n\nventas = pd.DataFrame({\n    \"pais\": [\"ES\", \"MX\", \"ES\", \"AR\"],\n    \"importe\": [120, 80, 45, 60],\n})\nprint(ventas.groupby(\"pais\")[\"importe\"].sum())"
       },
       {
+        "name": "Funciones",
+        "code": "def doble(n):\n    resultado = n * 2\n    return resultado\n\nnumeros = [3, 5, 8]\ndobles = []\nfor n in numeros:\n    dobles.append(doble(n))\nprint(dobles)"
+      },
+      {
         "name": "Mini-reto",
         "code": "# Reto: completa la función para que devuelva\n# solo las palabras de más de 4 letras.\ndef largas(palabras):\n    # Tu código aquí\n    return []\n\nresultado = largas([\"datos\", \"IA\", \"python\", \"sql\"])\nprint(resultado)\nprint(\"¡Reto superado!\" if resultado == [\"datos\", \"python\"] else \"Aún no: revisa la condición\")"
       }
-    ]
+    ],
+    "debug": "Paso a paso",
+    "debugLabel": "Ejecutar paso a paso con el depurador",
+    "dbg": {
+      "toolbar": "Controles del depurador",
+      "first": "Ir al primer paso",
+      "prev": "Paso anterior",
+      "nextBtn": "Paso siguiente",
+      "last": "Ir al último paso",
+      "cont": "Continuar ▶▶",
+      "exit": "Volver a editar",
+      "timeline": "Línea de tiempo de la ejecución",
+      "step": "Paso {i} de {n}",
+      "vars": "Variables",
+      "varsIn": "Variables en {f}()",
+      "noVars": "Aún no hay variables",
+      "stack": "Pila de llamadas",
+      "main": "programa principal",
+      "next": "Siguiente línea a ejecutar: {l}",
+      "returns": "{f}() devuelve {v}",
+      "error": "Error en la línea {l} → {m}",
+      "limit": "Más de {n} pasos: ¿hay un bucle infinito? Te muestro los primeros.",
+      "end": "Fin del programa. Estas son las variables finales.",
+      "bp": "Punto de parada en la línea {l}",
+      "hint": "Pulsa un número de línea para poner un punto de parada y usa «Continuar». Teclas ← → para avanzar y retroceder."
+    }
   },
   "assistant": {
     "name": "Alan",
@@ -1078,6 +1106,27 @@
           {
             "label": "Ver Recursos",
             "href": "#recursos"
+          }
+        ]
+      },
+      {
+        "id": "debug",
+        "keys": [
+          "depurar",
+          "depurador",
+          "debugger",
+          "debug",
+          "paso a paso",
+          "ver variables",
+          "linea a linea",
+          "punto de parada"
+        ],
+        "boost": 8,
+        "answer": "En Recursos tienes una consola de Python con depurador: pulsa «Paso a paso» y verás cómo se ejecuta tu código línea a línea, con el valor de cada variable, las llamadas a funciones y los puntos de parada.",
+        "actions": [
+          {
+            "label": "Abrir la consola",
+            "action": "console-open"
           }
         ]
       },
