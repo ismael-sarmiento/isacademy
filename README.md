@@ -23,26 +23,30 @@ Los enlaces directos (`/#contacto`, `/#materias`) saltan la intro.
 ## Estructura
 
 ```
-index.html            Intro + landing (secciones)
-css/main.css          Tokens de diseño (claro/oscuro), intro, manos, secciones
-js/app.js             Pinta las secciones desde i18n, scroll spy, contacto, curiosidades
-js/intro.js           Animación del logo
-js/opening.js         Cinemática de apertura (manos SVG, secuencia)
-js/fx.js              Partículas de la cinemática (tinta y píxeles)
-js/assistant.js       Asistente "Alan": motor de respuestas local + panel de chat
-js/avatar.js          Avatar SVG animado del asistente
-js/i18n.js            Carga i18n/<lang>.json y traduce [data-i18n]
-js/theme.js           Modo claro/oscuro (sigue al sistema, recuerda la elección)
-js/console.js         Consola de Python (Pyodide desde jsDelivr con SRI, bajo demanda) y depurador paso a paso (sys.settrace)
-js/config.js          Email de destino del formulario (FormSubmit) y futuros WhatsApp/teléfono
-i18n/es.json, en.json Todos los textos (materias, FAQ, curiosidades, código del hero…)
-assets/brand/         logo.svg, favicon-32.png, apple-touch-icon.png, icon-512.png y og.png (imagen al compartir, 1200×630)
-assets/brand/print/   Logos con texto en trazados, monograma «Is» y QR (para carteles); ver su README
-tools/brand/          Scripts para regenerar logos y QR (macOS: CoreText y CoreImage)
-assets/fonts/         Allura y Space Grotesk alojadas en local (OFL)
-assets/img/           Foto del fundador
-docs/                 PROJECT_CONTEXT.md (decisiones), TODO.md (pendientes) y SEO.md (visibilidad en buscadores)
-sitemap.xml           Mapa del sitio (es/en) para Search Console
+index.html              Intro + landing; import map (única versión del sitio), CSP, JSON-LD
+css/main.css            Tokens de diseño (colores, tipografía, movimiento) y componentes, por secciones
+js/app.js               Punto de entrada: solo arranca y conecta los módulos
+js/core/dom.js          Utilidades comunes ($, $$, esc, sleep, reducedMotion…)
+js/core/highlight.js    Coloreado de código Python/SQL (mini-clases y depurador)
+js/core/frame-guard.js  Anti-clickjacking
+js/i18n.js              Idioma (ES por defecto, ?lang=en), textos y URL canónica
+js/theme.js             Modo claro/oscuro
+js/config.js            URL del sitio y canales de contacto
+js/sections.js          Secciones pintadas desde i18n (materias, opiniones, FAQ, curiosidades…)
+js/form.js              Formulario de reserva y email (FormSubmit)
+js/lessons.js           Mini-clases del hero
+js/nav.js               Scroll: aparición, menú activo, progreso, brillo de tarjetas, enlaces de inicio
+js/intro.js             Animación del logo
+js/opening.js           Cinemática de apertura (manos SVG)
+js/fx.js                Partículas de la cinemática
+js/console.js           Consola de Python (Pyodide con SRI)
+js/debugger.js          Depurador paso a paso (sys.settrace)
+js/assistant.js         Asistente "Alan" · js/avatar.js su avatar
+js/prerender.js         Exporta el texto para tools/prerender.py
+i18n/es.json, en.json   Todos los textos
+assets/brand/           Iconos, og.png y logo · assets/brand/print/ logos y QR para imprimir
+tools/                  bump-version.sh, prerender.py, brand/ (logos y QR)
+docs/                   PROJECT_CONTEXT.md, TODO.md, SEO.md
 ```
 
 ## Probar en local
@@ -57,7 +61,7 @@ Abrir http://localhost:8000/
 
 ## Versionado (caché)
 
-CSS, módulos JS y textos llevan `?v=<versión>` para que nadie mezcle ficheros viejos y nuevos.
+La versión vive en un único sitio: el *import map* de `index.html` carga cada módulo como `fichero.js?v=<versión>` (los módulos se importan entre sí sin versión) y `i18n.js` la toma de su propia URL para los textos. `tools/bump-version.sh` regenera el import map con todos los módulos de `js/`, actualiza CSS y entrada, y recalcula la huella del import map en la CSP.
 **Antes de publicar cambios**, ejecuta:
 
 ```bash

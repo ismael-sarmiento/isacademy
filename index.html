@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://cdn.jsdelivr.net; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval' 'sha256-KO7fRWlm0WZceMUnhbF1b8h2rWpaBKxOuZDrt7xzsrQ='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://cdn.jsdelivr.net; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>IsAcademy · Clases de programación e IA online · Humanos en un mundo artificial</title>
@@ -26,7 +26,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=20261013l">
+  <link rel="stylesheet" href="css/main.css?v=20261014c">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -258,6 +258,7 @@
 
   <!-- ========== SITE ========== -->
   <header class="topbar" id="top">
+    <div class="read-progress" id="readProgress" aria-hidden="true"></div>
     <div class="topbar-row container">
       <a class="brand" href="#hero" data-i18n-aria="nav.home" aria-label="IsAcademy, inicio"><span class="brand-is">Is</span><span class="brand-ac"><span class="big-a">A</span>cademy</span></a>
       <nav class="sections" data-i18n-aria="nav.label" aria-label="Secciones">
@@ -288,7 +289,7 @@
           <h1 data-i18n="hero.title">Aprende a pensar con datos e IA, no solo a usarlos.</h1>
           <p class="lead" data-i18n="hero.sub">Clases personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional, de la mano de alguien que trabaja cada día en el sector.</p>
           <div class="cta-row">
-            <a class="btn btn-primary btn-lg" href="#contacto" data-i18n="hero.cta1">Pide tu análisis gratuito</a>
+            <a class="btn btn-primary btn-lg btn-arrow" href="#contacto" data-i18n="hero.cta1">Pide tu análisis gratuito</a>
             <a class="btn btn-lg" href="#materias" data-i18n="hero.cta2">Ver materias</a>
           </div>
           <ul class="trust" id="trust"><!--pre--><li>Valoración de 5 ★</li><li>+10 años en tecnología y docencia</li><li>Análisis inicial gratuito</li><li>Todas las edades · online</li><!--/pre--></ul>
@@ -320,11 +321,11 @@
     <!-- ABOUT -->
     <section class="section" id="quienes">
       <div class="container about-grid">
-        <div class="founder reveal">
+        <div class="founder card reveal">
           <img class="founder-photo" src="assets/img/ismael.jpg" width="132" height="132" alt="Ismael Sarmiento, fundador de IsAcademy" data-i18n-alt="about.photoAlt">
           <p class="founder-name">Ismael Sarmiento</p>
           <p class="muted" data-i18n="about.role">Fundador y tutor · Lead Data Engineer</p>
-          <ul class="badges" id="aboutBadges"><!--pre--><li>Valoración de 5 ★ de sus alumnos</li><li>Clases online, en directo</li><!--/pre--></ul>
+          <ul class="badges" id="aboutBadges"><!--pre--><li>5 ★ según sus alumnos</li><li>Clases online, en directo</li><!--/pre--></ul>
           <a class="btn btn-sm linkedin" id="linkedinLink" href="https://www.linkedin.com/in/ismael-sarmiento/" target="_blank" rel="noopener" data-i18n="about.linkedin">Ver perfil en LinkedIn ↗</a>
         </div>
         <div class="reveal">
@@ -345,10 +346,10 @@
           <h2 data-i18n="method.title">Teoría que se entiende, práctica que se aplica</h2>
           <p class="lead" data-i18n="method.lead">Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible (gamificación): así aprendes entendiendo, aplicando y sin perder la motivación.</p>
         </div>
-        <div class="pillars" id="pillars"><!--pre--><article class="card pillar reveal" style="--d:0s"><span class="n">1</span><h3>Bases sólidas</h3><p>Explicaciones claras, sin fórmulas mágicas: sabrás el porqué de cada cosa.</p></article><article class="card pillar reveal" style="--d:0.08s"><span class="n">2</span><h3>Práctica real</h3><p>Desde las primeras clases trabajas con casos y proyectos del sector, no con ejercicios de relleno.</p></article><article class="card pillar reveal" style="--d:0.16s"><span class="n">3</span><h3>Retos y progreso visible</h3><p>Objetivos claros y logros que mantienen la motivación y convierten el estudio en hábito.</p></article><!--/pre--></div>
+        <div class="pillars" id="pillars"><!--pre--><article class="card pillar reveal" style="--d:0.00s"><span class="n">1</span><h3>Bases sólidas</h3><p>Explicaciones claras, sin fórmulas mágicas: sabrás el porqué de cada cosa.</p></article><article class="card pillar reveal" style="--d:0.08s"><span class="n">2</span><h3>Práctica real</h3><p>Desde las primeras clases trabajas con casos y proyectos del sector, no con ejercicios de relleno.</p></article><article class="card pillar reveal" style="--d:0.16s"><span class="n">3</span><h3>Retos y progreso visible</h3><p>Objetivos claros y logros que mantienen la motivación y convierten el estudio en hábito.</p></article><!--/pre--></div>
         <h3 class="sub-title reveal" data-i18n="method.stepsTitle">Cómo trabajamos contigo</h3>
-        <ol class="steps" id="steps"><!--pre--><li class="reveal" style="--d:0s"><h4>Análisis gratuito</h4><p>Analizamos tu caso sin coste: tu punto de partida, lo que quieres conseguir y cómo llegar.</p></li><li class="reveal" style="--d:0.08s"><h4>Plan personalizado</h4><p>Diseñamos una hoja de ruta a tu medida: temas, ritmo y objetivos claros.</p></li><li class="reveal" style="--d:0.16s"><h4>Práctica guiada</h4><p>Cada concepto se trabaja con ejercicios y retos, con la teoría justa para entenderlo.</p></li><li class="reveal" style="--d:0.24s"><h4>Proyecto real</h4><p>Aplicas lo aprendido en un proyecto propio que podrás mostrar en clase, en tu TFG o en una entrevista.</p></li><!--/pre--></ol>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.method">¿Te encaja? Pide tu análisis gratuito →</a></p>
+        <ol class="steps" id="steps"><!--pre--><li class="reveal" style="--d:0.00s"><h4>Análisis gratuito</h4><p>Analizamos tu caso sin coste: tu punto de partida, lo que quieres conseguir y cómo llegar.</p></li><li class="reveal" style="--d:0.08s"><h4>Plan personalizado</h4><p>Diseñamos una hoja de ruta a tu medida: temas, ritmo y objetivos claros.</p></li><li class="reveal" style="--d:0.16s"><h4>Práctica guiada</h4><p>Cada concepto se trabaja con ejercicios y retos, con la teoría justa para entenderlo.</p></li><li class="reveal" style="--d:0.24s"><h4>Proyecto real</h4><p>Aplicas lo aprendido en un proyecto propio que podrás mostrar en clase, en tu TFG o en una entrevista.</p></li><!--/pre--></ol>
+        <p class="mid-cta reveal"><a class="btn btn-arrow" href="#contacto" data-i18n="cta.method">¿Te encaja? Pide tu análisis gratuito</a></p>
       </div>
     </section>
 
@@ -361,7 +362,7 @@
           <p class="lead" data-i18n="subjects.lead">Clases particulares online de programación, datos e IA. Elige por dónde empezar: cada materia se adapta a tu nivel, desde cero hasta avanzado.</p>
         </div>
         <div class="subjects" id="subjects"><!--pre--><div class="subject-grid">
-      <details class="subject reveal" id="materia-python" style="--d:0s">
+      <details class="subject card reveal" id="materia-python" style="--d:0.00s">
         <summary><span class="sgroup">Programación</span><h3 class="sname">Python</h3><span>De cero a programar con soltura.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -370,7 +371,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="python">Reserva tu clase de Python</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-oop" style="--d:0.06s">
+      <details class="subject card reveal" id="materia-oop" style="--d:0.06s">
         <summary><span class="sgroup">Programación</span><h3 class="sname">Programación orientada a objetos</h3><span>Diseño de código limpio y mantenible.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -379,7 +380,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="oop">Reserva tu clase de POO</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-sql" style="--d:0.12s">
+      <details class="subject card reveal" id="materia-sql" style="--d:0.12s">
         <summary><span class="sgroup">Datos e IA</span><h3 class="sname">SQL</h3><span>Consultas y modelado sobre bases de datos reales.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -388,7 +389,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="sql">Reserva tu clase de SQL</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-analytics" style="--d:0s">
+      <details class="subject card reveal" id="materia-analytics" style="--d:0.00s">
         <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Analítica de datos</h3><span>De los datos a las decisiones.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -397,7 +398,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="analytics">Reserva tu clase de analítica</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-bigdata" style="--d:0.06s">
+      <details class="subject card reveal" id="materia-bigdata" style="--d:0.06s">
         <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Big Data · Spark</h3><span>Procesamiento distribuido a gran escala.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -406,7 +407,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="bigdata">Reserva tu clase de Big Data</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-de" style="--d:0.12s">
+      <details class="subject card reveal" id="materia-de" style="--d:0.12s">
         <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Data Engineering</h3><span>Pipelines, orquestación y calidad del dato.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -415,7 +416,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="de">Reserva tu clase de Data Engineering</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-ia" style="--d:0s">
+      <details class="subject card reveal" id="materia-ia" style="--d:0.00s">
         <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Inteligencia Artificial</h3><span>Machine learning e IA generativa, con criterio.</span></summary>
         <div class="body">
           <h4>Qué aprenderás</h4>
@@ -424,7 +425,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="ia">Reserva tu clase de IA</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-tfg" style="--d:0.06s">
+      <details class="subject card reveal" id="materia-tfg" style="--d:0.06s">
         <summary><span class="sgroup">Acompañamiento</span><h3 class="sname">TFG · TFM</h3><span>Te guiamos de la idea a la defensa. El trabajo es tuyo; el método y la seguridad, nuestros.</span></summary>
         <div class="body">
           <h4>En qué te acompañamos</h4>
@@ -433,7 +434,7 @@
           <a class="btn btn-primary" href="#contacto" data-book="tfg">Cuéntanos tu TFG o TFM y vemos cómo plantearlo</a>
         </div>
       </details>
-      <details class="subject reveal" id="materia-careers" style="--d:0.12s">
+      <details class="subject card reveal" id="materia-careers" style="--d:0.12s">
         <summary><span class="sgroup">Acompañamiento</span><h3 class="sname">Orientación profesional</h3><span>Data Engineer, Data Scientist o especialista en IA.</span></summary>
         <div class="body">
           <h4>En qué te acompañamos</h4>
@@ -452,8 +453,8 @@
           <p class="eyebrow" data-i18n="why.eyebrow">Por qué elegirnos</p>
           <h2 data-i18n="why.title">Lo que nos hace diferentes</h2>
         </div>
-        <div class="why" id="why"><!--pre--><article class="card reveal" style="--d:0s"><h3>Experiencia real del sector</h3><p>Te enseña alguien que trabaja con datos e IA, no solo alguien que los ha estudiado.</p></article><article class="card reveal" style="--d:0.08s"><h3>Clases a tu medida</h3><p>Tu nivel, tus objetivos y tu ritmo marcan el plan, no un temario cerrado.</p></article><article class="card reveal" style="--d:0.16s"><h3>Aprender haciendo</h3><p>Proyectos y casos prácticos desde el primer día.</p></article><article class="card reveal" style="--d:0s"><h3>Criterio frente a la IA</h3><p>Aprendes a usar la IA con cabeza, sin depender de ella.</p></article><article class="card reveal" style="--d:0.08s"><h3>Acompañamiento cercano</h3><p>Resolvemos tus dudas con claridad y paciencia, sin prisas.</p></article><article class="card reveal" style="--d:0.16s"><h3>Online y flexible</h3><p>Clases online en horario de mañana, mediodía o tarde.</p></article><!--/pre--></div>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.why">Quiero empezar →</a></p>
+        <div class="why" id="why"><!--pre--><article class="card reveal" style="--d:0.00s"><h3>Experiencia real del sector</h3><p>Te enseña alguien que trabaja con datos e IA, no solo alguien que los ha estudiado.</p></article><article class="card reveal" style="--d:0.08s"><h3>Clases a tu medida</h3><p>Tu nivel, tus objetivos y tu ritmo marcan el plan, no un temario cerrado.</p></article><article class="card reveal" style="--d:0.16s"><h3>Para todas las edades</h3><p>Del colegio a la universidad o tu primer empleo en datos: adaptamos el lenguaje y el ritmo a cada alumno.</p></article><article class="card reveal" style="--d:0.00s"><h3>Criterio frente a la IA</h3><p>Aprendes a usar la IA con cabeza, sin depender de ella.</p></article><article class="card reveal" style="--d:0.08s"><h3>Acompañamiento cercano</h3><p>Resolvemos tus dudas con claridad y paciencia, sin prisas.</p></article><article class="card reveal" style="--d:0.16s"><h3>Online y flexible</h3><p>Desde donde estés, en horario de mañana, mediodía o tarde.</p></article><!--/pre--></div>
+        <p class="mid-cta reveal"><a class="btn btn-arrow" href="#contacto" data-i18n="cta.why">Quiero empezar</a></p>
       </div>
     </section>
 
@@ -478,7 +479,7 @@
       <blockquote>«Un profesor extraordinario y un pedagogo sin igual. Se desvive por el aprendizaje.»</blockquote>
       <figcaption>PT · enero de 2023</figcaption></figure><!--/pre--></div>
         <p class="center reveal"><a id="reviewsLink" target="_blank" rel="noopener" data-i18n="reviews.source"><!--pre-->Ver todas las valoraciones en tusclasesparticulares<span class="sr-only"> (se abre en una pestaña nueva)</span><!--/pre--></a></p>
-        <p class="mid-cta reveal"><a class="btn btn-primary" href="#contacto" data-i18n="cta.reviews">Únete a ellos →</a></p>
+        <p class="mid-cta reveal"><a class="btn btn-primary btn-arrow" href="#contacto" data-i18n="cta.reviews">Únete a ellos</a></p>
       </div>
     </section>
 
@@ -496,12 +497,12 @@
             <h3 data-i18n="resources.worldTitle">Mundo IsAcademy 3D</h3>
             <p data-i18n="resources.worldDesc">Un mundo abierto en 3D para recorrer la academia, conversar con sus personajes y descubrir curiosidades del mundo de los datos y la IA.</p>
           </article>
-          <article class="facts-card reveal">
+          <article class="facts-card card reveal">
             <h3 data-i18n="resources.factsTitle">Curiosidades de datos e IA</h3>
-            <p class="fact" id="fact" aria-live="polite"><!--pre-->John McCarthy acuñó el término «Inteligencia Artificial» en 1955, en la propuesta de la conferencia de Dartmouth, celebrada en 1956.<!--/pre--></p>
+            <p class="fact" id="fact" aria-live="polite"><!--pre-->Python debe su nombre al grupo de humor Monty Python, no a la serpiente.<!--/pre--></p>
             <button class="btn" data-action="fact" data-i18n="resources.factsNext">Otra curiosidad</button>
           </article>
-          <article class="console-card reveal" id="consola">
+          <article class="console-card card card--static reveal" id="consola">
             <div class="console-head">
               <div>
                 <h3 data-i18n="console.title">Consola de Python online</h3>
@@ -518,7 +519,7 @@
                 <button class="btn btn-sm" data-action="console-debug" data-i18n="console.debug" data-i18n-aria="console.debugLabel" disabled aria-label="Ejecutar paso a paso con el depurador">Paso a paso</button>
                 <button class="btn btn-sm btn-primary" data-action="console-run" data-i18n="console.run" disabled>Ejecutar</button>
               </div>
-              <textarea id="pyEditor" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" data-i18n-aria="console.editorLabel" aria-label="Editor de código Python"></textarea>
+              <textarea class="code-surface" id="pyEditor" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" data-i18n-aria="console.editorLabel" aria-label="Editor de código Python"></textarea>
               <p class="console-label" data-i18n="console.output">Salida</p>
               <pre id="pyOut" aria-live="polite"></pre>
               <div class="dbg" id="dbg" hidden>
@@ -534,7 +535,7 @@
                 </div>
                 <p class="dbg-msg" id="dbgMsg" aria-live="polite"></p>
                 <div class="dbg-grid">
-                  <ol class="dbg-code" id="dbgCode"></ol>
+                  <ol class="dbg-code code-surface" id="dbgCode"></ol>
                   <div class="dbg-side">
                     <h4 id="dbgVarsTitle"></h4>
                     <table class="dbg-vars" id="dbgVars"></table>
@@ -549,7 +550,7 @@
             </div>
           </article>
         </div>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.resources">¿Prefieres aprender con alguien? Hablemos →</a></p>
+        <p class="mid-cta reveal"><a class="btn btn-arrow" href="#contacto" data-i18n="cta.resources">¿Prefieres aprender con alguien? Hablemos</a></p>
       </div>
     </section>
 
@@ -560,7 +561,7 @@
           <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</p>
           <h2 data-i18n="faq.title">Resolvemos tus dudas</h2>
         </div>
-        <div class="faq" id="faqList"><!--pre--><details><summary>¿Qué son las aulas abiertas?</summary><p>Sesiones online y gratuitas que celebramos cada 15 días para resolver dudas en directo. Cualquiera puede apuntarse: escríbenos por el formulario y te avisamos de la próxima.</p></details><details><summary>¿El análisis inicial es gratis?</summary><p>Sí. Analizamos tu caso sin coste y sin compromiso: tu nivel, tu objetivo y el plan que te proponemos.</p></details><details><summary>¿Las clases son online?</summary><p>Sí. Trabajamos online, con pantalla compartida y ejercicios prácticos en directo.</p></details><details><summary>¿Necesito conocimientos previos?</summary><p>No. Empezamos desde tu nivel, ya sea desde cero o para perfeccionar lo que ya sabes.</p></details><details><summary>¿Para quién son las clases?</summary><p>Para todas las edades: alumnos de colegio e instituto, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo.</p></details><details><summary>¿Cómo me ayudáis con el TFG o el TFM?</summary><p>Te guiamos en todo el proceso: tema, planificación, dudas técnicas, revisión de la memoria y ensayo de la defensa, siempre respetando que el trabajo sea tuyo.</p></details><details><summary>¿Cuánto cuestan las clases?</summary><p>El análisis inicial de tu caso es gratuito. Después, el precio y la forma de pago se acuerdan a demanda, según tu caso y la temática.</p></details><details><summary>¿Qué necesito para las clases online?</summary><p>Un ordenador con conexión a internet. Te ayudamos a preparar el entorno en las primeras clases.</p></details><details><summary>¿Cómo reservo?</summary><p>Rellena el formulario de «Reservar clase» y te respondemos para fijar día y hora.</p></details><!--/pre--></div>
+        <div class="faq" id="faqList"><!--pre--><details><summary>¿Qué son las aulas abiertas?</summary><p>Sesiones online y gratuitas que celebramos cada 15 días para resolver dudas en directo. Cualquiera puede apuntarse: escríbenos por el formulario y te avisamos de la próxima.</p></details><details><summary>¿El análisis inicial es gratis?</summary><p>Sí. Analizamos tu caso sin coste y sin compromiso: tu nivel, tu objetivo y el plan que te proponemos.</p></details><details><summary>¿Las clases son online?</summary><p>Sí. Trabajamos online, con pantalla compartida y ejercicios prácticos en directo.</p></details><details><summary>¿Necesito conocimientos previos?</summary><p>No. Empezamos desde tu nivel, ya sea desde cero o para perfeccionar lo que ya sabes.</p></details><details><summary>¿Para quién son las clases?</summary><p>Para todas las edades: alumnos de colegio e instituto, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo.</p></details><details><summary>¿Cómo me ayudáis con el TFG o el TFM?</summary><p>Te guiamos en todo el proceso: tema, planificación, dudas técnicas, revisión de la memoria y ensayo de la defensa, siempre respetando que el trabajo sea tuyo.</p></details><details><summary>¿Cuánto cuestan las clases?</summary><p>El análisis inicial de tu caso es gratuito. Después, el precio y la forma de pago se acuerdan a demanda, según tu caso y la temática.</p></details><details><summary>¿Qué necesito para las clases online?</summary><p>Un ordenador con conexión a internet. Te ayudamos a preparar el entorno en las primeras clases.</p></details><details><summary>¿Cómo reservo?</summary><p>Rellena el formulario de «Reservar clase»: te escribimos para hacer el análisis gratuito de tu caso y fijar día y hora.</p></details><!--/pre--></div>
       </div>
     </section>
 
@@ -626,6 +627,29 @@
     <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
     <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
     <p>Escríbenos a <a href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>. Activa JavaScript para ver la web completa.</p></div></noscript>
-  <script type="module" src="js/app.js?v=20261013l"></script>
+  <script type="importmap">{
+  "imports": {
+    "./js/app.js": "./js/app.js?v=20261014c",
+    "./js/assistant.js": "./js/assistant.js?v=20261014c",
+    "./js/avatar.js": "./js/avatar.js?v=20261014c",
+    "./js/config.js": "./js/config.js?v=20261014c",
+    "./js/console.js": "./js/console.js?v=20261014c",
+    "./js/core/dom.js": "./js/core/dom.js?v=20261014c",
+    "./js/core/frame-guard.js": "./js/core/frame-guard.js?v=20261014c",
+    "./js/core/highlight.js": "./js/core/highlight.js?v=20261014c",
+    "./js/debugger.js": "./js/debugger.js?v=20261014c",
+    "./js/form.js": "./js/form.js?v=20261014c",
+    "./js/fx.js": "./js/fx.js?v=20261014c",
+    "./js/i18n.js": "./js/i18n.js?v=20261014c",
+    "./js/intro.js": "./js/intro.js?v=20261014c",
+    "./js/lessons.js": "./js/lessons.js?v=20261014c",
+    "./js/nav.js": "./js/nav.js?v=20261014c",
+    "./js/opening.js": "./js/opening.js?v=20261014c",
+    "./js/prerender.js": "./js/prerender.js?v=20261014c",
+    "./js/sections.js": "./js/sections.js?v=20261014c",
+    "./js/theme.js": "./js/theme.js?v=20261014c"
+  }
+}</script>
+  <script type="module" src="js/app.js?v=20261014c"></script>
 </body>
 </html>

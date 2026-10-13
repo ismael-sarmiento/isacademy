@@ -29,3 +29,6 @@ Personal project of Ismael Sarmiento; DATM governance does not apply beyond the 
 - Copy tone: professional, plural voice ("nosotros"). Every section should end in a clear path to contact.
 - TFG/TFM copy must never suggest doing the student's work.
 - Never bypass git hooks or security controls to publish; if `git push` is not allowed, use README option A.
+- Code structure: one responsibility per module (see README); shared helpers only in `js/core/`; never copy `$`/`esc`/highlighting into a module.
+- Colours only as tokens in `:root` of `css/main.css`; components reuse `.card`, `.btn`, `.btn-arrow`, `.code-surface`.
+- Never write `?v=` by hand: run `tools/bump-version.sh <version>` (import map + CSP hash) and then `python3 tools/prerender.py`.
