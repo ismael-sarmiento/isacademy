@@ -1,6 +1,6 @@
 # IsAcademy · Project context
 
-Última actualización: 2026-10-12
+Última actualización: 2026-10-13
 
 ## Objetivo
 
@@ -22,7 +22,7 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 | Confianza | "Valoración de 5 ★" (sin número de reseñas), "+10 años en el sector tecnológico", "+10 años formando a profesionales". Sin "adolescentes/adultos" |
 | Materias | Programación (Python, POO) · Datos e IA (SQL, Analítica, Big Data, Data Engineering, IA) · Acompañamiento (TFG/TFM, Orientación profesional) |
 | TFG/TFM | Se guía; el trabajo es del alumno (nunca "te lo hacemos") |
-| Contacto | **Formulario propio** en «Reservar clase» (FormSubmit → ismael.sarmiento.barberia@gmail.com). tusclasesparticulares ya no es vía de contacto (solo enlace a valoraciones). Sin precios |
+| Contacto | **Formulario propio** en «Reservar clase» (FormSubmit → isacademy.notification@gmail.com, activo; mensaje opcional para «Aula abierta»). tusclasesparticulares ya no es vía de contacto (solo enlace a valoraciones). Sin precios |
 | Hechos confirmados | Todas las edades; el análisis inicial del caso es gratuito; pago a demanda según el caso y la temática |
 | Fundador | Foto real, LinkedIn (linkedin.com/in/ismael-sarmiento) y "Lead Data Engineer especializado en gobierno del dato" |
 | Logo | La "A" de Academy un 25 % más grande para que no se lea "Isa…" |
@@ -42,8 +42,9 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 2. **F1.1 · Reenfoque profesional: intro, apertura con manos y landing** (2026-10-10) ✅
 3. F2 · Mundo 3D de Recursos (Three.js): mundo abierto, personajes que cuentan curiosidades.
 4. F1.2 · Criterios del propietario (2026-10-11) ✅: aulas abiertas, scroll fluido, manos v2, hero dinámico, consola Python, fuentes locales, og:image.
-5. F1.3 · Cinemática v3, asistente "Is", revisión completa (2026-10-12) ✅
-6. Pendiente: aviso legal (aplazado por el propietario), foto real, mundo 3D.
+5. F1.3–F1.5 · Cinemática v3, asistente, formulario, foto (2026-10-12) ✅
+6. F1.6 · Validación 360 y pulido (2026-10-13) ✅
+7. Pendiente: aviso legal (aplazado por el propietario), mundo 3D.
 
 ## Trazabilidad
 
@@ -53,3 +54,4 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 - 2026-10-12 · F1.3: título con eslogan, cursor persistente, cinemática v3, asistente local "Is" (61/61 preguntas de prueba), materias 3×3, CTAs variados, revisión independiente aplicada.
 - 2026-10-12 · F1.4: cinemática sin deslumbrar, avatar a color, asistente con respuestas honestas para menores/pago/urgencias/fechas (83/84), revisión como usuario aplicada.
 - 2026-10-12 · F1.5: formulario propio (FormSubmit), foto y LinkedIn del fundador, asistente Alan, A grande, todas las edades, análisis gratuito, pago a demanda.
+- 2026-10-13 · F1.6: formulario al correo de la academia (activado); validación 360: asistente (local, ESO, opiniones, otras materias, «hazme el trabajo», mundo 3D), menú móvil en 2 filas, aula abierta sin mensaje obligatorio, iconos PNG con Allura, og.png con A grande, pie con email y LinkedIn, comillas y fechas en español, limpieza de código.
