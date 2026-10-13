@@ -14,7 +14,7 @@ Su objetivo es captar alumnos: todas las secciones llevan al contacto.
 
 1. **Intro (en cada visita):** el "Is" caligráfico se esboza a mano y "Academy" se decodifica como una IA. Botones ES/EN y claro/oscuro, y "Entrar a la academia".
 2. **Apertura (cinemática):** manos ilustradas (humana dorada y robótica con LED) pellizcan las palabras y las separan con una estela sutil de tinta y píxeles. También en móvil.
-3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos.
+3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos con **depurador paso a paso** (línea actual, variables, pila de llamadas, salida, puntos de parada; tope de 1000 pasos).
 4. **Asistente "Alan":** avatar ilustrado con chat local (sin servidor) que responde sobre la academia y deriva al formulario.
 5. **Reservar clase:** formulario propio que llega por email vía FormSubmit (`js/config.js` → `formEmail`).
 
@@ -33,10 +33,12 @@ js/assistant.js       Asistente "Alan": motor de respuestas local + panel de cha
 js/avatar.js          Avatar SVG animado del asistente
 js/i18n.js            Carga i18n/<lang>.json y traduce [data-i18n]
 js/theme.js           Modo claro/oscuro (sigue al sistema, recuerda la elección)
-js/console.js         Consola de Python en el navegador (Pyodide desde jsDelivr, bajo demanda)
+js/console.js         Consola de Python (Pyodide desde jsDelivr con SRI, bajo demanda) y depurador paso a paso (sys.settrace)
 js/config.js          Email de destino del formulario (FormSubmit) y futuros WhatsApp/teléfono
 i18n/es.json, en.json Todos los textos (materias, FAQ, curiosidades, código del hero…)
 assets/brand/         logo.svg, favicon-32.png, apple-touch-icon.png, icon-512.png y og.png (imagen al compartir, 1200×630)
+assets/brand/print/   Logos con texto en trazados, monograma «Is» y QR (para carteles); ver su README
+tools/brand/          Scripts para regenerar logos y QR (macOS: CoreText y CoreImage)
 assets/fonts/         Allura y Space Grotesk alojadas en local (OFL)
 assets/img/           Foto del fundador
 docs/                 PROJECT_CONTEXT.md (decisiones) y TODO.md (pendientes)
@@ -129,3 +131,13 @@ El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenv
   FormSubmit manda un email «Activate Form» al nuevo correo y hay que pulsarlo (el enlace caduca).
 - **Alias de FormSubmit:** opcional; el correo ya es público en el texto de privacidad y en el pie.
 - Si eliges «Aula abierta», el mensaje es opcional.
+
+## Seguridad
+
+Sitio estático sin backend ni secretos. Medidas en el propio código:
+- **Content-Security-Policy** (meta en `index.html` y `404.html`): solo scripts propios y de jsDelivr (Pyodide), conexiones solo a FormSubmit y jsDelivr, sin `object`, `base` ni envíos de formularios nativos.
+- **SRI** en `pyodide.js` (`js/console.js` → `PYODIDE_SRI`). Si se cambia la versión de Pyodide, recalcula el hash:
+  `curl -s <url>/pyodide.js | openssl dgst -sha384 -binary | openssl base64 -A`.
+- **Anti-clickjacking**: la web sale de cualquier marco de otro dominio (GitHub Pages no permite `frame-ancestors`).
+- Todo el texto dinámico se escapa antes de pintarse; enlaces externos con `rel="noopener"`.
+- Recomendado al propietario: verificación en dos pasos en GitHub y en el Gmail de la academia.

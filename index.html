@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://cdn.jsdelivr.net; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>IsAcademy · Humanos en un mundo artificial</title>
   <meta name="description" content="Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional.">
@@ -21,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=20261013g">
+  <link rel="stylesheet" href="css/main.css?v=20261013k">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -255,11 +257,37 @@
                 <div class="samples" id="samples"></div>
                 <span class="spacer"></span>
                 <button class="btn btn-sm" data-action="console-reset" data-i18n="console.reset"></button>
+                <button class="btn btn-sm" data-action="console-debug" data-i18n="console.debug" data-i18n-aria="console.debugLabel" disabled></button>
                 <button class="btn btn-sm btn-primary" data-action="console-run" data-i18n="console.run" disabled></button>
               </div>
               <textarea id="pyEditor" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" data-i18n-aria="console.editorLabel"></textarea>
               <p class="console-label" data-i18n="console.output"></p>
               <pre id="pyOut" aria-live="polite"></pre>
+              <div class="dbg" id="dbg" hidden>
+                <div class="dbg-bar" role="toolbar" data-i18n-aria="console.dbg.toolbar">
+                  <button class="btn btn-sm btn-icon" type="button" data-dbg="first" data-i18n-aria="console.dbg.first">⏮</button>
+                  <button class="btn btn-sm btn-icon" type="button" data-dbg="prev" data-i18n-aria="console.dbg.prev">◀</button>
+                  <button class="btn btn-sm btn-primary btn-icon" type="button" data-dbg="next" data-i18n-aria="console.dbg.nextBtn">▶</button>
+                  <button class="btn btn-sm btn-icon" type="button" data-dbg="last" data-i18n-aria="console.dbg.last">⏭</button>
+                  <button class="btn btn-sm" type="button" data-dbg="cont" data-i18n="console.dbg.cont"></button>
+                  <input class="dbg-range" id="dbgRange" type="range" min="0" value="0" data-i18n-aria="console.dbg.timeline">
+                  <span class="dbg-count" id="dbgCount"></span>
+                  <button class="btn btn-sm" type="button" data-dbg="exit" data-i18n="console.dbg.exit"></button>
+                </div>
+                <p class="dbg-msg" id="dbgMsg" aria-live="polite"></p>
+                <div class="dbg-grid">
+                  <ol class="dbg-code" id="dbgCode"></ol>
+                  <div class="dbg-side">
+                    <h4 id="dbgVarsTitle"></h4>
+                    <table class="dbg-vars" id="dbgVars"></table>
+                    <h4 data-i18n="console.dbg.stack"></h4>
+                    <p class="dbg-stack" id="dbgStack"></p>
+                    <h4 data-i18n="console.output"></h4>
+                    <pre class="dbg-out" id="dbgOut"></pre>
+                  </div>
+                </div>
+                <p class="muted dbg-hint" data-i18n="console.dbg.hint"></p>
+              </div>
             </div>
           </article>
         </div>
@@ -340,6 +368,6 @@
     <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
     <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
     <p>Escríbenos a <a href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>. Activa JavaScript para ver la web completa.</p></div></noscript>
-  <script type="module" src="js/app.js?v=20261013g"></script>
+  <script type="module" src="js/app.js?v=20261013k"></script>
 </body>
 </html>

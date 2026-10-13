@@ -1,1 +1,6 @@
 .DS_Store
+
+# brand tool outputs
+tools/brand/glyphs
+tools/brand/qr
+tools/brand/*.txt
