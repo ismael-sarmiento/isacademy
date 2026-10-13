@@ -1,11 +1,11 @@
 // Wires the intro, the opening animation and the landing sections.
-import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261012j';
-import { initTheme, toggleTheme } from './theme.js?v=20261012j';
-import { runIntro } from './intro.js?v=20261012j';
-import { openAcademy, revealSite, finish } from './opening.js?v=20261012j';
-import { CONTACT } from './config.js?v=20261012j';
-import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261012j';
-import { initAssistant, refreshAssistant, showAssistant } from './assistant.js?v=20261012j';
+import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261013g';
+import { initTheme, toggleTheme } from './theme.js?v=20261013g';
+import { runIntro } from './intro.js?v=20261013g';
+import { openAcademy, revealSite, finish } from './opening.js?v=20261013g';
+import { CONTACT } from './config.js?v=20261013g';
+import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261013g';
+import { initAssistant, refreshAssistant } from './assistant.js?v=20261013g';
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -23,23 +23,38 @@ function renderContact() {
     + t('subjects.items').map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('')
     + `<option value="open">${esc(t('contact.fOpen'))}</option><option value="other">${esc(t('contact.fOther'))}</option>`;
   if (current) sel.value = current;
-  $('#privacyText').textContent = t('contact.privacy').replace('{email}', CONTACT.publicEmail);
+  if (sel.value) fieldError(sel, '');
+  syncMessageRequired();
+  const mail = `<a href="mailto:${esc(CONTACT.publicEmail)}">${esc(CONTACT.publicEmail)}</a>`;
+  $('#privacyText').innerHTML = esc(t('contact.privacy')).replace('{email}', mail);
+  $('#footerMail').href = `mailto:${CONTACT.publicEmail}`;
+  $('#footerMail').textContent = CONTACT.publicEmail;
+}
+
+// signing up for an open class needs no explanation: the message is only required for classes
+function syncMessageRequired() {
+  const form = $('#leadForm'), msg = form.elements.message;
+  const optional = form.elements.interest.value === 'open';
+  msg.required = !optional;
+  msg.closest('label').querySelector('.req').hidden = optional;
+  if (optional) fieldError(msg, '');
 }
 
 function fieldError(field, msg) {
   const label = field.closest('label');
   let err = label.querySelector('.f-error');
-  if (!msg) { err?.remove(); field.removeAttribute('aria-invalid'); return; }
-  if (!err) { err = document.createElement('span'); err.className = 'f-error'; label.appendChild(err); }
+  if (!msg) { err?.remove(); field.removeAttribute('aria-invalid'); field.removeAttribute('aria-describedby'); return; }
+  if (!err) { err = document.createElement('span'); err.className = 'f-error'; err.id = `err-${field.name}`; label.appendChild(err); }
   err.textContent = msg;
   field.setAttribute('aria-invalid', 'true');
+  field.setAttribute('aria-describedby', err.id);
 }
 
 function validate(form) {
   let first = null;
   for (const name of ['name', 'email', 'interest', 'message']) {
     const f = form.elements[name];
-    const empty = !f.value.trim();
+    const empty = f.required && !f.value.trim();
     const bad = name === 'email' && !empty && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim());
     fieldError(f, empty ? t('contact.fRequired') : bad ? t('contact.fBadEmail') : '');
     if ((empty || bad) && !first) first = f;
@@ -110,9 +125,10 @@ function renderLists() {
   $('#why').innerHTML = t('why.items').map((w, i) => `<article class="card reveal" style="--d:${(i % 3) * .08}s"><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p></article>`).join('');
 
   const tr = t('reviews.translated');
+  const q = currentLang() === 'es' ? ['«', '»'] : ['“', '”'];
   $('#reviews').innerHTML = t('reviews.items').map(r => `<figure class="card review reveal">
       <div class="stars" role="img" aria-label="${esc(t('reviews.starsLabel'))}">★★★★★</div>
-      <blockquote>“${esc(r.text)}”</blockquote>
+      <blockquote>${q[0]}${esc(r.text)}${q[1]}</blockquote>
       <figcaption>${esc(r.name)} · ${esc(r.date)}${tr ? ` · ${esc(tr)}` : ''}</figcaption></figure>`).join('');
   $('#reviewsLink').href = CONTACT.profileUrl;
   $('#reviewsLink').innerHTML = external(t('reviews.source'));
@@ -153,10 +169,11 @@ let lessonIdx = 0, typingToken = 0, rotateTimer = null;
 function renderTabs(rebuild = false) {
   const box = $('#codeTabs');
   if (rebuild || box.children.length !== t('hero.lessons').length) {
-    box.innerHTML = t('hero.lessons').map((l, i) => `<button type="button" role="tab" data-lesson="${i}">${esc(l.tab)}</button>`).join('');
+    box.innerHTML = t('hero.lessons').map((l, i) => `<button type="button" role="tab" id="lesson-tab-${i}" aria-controls="heroCode" data-lesson="${i}">${esc(l.tab)}</button>`).join('');
   }
   // only flip the selected state: rebuilding would drop keyboard focus
   [...box.children].forEach((b, i) => { b.setAttribute('aria-selected', String(i === lessonIdx)); b.tabIndex = i === lessonIdx ? 0 : -1; });
+  $('#heroCode').setAttribute('aria-labelledby', `lesson-tab-${lessonIdx}`);
   // keep the active tab visible by scrolling the tab strip only (never the page)
   const active = box.children[lessonIdx];
   if (active && box.scrollWidth > box.clientWidth) box.scrollTo({ left: active.offsetLeft - box.offsetLeft - 8, behavior: 'smooth' });
@@ -236,6 +253,7 @@ async function boot() {
   initConsole();
   $('#leadForm').addEventListener('submit', submitForm);
   $('#leadForm').addEventListener('input', e => { if (e.target.getAttribute('aria-invalid')) fieldError(e.target, ''); });
+  $('#fInterest').addEventListener('change', syncMessageRequired);
   initAssistant(({ href, action, book }) => {
     if (book) { interest = book; renderContact(); }
     if (action === 'console-open') { document.getElementById('consola').scrollIntoView({ behavior: 'smooth' }); openConsole(); return; }

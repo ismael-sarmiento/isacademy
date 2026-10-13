@@ -22,7 +22,7 @@ export function onLangChange(fn) { listeners.push(fn); }
 
 export async function setLang(next, persist = false) {
   lang = SUPPORTED.includes(next) ? next : 'es';
-  const res = await fetch(`i18n/${lang}.json?v=20261012j`);
+  const res = await fetch(`i18n/${lang}.json?v=20261013g`);
   dict = await res.json();
   // only an explicit choice is remembered; otherwise the browser language keeps deciding
   if (persist) store(lang);

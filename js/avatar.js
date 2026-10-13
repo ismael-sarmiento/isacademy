@@ -1,4 +1,4 @@
-// "Is", the assistant avatar: a friendly flat illustration that resembles Ismael without being him.
+// "Alan", the assistant avatar: a friendly flat illustration that resembles Ismael without being him.
 // Skin tones come from CSS variables (--av-skin, --av-shade) so light and dark themes can differ.
 // Animated with CSS: breathing (.av-head), blinking (.av-eyes) and talking (.av-mouth, toggled by .talking).
 export function avatarSVG(id = 'av') {

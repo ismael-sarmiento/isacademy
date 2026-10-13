@@ -3,7 +3,7 @@
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
-import { burst, ink, pixels } from './fx.js?v=20261012j';
+import { burst, ink, pixels } from './fx.js?v=20261013g';
 
 let running = false;
 
