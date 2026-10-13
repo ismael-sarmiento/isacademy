@@ -1,11 +1,11 @@
 // Wires the intro, the opening animation and the landing sections.
-import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261013g';
-import { initTheme, toggleTheme } from './theme.js?v=20261013g';
-import { runIntro } from './intro.js?v=20261013g';
-import { openAcademy, revealSite, finish } from './opening.js?v=20261013g';
-import { CONTACT } from './config.js?v=20261013g';
-import { initConsole, openConsole, runCode, resetConsole, renderSamples } from './console.js?v=20261013g';
-import { initAssistant, refreshAssistant } from './assistant.js?v=20261013g';
+import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261013k';
+import { initTheme, toggleTheme } from './theme.js?v=20261013k';
+import { runIntro } from './intro.js?v=20261013k';
+import { openAcademy, revealSite, finish } from './opening.js?v=20261013k';
+import { CONTACT } from './config.js?v=20261013k';
+import { initConsole, openConsole, runCode, debugCode, resetConsole, renderSamples } from './console.js?v=20261013k';
+import { initAssistant, refreshAssistant } from './assistant.js?v=20261013k';
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -73,15 +73,16 @@ async function submitForm(e) {
   if (!validate(form)) return;
   if (form.elements._honey.value) return; // bots fill the invisible field
   const sel = form.elements.interest;
+  // keys become the row labels of the email Ismael receives, so they are written for him in Spanish
   const data = {
-    name: form.elements.name.value.trim(),
-    email: form.elements.email.value.trim(),
-    phone: form.elements.phone.value.trim(),
-    interest: sel.options[sel.selectedIndex].text,
-    level: form.elements.level.value.trim(),
-    message: form.elements.message.value.trim(),
-    language: document.documentElement.lang,
-    _subject: `${t('contact.subject')}: ${sel.options[sel.selectedIndex].text}`,
+    Nombre: form.elements.name.value.trim(),
+    Email: form.elements.email.value.trim(),
+    'Teléfono': form.elements.phone.value.trim() || '—',
+    'Interés': sel.options[sel.selectedIndex].text,
+    'Edad o nivel': form.elements.level.value.trim() || '—',
+    Mensaje: form.elements.message.value.trim() || '—',
+    Idioma: document.documentElement.lang === 'en' ? 'Inglés' : 'Español',
+    _subject: `Nueva solicitud en IsAcademy: ${sel.options[sel.selectedIndex].text}${document.documentElement.lang === 'en' ? ' (EN)' : ''}`,
     _template: 'table',
     _replyto: form.elements.email.value.trim(),
   };
@@ -245,6 +246,12 @@ function scrollSpy() {
 
 // ---------- boot ----------
 async function boot() {
+  // anti-clickjacking: GitHub Pages cannot send frame-ancestors, so the page refuses to live inside another site's frame
+  if (window.top !== window.self) {
+    let sameOrigin = false;
+    try { sameOrigin = window.top.location.origin === window.location.origin; } catch { /* cross-origin frame */ }
+    if (!sameOrigin) { try { window.top.location.replace(window.location.href); } catch { document.body.hidden = true; } return; }
+  }
   initTheme();
   await setLang(detectLang());
   renderLists();
@@ -277,6 +284,7 @@ async function boot() {
       case 'fact': nextFact(); break;
       case 'console-open': openConsole(); break;
       case 'console-run': runCode(); break;
+      case 'console-debug': debugCode(); break;
       case 'console-reset': resetConsole(); break;
     }
   });
