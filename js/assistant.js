@@ -1,7 +1,7 @@
 // "Alan" assistant: a local, private FAQ assistant (no server). Matches the question against the
 // knowledge base in i18n (assistant.intents) and answers with a human tone plus action buttons.
-import { t } from './i18n.js?v=20261013k';
-import { avatarSVG } from './avatar.js?v=20261013k';
+import { t } from './i18n.js?v=20261013l';
+import { avatarSVG } from './avatar.js?v=20261013l';
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

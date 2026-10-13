@@ -1,11 +1,11 @@
 // Wires the intro, the opening animation and the landing sections.
-import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261013k';
-import { initTheme, toggleTheme } from './theme.js?v=20261013k';
-import { runIntro } from './intro.js?v=20261013k';
-import { openAcademy, revealSite, finish } from './opening.js?v=20261013k';
-import { CONTACT } from './config.js?v=20261013k';
-import { initConsole, openConsole, runCode, debugCode, resetConsole, renderSamples } from './console.js?v=20261013k';
-import { initAssistant, refreshAssistant } from './assistant.js?v=20261013k';
+import { setLang, detectLang, currentLang, t, onLangChange } from './i18n.js?v=20261013l';
+import { initTheme, toggleTheme } from './theme.js?v=20261013l';
+import { runIntro } from './intro.js?v=20261013l';
+import { openAcademy, revealSite, finish } from './opening.js?v=20261013l';
+import { CONTACT } from './config.js?v=20261013l';
+import { initConsole, openConsole, runCode, debugCode, resetConsole, renderSamples } from './console.js?v=20261013l';
+import { initAssistant, refreshAssistant } from './assistant.js?v=20261013l';
 
 const $ = sel => document.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -114,7 +114,7 @@ function renderLists() {
   const items = t('subjects.items');
   $('#subjects').innerHTML = `<div class="subject-grid">${items.map((s, i) => `
       <details class="subject reveal" id="materia-${s.id}" style="--d:${(i % 3) * .06}s">
-        <summary><span class="sgroup">${esc(t('subjects.groups.' + s.group))}</span><b>${esc(s.name)}</b><span>${esc(s.short)}</span></summary>
+        <summary><span class="sgroup">${esc(t('subjects.groups.' + s.group))}</span><h3 class="sname">${esc(s.name)}</h3><span>${esc(s.short)}</span></summary>
         <div class="body">
           <h4>${esc(t(s.alt ? 'subjects.learnAlt' : 'subjects.learn'))}</h4>
           <ul>${s.learn.map(l => `<li>${esc(l)}</li>`).join('')}</ul>
@@ -244,6 +244,23 @@ function scrollSpy() {
   document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
 }
 
+// ---------- prerender (tools/prerender.py) ----------
+// With ?prerender the rendered Spanish sections are exported so the script can write them into index.html:
+// search engines and AI crawlers that do not run JavaScript then read the whole page.
+const PRERENDER_IDS = ['trust', 'aboutBadges', 'pillars', 'steps', 'subjects', 'why', 'reviews', 'reviewsLink', 'faqList', 'fact', 'fInterest', 'privacyText'];
+function exportPrerender() {
+  const out = {};
+  PRERENDER_IDS.forEach(id => {
+    const clone = document.getElementById(id).cloneNode(true);
+    clone.querySelectorAll('.in').forEach(el => el.classList.remove('in'));
+    out[id] = clone.innerHTML;
+  });
+  const tag = document.createElement('script');
+  tag.type = 'application/json'; tag.id = 'prerender-out';
+  tag.textContent = JSON.stringify(out);
+  document.body.appendChild(tag);
+}
+
 // ---------- boot ----------
 async function boot() {
   // anti-clickjacking: GitHub Pages cannot send frame-ancestors, so the page refuses to live inside another site's frame
@@ -255,6 +272,7 @@ async function boot() {
   initTheme();
   await setLang(detectLang());
   renderLists();
+  if (new URLSearchParams(location.search).has('prerender')) exportPrerender();
   onLangChange(() => { renderLists(); renderSamples(); refreshAssistant(); if ($('#codeTabs').children.length) { renderTabs(true); showLesson(lessonIdx, false); } });
   scrollSpy();
   initConsole();
@@ -272,6 +290,15 @@ async function boot() {
   });
 
   document.addEventListener('click', e => {
+    // "home" links (logo, back to top) scroll up without leaving #hero in the address
+    const home = e.target.closest('a[href="#hero"]');
+    if (home) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      history.replaceState(history.state, '', location.pathname + location.search);
+      $('.hero h1').focus({ preventScroll: true });
+      return;
+    }
     const lesson = e.target.closest('[data-lesson]');
     if (lesson) { showLesson(Number(lesson.dataset.lesson)); return; }
     const el = e.target.closest('[data-action], [data-book]');
@@ -289,6 +316,8 @@ async function boot() {
     }
   });
 
+  // #hero is the start of the page, not a deep link: a refresh there plays the intro again
+  if (location.hash === '#hero') history.replaceState(history.state, '', location.pathname + location.search);
   // deep links (e.g. /#contacto from WhatsApp or an ad) go straight to their section
   const target = location.hash && document.getElementById(location.hash.slice(1));
   if (target) {

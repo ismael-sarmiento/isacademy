@@ -1,5 +1,5 @@
 // In-browser Python console (Pyodide / WebAssembly). Loaded on demand: ~10 MB the first time.
-import { t } from './i18n.js?v=20261013k';
+import { t } from './i18n.js?v=20261013l';
 
 const PYODIDE_URL = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/';
 // Subresource Integrity: the browser refuses pyodide.js if the CDN copy is ever altered
