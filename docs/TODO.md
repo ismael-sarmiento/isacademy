@@ -11,7 +11,11 @@
 - [ ] Pedir 2–3 reseñas recientes (las actuales son de 2023–2024).
 - [ ] Activar la verificación en dos pasos en GitHub y en isacademy.notification@gmail.com.
 - [ ] Cartel para universidades (cuando haya teléfono): usar `assets/brand/print/` (logo + QR).
-- [ ] Aprobar la mano humana v4 de la cinemática (`js/opening.js`, pendiente de subir).
+- [x] Mano humana v4 aprobada y publicada (2026-10-13).
+- [ ] **Google Search Console**: crear la propiedad y pasar la etiqueta de verificación (ver `docs/SEO.md`).
+- [ ] Ficha de Google Business y reseñas en Google (cuando haya teléfono).
+- [ ] Valorar dominio propio (`isacademy.es`).
+- [ ] Enlazar la web desde LinkedIn, GitHub, web personal y perfiles de profesor.
 - [ ] Voz para el mundo 3D (más adelante).
 
 ## Pendientes técnicos
