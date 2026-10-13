@@ -13,7 +13,7 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 |---|---|
 | Marca | **IsAcademy** · "by Ismael Sarmiento" (pequeño, alineado a la derecha) |
 | Voz | Plural ("nosotros"), con Ismael como fundador y tutor |
-| Logo | SVG. "Is" en **Allura** (dorado `#C8953F`), "Academy" en Space Grotesk (azul marino `#1C2547`). Sin barra de cursor en el logo final |
+| Logo | SVG. "Is" en **Allura**, "Academy" en Space Grotesk (azul marino `#1C2547`). Dorado de marca: `#B58534` en modo claro (contraste sobre crema), `#C8953F` en oscuro e impresión |
 | Gancho | *La Inteligencia Artificial (IA) te da respuestas. Aquí te enseñamos a pensar.* (se retira "Tutor humano en un mundo artificial") |
 | Intro | Se reproduce **en cada visita** (salvo enlaces directos). El "Is" se esboza, "Academy" se decodifica, botones ES/EN y claro/oscuro, solo "Entrar a la academia" |
 | Apertura | Mano humana dorada (línea) se lleva "Is" a la izquierda; mano robótica se lleva "Academy" a la derecha. Móvil: solo separación |
@@ -50,7 +50,8 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 7. F1.7 · Depurador, seguridad, pulido visual y recursos de marca (2026-10-13) ✅
 8. F1.8 · SEO, idioma por defecto, #hero, mejoras de UX (2026-10-13) ✅
 9. F1.9 · Código modular, tokens de diseño, movimiento sutil y pasada de textos (2026-10-14) ✅
-10. Pendiente: aviso legal (aplazado por el propietario), Search Console, mundo 3D.
+10. F1.9.1 · Un dorado por tema, modo claro cálido, formulario coherente, email en español (2026-10-14) ✅
+11. Pendiente: aviso legal (aplazado por el propietario), Search Console, mundo 3D.
 
 ## Trazabilidad
 
@@ -64,3 +65,4 @@ El componente lúdico queda acotado a la intro/apertura y a la sección **Recurs
 - 2026-10-13 · F1.7: depurador paso a paso (sys.settrace), CSP + SRI + anti-clickjacking, contraste AA, puntos del circuito sincronizados, viñeta clara más suave, mano humana v4 (pendiente de OK), hero sin frase repetida, curiosidades 4 y 12 precisas, email con campos en español, logos/monograma/QR para carteles.
 - 2026-10-13 · F1.8: mano v4 publicada; SEO (español por defecto, hreflang, prerender, título con palabras clave, h3 en materias, cursos en JSON-LD, sitemap, docs/SEO.md); #hero ya no salta la intro; sugerencias de Alan en varias filas; mini-reto sin líneas largas; foco dorado en el editor.
 - 2026-10-14 · F1.9: app.js dividido en módulos (sections, form, lessons, nav, prerender, debugger, core/*); import map como única fuente de versión (CSP con hash); CSS con tokens y base `.card`; micro-interacciones (botones, tarjetas con brillo, progreso de lectura, details suaves); textos coherentes (sin duplicados, éxito del formulario más claro); email con plantilla box, resumen y asunto con materia y nombre.
+- 2026-10-14 · F1.9.1: el propietario detecta dorados distintos (Is, botones, nota manuscrita), modo claro menos pulido y formulario que no cambiaba de interés. Un dorado de marca por tema (#B58534 claro / #C8953F oscuro) + dorado de texto; superficies y sombras cálidas en claro; enlaces genéricos limpian la preselección; materia del email siempre en español; baterías tools/qa (color-audit, flows: 87/87).
