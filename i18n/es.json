@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "IsAcademy · Humanos en un mundo artificial",
-    "description": "Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional."
+    "title": "IsAcademy · Clases de programación e IA online · Humanos en un mundo artificial",
+    "description": "Clases particulares online de Python, SQL, IA, Big Data y Data Engineering para todas las edades. Análisis inicial gratuito y aulas abiertas cada 15 días."
   },
   "intro": {
     "skip": "Saltar intro",
@@ -118,7 +118,7 @@
   "subjects": {
     "eyebrow": "Materias",
     "title": "¿Qué quieres dominar?",
-    "lead": "Elige por dónde empezar. Cada materia se adapta a tu nivel, desde cero hasta avanzado.",
+    "lead": "Clases particulares online de programación, datos e IA. Elige por dónde empezar: cada materia se adapta a tu nivel, desde cero hasta avanzado.",
     "groups": {
       "programming": "Programación",
       "dataai": "Datos e IA",
@@ -457,7 +457,7 @@
       },
       {
         "name": "Mini-reto",
-        "code": "# Reto: completa la función para que devuelva\n# solo las palabras de más de 4 letras.\ndef largas(palabras):\n    # Tu código aquí\n    return []\n\nresultado = largas([\"datos\", \"IA\", \"python\", \"sql\"])\nprint(resultado)\nprint(\"¡Reto superado!\" if resultado == [\"datos\", \"python\"] else \"Aún no: revisa la condición\")"
+        "code": "# Reto: completa la función para que devuelva\n# solo las palabras de más de 4 letras.\ndef largas(palabras):\n    # Tu código aquí\n    return []\n\nresultado = largas([\"datos\", \"IA\", \"python\", \"sql\"])\nprint(resultado)\nif resultado == [\"datos\", \"python\"]:\n    print(\"¡Reto superado!\")\nelse:\n    print(\"Aún no: revisa la condición\")"
       }
     ],
     "debug": "Paso a paso",

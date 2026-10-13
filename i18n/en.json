@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "IsAcademy · Humans in an artificial world",
-    "description": "Online Python, SQL, AI, Big Data and Data Engineering classes: theory you understand, real practice and a method that motivates. Thesis support and career guidance."
+    "title": "IsAcademy · Online programming and AI classes · Humans in an artificial world",
+    "description": "Private online classes in Python, SQL, AI, Big Data and Data Engineering for all ages. Free initial assessment and free open classes every two weeks."
   },
   "intro": {
     "skip": "Skip intro",
@@ -118,7 +118,7 @@
   "subjects": {
     "eyebrow": "Subjects",
     "title": "What do you want to master?",
-    "lead": "Choose where to start. Every subject adapts to your level, from zero to advanced.",
+    "lead": "Private online classes in programming, data and AI. Choose where to start: every subject adapts to your level, from zero to advanced.",
     "groups": {
       "programming": "Programming",
       "dataai": "Data and AI",
@@ -457,7 +457,7 @@
       },
       {
         "name": "Mini challenge",
-        "code": "# Challenge: complete the function so it returns\n# only the words longer than 4 letters.\ndef long_words(words):\n    # Your code here\n    return []\n\nresult = long_words([\"data\", \"AI\", \"python\", \"sql\"])\nprint(result)\nprint(\"Challenge passed!\" if result == [\"python\"] else \"Not yet: check the condition\")"
+        "code": "# Challenge: complete the function so it returns\n# only the words longer than 4 letters.\ndef long_words(words):\n    # Your code here\n    return []\n\nresult = long_words([\"data\", \"AI\", \"python\", \"sql\"])\nprint(result)\nif result == [\"python\"]:\n    print(\"Challenge passed!\")\nelse:\n    print(\"Not yet: check the condition\")"
       }
     ],
     "debug": "Step by step",
