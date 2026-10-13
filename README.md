@@ -13,10 +13,10 @@ Su objetivo es captar alumnos: todas las secciones llevan al contacto.
 ## Cómo funciona
 
 1. **Intro (en cada visita):** el "Is" caligráfico se esboza a mano y "Academy" se decodifica como una IA. Botones ES/EN y claro/oscuro, y "Entrar a la academia".
-2. **Apertura (cinemática):** manos ilustradas (humana dorada y robótica con LED) pellizcan las palabras; estela de tinta, píxeles, destello y rendija de luz abren la web. También en móvil.
+2. **Apertura (cinemática):** manos ilustradas (humana dorada y robótica con LED) pellizcan las palabras y las separan con una estela sutil de tinta y píxeles. También en móvil.
+3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos.
 4. **Asistente "Alan":** avatar ilustrado con chat local (sin servidor) que responde sobre la academia y deriva al formulario.
 5. **Reservar clase:** formulario propio que llega por email vía FormSubmit (`js/config.js` → `formEmail`).
-3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos.
 
 Los enlaces directos (`/#contacto`, `/#materias`) saltan la intro.
 
@@ -28,15 +28,15 @@ css/main.css          Tokens de diseño (claro/oscuro), intro, manos, secciones
 js/app.js             Pinta las secciones desde i18n, scroll spy, contacto, curiosidades
 js/intro.js           Animación del logo
 js/opening.js         Cinemática de apertura (manos SVG, secuencia)
-js/fx.js              Partículas de la cinemática (destellos, tinta, píxeles, destello)
-js/assistant.js       Asistente "Is": motor de respuestas local + panel de chat
+js/fx.js              Partículas de la cinemática (tinta y píxeles)
+js/assistant.js       Asistente "Alan": motor de respuestas local + panel de chat
 js/avatar.js          Avatar SVG animado del asistente
 js/i18n.js            Carga i18n/<lang>.json y traduce [data-i18n]
 js/theme.js           Modo claro/oscuro (sigue al sistema, recuerda la elección)
 js/console.js         Consola de Python en el navegador (Pyodide desde jsDelivr, bajo demanda)
 js/config.js          Email de destino del formulario (FormSubmit) y futuros WhatsApp/teléfono
 i18n/es.json, en.json Todos los textos (materias, FAQ, curiosidades, código del hero…)
-assets/brand/         logo.svg, favicon.svg y og.png (imagen al compartir, 1200×630)
+assets/brand/         logo.svg, favicon-32.png, apple-touch-icon.png, icon-512.png y og.png (imagen al compartir, 1200×630)
 assets/fonts/         Allura y Space Grotesk alojadas en local (OFL)
 assets/img/           Foto del fundador
 docs/                 PROJECT_CONTEXT.md (decisiones) y TODO.md (pendientes)
@@ -84,7 +84,7 @@ Requisitos: `git` y acceso a la cuenta `ismael-sarmiento` (HTTPS con token o SSH
 ```bash
 # 1. Crear el repositorio vacío en GitHub (web: https://github.com/new → "isacademy")
 #    o con la CLI de GitHub:
-gh repo create ismael-sarmiento/isacademy --public --description "IsAcademy · Tutor humano en un mundo artificial"
+gh repo create ismael-sarmiento/isacademy --public --description "IsAcademy · Humanos en un mundo artificial"
 
 # 2. Desde esta carpeta, confirmar los cambios (si aún no hay commits) y subir el código
 git add -A
@@ -123,7 +123,9 @@ absoluta en `index.html`: `<link rel="canonical">`, `og:url` y la `url` del bloq
 
 ## Contacto (formulario)
 
-El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenvía al email de `js/config.js`.
-- **Activación:** el primer envío provoca un email de FormSubmit a esa dirección; hay que pulsar su enlace una vez.
-- **Ocultar el email:** tras activar, FormSubmit envía un alias aleatorio; sustituye `formEmail` por ese alias.
-- **Cambiar de correo:** edita `formEmail` y `publicEmail` y vuelve a activar.
+El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenvía al email de `js/config.js`
+(**isacademy.notification@gmail.com**, activado el 2026-10-13).
+- **Cambiar de correo:** edita `formEmail` y `publicEmail`, publica y haz un envío de prueba desde la web publicada:
+  FormSubmit manda un email «Activate Form» al nuevo correo y hay que pulsarlo (el enlace caduca).
+- **Alias de FormSubmit:** opcional; el correo ya es público en el texto de privacidad y en el pie.
+- Si eliges «Aula abierta», el mensaje es opcional.

@@ -7,20 +7,21 @@
   <meta name="description" content="Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional.">
   <meta name="theme-color" content="#1c2547">
   <link rel="canonical" href="https://ismael-sarmiento.github.io/isacademy/">
-  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="IsAcademy · Humanos en un mundo artificial">
   <meta property="og:description" content="Clases online de Python, SQL, IA y datos: teoría que se entiende, práctica real y un método que motiva. Aulas abiertas gratuitas cada 15 días.">
   <meta property="og:url" content="https://ismael-sarmiento.github.io/isacademy/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:locale:alternate" content="en_GB">
-  <meta property="og:image" content="https://ismael-sarmiento.github.io/isacademy/assets/brand/og.png">
+  <meta property="og:image" content="https://ismael-sarmiento.github.io/isacademy/assets/brand/og.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=20261012j">
+  <link rel="stylesheet" href="css/main.css?v=20261013g">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,7 +29,12 @@
     "name": "IsAcademy",
     "slogan": "La Inteligencia Artificial te da respuestas. Aquí te enseñamos a pensar.",
     "url": "https://ismael-sarmiento.github.io/isacademy/",
-    "founder": { "@type": "Person", "name": "Ismael Sarmiento" },
+    "description": "Clases online y personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional.",
+    "logo": "https://ismael-sarmiento.github.io/isacademy/assets/brand/icon-512.png",
+    "image": "https://ismael-sarmiento.github.io/isacademy/assets/brand/og.png",
+    "email": "isacademy.notification@gmail.com",
+    "availableLanguage": ["es", "en"],
+    "founder": { "@type": "Person", "name": "Ismael Sarmiento", "jobTitle": "Lead Data Engineer", "sameAs": "https://www.linkedin.com/in/ismael-sarmiento/" },
     "knowsAbout": ["Python", "SQL", "Inteligencia Artificial", "Big Data", "Apache Spark", "Data Engineering", "Analítica de datos", "Programación orientada a objetos", "TFG", "Máster", "Orientación profesional"]
   }
   </script>
@@ -126,7 +132,7 @@
             <pre id="heroCode" role="tabpanel"></pre>
           </div>
           <div class="handnote"><span id="heroNote"></span>
-            <svg viewBox="0 0 120 60"><path d="M10 10 C40 50 80 52 110 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M98 24 L111 29 L103 41" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M10 10 C40 50 80 52 110 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M98 24 L111 29 L103 41" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
       </div>
@@ -251,7 +257,7 @@
                 <button class="btn btn-sm" data-action="console-reset" data-i18n="console.reset"></button>
                 <button class="btn btn-sm btn-primary" data-action="console-run" data-i18n="console.run" disabled></button>
               </div>
-              <textarea id="pyEditor" spellcheck="false" autocapitalize="off" data-i18n-aria="console.editorLabel"></textarea>
+              <textarea id="pyEditor" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" data-i18n-aria="console.editorLabel"></textarea>
               <p class="console-label" data-i18n="console.output"></p>
               <pre id="pyOut" aria-live="polite"></pre>
             </div>
@@ -308,7 +314,7 @@
   <section id="assistantPanel" class="assistant-panel" role="dialog" aria-labelledby="assistantName" hidden>
     <header class="as-head">
       <span class="as-avatar"></span>
-      <div><p class="as-name" id="assistantName">Is</p><p class="as-sub"></p></div>
+      <div><p class="as-name" id="assistantName">Alan</p><p class="as-sub"></p></div>
       <button id="assistantClose" class="btn btn-icon" type="button">✕</button>
     </header>
     <div class="as-log" id="assistantLog" aria-live="polite"></div>
@@ -322,7 +328,10 @@
   <footer class="footer">
     <div class="container footer-row">
       <span data-i18n="footer.rights"></span>
-      <span class="muted" data-i18n="footer.legal"></span>
+      <span class="footer-links">
+        <a id="footerMail" href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ismael-sarmiento/" target="_blank" rel="noopener">LinkedIn <span class="sr-only" data-i18n="contact.newTab"></span></a>
+      </span>
       <a href="#hero" data-i18n="footer.top"></a>
     </div>
   </footer>
@@ -330,7 +339,7 @@
   <noscript><div style="padding:24px"><h1>IsAcademy · Aquí te enseñamos a pensar</h1>
     <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
     <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
-    <p>Activa JavaScript para ver la web completa.</p></div></noscript>
-  <script type="module" src="js/app.js?v=20261012j"></script>
+    <p>Escríbenos a <a href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>. Activa JavaScript para ver la web completa.</p></div></noscript>
+  <script type="module" src="js/app.js?v=20261013g"></script>
 </body>
 </html>
