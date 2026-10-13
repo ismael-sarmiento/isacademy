@@ -41,7 +41,8 @@ assets/brand/print/   Logos con texto en trazados, monograma «Is» y QR (para c
 tools/brand/          Scripts para regenerar logos y QR (macOS: CoreText y CoreImage)
 assets/fonts/         Allura y Space Grotesk alojadas en local (OFL)
 assets/img/           Foto del fundador
-docs/                 PROJECT_CONTEXT.md (decisiones) y TODO.md (pendientes)
+docs/                 PROJECT_CONTEXT.md (decisiones), TODO.md (pendientes) y SEO.md (visibilidad en buscadores)
+sitemap.xml           Mapa del sitio (es/en) para Search Console
 ```
 
 ## Probar en local
@@ -60,8 +61,14 @@ CSS, módulos JS y textos llevan `?v=<versión>` para que nadie mezcle ficheros 
 **Antes de publicar cambios**, ejecuta:
 
 ```bash
-tools/bump-version.sh
+tools/bump-version.sh <versión>
+python3 -m http.server 8766 &   # la web servida en local
+python3 tools/prerender.py      # escribe el texto en español dentro de index.html (SEO)
 ```
+
+`tools/prerender.py` abre la web en Chrome sin ventana y copia el texto ya pintado en `index.html` (entre
+`<!--pre-->` y `<!--/pre-->`), para que los buscadores que no ejecutan JavaScript lean toda la página.
+Ver `docs/SEO.md`.
 
 ## Publicar en GitHub Pages
 

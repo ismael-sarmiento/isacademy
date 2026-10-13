@@ -5,15 +5,18 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://cdn.jsdelivr.net; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>IsAcademy · Humanos en un mundo artificial</title>
-  <meta name="description" content="Clases online de Python, SQL, IA, Big Data y Data Engineering: teoría que se entiende, práctica real y un método que motiva. TFG/TFM y orientación profesional.">
+  <title>IsAcademy · Clases de programación e IA online · Humanos en un mundo artificial</title>
+  <meta name="description" content="Clases particulares online de Python, SQL, IA, Big Data y Data Engineering para todas las edades. Análisis inicial gratuito y aulas abiertas cada 15 días.">
   <meta name="theme-color" content="#1c2547">
   <link rel="canonical" href="https://ismael-sarmiento.github.io/isacademy/">
+  <link rel="alternate" hreflang="es" href="https://ismael-sarmiento.github.io/isacademy/">
+  <link rel="alternate" hreflang="en" href="https://ismael-sarmiento.github.io/isacademy/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://ismael-sarmiento.github.io/isacademy/">
   <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="IsAcademy · Humanos en un mundo artificial">
-  <meta property="og:description" content="Clases online de Python, SQL, IA y datos: teoría que se entiende, práctica real y un método que motiva. Aulas abiertas gratuitas cada 15 días.">
+  <meta property="og:title" content="IsAcademy · Clases de programación e IA online · Humanos en un mundo artificial">
+  <meta property="og:description" content="Clases particulares online de Python, SQL, IA, Big Data y Data Engineering para todas las edades. Análisis inicial gratuito y aulas abiertas cada 15 días.">
   <meta property="og:url" content="https://ismael-sarmiento.github.io/isacademy/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:locale:alternate" content="en_GB">
@@ -23,22 +26,184 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/allura-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=20261013k">
+  <link rel="stylesheet" href="css/main.css?v=20261013l">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "IsAcademy",
-    "slogan": "La Inteligencia Artificial te da respuestas. Aquí te enseñamos a pensar.",
-    "url": "https://ismael-sarmiento.github.io/isacademy/",
-    "description": "Clases online y personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional.",
-    "logo": "https://ismael-sarmiento.github.io/isacademy/assets/brand/icon-512.png",
-    "image": "https://ismael-sarmiento.github.io/isacademy/assets/brand/og.png",
-    "email": "isacademy.notification@gmail.com",
-    "availableLanguage": ["es", "en"],
-    "founder": { "@type": "Person", "name": "Ismael Sarmiento", "jobTitle": "Lead Data Engineer", "sameAs": "https://www.linkedin.com/in/ismael-sarmiento/" },
-    "knowsAbout": ["Python", "SQL", "Inteligencia Artificial", "Big Data", "Apache Spark", "Data Engineering", "Analítica de datos", "Programación orientada a objetos", "TFG", "Máster", "Orientación profesional"]
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://ismael-sarmiento.github.io/isacademy/#org",
+  "name": "IsAcademy",
+  "slogan": "La Inteligencia Artificial te da respuestas. Aquí te enseñamos a pensar.",
+  "url": "https://ismael-sarmiento.github.io/isacademy/",
+  "description": "Clases particulares online de Python, SQL, IA, Big Data y Data Engineering para todas las edades. Análisis inicial gratuito y aulas abiertas cada 15 días.",
+  "logo": "https://ismael-sarmiento.github.io/isacademy/assets/brand/icon-512.png",
+  "image": "https://ismael-sarmiento.github.io/isacademy/assets/brand/og.png",
+  "email": "isacademy.notification@gmail.com",
+  "availableLanguage": [
+    "es",
+    "en"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Ismael Sarmiento",
+    "jobTitle": "Lead Data Engineer",
+    "sameAs": "https://www.linkedin.com/in/ismael-sarmiento/"
+  },
+  "knowsAbout": [
+    "Python",
+    "SQL",
+    "Inteligencia Artificial",
+    "Big Data",
+    "Apache Spark",
+    "Data Engineering",
+    "Analítica de datos",
+    "Programación orientada a objetos",
+    "TFG",
+    "Máster",
+    "Orientación profesional"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Clases online de programación, datos e IA",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Python",
+          "description": "De cero a programar con soltura.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Programación orientada a objetos",
+          "description": "Diseño de código limpio y mantenible.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "SQL",
+          "description": "Consultas y modelado sobre bases de datos reales.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Analítica de datos",
+          "description": "De los datos a las decisiones.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Big Data · Spark",
+          "description": "Procesamiento distribuido a gran escala.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Data Engineering",
+          "description": "Pipelines, orquestación y calidad del dato.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Inteligencia Artificial",
+          "description": "Machine learning e IA generativa, con criterio.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "TFG · TFM",
+          "description": "Te guiamos de la idea a la defensa. El trabajo es tuyo; el método y la seguridad, nuestros.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Orientación profesional",
+          "description": "Data Engineer, Data Scientist o especialista en IA.",
+          "inLanguage": [
+            "es",
+            "en"
+          ],
+          "provider": {
+            "@id": "https://ismael-sarmiento.github.io/isacademy/#org"
+          }
+        }
+      }
+    ]
   }
+}
   </script>
 </head>
 <body>
@@ -51,8 +216,8 @@
       <path d="M0 780 H260 L300 740 H460"/><circle cx="460" cy="740" r="5"/>
     </svg>
     <div class="intro-top">
-      <button class="btn btn-sm" data-action="lang" data-i18n-aria="nav.langLabel"><span data-i18n="nav.langShort">EN</span></button>
-      <button class="btn btn-sm btn-icon" data-action="theme" data-i18n-aria="nav.themeLabel">
+      <button class="btn btn-sm" data-action="lang" data-i18n-aria="nav.langLabel" aria-label="Cambiar a inglés"><span data-i18n="nav.langShort">EN</span></button>
+      <button class="btn btn-sm btn-icon" data-action="theme" data-i18n-aria="nav.themeLabel" aria-label="Cambiar modo claro / oscuro">
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
       </button>
       <button id="skip" class="btn btn-sm" data-i18n="intro.skip">Saltar intro</button>
@@ -94,8 +259,8 @@
   <!-- ========== SITE ========== -->
   <header class="topbar" id="top">
     <div class="topbar-row container">
-      <a class="brand" href="#hero" data-i18n-aria="nav.home"><span class="brand-is">Is</span><span class="brand-ac"><span class="big-a">A</span>cademy</span></a>
-      <nav class="sections" data-i18n-aria="nav.label">
+      <a class="brand" href="#hero" data-i18n-aria="nav.home" aria-label="IsAcademy, inicio"><span class="brand-is">Is</span><span class="brand-ac"><span class="big-a">A</span>cademy</span></a>
+      <nav class="sections" data-i18n-aria="nav.label" aria-label="Secciones">
         <a href="#quienes" data-i18n="nav.about">Quiénes somos</a>
         <a href="#metodologia" data-i18n="nav.method">Metodología</a>
         <a href="#materias" data-i18n="nav.subjects">Materias</a>
@@ -106,8 +271,8 @@
       </nav>
       <div class="tools">
         <a class="btn btn-primary cta-top" href="#contacto" data-i18n="nav.cta">Reservar clase</a>
-        <button class="btn btn-icon" data-action="lang" data-i18n-aria="nav.langLabel"><span data-i18n="nav.langShort">EN</span></button>
-        <button class="btn btn-icon" data-action="theme" data-i18n-aria="nav.themeLabel">
+        <button class="btn btn-icon" data-action="lang" data-i18n-aria="nav.langLabel" aria-label="Cambiar a inglés"><span data-i18n="nav.langShort">EN</span></button>
+        <button class="btn btn-icon" data-action="theme" data-i18n-aria="nav.themeLabel" aria-label="Cambiar modo claro / oscuro">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
         </button>
       </div>
@@ -119,18 +284,18 @@
     <section class="hero" id="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Academia online de programación, datos e IA</p>
           <h1 data-i18n="hero.title">Aprende a pensar con datos e IA, no solo a usarlos.</h1>
-          <p class="lead" data-i18n="hero.sub"></p>
+          <p class="lead" data-i18n="hero.sub">Clases personalizadas de Python, SQL, IA, Big Data y Data Engineering para todas las edades, con apoyo en TFG/TFM y orientación profesional, de la mano de alguien que trabaja cada día en el sector.</p>
           <div class="cta-row">
-            <a class="btn btn-primary btn-lg" href="#contacto" data-i18n="hero.cta1">Reserva tu clase</a>
+            <a class="btn btn-primary btn-lg" href="#contacto" data-i18n="hero.cta1">Pide tu análisis gratuito</a>
             <a class="btn btn-lg" href="#materias" data-i18n="hero.cta2">Ver materias</a>
           </div>
-          <ul class="trust" id="trust"></ul>
+          <ul class="trust" id="trust"><!--pre--><li>Valoración de 5 ★</li><li>+10 años en tecnología y docencia</li><li>Análisis inicial gratuito</li><li>Todas las edades · online</li><!--/pre--></ul>
         </div>
         <div class="hero-visual reveal">
           <div class="code-card">
-            <div class="code-bar"><i></i><i></i><i></i><div class="code-tabs" id="codeTabs" role="tablist" data-i18n-aria="hero.tabsLabel"></div></div>
+            <div class="code-bar"><i></i><i></i><i></i><div class="code-tabs" id="codeTabs" role="tablist" data-i18n-aria="hero.tabsLabel" aria-label="Mini-clases de ejemplo"></div></div>
             <pre id="heroCode" role="tabpanel"></pre>
           </div>
           <div class="handnote"><span id="heroNote"></span>
@@ -144,11 +309,11 @@
     <section class="open-band" id="aulas-abiertas">
       <div class="container open-row reveal">
         <div>
-          <p class="eyebrow"><span data-i18n="open.eyebrow"></span> <span class="pill" data-i18n="open.badge"></span></p>
-          <h2 data-i18n="open.title"></h2>
-          <p data-i18n="open.desc"></p>
+          <p class="eyebrow"><span data-i18n="open.eyebrow">Aulas abiertas</span> <span class="pill" data-i18n="open.badge">Gratis · Online</span></p>
+          <h2 data-i18n="open.title">Cada 15 días, un aula abierta y gratuita</h2>
+          <p data-i18n="open.desc">Abrimos un aula online para resolver dudas en directo: Python, SQL, datos o IA. Ven con tus preguntas, aunque todavía no seas alumno. Escríbenos y te avisamos de la próxima.</p>
         </div>
-        <a class="btn btn-primary btn-lg" href="#contacto" data-book="open" data-i18n="open.cta"></a>
+        <a class="btn btn-primary btn-lg" href="#contacto" data-book="open" data-i18n="open.cta">Avísame de la próxima aula abierta</a>
       </div>
     </section>
 
@@ -156,18 +321,18 @@
     <section class="section" id="quienes">
       <div class="container about-grid">
         <div class="founder reveal">
-          <img class="founder-photo" src="assets/img/ismael.jpg" width="132" height="132" alt="Ismael Sarmiento" data-i18n-alt="about.photoAlt">
+          <img class="founder-photo" src="assets/img/ismael.jpg" width="132" height="132" alt="Ismael Sarmiento, fundador de IsAcademy" data-i18n-alt="about.photoAlt">
           <p class="founder-name">Ismael Sarmiento</p>
-          <p class="muted" data-i18n="about.role">Fundador y tutor</p>
-          <ul class="badges" id="aboutBadges"></ul>
+          <p class="muted" data-i18n="about.role">Fundador y tutor · Lead Data Engineer</p>
+          <ul class="badges" id="aboutBadges"><!--pre--><li>Valoración de 5 ★ de sus alumnos</li><li>Clases online, en directo</li><!--/pre--></ul>
           <a class="btn btn-sm linkedin" id="linkedinLink" href="https://www.linkedin.com/in/ismael-sarmiento/" target="_blank" rel="noopener" data-i18n="about.linkedin">Ver perfil en LinkedIn ↗</a>
         </div>
         <div class="reveal">
-          <p class="eyebrow" data-i18n="about.eyebrow"></p>
-          <h2 data-i18n="about.title"></h2>
-          <p class="lead" data-i18n="about.p1"></p>
-          <p data-i18n="about.p2"></p>
-          <p data-i18n="about.p3"></p>
+          <p class="eyebrow" data-i18n="about.eyebrow">Quiénes somos</p>
+          <h2 data-i18n="about.title">Aprender sigue siendo algo humano</h2>
+          <p class="lead" data-i18n="about.p1">IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.</p>
+          <p data-i18n="about.p2">La fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.</p>
+          <p data-i18n="about.p3">Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.</p>
         </div>
       </div>
     </section>
@@ -176,14 +341,14 @@
     <section class="section alt" id="metodologia">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="method.eyebrow"></p>
-          <h2 data-i18n="method.title"></h2>
-          <p class="lead" data-i18n="method.lead"></p>
+          <p class="eyebrow" data-i18n="method.eyebrow">Metodología</p>
+          <h2 data-i18n="method.title">Teoría que se entiende, práctica que se aplica</h2>
+          <p class="lead" data-i18n="method.lead">Combinamos explicaciones claras, práctica con casos reales y retos con progreso visible (gamificación): así aprendes entendiendo, aplicando y sin perder la motivación.</p>
         </div>
-        <div class="pillars" id="pillars"></div>
-        <h3 class="sub-title reveal" data-i18n="method.stepsTitle"></h3>
-        <ol class="steps" id="steps"></ol>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.method"></a></p>
+        <div class="pillars" id="pillars"><!--pre--><article class="card pillar reveal" style="--d:0s"><span class="n">1</span><h3>Bases sólidas</h3><p>Explicaciones claras, sin fórmulas mágicas: sabrás el porqué de cada cosa.</p></article><article class="card pillar reveal" style="--d:0.08s"><span class="n">2</span><h3>Práctica real</h3><p>Desde las primeras clases trabajas con casos y proyectos del sector, no con ejercicios de relleno.</p></article><article class="card pillar reveal" style="--d:0.16s"><span class="n">3</span><h3>Retos y progreso visible</h3><p>Objetivos claros y logros que mantienen la motivación y convierten el estudio en hábito.</p></article><!--/pre--></div>
+        <h3 class="sub-title reveal" data-i18n="method.stepsTitle">Cómo trabajamos contigo</h3>
+        <ol class="steps" id="steps"><!--pre--><li class="reveal" style="--d:0s"><h4>Análisis gratuito</h4><p>Analizamos tu caso sin coste: tu punto de partida, lo que quieres conseguir y cómo llegar.</p></li><li class="reveal" style="--d:0.08s"><h4>Plan personalizado</h4><p>Diseñamos una hoja de ruta a tu medida: temas, ritmo y objetivos claros.</p></li><li class="reveal" style="--d:0.16s"><h4>Práctica guiada</h4><p>Cada concepto se trabaja con ejercicios y retos, con la teoría justa para entenderlo.</p></li><li class="reveal" style="--d:0.24s"><h4>Proyecto real</h4><p>Aplicas lo aprendido en un proyecto propio que podrás mostrar en clase, en tu TFG o en una entrevista.</p></li><!--/pre--></ol>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.method">¿Te encaja? Pide tu análisis gratuito →</a></p>
       </div>
     </section>
 
@@ -191,11 +356,92 @@
     <section class="section" id="materias">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="subjects.eyebrow"></p>
-          <h2 data-i18n="subjects.title"></h2>
-          <p class="lead" data-i18n="subjects.lead"></p>
+          <p class="eyebrow" data-i18n="subjects.eyebrow">Materias</p>
+          <h2 data-i18n="subjects.title">¿Qué quieres dominar?</h2>
+          <p class="lead" data-i18n="subjects.lead">Clases particulares online de programación, datos e IA. Elige por dónde empezar: cada materia se adapta a tu nivel, desde cero hasta avanzado.</p>
         </div>
-        <div class="subjects" id="subjects"></div>
+        <div class="subjects" id="subjects"><!--pre--><div class="subject-grid">
+      <details class="subject reveal" id="materia-python" style="--d:0s">
+        <summary><span class="sgroup">Programación</span><h3 class="sname">Python</h3><span>De cero a programar con soltura.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>Sintaxis y lógica de programación desde la base</li><li>Funciones, módulos y buenas prácticas</li><li>Automatización y trabajo con datos</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Cada concepto se aprende escribiendo código: mini-retos en clase y un proyecto propio que crece contigo.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="python">Reserva tu clase de Python</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-oop" style="--d:0.06s">
+        <summary><span class="sgroup">Programación</span><h3 class="sname">Programación orientada a objetos</h3><span>Diseño de código limpio y mantenible.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>Clases, herencia y composición</li><li>Principios de diseño y patrones</li><li>Refactorización y tests</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Diseñamos juntos pequeños sistemas y los mejoramos hasta que el código hable por sí solo.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="oop">Reserva tu clase de POO</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-sql" style="--d:0.12s">
+        <summary><span class="sgroup">Datos e IA</span><h3 class="sname">SQL</h3><span>Consultas y modelado sobre bases de datos reales.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>SELECT, JOIN y agregaciones sin miedo</li><li>Modelado de datos y normalización</li><li>Optimización y consultas analíticas</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Practicamos con bases de datos realistas, resolviendo preguntas de negocio como en un trabajo de verdad.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="sql">Reserva tu clase de SQL</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-analytics" style="--d:0s">
+        <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Analítica de datos</h3><span>De los datos a las decisiones.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>Limpieza y análisis con pandas</li><li>Visualización clara y honesta</li><li>Contar historias con datos</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Partimos de una pregunta real y terminamos con un análisis que podrías presentar en una reunión.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="analytics">Reserva tu clase de analítica</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-bigdata" style="--d:0.06s">
+        <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Big Data · Spark</h3><span>Procesamiento distribuido a gran escala.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>Conceptos de procesamiento distribuido</li><li>Apache Spark y PySpark</li><li>Plataformas de datos en la nube</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Trabajamos volúmenes de datos de verdad para entender por qué y cuándo hace falta Big Data.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="bigdata">Reserva tu clase de Big Data</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-de" style="--d:0.12s">
+        <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Data Engineering</h3><span>Pipelines, orquestación y calidad del dato.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>Diseño de pipelines ETL/ELT</li><li>Orquestación con herramientas como Airflow</li><li>Calidad y gobierno del dato</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Construimos un pipeline completo, paso a paso, con las prácticas que se usan en empresa.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="de">Reserva tu clase de Data Engineering</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-ia" style="--d:0s">
+        <summary><span class="sgroup">Datos e IA</span><h3 class="sname">Inteligencia Artificial</h3><span>Machine learning e IA generativa, con criterio.</span></summary>
+        <div class="body">
+          <h4>Qué aprenderás</h4>
+          <ul><li>Fundamentos de machine learning</li><li>IA generativa y modelos de lenguaje</li><li>Cómo usar la IA sin dejar de pensar</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Entiendes la teoría justa para no usar la IA como caja negra y la aplicas en casos prácticos.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="ia">Reserva tu clase de IA</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-tfg" style="--d:0.06s">
+        <summary><span class="sgroup">Acompañamiento</span><h3 class="sname">TFG · TFM</h3><span>Te guiamos de la idea a la defensa. El trabajo es tuyo; el método y la seguridad, nuestros.</span></summary>
+        <div class="body">
+          <h4>En qué te acompañamos</h4>
+          <ul><li>Elección y planteamiento del tema</li><li>Orientación y revisión del desarrollo técnico</li><li>Revisión de la memoria y ensayo de la defensa</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Te acompañamos en cada fase con revisiones periódicas, para que llegues a la defensa con seguridad y dominando tu propio trabajo.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="tfg">Cuéntanos tu TFG o TFM y vemos cómo plantearlo</a>
+        </div>
+      </details>
+      <details class="subject reveal" id="materia-careers" style="--d:0.12s">
+        <summary><span class="sgroup">Acompañamiento</span><h3 class="sname">Orientación profesional</h3><span>Data Engineer, Data Scientist o especialista en IA.</span></summary>
+        <div class="body">
+          <h4>En qué te acompañamos</h4>
+          <ul><li>Hoja de ruta según tu perfil y objetivo</li><li>CV, portfolio y LinkedIn</li><li>Preparación de entrevistas técnicas</li></ul>
+          <h4>Cómo lo trabajamos</h4><p>Orientación desde dentro del sector: qué se pide de verdad y cómo seguir creciendo una vez dentro.</p>
+          <a class="btn btn-primary" href="#contacto" data-book="careers">Reserva tu sesión de orientación</a>
+        </div>
+      </details></div><!--/pre--></div>
       </div>
     </section>
 
@@ -203,11 +449,11 @@
     <section class="section alt" id="por-que">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="why.eyebrow"></p>
-          <h2 data-i18n="why.title"></h2>
+          <p class="eyebrow" data-i18n="why.eyebrow">Por qué elegirnos</p>
+          <h2 data-i18n="why.title">Lo que nos hace diferentes</h2>
         </div>
-        <div class="why" id="why"></div>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.why"></a></p>
+        <div class="why" id="why"><!--pre--><article class="card reveal" style="--d:0s"><h3>Experiencia real del sector</h3><p>Te enseña alguien que trabaja con datos e IA, no solo alguien que los ha estudiado.</p></article><article class="card reveal" style="--d:0.08s"><h3>Clases a tu medida</h3><p>Tu nivel, tus objetivos y tu ritmo marcan el plan, no un temario cerrado.</p></article><article class="card reveal" style="--d:0.16s"><h3>Aprender haciendo</h3><p>Proyectos y casos prácticos desde el primer día.</p></article><article class="card reveal" style="--d:0s"><h3>Criterio frente a la IA</h3><p>Aprendes a usar la IA con cabeza, sin depender de ella.</p></article><article class="card reveal" style="--d:0.08s"><h3>Acompañamiento cercano</h3><p>Resolvemos tus dudas con claridad y paciencia, sin prisas.</p></article><article class="card reveal" style="--d:0.16s"><h3>Online y flexible</h3><p>Clases online en horario de mañana, mediodía o tarde.</p></article><!--/pre--></div>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.why">Quiero empezar →</a></p>
       </div>
     </section>
 
@@ -215,12 +461,24 @@
     <section class="section" id="opiniones">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="reviews.eyebrow"></p>
-          <h2 data-i18n="reviews.title"></h2>
+          <p class="eyebrow" data-i18n="reviews.eyebrow">Opiniones</p>
+          <h2 data-i18n="reviews.title">Lo que dicen nuestros alumnos</h2>
         </div>
-        <div class="reviews" id="reviews"></div>
-        <p class="center reveal"><a id="reviewsLink" target="_blank" rel="noopener" data-i18n="reviews.source"></a></p>
-        <p class="mid-cta reveal"><a class="btn btn-primary" href="#contacto" data-i18n="cta.reviews"></a></p>
+        <div class="reviews" id="reviews"><!--pre--><figure class="card review reveal">
+      <div class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+      <blockquote>«Claro y directo en sus explicaciones, te ayuda en lo que necesitas saber.»</blockquote>
+      <figcaption>Vicente O. C. · mayo de 2024</figcaption></figure><figure class="card review reveal">
+      <div class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+      <blockquote>«Totalmente recomendable. Todo perfecto, muy bien explicado y muy contento con las clases.»</blockquote>
+      <figcaption>Marc · enero de 2023</figcaption></figure><figure class="card review reveal">
+      <div class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+      <blockquote>«Un profe genial, directo al grano y hace que saques tú mismo la respuesta.»</blockquote>
+      <figcaption>Aday · enero de 2023</figcaption></figure><figure class="card review reveal">
+      <div class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
+      <blockquote>«Un profesor extraordinario y un pedagogo sin igual. Se desvive por el aprendizaje.»</blockquote>
+      <figcaption>PT · enero de 2023</figcaption></figure><!--/pre--></div>
+        <p class="center reveal"><a id="reviewsLink" target="_blank" rel="noopener" data-i18n="reviews.source"><!--pre-->Ver todas las valoraciones en tusclasesparticulares<span class="sr-only"> (se abre en una pestaña nueva)</span><!--/pre--></a></p>
+        <p class="mid-cta reveal"><a class="btn btn-primary" href="#contacto" data-i18n="cta.reviews">Únete a ellos →</a></p>
       </div>
     </section>
 
@@ -228,51 +486,51 @@
     <section class="section alt" id="recursos">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="resources.eyebrow"></p>
-          <h2 data-i18n="resources.title"></h2>
-          <p class="lead" data-i18n="resources.lead"></p>
+          <p class="eyebrow" data-i18n="resources.eyebrow">Recursos</p>
+          <h2 data-i18n="resources.title">Recursos para seguir aprendiendo</h2>
+          <p class="lead" data-i18n="resources.lead">Curiosidades de datos e IA, una consola de Python para practicar y, muy pronto, un mundo 3D para recorrer la academia.</p>
         </div>
         <div class="resources">
           <article class="world-card reveal">
-            <span class="tag" data-i18n="resources.worldTag"></span>
-            <h3 data-i18n="resources.worldTitle"></h3>
-            <p data-i18n="resources.worldDesc"></p>
+            <span class="tag" data-i18n="resources.worldTag">Próximamente</span>
+            <h3 data-i18n="resources.worldTitle">Mundo IsAcademy 3D</h3>
+            <p data-i18n="resources.worldDesc">Un mundo abierto en 3D para recorrer la academia, conversar con sus personajes y descubrir curiosidades del mundo de los datos y la IA.</p>
           </article>
           <article class="facts-card reveal">
-            <h3 data-i18n="resources.factsTitle"></h3>
-            <p class="fact" id="fact" aria-live="polite"></p>
-            <button class="btn" data-action="fact" data-i18n="resources.factsNext"></button>
+            <h3 data-i18n="resources.factsTitle">Curiosidades de datos e IA</h3>
+            <p class="fact" id="fact" aria-live="polite"><!--pre-->John McCarthy acuñó el término «Inteligencia Artificial» en 1955, en la propuesta de la conferencia de Dartmouth, celebrada en 1956.<!--/pre--></p>
+            <button class="btn" data-action="fact" data-i18n="resources.factsNext">Otra curiosidad</button>
           </article>
           <article class="console-card reveal" id="consola">
             <div class="console-head">
               <div>
-                <h3 data-i18n="console.title"></h3>
-                <p class="muted" data-i18n="console.desc"></p>
+                <h3 data-i18n="console.title">Consola de Python online</h3>
+                <p class="muted" data-i18n="console.desc">Practica Python directamente en el navegador, sin instalar nada. Prueba los ejemplos, escribe tu propio código y míralo ejecutarse paso a paso.</p>
               </div>
-              <button class="btn btn-primary" data-action="console-open" data-i18n="console.open"></button>
+              <button class="btn btn-primary" data-action="console-open" data-i18n="console.open">Abrir consola</button>
             </div>
             <div class="console-body" id="consoleBody" hidden>
               <div class="console-bar">
-                <span class="muted" data-i18n="console.examples"></span>
+                <span class="muted" data-i18n="console.examples">Ejemplos</span>
                 <div class="samples" id="samples"></div>
                 <span class="spacer"></span>
-                <button class="btn btn-sm" data-action="console-reset" data-i18n="console.reset"></button>
-                <button class="btn btn-sm" data-action="console-debug" data-i18n="console.debug" data-i18n-aria="console.debugLabel" disabled></button>
-                <button class="btn btn-sm btn-primary" data-action="console-run" data-i18n="console.run" disabled></button>
+                <button class="btn btn-sm" data-action="console-reset" data-i18n="console.reset">Restablecer</button>
+                <button class="btn btn-sm" data-action="console-debug" data-i18n="console.debug" data-i18n-aria="console.debugLabel" disabled aria-label="Ejecutar paso a paso con el depurador">Paso a paso</button>
+                <button class="btn btn-sm btn-primary" data-action="console-run" data-i18n="console.run" disabled>Ejecutar</button>
               </div>
-              <textarea id="pyEditor" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" data-i18n-aria="console.editorLabel"></textarea>
-              <p class="console-label" data-i18n="console.output"></p>
+              <textarea id="pyEditor" spellcheck="false" autocapitalize="off" autocorrect="off" wrap="off" data-i18n-aria="console.editorLabel" aria-label="Editor de código Python"></textarea>
+              <p class="console-label" data-i18n="console.output">Salida</p>
               <pre id="pyOut" aria-live="polite"></pre>
               <div class="dbg" id="dbg" hidden>
-                <div class="dbg-bar" role="toolbar" data-i18n-aria="console.dbg.toolbar">
-                  <button class="btn btn-sm btn-icon" type="button" data-dbg="first" data-i18n-aria="console.dbg.first">⏮</button>
-                  <button class="btn btn-sm btn-icon" type="button" data-dbg="prev" data-i18n-aria="console.dbg.prev">◀</button>
-                  <button class="btn btn-sm btn-primary btn-icon" type="button" data-dbg="next" data-i18n-aria="console.dbg.nextBtn">▶</button>
-                  <button class="btn btn-sm btn-icon" type="button" data-dbg="last" data-i18n-aria="console.dbg.last">⏭</button>
-                  <button class="btn btn-sm" type="button" data-dbg="cont" data-i18n="console.dbg.cont"></button>
-                  <input class="dbg-range" id="dbgRange" type="range" min="0" value="0" data-i18n-aria="console.dbg.timeline">
+                <div class="dbg-bar" role="toolbar" data-i18n-aria="console.dbg.toolbar" aria-label="Controles del depurador">
+                  <button class="btn btn-sm btn-icon" type="button" data-dbg="first" data-i18n-aria="console.dbg.first" aria-label="Ir al primer paso">⏮</button>
+                  <button class="btn btn-sm btn-icon" type="button" data-dbg="prev" data-i18n-aria="console.dbg.prev" aria-label="Paso anterior">◀</button>
+                  <button class="btn btn-sm btn-primary btn-icon" type="button" data-dbg="next" data-i18n-aria="console.dbg.nextBtn" aria-label="Paso siguiente">▶</button>
+                  <button class="btn btn-sm btn-icon" type="button" data-dbg="last" data-i18n-aria="console.dbg.last" aria-label="Ir al último paso">⏭</button>
+                  <button class="btn btn-sm" type="button" data-dbg="cont" data-i18n="console.dbg.cont">Continuar ▶▶</button>
+                  <input class="dbg-range" id="dbgRange" type="range" min="0" value="0" data-i18n-aria="console.dbg.timeline" aria-label="Línea de tiempo de la ejecución">
                   <span class="dbg-count" id="dbgCount"></span>
-                  <button class="btn btn-sm" type="button" data-dbg="exit" data-i18n="console.dbg.exit"></button>
+                  <button class="btn btn-sm" type="button" data-dbg="exit" data-i18n="console.dbg.exit">Volver a editar</button>
                 </div>
                 <p class="dbg-msg" id="dbgMsg" aria-live="polite"></p>
                 <div class="dbg-grid">
@@ -280,18 +538,18 @@
                   <div class="dbg-side">
                     <h4 id="dbgVarsTitle"></h4>
                     <table class="dbg-vars" id="dbgVars"></table>
-                    <h4 data-i18n="console.dbg.stack"></h4>
+                    <h4 data-i18n="console.dbg.stack">Pila de llamadas</h4>
                     <p class="dbg-stack" id="dbgStack"></p>
-                    <h4 data-i18n="console.output"></h4>
+                    <h4 data-i18n="console.output">Salida</h4>
                     <pre class="dbg-out" id="dbgOut"></pre>
                   </div>
                 </div>
-                <p class="muted dbg-hint" data-i18n="console.dbg.hint"></p>
+                <p class="muted dbg-hint" data-i18n="console.dbg.hint">Pulsa un número de línea para poner un punto de parada y usa «Continuar». Teclas ← → para avanzar y retroceder.</p>
               </div>
             </div>
           </article>
         </div>
-        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.resources"></a></p>
+        <p class="mid-cta reveal"><a class="btn" href="#contacto" data-i18n="cta.resources">¿Prefieres aprender con alguien? Hablemos →</a></p>
       </div>
     </section>
 
@@ -299,10 +557,10 @@
     <section class="section" id="faq">
       <div class="container narrow">
         <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="faq.eyebrow"></p>
-          <h2 data-i18n="faq.title"></h2>
+          <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</p>
+          <h2 data-i18n="faq.title">Resolvemos tus dudas</h2>
         </div>
-        <div class="faq" id="faqList"></div>
+        <div class="faq" id="faqList"><!--pre--><details><summary>¿Qué son las aulas abiertas?</summary><p>Sesiones online y gratuitas que celebramos cada 15 días para resolver dudas en directo. Cualquiera puede apuntarse: escríbenos por el formulario y te avisamos de la próxima.</p></details><details><summary>¿El análisis inicial es gratis?</summary><p>Sí. Analizamos tu caso sin coste y sin compromiso: tu nivel, tu objetivo y el plan que te proponemos.</p></details><details><summary>¿Las clases son online?</summary><p>Sí. Trabajamos online, con pantalla compartida y ejercicios prácticos en directo.</p></details><details><summary>¿Necesito conocimientos previos?</summary><p>No. Empezamos desde tu nivel, ya sea desde cero o para perfeccionar lo que ya sabes.</p></details><details><summary>¿Para quién son las clases?</summary><p>Para todas las edades: alumnos de colegio e instituto, universitarios y profesionales que quieren aprender, reciclarse o seguir creciendo.</p></details><details><summary>¿Cómo me ayudáis con el TFG o el TFM?</summary><p>Te guiamos en todo el proceso: tema, planificación, dudas técnicas, revisión de la memoria y ensayo de la defensa, siempre respetando que el trabajo sea tuyo.</p></details><details><summary>¿Cuánto cuestan las clases?</summary><p>El análisis inicial de tu caso es gratuito. Después, el precio y la forma de pago se acuerdan a demanda, según tu caso y la temática.</p></details><details><summary>¿Qué necesito para las clases online?</summary><p>Un ordenador con conexión a internet. Te ayudamos a preparar el entorno en las primeras clases.</p></details><details><summary>¿Cómo reservo?</summary><p>Rellena el formulario de «Reservar clase» y te respondemos para fijar día y hora.</p></details><!--/pre--></div>
       </div>
     </section>
 
@@ -310,9 +568,9 @@
     <section class="section" id="contacto">
       <div class="container">
         <div class="contact-card reveal">
-          <p class="eyebrow" data-i18n="contact.eyebrow"></p>
-          <h2 data-i18n="contact.title"></h2>
-          <p class="lead" data-i18n="contact.sub"></p>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Reserva tu clase</p>
+          <h2 data-i18n="contact.title">¿Empezamos?</h2>
+          <p class="lead" data-i18n="contact.sub">Cuéntanos qué quieres aprender y te proponemos un plan. El análisis inicial de tu caso es gratuito y sin compromiso.</p>
           <form class="lead-form" id="leadForm" novalidate>
             <div class="f-row">
               <label><span class="lbl"><span data-i18n="contact.fName">Nombre</span> <span class="req" aria-hidden="true">*</span></span><input name="name" autocomplete="name" required maxlength="80"></label>
@@ -320,13 +578,13 @@
             </div>
             <div class="f-row">
               <label><span data-i18n="contact.fPhone">Teléfono (opcional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
-              <label><span class="lbl"><span data-i18n="contact.fInterest">¿Qué te interesa?</span> <span class="req" aria-hidden="true">*</span></span><select name="interest" id="fInterest" required></select></label>
+              <label><span class="lbl"><span data-i18n="contact.fInterest">¿Qué te interesa?</span> <span class="req" aria-hidden="true">*</span></span><select name="interest" id="fInterest" required><!--pre--><option value="">Elige una opción</option><option value="python">Python</option><option value="oop">Programación orientada a objetos</option><option value="sql">SQL</option><option value="analytics">Analítica de datos</option><option value="bigdata">Big Data · Spark</option><option value="de">Data Engineering</option><option value="ia">Inteligencia Artificial</option><option value="tfg">TFG · TFM</option><option value="careers">Orientación profesional</option><option value="open">Aula abierta (gratuita)</option><option value="other">Otra cosa</option><!--/pre--></select></label>
             </div>
-            <label><span data-i18n="contact.fLevel">Edad o nivel (opcional)</span><input name="level" maxlength="120" data-i18n-ph="contact.fLevelPh"></label>
-            <label><span class="lbl"><span data-i18n="contact.fMessage">Cuéntanos tu caso</span> <span class="req" aria-hidden="true">*</span></span><textarea name="message" rows="4" required maxlength="2000" data-i18n-ph="contact.fMessagePh"></textarea></label>
+            <label><span data-i18n="contact.fLevel">Edad o nivel (opcional)</span><input name="level" maxlength="120" data-i18n-ph="contact.fLevelPh" placeholder="Ej.: 2.º de bachillerato, universidad, trabajo en marketing…"></label>
+            <label><span class="lbl"><span data-i18n="contact.fMessage">Cuéntanos tu caso</span> <span class="req" aria-hidden="true">*</span></span><textarea name="message" rows="4" required maxlength="2000" data-i18n-ph="contact.fMessagePh" placeholder="Qué quieres aprender, para cuándo lo necesitas, qué horario te viene bien…"></textarea></label>
             <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <label class="check"><input type="checkbox" name="privacy" required><span data-i18n="contact.fPrivacy"></span></label>
-            <p class="privacy muted" id="privacyText"></p>
+            <label class="check"><input type="checkbox" name="privacy" required><span data-i18n="contact.fPrivacy">He leído la información de privacidad y acepto que IsAcademy use mis datos para responder a mi solicitud.</span></label>
+            <p class="privacy muted" id="privacyText"><!--pre-->Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; el envío del formulario lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a <a href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>.<!--/pre--></p>
             <p class="f-status" id="formStatus" role="status" aria-live="polite"></p>
             <button class="btn btn-primary btn-lg" type="submit" id="formSend" data-i18n="contact.fSend">Enviar solicitud</button>
           </form>
@@ -355,12 +613,12 @@
 
   <footer class="footer">
     <div class="container footer-row">
-      <span data-i18n="footer.rights"></span>
+      <span data-i18n="footer.rights">© 2026 IsAcademy · by Ismael Sarmiento</span>
       <span class="footer-links">
         <a id="footerMail" href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>
-        <a href="https://www.linkedin.com/in/ismael-sarmiento/" target="_blank" rel="noopener">LinkedIn <span class="sr-only" data-i18n="contact.newTab"></span></a>
+        <a href="https://www.linkedin.com/in/ismael-sarmiento/" target="_blank" rel="noopener">LinkedIn <span class="sr-only" data-i18n="contact.newTab">(se abre en una pestaña nueva)</span></a>
       </span>
-      <a href="#hero" data-i18n="footer.top"></a>
+      <a href="#hero" data-i18n="footer.top">Volver arriba</a>
     </div>
   </footer>
 
@@ -368,6 +626,6 @@
     <p>Clases online con Ismael Sarmiento: teoría que se entiende, práctica real y gamificación. Aulas abiertas gratuitas cada 15 días.</p>
     <ul><li>Python</li><li>Programación orientada a objetos</li><li>SQL</li><li>Analítica de datos</li><li>Big Data · Spark</li><li>Data Engineering</li><li>Inteligencia Artificial</li><li>TFG · TFM</li><li>Orientación profesional</li></ul>
     <p>Escríbenos a <a href="mailto:isacademy.notification@gmail.com">isacademy.notification@gmail.com</a>. Activa JavaScript para ver la web completa.</p></div></noscript>
-  <script type="module" src="js/app.js?v=20261013k"></script>
+  <script type="module" src="js/app.js?v=20261013l"></script>
 </body>
 </html>
