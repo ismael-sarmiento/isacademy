@@ -1,5 +1,7 @@
 # IsAcademy
 
+> *Website of IsAcademy by Ismael Sarmiento, an online academy for programming, data and AI. Spanish and English.*
+
 > La Inteligencia Artificial (IA) te da respuestas. *Aquí te enseñamos a pensar.*
 
 Web de **IsAcademy by Ismael Sarmiento**, academia online de programación, datos e IA
