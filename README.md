@@ -43,7 +43,7 @@ js/opening.js           Cinemática de apertura (manos SVG)
 js/fx.js                Partículas de la cinemática
 js/console.js           Consola de Python (Pyodide con SRI)
 js/debugger.js          Depurador paso a paso (sys.settrace)
-js/assistant.js         Asistente "Alan" · js/avatar.js su avatar
+js/assistant.js         Asistente "Alan": contenido de la academia sobre el Alan compartido (/assets/ds/)
 js/prerender.js         Exporta el texto para tools/prerender.py
 i18n/es.json, en.json   Todos los textos
 assets/brand/           Iconos, og.png y logo · assets/brand/print/ logos y QR para imprimir

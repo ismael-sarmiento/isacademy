@@ -57,10 +57,10 @@ async function boot() {
   render();
   exportPrerenderIfAsked();
   onLangChange(() => { render(); renderSamples(); refreshAssistant(); refreshLessons(); });
+  initAssistant(onAssistantAction);  // first: nav.js tucks Alan's button over the form
   initNav();
   initForm();
   initConsole();
-  initAssistant(onAssistantAction);
   document.addEventListener('click', onClick);
 
   // #hero is the start of the page, not a deep link: a refresh there plays the intro again

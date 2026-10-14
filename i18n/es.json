@@ -67,15 +67,17 @@
     "eyebrow": "Quiénes somos",
     "title": "Aprender sigue siendo algo humano",
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
-    "p2": "La fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
+    "p2": "La fundó Ismael Sarmiento, Head of Data Management especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
-    "role": "Fundador y tutor · Lead Data Engineer",
+    "role": "Fundador y tutor · Head of Data Management",
     "badges": [
       "5 ★ según sus alumnos",
       "Clases online, en directo"
     ],
     "linkedin": "Ver perfil en LinkedIn ↗",
-    "photoAlt": "Ismael Sarmiento, fundador de IsAcademy"
+    "photoAlt": "Ismael Sarmiento, fundador de IsAcademy",
+    "cv": "Ver CV Online",
+    "cvHref": "/cv/"
   },
   "method": {
     "eyebrow": "Metodología",
@@ -614,7 +616,7 @@
           "el profesor",
           "sobre ismael"
         ],
-        "answer": "IsAcademy la fundó Ismael Sarmiento, Lead Data Engineer especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
+        "answer": "IsAcademy la fundó Ismael Sarmiento, Head of Data Management especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
         "actions": [
           {
             "label": "Quiénes somos",
@@ -1525,7 +1527,8 @@
           }
         ]
       }
-    ]
+    ],
+    "badge": "Beta"
   },
   "cta": {
     "method": "¿Te encaja? Pide tu análisis gratuito",
