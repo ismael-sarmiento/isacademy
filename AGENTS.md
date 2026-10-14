@@ -15,8 +15,11 @@ Personal project of Ismael Sarmiento; DATM governance does not apply beyond the 
 ## Read order
 
 1. `README.md` — structure, local preview, deployment (A: browser upload, B: git + gh)
-2. `docs/PROJECT_CONTEXT.md` — product decisions that must not be reopened without the owner
-3. `docs/TODO.md` — pending items and phase roadmap
+2. `.private/PROJECT_CONTEXT.md` — product decisions that must not be reopened without the owner
+3. `.private/TODO.md` — pending items and phase roadmap
+4. `.private/SEO.md` and `.private/PUBLISHING.md` — SEO checklist and how to publish (browser upload or git)
+
+`.private/` holds the owner's working notes: local only, never published (see `.gitignore`).
 
 ## Rules
 

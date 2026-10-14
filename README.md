@@ -48,7 +48,6 @@ js/prerender.js         Exporta el texto para tools/prerender.py
 i18n/es.json, en.json   Todos los textos
 assets/brand/           Iconos, og.png y logo · assets/brand/print/ logos y QR para imprimir
 tools/                  bump-version.sh, prerender.py, brand/ (logos y QR), qa/ (baterías de calidad)
-docs/                   PROJECT_CONTEXT.md, TODO.md, SEO.md
 ```
 
 ## Probar en local
@@ -74,75 +73,16 @@ python3 tools/prerender.py      # escribe el texto en español dentro de index.h
 
 `tools/prerender.py` abre la web en Chrome sin ventana y copia el texto ya pintado en `index.html` (entre
 `<!--pre-->` y `<!--/pre-->`), para que los buscadores que no ejecutan JavaScript lean toda la página.
-Ver `docs/SEO.md`.
 
-## Publicar en GitHub Pages
+## Despliegue
 
-> Si tu equipo no permite `git push` a GitHub, usa la opción A (subida desde el navegador).
-
-### Opción A — sin git (subida desde el navegador)
-
-1. Entra en https://github.com/new, crea el repositorio **`isacademy`** (público, sin README).
-2. En la página del repositorio vacío pulsa **"uploading an existing file"**.
-3. Arrastra **todo el contenido** de esta carpeta (no la carpeta en sí): `index.html`, `.nojekyll`,
-   `css/`, `js/`, `i18n/`, `assets/`, `docs/`, `README.md`, `AGENTS.md`.
-   - `.nojekyll` es un fichero oculto: en macOS pulsa `Cmd + Shift + .` en Finder para verlo.
-4. Escribe un mensaje de commit y pulsa **Commit changes**.
-5. Ve a **Settings → Pages** y en *Build and deployment* elige **Deploy from a branch**,
-   rama **`main`**, carpeta **`/ (root)`** → **Save**.
-6. En 1–2 minutos la web estará en https://ismael-sarmiento.github.io/isacademy/
-
-### Opción B — con git (cualquier PC sin bloqueo, o un LLM en otro equipo)
-
-Requisitos: `git` y acceso a la cuenta `ismael-sarmiento` (HTTPS con token o SSH).
-
-```bash
-# 1. Crear el repositorio vacío en GitHub (web: https://github.com/new → "isacademy")
-#    o con la CLI de GitHub:
-gh repo create ismael-sarmiento/isacademy --public --description "IsAcademy · Humanos en un mundo artificial"
-
-# 2. Desde esta carpeta, confirmar los cambios (si aún no hay commits) y subir el código
-git add -A
-git commit -m "feat: bootstrap IsAcademy site"   # omitir si 'git log' ya muestra commits
-git remote add origin https://github.com/ismael-sarmiento/isacademy.git
-git push -u origin main
-
-# 3. Activar GitHub Pages desde la rama main (raíz)
-gh api -X POST repos/ismael-sarmiento/isacademy/pages -f "source[branch]=main" -f "source[path]=/"
-
-# 4. Comprobar (puede tardar 1–2 minutos)
-curl -sI https://ismael-sarmiento.github.io/isacademy/ | head -1   # → HTTP/2 200
-```
-
-Si no hay `gh`, los pasos 1 y 3 se hacen desde la web (ver opción A, pasos 1 y 5).
-
-### Estado del repositorio remoto
-
-El repositorio `ismael-sarmiento/isacademy` se publicó el 2026-10-11 **subiendo ficheros desde la web**, así que su
-historial (commits "feat: publish IsAcademy site (…)") es distinto del historial local de desarrollo, aunque el contenido es
-idéntico. Para trabajar con git en otro equipo, **clona el remoto** (`git clone https://github.com/ismael-sarmiento/isacademy.git`)
-en lugar de añadir el remoto a esta copia local; si no, el `push` será rechazado por historiales distintos.
-
-### Actualizar la web más adelante
-
-- **Opción A:** en el repositorio, *Add file → Upload files* y arrastra los ficheros cambiados.
-- **Opción B:** `git add -A && git commit -m "..." && git push`.
-
-GitHub Pages redespliega solo en cada commit a `main`.
-
-## Dominio propio (futuro)
-
-Cuando haya dominio (p. ej. `isacademy.es`): *Settings → Pages → Custom domain*, crear el registro DNS
-que indique GitHub y activar *Enforce HTTPS*. Las rutas de ficheros son relativas, pero hay que actualizar la URL
-absoluta en `index.html`: `<link rel="canonical">`, `og:url` y la `url` del bloque JSON-LD.
+GitHub Pages publica la rama `main` desde la raíz del repositorio en cada cambio, en
+https://ismael-sarmiento.github.io/isacademy/. No hay paso de build.
 
 ## Contacto (formulario)
 
 El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenvía al email de `js/config.js`
 (**isacademy.notification@gmail.com**, activado el 2026-10-13).
-- **Cambiar de correo:** edita `formEmail` y `publicEmail`, publica y haz un envío de prueba desde la web publicada:
-  FormSubmit manda un email «Activate Form» al nuevo correo y hay que pulsarlo (el enlace caduca).
-- **Alias de FormSubmit:** opcional; el correo ya es público en el texto de privacidad y en el pie.
 - Si eliges «Aula abierta», el mensaje es opcional.
 
 ## Seguridad
@@ -153,7 +93,6 @@ Sitio estático sin backend ni secretos. Medidas en el propio código:
   `curl -s <url>/pyodide.js | openssl dgst -sha384 -binary | openssl base64 -A`.
 - **Anti-clickjacking**: la web sale de cualquier marco de otro dominio (GitHub Pages no permite `frame-ancestors`).
 - Todo el texto dinámico se escapa antes de pintarse; enlaces externos con `rel="noopener"`.
-- Recomendado al propietario: verificación en dos pasos en GitHub y en el Gmail de la academia.
 
 ## Control de calidad (antes de cada publicación)
 
@@ -163,3 +102,5 @@ Sitio estático sin backend ni secretos. Medidas en el propio código:
 2. `tools/qa/flows.js` con la web abierta: cada botón que lleva al formulario, pulsado después de los demás, deja
    «¿Qué te interesa?» como debe (materia, aula abierta o vacío; lo elegido a mano no se pisa).
 3. Claro frente a oscuro, sección a sección, en 360, 768 px y escritorio; asistente, depurador y formulario simulado.
+
+© Ismael Sarmiento. Todos los derechos reservados sobre el contenido y la marca IsAcademy.
