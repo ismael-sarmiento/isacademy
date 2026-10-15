@@ -418,7 +418,7 @@
     "newTab": "(opens in a new tab)"
   },
   "footer": {
-    "rights": "© 2026 IsAcademy · by Ismael Sarmiento",
+    "rights": "© 2026 IsAcademy · by <a href=\"/?lang=en\">Ismael Sarmiento</a>",
     "top": "Back to top"
   },
   "open": {
