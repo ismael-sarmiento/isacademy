@@ -76,6 +76,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .lead { font-size: clamp(17px, 1.6vw, 19px); color: var(--text-2); }
 h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px; }
 @keyframes blink { 50% { opacity: 0; } }
+/* moving between the portada, CV Online and IsAcademy (same origin) is a soft cross-fade, as in /assets/ds/base.css */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .45s; animation-timing-function: var(--ease-out); }
+}
 
 /* reveal on scroll: a short rise with a natural ease, staggered by --d */
 .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s var(--ease-out) var(--d, 0s), transform .6s var(--ease-out) var(--d, 0s); }

@@ -160,11 +160,14 @@ export async function openAcademy(intro) {
   const acWord = gAc.querySelector('.academy').getBoundingClientRect();
   const logoBox = logo.getBoundingClientRect();
   const hw = Math.max(phone ? 170 : 220, Math.min(460, isBox.height * 2.2));
-  [human, robot].forEach(h => { h.style.width = `${hw}px`; });
-  const k = hw / 320;
+  // the human art is taller than the robot's (palm + sleeve, ~1.33x): at 80% of the width both hands read the same size
+  const hwHuman = hw * .8;
+  human.style.width = `${hwHuman}px`;
+  robot.style.width = `${hw}px`;
+  const k = hw / 320, kHuman = hwHuman / 320;
   const hTip = { x: isBox.left + isBox.width * .3, y: isBox.top + isBox.height * .5 };
   const rTip = { x: acWord.right + 2, y: acWord.top + acWord.height * .5 };
-  Object.assign(human.style, { left: `${hTip.x - 302 * k}px`, top: `${hTip.y - 86 * k}px`, transformOrigin: '94% 54%' });
+  Object.assign(human.style, { left: `${hTip.x - 302 * kHuman}px`, top: `${hTip.y - 86 * kHuman}px`, transformOrigin: '94% 54%' });
   Object.assign(robot.style, { left: `${rTip.x - 24 * k}px`, top: `${rTip.y - 84 * k}px`, transformOrigin: '6% 52%' });
   const inFromLeft = -(hTip.x + 40);
   const inFromRight = innerWidth - rTip.x + 320 * k + 40;
