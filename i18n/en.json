@@ -490,8 +490,8 @@
   },
   "assistant": {
     "name": "Alan",
-    "subtitle": "IsAcademy automatic assistant",
-    "open": "Need help?",
+    "subtitle": "Local IsAcademy assistant · no private data, no external models",
+    "open": "Can I help?",
     "openLabel": "Open the IsAcademy assistant",
     "close": "Close the assistant",
     "placeholder": "Type your question…",

@@ -490,7 +490,7 @@
   },
   "assistant": {
     "name": "Alan",
-    "subtitle": "Asistente automático de IsAcademy",
+    "subtitle": "Asistente local de IsAcademy · sin datos privados ni modelos externos",
     "open": "¿Te ayudo?",
     "openLabel": "Abrir el asistente de IsAcademy",
     "close": "Cerrar el asistente",

@@ -15,7 +15,7 @@ root = pathlib.Path('.')
 modules = sorted(p.as_posix() for p in root.glob('js/**/*.js'))
 imports = {f'./{m}': f'./{m}?v={v}' for m in modules}
 # Alan and his avatar come from the shared design system of ismael-sarmiento.github.io (same origin)
-for m in ('/assets/ds/assistant.js', '/assets/ds/avatar.js'):
+for m in ('/assets/ds/assistant.js', '/assets/ds/avatar.js', '/assets/ds/favicon.js'):
     imports[m] = f'{m}?v={v}'
 importmap = json.dumps({'imports': imports}, indent=2)
 html = (root / 'index.html').read_text()

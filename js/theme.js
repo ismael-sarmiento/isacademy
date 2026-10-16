@@ -1,4 +1,7 @@
-// Light / dark theme: follows the OS by default, a manual choice is remembered.
+// Light / dark theme: follows the OS by default, a manual choice is remembered; the tab icon follows it
+// (/assets/ds/favicon.js, shared with every site).
+import { syncFavicon } from '/assets/ds/favicon.js';
+
 const media = window.matchMedia('(prefers-color-scheme: dark)');
 const listeners = [];
 
@@ -11,11 +14,12 @@ export function isDark() {
 }
 
 export function onThemeChange(fn) { listeners.push(fn); }
-function notify() { listeners.forEach(fn => fn(isDark())); }
+function notify() { syncFavicon(); listeners.forEach(fn => fn(isDark())); }
 
 export function initTheme() {
   const s = stored();
   if (s === 'light' || s === 'dark') document.documentElement.dataset.theme = s;
+  syncFavicon();
   media.addEventListener('change', notify);
 }
 
