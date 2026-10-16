@@ -27,6 +27,7 @@ Los enlaces directos (`/#contacto`, `/#materias`) saltan la intro.
 ```
 index.html              Intro + landing; import map (única versión del sitio), CSP, JSON-LD
 css/main.css            Tokens de diseño (colores, tipografía, movimiento) y componentes, por secciones
+css/print.css           El folleto en PDF: la propia web en dos páginas A4, en claro u oscuro
 js/app.js               Punto de entrada: solo arranca y conecta los módulos
 js/core/dom.js          Utilidades comunes ($, $$, esc, sleep, reducedMotion…)
 js/core/highlight.js    Coloreado de código Python/SQL (mini-clases y depurador)
@@ -45,9 +46,10 @@ js/console.js           Consola de Python (Pyodide con SRI)
 js/debugger.js          Depurador paso a paso (sys.settrace)
 js/assistant.js         Asistente "Alan": contenido de la academia sobre el Alan compartido (/assets/ds/)
 js/prerender.js         Exporta el texto para tools/prerender.py
+js/pdf.js               El enlace «Descargar PDF» de la intro apunta al folleto del idioma y el tema de la página
 i18n/es.json, en.json   Todos los textos
 assets/brand/           Iconos, og.png y logo · assets/brand/print/ logos y QR para imprimir
-tools/                  bump-version.sh, prerender.py, brand/ (logos y QR), qa/ (baterías de calidad)
+tools/                  bump-version.sh, prerender.py, pdf.py (folleto ES/EN × claro/oscuro), brand/ (logos y QR), qa/ (baterías de calidad)
 ```
 
 ## Probar en local
@@ -69,6 +71,7 @@ La versión vive en un único sitio: el *import map* de `index.html` carga cada 
 tools/bump-version.sh <versión>
 python3 -m http.server 8766 &   # la web servida en local
 python3 tools/prerender.py      # escribe el texto en español dentro de index.html (SEO)
+python3 tools/pdf.py http://127.0.0.1:8777/   # regenera los cuatro folletos isacademy[-en][-dark].pdf
 ```
 
 `tools/prerender.py` abre la web en Chrome sin ventana y copia el texto ya pintado en `index.html` (entre

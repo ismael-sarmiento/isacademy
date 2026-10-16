@@ -13,6 +13,7 @@ import { initNav, observeReveals } from './nav.js';
 import { initConsole, openConsole, runCode, debugCode, resetConsole, renderSamples } from './console.js';
 import { initAssistant, refreshAssistant } from './assistant.js';
 import { exportPrerenderIfAsked } from './prerender.js';
+import { initPdfLinks } from './pdf.js';
 
 function render() {
   renderSections();
@@ -62,6 +63,18 @@ async function boot() {
   initForm();
   initConsole();
   document.addEventListener('click', onClick);
+  initPdfLinks();
+
+  // ?pdf: the page as the brochure prints it (tools/pdf.py, css/print.css): no intro, everything revealed;
+  // ?pdf=dark prints it in the dark theme
+  const pdfMode = new URLSearchParams(location.search).get('pdf');
+  if (pdfMode !== null) {
+    if (pdfMode === 'dark') document.documentElement.dataset.theme = 'dark';
+    revealSite({ animate: false, scroll: false });
+    finish($('#intro'));
+    $$('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
 
   // #hero is the start of the page, not a deep link: a refresh there plays the intro again
   if (location.hash === '#hero') history.replaceState(history.state, '', location.pathname + location.search);

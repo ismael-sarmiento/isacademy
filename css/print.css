@@ -1,0 +1,79 @@
+/* IsAcademy — the brochure (tools/pdf.py) and printing from the browser: the page itself on two A4 pages, in the
+   theme of the page. Page 1: who we are and how we teach; page 2: subjects, why us and how to start. The same paper
+   rules as the PDF of CV Online (cv/css/print.css). */
+/* no page margins: the paper colour reaches the edge; the body pads every page instead (clone repeats the padding on
+   each page), so the dark brochure has no white frame */
+@page { size: A4; margin: 0; }
+:root, :root[data-theme] {
+  --bg: #fff; --bg-alt: #fff; --surface: #fbf7ef; --text: #1c2547; --text-2: #4a5170; --line: rgba(28, 37, 71, .13);
+  --gold: #b58534; --gold-2: #c8953f; --gold-text: #7a5212; --shadow: none; --shadow-sm: none; color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0b1026; --bg-alt: #0b1026; --surface: #141b40; --text: #f6f1e7; --text-2: #b9bdd3; --line: rgba(255, 255, 255, .14);
+  --gold: #c8953f; --gold-2: #e2b25c; --gold-text: #e2b25c; color-scheme: dark;
+}
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { background: var(--bg) !important; }
+body { padding: 11mm 13mm 12mm; box-decoration-break: clone; -webkit-box-decoration-break: clone; font-size: 9.5pt; line-height: 1.45; color: var(--text); }
+a { color: inherit; text-decoration: none; }
+
+/* only the brochure: no intro, bar, assistant, buttons, code, reviews, resources, FAQ, form or footer */
+#intro, .topbar, .footer, #assistantFab, #assistantPanel, .assistant-fab, .assistant-panel, .hand, .hero-visual, .cta-row,
+.open-row .btn, .founder, .sub-title, .steps, .mid-cta, .subject .body, #opiniones, #recursos, #faq, #contacto,
+.skip-link, .scroll-progress { display: none !important; }
+.reveal, .reveal.in { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+.container { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
+.section, .hero, .open-band { padding: 4mm 0 0 !important; background: transparent !important; min-height: 0 !important; }
+.section.alt { background: transparent !important; }
+.eyebrow { font-size: 7.5pt; margin-bottom: 1mm; }
+h2 { font-size: 15pt !important; margin: 0 0 1.5mm !important; }
+h3 { font-size: 10.5pt !important; }
+.lead { font-size: 10pt !important; }
+p { margin: 0 0 1.6mm; }
+.card { padding: 3.5mm 4.5mm !important; border: .7pt solid var(--line) !important; background: var(--surface) !important;
+  border-radius: 8px !important; box-shadow: none !important; transform: none !important; }
+.card::after { display: none !important; }
+
+/* header: the logo on the left, how to reach us on the right, a thin gold rule */
+.print-head { display: flex !important; align-items: center; justify-content: space-between; gap: 8mm; padding: 0 0 3mm;
+  border-bottom: 1.2pt solid var(--gold); margin-bottom: 2mm; }
+.print-logo { margin: 0; font-family: var(--font-sans); font-weight: 500; font-size: 26pt; letter-spacing: -.5pt; line-height: 1; color: var(--text); }
+.print-logo .is { font-family: var(--font-script); font-weight: 400; font-size: 36pt; color: var(--gold); margin-right: 1mm; }
+.print-contact { margin: 0; font-size: 8pt; line-height: 1.6; color: var(--text-2); text-align: right; }
+
+/* page 1: hero, open classes, who we are, method */
+.hero-grid { display: block !important; }
+.hero h1 { font-size: 22pt !important; line-height: 1.12; margin: 0 0 2mm !important; }
+.trust { gap: 1.5mm !important; margin-top: 1mm !important; }
+.trust li { font-size: 8pt !important; padding: .8mm 3mm !important; }
+.open-row { display: block !important; padding: 3.5mm 4.5mm !important; border-radius: 8px !important; border: .7pt solid var(--gold) !important;
+  background: var(--surface) !important; }
+.open-row h2 { font-size: 12pt !important; }
+.about-grid { display: block !important; }
+.pillars { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 3mm !important; }
+.pillar p { font-size: 8.6pt; color: var(--text-2); }
+.section-head { margin-bottom: 2.5mm !important; }
+
+/* page 2: subjects (name and one line), why us, how to start */
+#materias { break-before: page; padding-top: 0 !important; }
+.subject-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 2.5mm !important; align-items: stretch !important; }
+/* A4 is narrower than the tablet breakpoint: keep three columns and the compact card (no screen min-height) */
+.subject.card { padding: 0 !important; }
+.subject:last-child:nth-child(odd) { grid-column: auto !important; }
+.subject summary { list-style: none; display: block !important; cursor: default; min-height: 0 !important; padding: 3mm 4mm !important; }
+.subject summary::-webkit-details-marker, .subject summary::marker { display: none; content: ""; }
+.subject summary::after { display: none !important; }
+.subject .sgroup { display: block; font-size: 7pt; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-text); }
+.subject .sname { margin: .6mm 0 .8mm !important; }
+.subject summary > span:last-child { font-size: 8.4pt; color: var(--text-2); }
+.why { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 2.5mm !important; }
+.why p { font-size: 8.4pt; color: var(--text-2); }
+.print-cta { display: block !important; margin-top: 5mm; padding: 4mm 5mm; border-radius: 8px; border: 1pt solid var(--gold); background: var(--surface); }
+.print-cta h2 { font-size: 14pt !important; }
+.print-links { font-weight: 600; color: var(--gold-text); }
+.print-links a, .print-by a { color: var(--gold-text); }
+.print-by { margin: 2mm 0 0; font-size: 7.5pt; color: var(--text-2); }
+
+/* blocks never split, titles stay with their content */
+h2, h3 { break-after: avoid; }
+.card, .open-row, .print-cta, .section-head { break-inside: avoid; }

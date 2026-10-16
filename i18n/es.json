@@ -1535,5 +1535,14 @@
     "why": "Quiero empezar",
     "reviews": "Únete a ellos",
     "resources": "¿Prefieres aprender con alguien? Hablemos"
+  },
+  "pdf": {
+    "download": "Descargar PDF",
+    "book": "Reserva tu clase",
+    "by": "IsAcademy es la academia de Ismael Sarmiento",
+    "webHref": "https://ismael-sarmiento.github.io/isacademy/",
+    "bookHref": "https://ismael-sarmiento.github.io/isacademy/#contacto",
+    "homeHref": "https://ismael-sarmiento.github.io/",
+    "cvHref": "https://ismael-sarmiento.github.io/cv/"
   }
 }
