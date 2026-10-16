@@ -102,6 +102,8 @@ details[open]::details-content { block-size: auto; }
 .btn-lg { min-height: 52px; padding: 14px 24px; font-size: 16px; }
 .btn-sm { min-height: 40px; padding: 8px 14px; font-size: 14px; }
 .btn-icon { min-width: 44px; padding: 10px 12px; }
+/* the language (text) and theme (icon) buttons share one height, whatever they hold */
+.tools .btn-icon { height: 44px; padding-top: 0; padding-bottom: 0; }
 .btn[aria-disabled="true"] { opacity: .6; cursor: not-allowed; }
 .btn[disabled] { opacity: .5; cursor: progress; transform: none; box-shadow: none; }
 /* theme button: moon in light, sun in dark (the same control as the portada and CV Online) */
