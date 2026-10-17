@@ -46,6 +46,7 @@ function onAssistantAction({ href, action, book }) {
   if (book || href === '#contacto') setInterest(book || null);
   if (action === 'console-open') { $('#consola').scrollIntoView({ behavior: scrollBehavior() }); openConsole(); return; }
   if (!href) return;
+  if (/^https?:/.test(href)) { window.open(href, '_blank', 'noopener'); return; }   // WhatsApp and other sites open beside the page
   const target = document.getElementById(href.slice(1));
   if (target?.tagName === 'DETAILS') target.open = true;
   target?.scrollIntoView({ behavior: scrollBehavior() });

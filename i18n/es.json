@@ -415,7 +415,10 @@
     "fBadEmail": "Revisa el email: parece incompleto.",
     "fNeedPrivacy": "Necesitamos tu consentimiento para poder responderte.",
     "privacy": "Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; el envío del formulario lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a {email}.",
-    "newTab": "(se abre en una pestaña nueva)"
+    "newTab": "(se abre en una pestaña nueva)",
+    "waLead": "¿Prefieres WhatsApp? Escríbenos y te respondemos.",
+    "waBtn": "Escribir por WhatsApp",
+    "waText": "Hola, me interesa una clase en IsAcademy."
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/\">Ismael Sarmiento</a>",
@@ -1180,11 +1183,15 @@
           "quiero empezar",
           "apuntarse"
         ],
-        "answer": "Para reservar, rellena el formulario de «Reservar clase»: cuéntanos qué quieres aprender y te escribimos para hacer el análisis gratuito de tu caso y fijar día y hora.",
+        "answer": "Para reservar, rellena el formulario de «Reservar clase»: cuéntanos qué quieres aprender y te escribimos para hacer el análisis gratuito de tu caso y fijar día y hora. Si lo prefieres, escríbenos por WhatsApp al +34 613 371 874.",
         "actions": [
           {
             "label": "Reservar clase",
             "href": "#contacto"
+          },
+          {
+            "label": "WhatsApp",
+            "href": "https://wa.me/34613371874?text=Hola%2C%20me%20interesa%20una%20clase%20en%20IsAcademy."
           }
         ],
         "boost": 10

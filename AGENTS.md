@@ -26,7 +26,7 @@ Personal project of Ismael Sarmiento; DATM governance does not apply beyond the 
 - Static only: no backend, no build step, no API keys in the repo. Relative paths (site lives under `/isacademy/`).
 - Every user-facing string lives in `i18n/es.json` and `i18n/en.json`; keep both in sync.
 - Both themes (light and dark) and phone portrait (375×812) must be checked on every UI change.
-- Never publish the contact phone number until the owner says so (buttons show "Próximamente").
+- The professional phone +34 613 371 874 (WhatsApp) is public since 2026-10-17 (`js/config.js`); never publish any other number.
 - This is a professional academy site whose goal is student acquisition. Playful elements live only in the intro/opening
   and the Resources section (future 3D world). Any game content must be original (no copied characters or franchises).
 - Copy tone: professional, plural voice ("nosotros"). Every section should end in a clear path to contact.

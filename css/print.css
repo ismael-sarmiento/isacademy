@@ -71,7 +71,7 @@ p { margin: 0 0 1.6mm; }
 .print-cta { display: block !important; margin-top: 5mm; padding: 4mm 5mm; border-radius: 8px; border: 1pt solid var(--gold); background: var(--surface); }
 .print-cta h2 { font-size: 14pt !important; }
 .print-links { font-weight: 600; color: var(--gold-text); }
-.print-links a, .print-by a { color: var(--gold-text); }
+.print-links a, .print-by a { color: var(--gold-text); white-space: nowrap; }
 .print-by { margin: 2mm 0 0; font-size: 7.5pt; color: var(--text-2); }
 
 /* blocks never split, titles stay with their content */

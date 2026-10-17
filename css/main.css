@@ -118,6 +118,11 @@ details[open]::details-content { block-size: auto; }
 .intro-actions { margin-top: 30px; opacity: 0; transition: opacity .8s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 /* the brochure (css/print.css) is printed from the page itself; on screen its blocks stay hidden */
 .print-head, .print-cta { display: none; }
+/* the other way in: WhatsApp, under the booking form */
+/* (inside the always-dark contact card: the same width and colours as the form above) */
+.wa-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; max-width: 640px;
+  margin: 22px auto 0; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .14); color: var(--mist-200); text-align: left; }
+.wa-btn svg { flex: none; color: var(--gold-400); }
 #intro .show { opacity: 1; transform: none; }
 #circuit { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .5; }
 #circuit path { fill: none; stroke: var(--gold); stroke-width: 1.2; }
