@@ -79,6 +79,7 @@ function finalState(root) {
   setAcademy(svg, 'Academy');
   placeCursor(svg);
   svg.querySelector('.by').style.opacity = 1;
+  svg.querySelector('.cursor').style.visibility = 'hidden';
   root.querySelectorAll('#circuit path').forEach(p => { p.getAnimations().forEach(a => a.cancel()); p.style.strokeDasharray = 'none'; p.style.strokeDashoffset = '0'; });
   root.querySelectorAll('#circuit circle').forEach(c => { c.getAnimations().forEach(a => a.cancel()); c.style.opacity = 1; });
   root.querySelectorAll('.hook, .intro-actions').forEach(el => el.classList.add('show'));
@@ -101,6 +102,7 @@ export async function runIntro(root) {
   await typeAcademy(svg);
   if (skipped) return;
   await animate(500, p => { svg.querySelector('.by').style.opacity = p; });
+  svg.querySelector('.cursor').style.visibility = 'hidden';   // the caret goes out once the word is written
   root.querySelector('.hook').classList.add('show');
   await sleep(600);
   root.querySelector('.intro-actions').classList.add('show');
