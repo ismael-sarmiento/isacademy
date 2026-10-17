@@ -20,7 +20,7 @@ for m in ('/assets/ds/assistant.js', '/assets/ds/avatar.js', '/assets/ds/favicon
 importmap = json.dumps({'imports': imports}, indent=2)
 html = (root / 'index.html').read_text()
 html = re.sub(r'<script type="importmap">.*?</script>', lambda m: f'<script type="importmap">{importmap}</script>', html, flags=re.S)
-html = re.sub(r'(css/main\.css|css/print\.css|js/app\.js|/assets/ds/assistant\.css)\?v=[0-9a-z]+', rf'\1?v={v}', html)
+html = re.sub(r'(css/main\.css|css/print\.css|js/app\.js|/assets/ds/assistant\.css|/assets/ds/tokens\.css)\?v=[0-9a-z]+', rf'\1?v={v}', html)
 digest = base64.b64encode(hashlib.sha256(importmap.encode()).digest()).decode()
 html = re.sub(r"'sha256-[A-Za-z0-9+/=]+'", f"'sha256-{digest}'", html)
 (root / 'index.html').write_text(html)

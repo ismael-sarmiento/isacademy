@@ -1,60 +1,25 @@
 /* IsAcademy — styles
-   1. Fonts and design tokens   2. Base   3. Components (buttons, cards, chips, forms)
+   1. Design tokens             2. Base   3. Components (buttons, cards, chips, forms)
    4. Intro and opening         5. Layout and sections   6. Python console and debugger
    7. Assistant                 8. Responsive and reduced motion
-   Colours live only in the tokens below: change a value there and the whole site follows. */
+   Colours live only in tokens: the shared ones in /assets/ds/tokens.css, IsAcademy's own in § 1 below. */
 
-/* ===================== 1. Fonts and design tokens ===================== */
-@font-face { font-family: 'Allura'; src: url('../assets/fonts/allura-latin.woff2') format('woff2'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Space Grotesk'; src: url('../assets/fonts/space-grotesk-latin.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
-
+/* ===================== 1. Design tokens ===================== */
+/* Fonts, palette, shape, type, motion and both themes come from the design system shared by every site
+   (/assets/ds/tokens.css, loaded before this file). Only IsAcademy's own colours live here: the Python console and
+   its messages, and the robot hand and vignette of the opening. */
 :root {
-  /* brand palette (same in both themes) */
-  --ink-950: #0b1026; --ink-900: #0d1229; --ink-850: #121833; --ink-800: #1b2247; --ink-700: #1c2547; --ink-600: #2e3c74; --ink-500: #3a4170;
-  --gold-700: #7a5212; --gold-600: #b58534; --gold-500: #c8953f; --gold-400: #e2b25c; --gold-300: #f2d18b;
-  --cream-50: #fbf7ef; --cream-100: #f4ecdd; --cream-200: #f6f1e7;
-  --mist-100: #e7e9f5; --mist-200: #c9cde3; --mist-300: #b9bdd3; --mist-350: #b3b8d6; --mist-500: #8d94b8; --mist-600: #6d7499;
-  --on-gold: #1c1407;
+  --mist-350: #b3b8d6;
   --success: #9fe0b4; --success-strong: #5fbf7a;
   --danger: #e06c5a; --danger-strong: #d4553f; --danger-soft: #ffb4a3; --danger-border: #ff8a73;
   --code-keyword: #8fb8ff; --code-string: var(--success); --code-comment: var(--gold-400);
-  /* shape, type and motion */
-  --radius: 18px; --radius-sm: 12px; --radius-lg: 28px;
-  --font-script: 'Allura', 'Snell Roundhand', cursive;
-  --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
-  --ease-out: cubic-bezier(.2, .8, .2, 1);
-  --gold-glow: rgba(226, 178, 92, .18);
-  /* light theme */
-  /* one brand gold per theme (logo, buttons, script notes, numbers, stars, borders) + one gold for small text */
-  --gold: var(--gold-600); --gold-2: var(--gold-500); --gold-text: var(--gold-700);
-  --bg: var(--cream-50); --bg-alt: var(--cream-100); --surface: #fffdf9;
-  --text: var(--ink-700); --text-2: #4a5170; --line: rgba(28, 37, 71, .12);
-  --glass: rgba(251, 247, 239, .82);
-  --shadow: 0 18px 50px rgba(122, 82, 18, .08); --shadow-hover: 0 24px 60px rgba(122, 82, 18, .14);
-  --shadow-sm: 0 6px 18px rgba(122, 82, 18, .10); --bar-shadow: 0 10px 30px rgba(122, 82, 18, .07);
-  --spot: rgba(200, 149, 63, .10);
   --robot: var(--ink-700); --robot-accent: #3aa8d8; --vignette: rgba(28, 37, 71, .08);
-  --av-skin: #8d5b3d; --av-shade: #6e4229;
-  color-scheme: light;
 }
 /* dark theme: the system preference unless the visitor chose light, or an explicit choice (both blocks stay identical) */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: var(--ink-950); --bg-alt: #10163a; --surface: #141b40; --text: var(--cream-200); --text-2: var(--mist-300); --line: rgba(255, 255, 255, .12);
-    --glass: rgba(11, 16, 38, .78); --shadow: 0 18px 50px rgba(0, 0, 0, .4); --shadow-hover: 0 24px 60px rgba(0, 0, 0, .5); --spot: rgba(226, 178, 92, .08);
-    --shadow-sm: 0 6px 18px rgba(0, 0, 0, .35); --bar-shadow: 0 10px 30px rgba(0, 0, 0, .35);
-    --gold: var(--gold-500); --gold-2: var(--gold-400); --gold-text: var(--gold-400); --robot: #c9d4ff; --robot-accent: #5fd0ff; --vignette: rgba(5, 8, 22, .55);
-    --av-skin: #c08d68; --av-shade: #9b6a4a; color-scheme: dark;
-  }
+  :root:not([data-theme="light"]) { --robot: #c9d4ff; --robot-accent: #5fd0ff; --vignette: rgba(5, 8, 22, .55); }
 }
-:root[data-theme="dark"] {
-  --bg: var(--ink-950); --bg-alt: #10163a; --surface: #141b40; --text: var(--cream-200); --text-2: var(--mist-300); --line: rgba(255, 255, 255, .12);
-  --glass: rgba(11, 16, 38, .78); --shadow: 0 18px 50px rgba(0, 0, 0, .4); --shadow-hover: 0 24px 60px rgba(0, 0, 0, .5); --spot: rgba(226, 178, 92, .08);
-  --shadow-sm: 0 6px 18px rgba(0, 0, 0, .35); --bar-shadow: 0 10px 30px rgba(0, 0, 0, .35);
-  --gold: var(--gold-500); --gold-2: var(--gold-400); --gold-text: var(--gold-400); --robot: #c9d4ff; --robot-accent: #5fd0ff; --vignette: rgba(5, 8, 22, .55);
-  --av-skin: #c08d68; --av-shade: #9b6a4a; color-scheme: dark;
-}
+:root[data-theme="dark"] { --robot: #c9d4ff; --robot-accent: #5fd0ff; --vignette: rgba(5, 8, 22, .55); }
 
 /* ===================== 2. Base ===================== */
 * { box-sizing: border-box; }
