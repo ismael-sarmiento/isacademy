@@ -4,6 +4,7 @@
 # - the stylesheet and the entry script get the same version; i18n.js reads it from its own URL;
 # - the Content-Security-Policy hash of the inline import map is recomputed;
 # - Alan (assistant + avatar) and his stylesheet come from the shared design system in /assets/ds/ (portada repository).
+# - 404.html is a copy of the portada's 404, the same page on every site.
 # Usage: tools/bump-version.sh [version]   (default: timestamp)
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -26,3 +27,7 @@ html = re.sub(r"'sha256-[A-Za-z0-9+/=]+'", f"'sha256-{digest}'", html)
 (root / 'index.html').write_text(html)
 print(f'version → {v} ({len(modules)} modules, import map sha256-{digest[:10]}…)')
 PY
+# unknown /isacademy/... addresses get the 404 of every site (portada tools/build.py; same origin, absolute paths):
+# build the portada first
+HUB_404=../ismael-sarmiento.github.io/404.html
+if [ -f "$HUB_404" ]; then cp "$HUB_404" 404.html; echo "404.html ← portada"; fi

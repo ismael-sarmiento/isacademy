@@ -160,8 +160,9 @@ export async function openAcademy(intro) {
   const acWord = gAc.querySelector('.academy').getBoundingClientRect();
   const logoBox = logo.getBoundingClientRect();
   const hw = Math.max(phone ? 170 : 220, Math.min(460, isBox.height * 2.2));
-  // the human art is taller than the robot's (palm + sleeve, ~1.33x): at 80% of the width both hands read the same size
-  const hwHuman = hw * .8;
+  // the human art is heavier than the robot's (solid palm, wide sleeve): drawn so its sleeve (66 units) is as thick as
+  // the robot's arm (48 units), both hands read the same size
+  const hwHuman = hw * 48 / 66;
   human.style.width = `${hwHuman}px`;
   robot.style.width = `${hw}px`;
   const k = hw / 320, kHuman = hwHuman / 320;

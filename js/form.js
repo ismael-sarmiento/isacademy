@@ -21,7 +21,6 @@ export function renderForm() {
   const mail = `<a href="mailto:${esc(CONTACT.publicEmail)}">${esc(CONTACT.publicEmail)}</a>`;
   $('#privacyText').innerHTML = esc(t('contact.privacy')).replace('{email}', mail);
   $('#footerMail').href = `mailto:${CONTACT.publicEmail}`;
-  $('#footerMail').textContent = CONTACT.publicEmail;
   // WhatsApp opens with a first message in the language of the page
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t('contact.waText'))}`;
   $('#waLink').href = wa;

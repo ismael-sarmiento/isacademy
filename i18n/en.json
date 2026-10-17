@@ -67,9 +67,9 @@
     "eyebrow": "About us",
     "title": "Learning is still a human thing",
     "p1": "IsAcademy was born from a simple idea: in an increasingly artificial world, real learning needs a person who listens, explains and challenges you.",
-    "p2": "It was founded by Ismael Sarmiento, a Head of Data Management specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
+    "p2": "It was founded by Ismael Sarmiento, a data and AI engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
     "p3": "We use AI as a tool, never as a shortcut: we want you to understand what you do and to solve problems on your own.",
-    "role": "Founder and tutor · Head of Data Management",
+    "role": "Founder and tutor · Data and AI engineer",
     "badges": [
       "5 ★ from his students",
       "Live online classes"
@@ -422,7 +422,9 @@
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/?lang=en\">Ismael Sarmiento</a>",
-    "top": "Back to top"
+    "top": "Back to top",
+    "home": "Home",
+    "mail": "Email"
   },
   "open": {
     "eyebrow": "Open classes",
@@ -613,7 +615,7 @@
           "the teacher",
           "the tutor"
         ],
-        "answer": "IsAcademy was founded by Ismael Sarmiento, a Head of Data Management specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. His students rate him 5 ★.",
+        "answer": "IsAcademy was founded by Ismael Sarmiento, a data and AI engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. His students rate him 5 ★.",
         "actions": [
           {
             "label": "About us",

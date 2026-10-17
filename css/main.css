@@ -21,7 +21,9 @@
 /* ===================== 2. Base ===================== */
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; interpolate-size: allow-keywords; }
+/* the scrollbar space is always kept (also while an intro holds the page): every page has the same width, so the
+   cross-fade between sites is never aborted by a viewport that changes size */
+html { scroll-behavior: smooth; scroll-padding-top: 84px; interpolate-size: allow-keywords; scrollbar-gutter: stable; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 body:not(.entered) { overflow: hidden; }
 h1, h2, h3 { line-height: 1.15; margin: 0; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
@@ -101,7 +103,7 @@ details[open]::details-content { block-size: auto; }
 #intro { position: fixed; inset: 0; z-index: 50; display: grid; justify-items: center; align-content: start;
   padding: max(12vh, 72px) 24px 24px; background: var(--bg); overflow: hidden; }
 #intro.gone { display: none; }
-#intro .stage { width: min(92vw, 1160px); text-align: center; position: relative; z-index: 1; }
+#intro .stage { width: min(92vw, 1160px, 100%); text-align: center; position: relative; z-index: 1; }
 .intro-top { position: absolute; top: 16px; right: 16px; z-index: 2; display: flex; gap: 8px; }
 #intro svg.logo { display: block; width: min(828px, 65.7vw); height: auto; margin: 0 auto; overflow: visible; }
 .logo .is { font-family: var(--font-script); font-size: 300px; fill: var(--gold); }

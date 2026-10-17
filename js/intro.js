@@ -47,14 +47,14 @@ function placeCursor(svg) {
 async function typeAcademy(svg) {
   const word = 'Academy';
   const text = svg.querySelector('.academy');
-  for (let i = 0; i <= word.length && !skipped; i++) {
-    for (let k = 0; k < 3 && !skipped; k++) {
-      const noise = Array.from({ length: Math.min(2, word.length - i) }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('');
-      setAcademy(svg, word.slice(0, i) + noise);
-      placeCursor(svg);
-      await sleep(32);
-    }
-  }
+  // ~0.77 s, following the screen's own frames (one change per frame at most): the letters advance evenly, as in the
+  // signature of Inicio and CV Online (/assets/ds/signature.js)
+  await animate(768, p => {
+    const i = Math.min(word.length, Math.floor(p * (word.length + 1)));
+    const noise = Array.from({ length: Math.min(2, word.length - i) }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]).join('');
+    setAcademy(svg, word.slice(0, i) + noise);
+    placeCursor(svg);
+  });
   setAcademy(svg, word);
   placeCursor(svg);
 }

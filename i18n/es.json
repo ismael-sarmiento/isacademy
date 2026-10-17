@@ -67,9 +67,9 @@
     "eyebrow": "Quiénes somos",
     "title": "Aprender sigue siendo algo humano",
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
-    "p2": "La fundó Ismael Sarmiento, Head of Data Management especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
+    "p2": "La fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
-    "role": "Fundador y tutor · Head of Data Management",
+    "role": "Fundador y tutor · Ingeniero de datos e IA",
     "badges": [
       "5 ★ según sus alumnos",
       "Clases online, en directo"
@@ -422,7 +422,9 @@
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/\">Ismael Sarmiento</a>",
-    "top": "Volver arriba"
+    "top": "Volver arriba",
+    "home": "Inicio",
+    "mail": "Correo"
   },
   "open": {
     "eyebrow": "Aulas abiertas",
@@ -619,7 +621,7 @@
           "el profesor",
           "sobre ismael"
         ],
-        "answer": "IsAcademy la fundó Ismael Sarmiento, Head of Data Management especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
+        "answer": "IsAcademy la fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
         "actions": [
           {
             "label": "Quiénes somos",
