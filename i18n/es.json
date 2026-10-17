@@ -416,9 +416,9 @@
     "fNeedPrivacy": "Necesitamos tu consentimiento para poder responderte.",
     "privacy": "Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; el envío del formulario lo gestiona el servicio FormSubmit. Puedes acceder, rectificar o suprimir tus datos escribiendo a {email}.",
     "newTab": "(se abre en una pestaña nueva)",
-    "waLead": "¿Prefieres WhatsApp? Escríbenos y te respondemos.",
-    "waBtn": "Escribir por WhatsApp",
-    "waText": "Hola, me interesa una clase en IsAcademy."
+    "waText": "Hola, me interesa una clase en IsAcademy.",
+    "waysLead": "Si lo prefieres, escríbenos directamente.",
+    "waysMail": "Correo"
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/\">Ismael Sarmiento</a>",

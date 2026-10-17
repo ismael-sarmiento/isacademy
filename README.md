@@ -85,7 +85,7 @@ https://ismael-sarmiento.github.io/isacademy/. No hay paso de build.
 ## Contacto (formulario)
 
 El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenvía al email de `js/config.js`
-(**isacademy.notification@gmail.com**, activado el 2026-10-13).
+(**ismaelantonio.professional@gmail.com**, el único buzón de todas las webs desde 2026-10-17; pendiente de activar en FormSubmit).
 - Si eliges «Aula abierta», el mensaje es opcional.
 
 ## Seguridad

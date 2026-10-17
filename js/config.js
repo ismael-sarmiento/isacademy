@@ -8,8 +8,8 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  formEmail: 'isacademy.notification@gmail.com',
-  publicEmail: 'isacademy.notification@gmail.com',
+  formEmail: 'ismaelantonio.professional@gmail.com',     // one inbox for every site (CV Online too)
+  publicEmail: 'ismaelantonio.professional@gmail.com',
   whatsapp: '34613371874',           // wa.me number (country code, no +)
   phone: '+34613371874',
   phoneShown: '+34 613 371 874',

@@ -6,12 +6,9 @@
 
 /* ===================== 1. Design tokens ===================== */
 /* Fonts, palette, shape, type, motion and both themes come from the design system shared by every site
-   (/assets/ds/tokens.css, loaded before this file). Only IsAcademy's own colours live here: the Python console and
-   its messages, and the robot hand and vignette of the opening. */
+   (/assets/ds/tokens.css, loaded before this file). Only IsAcademy's own colours live here: the Python console
+   and the robot hand and vignette of the opening. */
 :root {
-  --mist-350: #b3b8d6;
-  --success: #9fe0b4; --success-strong: #5fbf7a;
-  --danger: #e06c5a; --danger-strong: #d4553f; --danger-soft: #ffb4a3; --danger-border: #ff8a73;
   --code-keyword: #8fb8ff; --code-string: var(--success); --code-comment: var(--gold-400);
   --robot: var(--ink-700); --robot-accent: #3aa8d8; --vignette: rgba(28, 37, 71, .08);
 }
@@ -118,11 +115,6 @@ details[open]::details-content { block-size: auto; }
 .intro-actions { margin-top: 30px; opacity: 0; transition: opacity .8s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 /* the brochure (css/print.css) is printed from the page itself; on screen its blocks stay hidden */
 .print-head, .print-cta { display: none; }
-/* the other way in: WhatsApp, under the booking form */
-/* (inside the always-dark contact card: the same width and colours as the form above) */
-.wa-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; max-width: 640px;
-  margin: 22px auto 0; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .14); color: var(--mist-200); text-align: left; }
-.wa-btn svg { flex: none; color: var(--gold-400); }
 #intro .show { opacity: 1; transform: none; }
 #circuit { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .5; }
 #circuit path { fill: none; stroke: var(--gold); stroke-width: 1.2; }
@@ -283,41 +275,7 @@ details[open]::details-content { block-size: auto; }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { color: var(--text-2); padding-bottom: 18px; margin: 0; }
 
-/* contact card (always dark) and booking form */
-.contact-card { position: relative; text-align: center; border-radius: var(--radius-lg); padding: 64px 32px; color: var(--cream-200);
-  background: radial-gradient(120% 120% at 50% 0%, var(--ink-600) 0%, var(--ink-700) 50%, var(--ink-850) 100%); box-shadow: 0 30px 80px rgba(20, 24, 60, .3); }
-.contact-card .eyebrow { color: var(--gold-400); }
-.contact-card .lead { color: var(--mist-200); max-width: 52ch; margin: 0 auto 22px; }
-.contact-card .muted { color: var(--mist-300); }
-.contact-card .btn { color: var(--cream-200); border-color: rgba(255, 255, 255, .25); }
-.contact-card .btn-primary { color: var(--on-gold); border-color: var(--gold); }
-.contact-card a:not(.btn) { color: var(--gold-400); }
-.contact-card :focus-visible, .world-card :focus-visible, .code-card :focus-visible, .assistant-fab:focus-visible, .as-head :focus-visible { outline-color: var(--gold-400); }
-.lead-form { text-align: left; max-width: 640px; margin: 8px auto 0; display: grid; gap: 14px; }
-.lead-form label { display: grid; gap: 6px; font-size: 14px; color: var(--mist-100); font-weight: 500; }
-.lead-form input, .lead-form select, .lead-form textarea { font: inherit; font-size: 15px; font-weight: 400; padding: 12px 14px; border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, .22); background: rgba(11, 16, 38, .55); color: var(--cream-200); width: 100%;
-  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
-.lead-form input:hover, .lead-form select:hover, .lead-form textarea:hover { border-color: rgba(255, 255, 255, .38); }
-.lead-form input:focus-visible, .lead-form select:focus-visible, .lead-form textarea:focus-visible { outline: none; border-color: var(--gold-400); box-shadow: 0 0 0 4px var(--gold-glow); background: rgba(11, 16, 38, .7); }
-.lead-form textarea { resize: vertical; min-height: 110px; }
-.lead-form select option { color: var(--ink-700); background: #fff; }
-.lead-form ::placeholder { color: var(--mist-500); }
-.lead-form [aria-invalid="true"] { border-color: var(--danger-border); }
-.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.lead-form .check { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; font-weight: 400; color: var(--mist-200); }
-.lead-form .check span { flex: 1; }
-.lead-form .check input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: var(--gold-400); box-shadow: none; }
-.lead-form .check .f-error { flex-basis: 100%; }
-.f-error { color: var(--danger-soft); font-size: 13px; font-weight: 400; }
-.lead-form .req { color: var(--gold-400); }
-.lead-form .privacy { font-size: 12.5px; line-height: 1.5; margin: 0; color: var(--mist-350); }
-.lead-form .btn-primary { justify-self: start; }
-.f-status { margin: 0; font-size: 15px; }
-.f-status:empty { display: none; }
-.f-status.ok { color: var(--success); }
-.f-status.err { color: var(--danger-soft); }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.world-card :focus-visible, .code-card :focus-visible, .assistant-fab:focus-visible, .as-head :focus-visible { outline-color: var(--gold-400); }
 
 /* footer */
 .footer { padding: 28px 0 96px; border-top: 1px solid var(--line); font-size: 14px; }
@@ -421,13 +379,10 @@ details[open]::details-content { block-size: auto; }
   .tools { gap: 6px; } .tools .btn-icon { min-width: 40px; padding: 8px; }
   .brand-is { font-size: 31px; } .brand-ac { font-size: 18px; }
   .logo .by { font-size: 30px; letter-spacing: 4px; }
-  .contact-card { padding: 44px 20px; }
   .handnote { position: static; justify-content: flex-end; margin-top: 14px; transform: rotate(-3deg); }
   .handnote span { font-size: 30px; white-space: normal; text-align: right; }
   .handnote svg { display: none; }
   #heroCode { height: auto; min-height: 215px; font-size: 12px; }
-  .f-row { grid-template-columns: 1fr; }
-  .lead-form .btn-primary { justify-self: stretch; }
 }
 @media (max-width: 380px) {
   .tools { gap: 4px; } .tools .btn-icon { min-width: 38px; padding: 8px 6px; }

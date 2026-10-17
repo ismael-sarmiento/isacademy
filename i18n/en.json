@@ -416,9 +416,9 @@
     "fNeedPrivacy": "We need your consent to be able to reply.",
     "privacy": "Privacy information: data controller, Ismael Sarmiento (IsAcademy). Purpose: to reply to your request and, if you wish, organise your classes. Your data is not shared with third parties; the form is delivered by the FormSubmit service. You can access, correct or delete your data by writing to {email}.",
     "newTab": "(opens in a new tab)",
-    "waLead": "Prefer WhatsApp? Message us and we will reply.",
-    "waBtn": "Message us on WhatsApp",
-    "waText": "Hi, I'm interested in a class at IsAcademy."
+    "waText": "Hi, I'm interested in a class at IsAcademy.",
+    "waysLead": "If you prefer, write to us directly.",
+    "waysMail": "Email"
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/?lang=en\">Ismael Sarmiento</a>",
