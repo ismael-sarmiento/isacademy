@@ -11,6 +11,7 @@ Vector files have **text converted to paths**: they print the same everywhere, w
 | `is-monogram-transparent.svg` / `.png` | Gold "Is" without background |
 | `qr-isacademy.svg` / `.png` (2352 px) | QR to https://ismael-sarmiento.github.io/isacademy/ (error correction H) |
 | `qr-isacademy-logo.svg` / `.png` | Same QR with the "Is" mark in the centre |
+| `poster-light.pdf` / `poster-dark.pdf` | A4 poster for schools and study centres: logo, motto, what we do, why us, QR and ten tear-off strips with WhatsApp and the address (`python3 tools/poster.py`, texts from `i18n/es.json`) |
 
 Both QR codes were checked with the macOS QR detector, also at 300 px. Print the QR at **2.5 cm or larger** and keep the white margin.
 
