@@ -9,7 +9,7 @@ Global roots (L0):
 ## Purpose
 
 Entry point for any agent working on the IsAcademy promotional website (GitHub Pages, static).
-Personal project of Ismael Sarmiento; DATM governance does not apply beyond the L0 protocols
+Personal project of Ismael Sarmiento; only the global L0 protocols apply
 (Plan al Milímetro before each phase, close-out recap after each task).
 
 ## Read order
