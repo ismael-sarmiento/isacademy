@@ -41,7 +41,7 @@ js/lessons.js           Mini-clases del hero
 js/nav.js               Scroll: aparición, menú activo, progreso, brillo de tarjetas, enlaces de inicio
 js/intro.js             Animación del logo
 js/opening.js           Cinemática de apertura (manos SVG)
-js/fx.js                Partículas de la cinemática
+(fx)                    Partículas de la cinemática: /assets/ds/fx.js, compartidas con Inicio y CV Online
 js/console.js           Consola de Python (Pyodide con SRI)
 js/debugger.js          Depurador paso a paso (sys.settrace)
 js/assistant.js         Asistente "Alan": contenido de la academia sobre el Alan compartido (/assets/ds/)

@@ -2,7 +2,7 @@
 // and the academy landing appears in between.
 const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
-import { burst, ink, pixels } from './fx.js';
+import { burst, ink, pixels } from '/assets/ds/fx.js';   // the particles shared with the intro of Inicio and CV Online
 import { reducedMotion } from './core/dom.js';
 
 let running = false;
