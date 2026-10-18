@@ -2,6 +2,7 @@
 // Each feature lives in its own module; this file only wires them together.
 import { $, $$, scrollBehavior } from './core/dom.js';
 import { escapeForeignFrame } from './core/frame-guard.js';
+import { countView } from '/assets/ds/views.js';   // one anonymous page view for IsPanel (shared design system)
 import { setLang, detectLang, currentLang, onLangChange } from './i18n.js';
 import { initTheme, toggleTheme } from './theme.js';
 import { runIntro } from './intro.js';
@@ -55,6 +56,7 @@ function onAssistantAction({ href, action, book }) {
 async function boot() {
   if (escapeForeignFrame()) return;
   initTheme();
+  countView();
   await setLang(detectLang());
   render();
   exportPrerenderIfAsked();

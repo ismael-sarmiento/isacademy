@@ -16,7 +16,7 @@ root = pathlib.Path('.')
 modules = sorted(p.as_posix() for p in root.glob('js/**/*.js'))
 imports = {f'./{m}': f'./{m}?v={v}' for m in modules}
 # Alan, his avatar, the tab icons and the particle effects come from the shared design system of ismael-sarmiento.github.io (same origin)
-for m in ('/assets/ds/assistant.js', '/assets/ds/avatar.js', '/assets/ds/favicon.js', '/assets/ds/fx.js', '/assets/ds/ds.js', '/assets/ds/frame-guard.js', '/assets/ds/contact.js'):
+for m in ('/assets/ds/assistant.js', '/assets/ds/avatar.js', '/assets/ds/favicon.js', '/assets/ds/fx.js', '/assets/ds/ds.js', '/assets/ds/frame-guard.js', '/assets/ds/contact.js', '/assets/ds/views.js'):
     imports[m] = f'{m}?v={v}'
 importmap = json.dumps({'imports': imports}, indent=2)
 html = (root / 'index.html').read_text()
