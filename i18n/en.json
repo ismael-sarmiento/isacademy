@@ -30,7 +30,7 @@
     "cta2": "See subjects",
     "trust": [
       "Rated 5 ★",
-      "10+ years in tech and teaching",
+      "Nearly a decade in tech and teaching",
       "Free initial assessment",
       "All ages · online"
     ],
@@ -67,7 +67,7 @@
     "eyebrow": "About us",
     "title": "Learning is still a human thing",
     "p1": "IsAcademy was born from a simple idea: in an increasingly artificial world, real learning needs a person who listens, explains and challenges you.",
-    "p2": "It was founded by Ismael Sarmiento, a data and AI engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
+    "p2": "It was founded by Ismael Sarmiento, a data and AI engineer specialised in data governance and passionate about teaching, with nearly a decade working in the tech industry and training professionals. We bring what companies actually do into every class, with patience, a personal approach and a plan tailored to each student.",
     "p3": "We use AI as a tool, never as a shortcut: we want you to understand what you do and to solve problems on your own.",
     "role": "Founder and tutor · Data and AI engineer",
     "badges": [
@@ -109,7 +109,7 @@
       },
       {
         "t": "Guided practice",
-        "d": "Every concept is worked through exercises and challenges, with just enough theory to understand it."
+        "d": "Every concept is practised through exercises and challenges, with just enough theory to understand it."
       },
       {
         "t": "Real project",
@@ -276,7 +276,7 @@
       },
       {
         "t": "Using AI wisely",
-        "d": "You learn to use AI wisely, without depending on it."
+        "d": "You learn to use AI with judgement, without depending on it."
       },
       {
         "t": "Personal support",
@@ -292,6 +292,16 @@
     "eyebrow": "Reviews",
     "title": "What our students say",
     "items": [
+      {
+        "name": "Jesús",
+        "date": "January 2025",
+        "text": "He worked with my son for several months on a Big Data course: he knows the subject very well and, most importantly, knows how to explain it and get it across. Totally recommended!"
+      },
+      {
+        "name": "Jimena",
+        "date": "May 2024",
+        "text": "He makes the difficult easy, with really engaging classes, and he's always ready to clear up any doubt when you need it. He makes you like the subject!"
+      },
       {
         "name": "Vicente O. C.",
         "date": "May 2024",
@@ -379,7 +389,7 @@
       },
       {
         "q": "How much do classes cost?",
-        "a": "The initial assessment of your case is free. After that, price and payment are agreed on demand, depending on your case and the subject."
+        "a": "The initial assessment of your case is free. After that, price and payment are agreed case by case, depending on your needs and the subject."
       },
       {
         "q": "What do I need for online classes?",
@@ -387,7 +397,7 @@
       },
       {
         "q": "How do I book?",
-        "a": "Fill in the form in “Book a class”: we’ll get back to you to do the free assessment of your case and set a day and time."
+        "a": "Fill in the form in “Book a class”: we'll get back to you to do the free assessment of your case and set a day and time."
       }
     ]
   },
@@ -409,7 +419,7 @@
     "fPrivacy": "I have read the privacy information and agree that IsAcademy may use my data to reply to my request.",
     "fSend": "Send request",
     "fSending": "Sending…",
-    "fOk": "Thank you! We’ve received your request. We’ll write to you soon to do the free assessment of your case.",
+    "fOk": "Thank you! We've received your request. We'll write to you soon to do the free assessment of your case.",
     "fError": "It couldn't be sent. Please try again in a few minutes.",
     "fRequired": "This field is required.",
     "fBadEmail": "Check the email: it looks incomplete.",
@@ -616,7 +626,7 @@
           "the teacher",
           "the tutor"
         ],
-        "answer": "IsAcademy was founded by Ismael Sarmiento, a data and AI engineer specialised in data governance and passionate about teaching, with over 10 years working in the tech industry and training professionals. His students rate him 5 ★.",
+        "answer": "IsAcademy was founded by Ismael Sarmiento, a data and AI engineer specialised in data governance and passionate about teaching, with nearly a decade working in the tech industry and training professionals. His students rate him 5 ★.",
         "actions": [
           {
             "label": "About us",
@@ -686,7 +696,7 @@
           "oracle",
           "entity relationship",
           "normalisation",
-          "normalization"
+          "normalisation"
         ],
         "answer": "In SQL we cover queries, JOINs and aggregations, data modelling and analytical queries, always on realistic databases and business questions.",
         "actions": [
@@ -839,7 +849,7 @@
           "data analysis",
           "pandas",
           "visualisation",
-          "visualization",
+          "visualisation",
           "charts",
           "dashboards",
           "storytelling"
@@ -1100,7 +1110,7 @@
           "expensive",
           "how much is"
         ],
-        "answer": "The initial assessment of your case is free. After that, price and payment are agreed on demand, depending on your case and the subject.",
+        "answer": "The initial assessment of your case is free. After that, price and payment are agreed case by case, depending on your needs and the subject.",
         "actions": [
           {
             "label": "Go to the form",
@@ -1128,7 +1138,7 @@
           "enrol",
           "enroll"
         ],
-        "answer": "To book, fill in the form in “Book a class”: tell us what you want to learn and we’ll get back to you to do the free assessment of your case and set a day and time. If you prefer, message us on WhatsApp at +34 613 371 874.",
+        "answer": "To book, fill in the form in “Book a class”: tell us what you want to learn and we'll get back to you to do the free assessment of your case and set a day and time. If you prefer, message us on WhatsApp at +34 613 371 874.",
         "actions": [
           {
             "label": "Book a class",
@@ -1354,7 +1364,7 @@
           "paypal"
         ],
         "boost": 8,
-        "answer": "Payment is agreed on demand, depending on your case and the subject. Message us through the form and we'll sort it out with you.",
+        "answer": "Payment is agreed case by case, depending on your needs and the subject. Message us through the form and we'll sort it out with you.",
         "actions": [
           {
             "label": "Book a class",

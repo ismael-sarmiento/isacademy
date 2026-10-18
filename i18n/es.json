@@ -30,7 +30,7 @@
     "cta2": "Ver materias",
     "trust": [
       "Valoración de 5 ★",
-      "+10 años en tecnología y docencia",
+      "Casi una década en tecnología y docencia",
       "Análisis inicial gratuito",
       "Todas las edades · online"
     ],
@@ -67,9 +67,9 @@
     "eyebrow": "Quiénes somos",
     "title": "Aprender sigue siendo algo humano",
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
-    "p2": "La fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
+    "p2": "La fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con casi una década trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
-    "role": "Fundador y tutor · Ingeniero de datos e IA",
+    "role": "Fundador y tutor · Ingeniero de datos e\u00a0IA",
     "badges": [
       "5 ★ según sus alumnos",
       "Clases online, en directo"
@@ -292,6 +292,16 @@
     "eyebrow": "Opiniones",
     "title": "Lo que dicen nuestros alumnos",
     "items": [
+      {
+        "name": "Jesús",
+        "date": "enero de 2025",
+        "text": "Ha estado trabajando con mi hijo durante varios meses en un curso de Big Data: tiene muchos conocimientos sobre la materia y, lo más importante, sabe explicarlos y transmitirlos. ¡Totalmente recomendable!"
+      },
+      {
+        "name": "Jimena",
+        "date": "mayo de 2024",
+        "text": "Hace fácil lo difícil, con clases muy amenas, y está dispuesto a aclararte cualquier duda cuando lo necesites. ¡Consigue que te guste la asignatura!"
+      },
       {
         "name": "Vicente O. C.",
         "date": "mayo de 2024",
@@ -622,7 +632,7 @@
           "el profesor",
           "sobre ismael"
         ],
-        "answer": "IsAcademy la fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con más de 10 años trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
+        "answer": "IsAcademy la fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con casi una década trabajando en el sector tecnológico y formando a profesionales. Sus alumnos lo valoran con 5 ★.",
         "actions": [
           {
             "label": "Quiénes somos",
