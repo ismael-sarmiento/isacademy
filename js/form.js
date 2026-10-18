@@ -1,10 +1,11 @@
-// Booking form: the subjects, the open class and the email Ismael receives. Validation, the bot trap and the delivery by
-// FormSubmit are the contact piece shared with CV Online (/assets/ds/contact.js).
+// Booking form: the subjects, the open class and the email Ismael receives. Validation, the bot checks and the delivery
+// through the isa-forms Worker are the contact piece shared with CV Online (/assets/ds/contact.js).
 import { $, esc } from './core/dom.js';
 import { initContactForm, fieldError } from '/assets/ds/contact.js';
 import { t, currentLang, dictionary } from './i18n.js';
 import { CONTACT } from './config.js';
 
+const TURNSTILE_PRIVACY = 'https://www.cloudflare.com/turnstile-privacy-policy/';
 let interest = null; // subject chosen from a "book" button, kept until the visitor sends or changes it
 const form = () => $('#leadForm');
 
@@ -19,7 +20,8 @@ export function renderForm() {
   if (sel.value) fieldError(sel, '');
   syncMessageRequired();
   const mail = `<a href="mailto:${esc(CONTACT.publicEmail)}">${esc(CONTACT.publicEmail)}</a>`;
-  $('#privacyText').innerHTML = esc(t('contact.privacy')).replace('{email}', mail);
+  const turnstile = `<a href="${TURNSTILE_PRIVACY}" target="_blank" rel="noopener">${esc(t('contact.turnstileLink'))}</a>`;
+  $('#privacyText').innerHTML = esc(t('contact.privacy')).replace('{email}', mail).replace('{turnstile}', turnstile);
   $('#footerMail').href = `mailto:${CONTACT.publicEmail}`;
   // WhatsApp opens with a first message in the language of the page
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t('contact.waText'))}`;
@@ -48,7 +50,7 @@ function syncMessageRequired() {
 }
 
 // ---------- the email Ismael receives ----------
-// FormSubmit turns each key into a row of its "box" template, so keys are labels written for him in Spanish
+// the Worker turns each key into a row of the email, so keys are labels written for him in Spanish
 // the subject is always written in Spanish for Ismael, whatever language the visitor uses
 async function subjectInSpanish(id) {
   const es = await dictionary('es');
@@ -72,7 +74,6 @@ async function buildEmail(f) {
     Mensaje: v('message') || '—',
     Idioma: language,
     _subject: `Nueva solicitud: ${subject} — ${v('name')}`,
-    _template: 'box',
     _replyto: v('email'),
   };
 }
@@ -80,7 +81,6 @@ async function buildEmail(f) {
 export function initForm() {
   initContactForm({
     form: form(),
-    to: CONTACT.formEmail,
     texts: () => ({ required: t('contact.fRequired'), badEmail: t('contact.fBadEmail'), needPrivacy: t('contact.fNeedPrivacy'),
       send: t('contact.fSend'), sending: t('contact.fSending'), ok: t('contact.fOk'), error: t('contact.fError') }),
     buildEmail,

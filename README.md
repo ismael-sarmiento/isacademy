@@ -18,7 +18,7 @@ Su objetivo es captar alumnos: todas las secciones llevan al contacto.
 2. **Apertura (cinemática):** manos ilustradas (humana dorada y robótica con LED) pellizcan las palabras y las separan con una estela sutil de tinta y píxeles. También en móvil.
 3. **Landing:** barra fija (Quiénes somos, Metodología, Materias, Por qué elegirnos, Opiniones, Recursos, **Reservar clase**; idioma y tema a la derecha), franja de **aulas abiertas gratuitas cada 15 días**, mini-clases animadas en el hero y **consola de Python** (Pyodide) en Recursos con **depurador paso a paso** (línea actual, variables, pila de llamadas, salida, puntos de parada; tope de 1000 pasos).
 4. **Asistente "Alan":** avatar ilustrado con chat local (sin servidor) que responde sobre la academia y deriva al formulario.
-5. **Reservar clase:** formulario propio que llega por email vía FormSubmit (`js/config.js` → `formEmail`).
+5. **Reservar clase:** formulario propio que llega por email a través del Worker `isa-forms` (pieza común `/assets/ds/contact.js`).
 
 Los enlaces directos (`/#contacto`, `/#materias`) saltan la intro.
 
@@ -36,7 +36,7 @@ js/i18n.js              Idioma (ES por defecto, ?lang=en), textos y URL canónic
 js/theme.js             Modo claro/oscuro
 js/config.js            URL del sitio y canales de contacto
 js/sections.js          Secciones pintadas desde i18n (materias, opiniones, FAQ, curiosidades…)
-js/form.js              Formulario de reserva y email (FormSubmit)
+js/form.js              Formulario de reserva y email (Worker isa-forms)
 js/lessons.js           Mini-clases del hero
 js/nav.js               Scroll: aparición, menú activo, progreso, brillo de tarjetas, enlaces de inicio
 js/intro.js             Animación del logo
@@ -84,14 +84,15 @@ https://ismael-sarmiento.github.io/isacademy/. No hay paso de build.
 
 ## Contacto (formulario)
 
-El formulario de «Reservar clase» envía los datos a FormSubmit, que los reenvía al email de `js/config.js`
-(**ismaelantonio.professional@gmail.com**, el único buzón de todas las webs desde 2026-10-17; pendiente de activar en FormSubmit).
+El formulario de «Reservar clase» pide una comprobación invisible de Cloudflare Turnstile y envía los datos al Worker
+`isa-forms` (código en el repo de la portada, `tools/cloudflare/isa-forms.js`), que verifica la comprobación y los entrega
+con Resend en **ismaelantonio.professional@gmail.com**, el único buzón de todas las webs. La dirección no aparece en el código.
 - Si eliges «Aula abierta», el mensaje es opcional.
 
 ## Seguridad
 
 Sitio estático sin backend ni secretos. Medidas en el propio código:
-- **Content-Security-Policy** (meta en `index.html` y `404.html`): solo scripts propios y de jsDelivr (Pyodide), conexiones solo a FormSubmit y jsDelivr, sin `object`, `base` ni envíos de formularios nativos.
+- **Content-Security-Policy** (meta en `index.html` y `404.html`): solo scripts propios y de jsDelivr (Pyodide), conexiones solo al Worker `isa-forms`, jsDelivr y la analítica de Cloudflare, Turnstile (script e iframe de challenges.cloudflare.com), sin `object`, `base` ni envíos de formularios nativos.
 - **SRI** en `pyodide.js` (`js/console.js` → `PYODIDE_SRI`). Si se cambia la versión de Pyodide, recalcula el hash:
   `curl -s <url>/pyodide.js | openssl dgst -sha384 -binary | openssl base64 -A`.
 - **Anti-clickjacking**: la web sale de cualquier marco de otro dominio (GitHub Pages no permite `frame-ancestors`).
