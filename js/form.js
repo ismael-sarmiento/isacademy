@@ -21,7 +21,10 @@ export function renderForm() {
   syncMessageRequired();
   const mail = `<a href="mailto:${esc(CONTACT.publicEmail)}">${esc(CONTACT.publicEmail)}</a>`;
   const turnstile = `<a href="${TURNSTILE_PRIVACY}" target="_blank" rel="noopener">${esc(t('contact.turnstileLink'))}</a>`;
-  $('#privacyText').innerHTML = esc(t('contact.privacy')).replace('{email}', mail).replace('{turnstile}', turnstile);
+  const notice = `<a href="/privacy/${currentLang() === 'en' ? '?lang=en' : ''}">${esc(t('contact.privacyNotice'))}</a>`;
+  $('#privacyText').innerHTML = esc(t('contact.privacy')).replace('{email}', mail).replace('{turnstile}', turnstile).replace('{notice}', notice);
+  const privacyLink = document.querySelector('[data-i18n="footer.privacy"]');
+  if (privacyLink) privacyLink.href = t('footer.privacyHref');
   $('#footerMail').href = `mailto:${CONTACT.publicEmail}`;
   // WhatsApp opens with a first message in the language of the page
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t('contact.waText'))}`;
@@ -82,7 +85,7 @@ export function initForm() {
   initContactForm({
     form: form(),
     texts: () => ({ required: t('contact.fRequired'), badEmail: t('contact.fBadEmail'), needPrivacy: t('contact.fNeedPrivacy'),
-      send: t('contact.fSend'), sending: t('contact.fSending'), ok: t('contact.fOk'), error: t('contact.fError') }),
+      send: t('contact.fSend'), sending: t('contact.fSending'), ok: t('contact.fOk'), saved: t('contact.fSaved'), error: t('contact.fError') }),
     buildEmail,
     onSent: () => { interest = null; renderForm(); },
   });

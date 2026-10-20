@@ -424,18 +424,22 @@
     "fRequired": "This field is required.",
     "fBadEmail": "Check the email: it looks incomplete.",
     "fNeedPrivacy": "We need your consent to be able to reply.",
-    "privacy": "Privacy information: data controller, Ismael Sarmiento (IsAcademy). Purpose: to reply to your request and, if you wish, organise your classes. Your data is not shared with third parties; sending the form uses Cloudflare Turnstile, which checks that you are not a bot ({turnstile}), and the Resend email service. You can access, correct or delete your data by writing to {email}.",
+    "privacy": "Controller: Ismael Sarmiento (IsAcademy). We use the details you provide to reply and arrange classes if requested. The private record, including available connection context, is kept for 90 days. Cloudflare provides hosting, storage and Turnstile protection ({turnstile}); Resend sends the email notification. Data, retention, providers and rights: {notice}. To exercise your rights: {email}.",
     "turnstileLink": "Turnstile privacy notice",
     "newTab": "(opens in a new tab)",
     "waText": "Hi, I'm interested in a class at IsAcademy.",
     "waysLead": "If you prefer, write to us directly.",
-    "waysMail": "Email"
+    "waysMail": "Email",
+    "fSaved": "Your request has been saved. Its email notification is unconfirmed; you do not need to submit it again.",
+    "privacyNotice": "privacy notice"
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/?lang=en\">Ismael Sarmiento</a>",
     "top": "Back to top",
     "home": "Home",
-    "mail": "Email"
+    "mail": "Email",
+    "privacy": "Privacy",
+    "privacyHref": "/privacy/?lang=en"
   },
   "open": {
     "eyebrow": "Open classes",

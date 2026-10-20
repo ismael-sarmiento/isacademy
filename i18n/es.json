@@ -69,7 +69,7 @@
     "p1": "IsAcademy nace de una idea sencilla: en un mundo cada vez más artificial, aprender de verdad necesita a una persona que te escuche, te explique y te rete.",
     "p2": "La fundó Ismael Sarmiento, ingeniero de datos e IA especializado en gobierno del dato y apasionado por la enseñanza, con casi una década trabajando en el sector tecnológico y formando a profesionales. Llevamos a cada clase lo que se hace en las empresas, con paciencia, cercanía y un plan adaptado a cada alumno.",
     "p3": "Usamos la IA como herramienta, nunca como atajo: queremos que entiendas lo que haces y que sepas resolver problemas por tu cuenta.",
-    "role": "Fundador y tutor · Ingeniero de datos e\u00a0IA",
+    "role": "Fundador y tutor · Ingeniero de datos e IA",
     "badges": [
       "5 ★ según sus alumnos",
       "Clases online, en directo"
@@ -424,18 +424,22 @@
     "fRequired": "Este campo es obligatorio.",
     "fBadEmail": "Revisa el email: parece incompleto.",
     "fNeedPrivacy": "Necesitamos tu consentimiento para poder responderte.",
-    "privacy": "Información de privacidad: responsable, Ismael Sarmiento (IsAcademy). Finalidad: responder a tu solicitud y, si quieres, organizar tus clases. Tus datos no se ceden a terceros; para enviar el formulario se usan Cloudflare Turnstile, que comprueba que no eres un bot ({turnstile}), y el servicio de correo Resend. Puedes acceder, rectificar o suprimir tus datos escribiendo a {email}.",
+    "privacy": "Responsable: Ismael Sarmiento (IsAcademy). Usamos los datos que facilites para responder y organizar tus clases si lo solicitas. La ficha privada, incluido el contexto de conexión disponible, se conserva 90 días. Cloudflare proporciona alojamiento, almacenamiento y protección Turnstile ({turnstile}); Resend envía la notificación por correo. Datos, conservación, proveedores y derechos: {notice}. Para ejercer tus derechos: {email}.",
     "turnstileLink": "aviso de privacidad de Turnstile",
     "newTab": "(se abre en una pestaña nueva)",
     "waText": "Hola, me interesa una clase en IsAcademy.",
     "waysLead": "Si lo prefieres, escríbenos directamente.",
-    "waysMail": "Correo"
+    "waysMail": "Correo",
+    "fSaved": "Solicitud guardada correctamente. La notificación por correo no está confirmada; no necesitas volver a enviarla.",
+    "privacyNotice": "aviso de privacidad"
   },
   "footer": {
     "rights": "© 2026 IsAcademy · by <a href=\"/\">Ismael Sarmiento</a>",
     "top": "Volver arriba",
     "home": "Inicio",
-    "mail": "Correo"
+    "mail": "Correo",
+    "privacy": "Privacidad",
+    "privacyHref": "/privacy/"
   },
   "open": {
     "eyebrow": "Aulas abiertas",
