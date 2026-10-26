@@ -4,6 +4,7 @@ const EASE_OUT = 'cubic-bezier(.2, .8, .2, 1)';
 const EASE_IN_OUT = 'cubic-bezier(.65, 0, .35, 1)';
 import { burst, ink, pixels } from '/assets/ds/fx.js';   // the particles shared with the intro of Inicio and CV Online
 import { reducedMotion } from './core/dom.js';
+import { releaseDialog } from '/assets/ds/ds.js';
 
 let running = false;
 
@@ -115,6 +116,7 @@ export function revealSite({ animate = true, scroll = true } = {}) {
 
 export function finish(intro) {
   if (intro.classList.contains('gone')) return;
+  releaseDialog(intro);
   document.getElementById('assistantFab').hidden = false;
   intro.inert = true;
   intro.classList.add('gone');

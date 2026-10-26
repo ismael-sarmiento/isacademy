@@ -2,7 +2,7 @@
 // through the isa-forms Worker are the contact piece shared with CV Online (/assets/ds/contact.js).
 import { $, esc } from './core/dom.js';
 import { initContactForm, fieldError } from '/assets/ds/contact.js';
-import { t, currentLang, dictionary } from './i18n.js';
+import { t, currentLang, dictionary, onLangChange } from './i18n.js';
 import { CONTACT } from './config.js';
 
 const TURNSTILE_PRIVACY = 'https://www.cloudflare.com/turnstile-privacy-policy/';
@@ -82,12 +82,13 @@ async function buildEmail(f) {
 }
 
 export function initForm() {
-  initContactForm({
+  const contact = initContactForm({
     form: form(),
     texts: () => ({ required: t('contact.fRequired'), badEmail: t('contact.fBadEmail'), needPrivacy: t('contact.fNeedPrivacy'),
-      send: t('contact.fSend'), sending: t('contact.fSending'), ok: t('contact.fOk'), saved: t('contact.fSaved'), error: t('contact.fError') }),
+      send: t('contact.fSend'), sending: t('contact.fSending'), ok: t('contact.fOk'), saved: t('contact.fSaved'), uncertain: t('contact.fUncertain'), error: t('contact.fError') }),
     buildEmail,
     onSent: () => { interest = null; renderForm(); },
   });
+  onLangChange(contact.refreshTexts);
   $('#fInterest').addEventListener('change', syncMessageRequired);
 }

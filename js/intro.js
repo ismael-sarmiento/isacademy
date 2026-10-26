@@ -1,5 +1,6 @@
 // Logo intro: the calligraphic "Is" is sketched by hand, then an AI "decodes" the word Academy.
 import { sleep, reducedMotion } from './core/dom.js';
+import { isolateDialog } from '/assets/ds/ds.js';
 
 const GLYPHS = '01<>/{}#$%&@=+*ABCDEFXYZ';
 const DASH = 3000;
@@ -87,15 +88,25 @@ function finalState(root) {
 }
 
 export async function runIntro(root) {
+  root.tabIndex = -1;
+  isolateDialog(root);
+  root.focus({ preventScroll: true });
+  root.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || root.classList.contains('cinema')) return;
+    const skip = root.querySelector('#skip');
+    (skip.hidden ? root.querySelector('[data-action="enter"]') : skip).click();
+  });
   const svg = root.querySelector('svg.logo');
   // hide the circuit traces until they are drawn
   root.querySelectorAll('#circuit path').forEach(p => { const len = p.getTotalLength(); p.style.strokeDasharray = String(len); p.style.strokeDashoffset = String(len); });
   root.querySelectorAll('#circuit circle').forEach(c => { c.style.opacity = 0; c.style.transformBox = 'fill-box'; c.style.transformOrigin = 'center'; });
   root.querySelector('#skip').addEventListener('click', () => { skipped = true; finalState(root); root.querySelector('[data-action="enter"]').focus(); });
   await document.fonts.ready;
+  if (skipped) return;
   // the intro plays on every visit; reduced-motion users get the final logo directly
   if (reducedMotion()) { skipped = true; finalState(root); return; }
   await sleep(250);
+  if (skipped) return;
   await sketchIs(svg);
   if (skipped) return;
   drawCircuit(root);

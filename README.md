@@ -42,8 +42,10 @@ js/nav.js               Scroll: aparición, menú activo, progreso, brillo de ta
 js/intro.js             Animación del logo
 js/opening.js           Cinemática de apertura (manos SVG)
 (fx)                    Partículas de la cinemática: /assets/ds/fx.js, compartidas con Inicio y CV Online
-js/console.js           Consola de Python (Pyodide con SRI)
-js/debugger.js          Depurador paso a paso (sys.settrace)
+js/console.js           Interfaz de la consola y botón Detener
+js/core/python-runtime.js Controlador de sesión, integridad y plazos
+js/python-worker.js     Pyodide y trazador en un Web Worker del navegador
+js/debugger.js          Representación de la traza paso a paso
 js/assistant.js         Asistente "Alan": contenido de la academia sobre el Alan compartido (/assets/ds/)
 js/prerender.js         Exporta el texto para tools/prerender.py
 js/pdf.js               El enlace «Descargar PDF» de la intro apunta al folleto del idioma y el tema de la página
@@ -61,6 +63,16 @@ python3 -m http.server 8000
 ```
 
 Abrir http://localhost:8000/
+
+## Consola y recuperación
+
+Python y la generación de la traza se ejecutan en un Web Worker del navegador, sin backend nuevo. «Detener» termina esa sesión y conserva el texto del editor; se pierden variables, imports y archivos virtuales de Python. La siguiente ejecución prepara una sesión nueva.
+
+Límites educativos: 60 s para inicializar o preparar paquetes, 15 s para ejecutar, 50.000 caracteres de código, 64.000 de salida y 1000 pasos de depurador. Al vencer un plazo se termina el Worker, sin reejecutar el programa. Estos controles no constituyen un límite duro de memoria ni un origen de seguridad separado.
+
+El controlador obtiene el bootstrap de Pyodide 0.26.4 con `fetch` y el SHA384 fijado, antes de crear el Worker Blob con esos mismos bytes. La biblioteca no se ejecuta en el hilo principal. Se conserva la CSP existente, sin añadir `unsafe-eval`; SRI cubre el bootstrap, no todas las descargas transitivas.
+
+Pruebas sin red: `node --test tools/qa/python-runtime.test.mjs`. La ejecución real, paquetes, cancelación y depurador también requieren revisión en navegador.
 
 ## Versionado (caché)
 
@@ -93,7 +105,7 @@ con Resend en **ismaelantonio.professional@gmail.com**, el único buzón de toda
 
 Sitio estático sin backend ni secretos. Medidas en el propio código:
 - **Content-Security-Policy** (meta en `index.html` y `404.html`): solo scripts propios y de jsDelivr (Pyodide), conexiones solo al Worker `isa-forms`, jsDelivr y la analítica de Cloudflare, Turnstile (script e iframe de challenges.cloudflare.com), sin `object`, `base` ni envíos de formularios nativos.
-- **SRI** en `pyodide.js` (`js/console.js` → `PYODIDE_SRI`). Si se cambia la versión de Pyodide, recalcula el hash:
+- **Integridad SHA384** del bootstrap `pyodide.js` (`js/core/python-runtime.js` → `PYODIDE_SRI`, fetch con integrity antes de crear el Worker). Si se cambia la versión de Pyodide, recalcula el hash:
   `curl -s <url>/pyodide.js | openssl dgst -sha384 -binary | openssl base64 -A`.
 - **Anti-clickjacking**: la web sale de cualquier marco de otro dominio (GitHub Pages no permite `frame-ancestors`).
 - Todo el texto dinámico se escapa antes de pintarse; enlaces externos con `rel="noopener"`.

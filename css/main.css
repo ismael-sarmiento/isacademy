@@ -101,7 +101,7 @@ details[open]::details-content { block-size: auto; }
 /* the measures of the intro shared by every site (/assets/ds/intro.css): same start, same width and, with the logo at
    1000 / 1401 of the signature, the same "Is" as in Inicio and CV Online */
 #intro { position: fixed; inset: 0; z-index: 50; display: grid; justify-items: center; align-content: start;
-  padding: max(12vh, 72px) 24px 24px; background: var(--bg); overflow: hidden; }
+  padding: max(12vh, 72px) 24px 24px; background: var(--bg); overflow: hidden auto; }
 #intro.gone { display: none; }
 #intro .stage { width: min(92vw, 1160px, 100%); text-align: center; position: relative; z-index: 1; }
 .intro-top { position: absolute; top: 16px; right: 16px; z-index: 2; display: flex; gap: 8px; }
@@ -114,7 +114,8 @@ details[open]::details-content { block-size: auto; }
 .logo .big-a { font-size: 188px; }
 .hook { font-size: clamp(16px, 2.2vw, 22px); color: var(--text-2); margin: 22px auto 0; max-width: 52ch; opacity: 0; transform: translateY(8px); transition: all .8s ease; }
 .hook b { color: var(--text); font-weight: 600; display: block; }
-.intro-actions { margin-top: 30px; opacity: 0; transition: opacity .8s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.intro-actions { margin-top: 30px; opacity: 0; visibility: hidden; transition: opacity .8s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+#intro .intro-actions.show { visibility: visible; }
 /* the brochure (css/print.css) is printed from the page itself; on screen its blocks stay hidden */
 .print-head, .print-cta { display: none; }
 #intro .show { opacity: 1; transform: none; }
@@ -133,7 +134,7 @@ details[open]::details-content { block-size: auto; }
 /* top bar: glass, a soft shadow once the page scrolls and a thin reading-progress line */
 .topbar { position: sticky; top: 0; z-index: 20; background: var(--glass); border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: box-shadow .3s ease; }
-.topbar.scrolled { box-shadow: var(--bar-shadow); }
+.topbar.scrolled { background: var(--surface); box-shadow: var(--bar-shadow); }
 .read-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; transform: scaleX(0); transform-origin: 0 50%;
   background: linear-gradient(90deg, var(--gold), var(--gold-2)); pointer-events: none; }
 .topbar-row { display: flex; align-items: center; gap: 18px; min-height: 68px; }
@@ -197,7 +198,7 @@ details[open]::details-content { block-size: auto; }
 .open-row .btn { flex: none; }
 
 /* about */
-.about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 56px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 56px; align-items: center; }
 .founder { text-align: center; padding: 32px 24px; }
 /* the portrait is the shared component (/assets/ds/portrait.css): gold ring drawn on reveal, glow on hover */
 .founder-photo { --portrait-size: 144px; display: grid; margin: 0 auto 16px; padding: 5px; }
@@ -294,6 +295,12 @@ details[open]::details-content { block-size: auto; }
 .console-body { margin-top: 20px; }
 .console-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
 .console-bar .spacer { flex: 1; }
+.console-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 480px) {
+  .console-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .console-actions .btn { width: 100%; }
+  .console-bar .spacer { display: none; }
+}
 .samples { display: flex; gap: 6px; flex-wrap: wrap; }
 .samples button { font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: transparent; transition: border-color .2s, background .2s; }
 .samples button:hover { border-color: var(--gold); background: rgba(200, 149, 63, .08); }
@@ -303,7 +310,7 @@ details[open]::details-content { block-size: auto; }
 #pyEditor { min-height: 200px; resize: vertical; tab-size: 4; }
 #pyEditor:focus-visible { outline: 2px solid var(--gold-400); outline-offset: 2px; }
 #pyOut { min-height: 80px; max-height: 260px; overflow: auto; background: var(--bg-alt); color: var(--text); white-space: pre-wrap; }
-#pyOut .err { color: var(--danger-strong); }
+#pyOut .err { color: var(--danger-text); }
 .dbg-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; }
 .dbg-bar .btn-icon { min-width: 40px; font-size: 13px; }
 .dbg-range { flex: 1; min-width: 120px; accent-color: var(--gold); }
@@ -387,6 +394,14 @@ details[open]::details-content { block-size: auto; }
 }
 @media (max-width: 380px) {
   .tools { gap: 4px; } .tools .btn-icon { min-width: 38px; padding: 8px 6px; }
+}
+/* Match the shared intro's short-window signature scale (Academy viewBox / signature viewBox).
+   Keep native overflow as the fallback when text and actions need more than the available height. */
+@media (max-height: 740px) {
+  #intro { padding-top: 64px; }
+  #intro svg.logo { width: min(828px, 65.7vw, max(200px, calc((100svh - 410px) * 3.5 * 1000 / 1401))); }
+  #intro .hook { margin-top: 16px; }
+  #intro .intro-actions { margin-top: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

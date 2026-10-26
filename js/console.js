@@ -1,66 +1,86 @@
-// In-browser Python console (Pyodide / WebAssembly). Loaded on demand: ~10 MB the first time.
+// Educational Python runs in a terminable browser Worker; the editor and UI remain on this thread.
 import { $ } from './core/dom.js';
 import { t } from './i18n.js';
 import { startDebug, exitDebug, initDebugger } from './debugger.js';
+import { createPythonRuntime } from './core/python-runtime.js';
 
-const PYODIDE_URL = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/';
-// Subresource Integrity: the browser refuses pyodide.js if the CDN copy is ever altered
-const PYODIDE_SRI = 'sha384-i3R37b3tF+HWudsUf1VSEOY2YxwSNMqY8DQa9Z0O3xh+NkJ9o+yjcGyIi5huj+nB';
-let pyodide = null, loading = null, running = false;
+let running = false, outputStarted = false, notice = null;
 
 function out(text, cls = '') {
-  const pre = $('#pyOut');
-  const span = document.createElement('span');
+  const pre = $('#pyOut'), span = document.createElement('span');
   if (cls) span.className = cls;
   span.textContent = text;
   pre.appendChild(span);
   pre.scrollTop = pre.scrollHeight;
+  return span;
 }
 
-function loadScript(src, integrity) {
-  return new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    if (integrity) { s.integrity = integrity; s.crossOrigin = 'anonymous'; }
-    s.src = src; s.onload = resolve; s.onerror = reject;
-    document.head.appendChild(s);
+function clearOutput() { $('#pyOut').textContent = ''; notice = null; }
+function showNotice(key, cls = '', append = false) {
+  if (!append) clearOutput();
+  else if ($('#pyOut').textContent && !$('#pyOut').textContent.endsWith('\n')) out('\n');
+  notice = { key, node: out(t(key) + '\n', cls) };
+}
+function programOutput(text, cls) {
+  if (!outputStarted) { clearOutput(); outputStarted = true; }
+  out(text, cls);
+}
+
+const runtime = createPythonRuntime({
+  onOutput: programOutput,
+  onPhase: phase => {
+    if (!running || outputStarted) return;
+    if (phase === 'preparing') showNotice('console.preparing');
+    if (phase === 'executing') showNotice('console.running');
+  },
+});
+
+function busy(on) {
+  const previous = document.activeElement;
+  const stop = $('[data-action="console-stop"]');
+  const wasAction = previous?.matches('[data-action="console-run"], [data-action="console-debug"]');
+  running = on;
+  ['console-run', 'console-debug', 'console-reset'].forEach(action => {
+    const button = $(`[data-action="${action}"]`);
+    button.disabled = on;
   });
+  $('#samples').querySelectorAll('button').forEach(button => { button.disabled = on; });
+  stop.disabled = !on;
+  $('#consoleBody').setAttribute('aria-busy', String(on));
+  if (on && wasAction) stop.focus({ preventScroll: true });
+  if (!on && previous === stop) $('[data-action="console-run"]').focus({ preventScroll: true });
 }
 
-async function ensurePython() {
-  if (pyodide) return pyodide;
-  if (!loading) {
-    loading = (async () => {
-      await loadScript(`${PYODIDE_URL}pyodide.js`, PYODIDE_SRI);
-      const py = await window.loadPyodide({ indexURL: PYODIDE_URL });
-      py.setStdout({ batched: s => out(s + '\n') });
-      py.setStderr({ batched: s => out(s + '\n', 'err') });
-      // keep the output clean for students: library deprecation notices are noise here
-      py.runPython('import warnings\nwarnings.filterwarnings("ignore", category=DeprecationWarning)');
-      return py;
-    })();
+function problem(error) {
+  const messages = {
+    stopped: 'console.stopped', timeout: 'console.timeout', outputLimit: 'console.outputLimit',
+    codeLimit: 'console.codeLimit', unsupported: 'console.unsupported', load: 'console.error', runtime: 'console.error',
+  };
+  if (error.kind === 'python') {
+    if (!outputStarted) clearOutput();
+    out(error.message + '\n', 'err');
+    outputStarted = true;
+  } else {
+    showNotice(messages[error.kind] || 'console.error', error.kind === 'stopped' ? '' : 'err', outputStarted);
   }
-  try {
-    pyodide = await loading;
-    return pyodide;
-  } catch (e) {
-    loading = null;
-    throw e;
-  }
+  $('#pyOut').dataset.state = 'error';
 }
 
 export function renderSamples() {
   const box = $('#samples');
   if (!box) return;
-  if (pyodide && $('#pyOut').dataset.state === 'ready') $('#pyOut').textContent = t('console.ready') + '\n';
+  if (notice?.node.isConnected) notice.node.textContent = t(notice.key) + '\n';
   box.innerHTML = '';
   t('console.samples').forEach((sample, i) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.textContent = sample.name; b.dataset.sample = String(i);
-    box.appendChild(b);
+    const button = document.createElement('button');
+    button.type = 'button'; button.textContent = sample.name; button.dataset.sample = String(i);
+    button.disabled = running;
+    box.appendChild(button);
   });
 }
 
 function loadSample(i) {
+  if (running) return;
   $('#pyEditor').value = t('console.samples')[i].code;
   $('#pyEditor').focus();
 }
@@ -72,66 +92,45 @@ export async function openConsole() {
   $('[data-action="console-open"]').hidden = true;
   renderSamples();
   if (!$('#pyEditor').value) loadSample(0);
-  $('#pyOut').textContent = '';
-  out(t('console.loading') + '\n');
+  outputStarted = false;
+  busy(true);
+  showNotice('console.loading');
   try {
-    await ensurePython();
-    $('#pyOut').textContent = '';
-    out(t('console.ready') + '\n');
+    await runtime.ready();
+    showNotice('console.ready');
     $('#pyOut').dataset.state = 'ready';
-    $('[data-action="console-run"]').disabled = false;
-    $('[data-action="console-debug"]').disabled = false;
-  } catch {
-    $('#pyOut').textContent = '';
-    out(t('console.error') + '\n', 'err');
-  }
+  } catch (error) { problem(error); }
+  finally { busy(false); }
 }
 
-export async function runCode() {
-  if (!pyodide || running) return;
-  running = true;
+async function execute(debug) {
+  if (running) return;
   const code = $('#pyEditor').value;
-  const btn = $('[data-action="console-run"]');
-  // aria-disabled keeps the button focusable while code runs
-  btn.setAttribute('aria-disabled', 'true');
-  $('#pyOut').textContent = '';
+  outputStarted = false;
+  clearOutput();
+  busy(true);
   $('#pyOut').dataset.state = 'run';
   try {
-    await pyodide.loadPackagesFromImports(code);
-    const result = await pyodide.runPythonAsync(code);
-    if (result !== undefined && result !== null) out(String(result) + '\n');
-  } catch (e) {
-    // keep only the useful tail of the Python traceback
-    // show the traceback from the student's own code onwards, not Pyodide internals
-    const lines = String(e.message || e).split('\n').filter(Boolean);
-    const from = lines.map(l => l.includes('File "<exec>"')).lastIndexOf(true);
-    out((from >= 0 ? lines.slice(from) : lines.slice(-1)).join('\n') + '\n', 'err');
-  } finally {
-    running = false;
-    btn.removeAttribute('aria-disabled');
-  }
+    if (debug) {
+      const result = await runtime.debug(code);
+      clearOutput();
+      startDebug(result, code);
+    } else {
+      await runtime.run(code);
+      if (!outputStarted) showNotice('console.done');
+    }
+    $('#pyOut').dataset.state = 'done';
+  } catch (error) { problem(error); }
+  finally { busy(false); }
 }
 
-
-
-export async function debugCode() {
-  if (!pyodide || running) return;
-  running = true;
-  const btn = $('[data-action="console-debug"]');
-  btn.setAttribute('aria-disabled', 'true');
-  try {
-    await startDebug(pyodide, $('#pyEditor').value);
-  } catch (e) {
-    $('#pyOut').textContent = '';
-    out(String(e.message || e).split('\n').filter(Boolean).slice(-1).join('') + '\n', 'err');
-  } finally {
-    running = false;
-    btn.removeAttribute('aria-disabled');
-  }
-}
+export const runCode = () => execute(false);
+export const debugCode = () => execute(true);
+export function stopCode() { if (running) runtime.stop(); }
 
 export function initConsole() {
   initDebugger();
+  addEventListener('pagehide', event => { if (!event.persisted) runtime.dispose(); });
   document.addEventListener('click', e => {
     const s = e.target.closest('[data-sample]');
     if (s) loadSample(Number(s.dataset.sample));
@@ -151,9 +150,11 @@ export function initConsole() {
 }
 
 export function resetConsole() {
+  if (running) return;
   exitDebug();
   $('#pyEditor').value = '';
   loadSample(0);
-  $('#pyOut').textContent = pyodide ? t('console.ready') + '\n' : '';
+  outputStarted = false;
+  showNotice('console.ready');
   $('#pyOut').dataset.state = 'ready';
 }

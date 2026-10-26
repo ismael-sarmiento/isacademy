@@ -1,76 +1,14 @@
 // Step-by-step debugger for the Python console. The student's code runs under sys.settrace; every line is
-// recorded with its variables, the call stack and the output printed so far, and the UI replays the run
-// forwards and backwards (breakpoints, keyboard, 1000-step limit for infinite loops).
+// recorded in a separate Worker. This module only replays the transferable trace
+// forwards and backwards (breakpoints, keyboard, 1000-step limit).
 import { $, $$, esc } from './core/dom.js';
 import { highlightLine } from './core/highlight.js';
 import { t } from './i18n.js';
 
-const MAX_STEPS = 1000;
-const TRACER = `
-import sys, io, json, types
-def __isa_trace(src, max_steps):
-    try:
-        code = compile(src, "<alumno>", "exec")
-    except SyntaxError as exc:
-        err = {"l": exc.lineno, "m": "SyntaxError: " + str(exc.msg)}
-        return json.dumps({"steps": [{"l": exc.lineno, "e": "error", "s": [], "v": {}, "o": 0}], "out": "", "error": err, "limited": False})
-    buf, steps, g = io.StringIO(), [], {"__name__": "__main__"}
-    def show(v):
-        if isinstance(v, types.ModuleType): return None
-        if isinstance(v, types.FunctionType): return "<función " + v.__name__ + ">"
-        r = repr(v).replace("\\n", " ⏎ ")
-        return r if len(r) <= 80 else r[:77] + "…"
-    def snap(scope):
-        out = {}
-        for k, v in list(scope.items()):
-            if k.startswith("__"): continue
-            s = show(v)
-            if s is not None: out[k] = s
-        return out
-    def stack(frame):
-        names = []
-        while frame is not None:
-            if frame.f_code.co_filename == "<alumno>": names.append(frame.f_code.co_name)
-            frame = frame.f_back
-        return names[::-1]
-    class TooMany(Exception): pass
-    def tracer(frame, event, arg):
-        if frame.f_code.co_filename != "<alumno>": return None
-        if event in ("line", "return"):
-            if len(steps) >= max_steps: raise TooMany()
-            step = {"l": frame.f_lineno, "e": event, "s": stack(frame), "v": snap(frame.f_locals), "o": len(buf.getvalue())}
-            if event == "return": step["r"] = show(arg)
-            steps.append(step)
-        return tracer
-    error, limited = None, False
-    old = sys.stdout
-    sys.stdout = buf
-    sys.settrace(tracer)
-    try:
-        exec(code, g)
-    except TooMany:
-        limited = True
-    except Exception as exc:
-        tb, line = exc.__traceback__, None
-        while tb is not None:
-            if tb.tb_frame.f_code.co_filename == "<alumno>": line = tb.tb_lineno
-            tb = tb.tb_next
-        if line is None and isinstance(exc, SyntaxError): line = exc.lineno
-        error = {"l": line, "m": type(exc).__name__ + ": " + str(exc)}
-    finally:
-        sys.settrace(None)
-        sys.stdout = old
-    steps.append({"l": error["l"] if error else None, "e": "error" if error else ("limit" if limited else "end"),
-                  "s": [], "v": snap(g), "o": len(buf.getvalue())})
-    return json.dumps({"steps": steps, "out": buf.getvalue(), "error": error, "limited": limited})
-`;
 let run = null; // { steps, out, error, lines, i, bps }
 
-export async function startDebug(pyodide, src) {
-  await pyodide.loadPackagesFromImports(src);
-  if (!pyodide.globals.get('__isa_trace')) pyodide.runPython(TRACER);
-  const res = JSON.parse(pyodide.globals.get('__isa_trace')(src, MAX_STEPS));
-  run = { ...res, lines: src.split('\n'), i: 0, bps: new Set() };
+export function startDebug(result, src) {
+  run = { ...result, lines: src.split('\n'), i: 0, bps: new Set() };
   renderCode();
   toggle(true);
   showStep(0);
@@ -96,7 +34,8 @@ function describe(st) {
     case 'line': return t('console.dbg.next').replace('{l}', st.l);
     case 'return': return t('console.dbg.returns').replace('{f}', fn).replace('{v}', st.r);
     case 'error': return t('console.dbg.error').replace('{l}', st.l ?? '?').replace('{m}', run.error.m);
-    case 'limit': return t('console.dbg.limit').replace('{n}', MAX_STEPS);
+    case 'limit': return t('console.dbg.limit').replace('{n}', run.stepLimit);
+    case 'output-limit': return t('console.outputLimit');
     default: return t('console.dbg.end');
   }
 }

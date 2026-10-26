@@ -11,7 +11,7 @@ import { renderSections, nextFact } from './sections.js';
 import { initForm, renderForm, setInterest } from './form.js';
 import { startLessons, refreshLessons } from './lessons.js';
 import { initNav, observeReveals } from './nav.js';
-import { initConsole, openConsole, runCode, debugCode, resetConsole, renderSamples } from './console.js';
+import { initConsole, openConsole, runCode, debugCode, stopCode, resetConsole, renderSamples } from './console.js';
 import { initAssistant, refreshAssistant } from './assistant.js';
 import { exportPrerenderIfAsked } from './prerender.js';
 import { initPdfLinks } from './pdf.js';
@@ -31,6 +31,7 @@ const ACTIONS = {
   'console-open': openConsole,
   'console-run': runCode,
   'console-debug': debugCode,
+  'console-stop': stopCode,
   'console-reset': resetConsole,
 };
 

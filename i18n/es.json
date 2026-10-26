@@ -77,7 +77,8 @@
     "linkedin": "Ver perfil en LinkedIn ↗",
     "photoAlt": "Ismael Sarmiento, fundador de IsAcademy",
     "cv": "Ver CV Online",
-    "cvHref": "/cv/"
+    "cvHref": "/cv/",
+    "photoLinkedinLabel": "Ver el perfil de Ismael Sarmiento en LinkedIn (se abre en una pestaña nueva)"
   },
   "method": {
     "eyebrow": "Metodología",
@@ -420,6 +421,7 @@
     "fSend": "Enviar solicitud",
     "fSending": "Enviando…",
     "fOk": "¡Gracias! Hemos recibido tu solicitud. Te escribiremos pronto a tu email para hacer el análisis gratuito de tu caso.",
+    "fUncertain": "No hemos podido confirmar la recepción. Lo escrito sigue en el formulario. Antes de volver a enviarlo, puedes confirmarlo por las vías de contacto de abajo.",
     "fError": "No se ha podido enviar. Inténtalo de nuevo en unos minutos.",
     "fRequired": "Este campo es obligatorio.",
     "fBadEmail": "Revisa el email: parece incompleto.",
@@ -452,13 +454,13 @@
     "title": "Consola de Python online",
     "desc": "Practica Python directamente en el navegador, sin instalar nada. Prueba los ejemplos, escribe tu propio código y míralo ejecutarse paso a paso.",
     "open": "Abrir consola",
-    "loading": "Cargando Python… (solo la primera vez, unos segundos)",
+    "loading": "Preparando Python… La primera carga puede tardar hasta 60 s.",
     "run": "Ejecutar",
     "reset": "Restablecer",
     "examples": "Ejemplos",
     "output": "Salida",
-    "ready": "Python listo. Pulsa «Ejecutar» o Ctrl/⌘ + Intro.",
-    "error": "No se ha podido cargar Python. Revisa tu conexión e inténtalo de nuevo.",
+    "ready": "Python listo. Pulsa «Ejecutar» o Ctrl/⌘ + Intro. Detener conserva el código y reinicia la sesión de Python.",
+    "error": "No se ha podido preparar o mantener Python. Revisa tu conexión y pulsa «Ejecutar» para intentarlo de nuevo.",
     "editorLabel": "Editor de código Python",
     "samples": [
       {
@@ -506,7 +508,16 @@
       "end": "Fin del programa. Estas son las variables finales.",
       "bp": "Punto de parada en la línea {l}",
       "hint": "Pulsa un número de línea para poner un punto de parada y usa «Continuar». Teclas ← → para avanzar y retroceder."
-    }
+    },
+    "stop": "Detener",
+    "preparing": "Preparando Python y paquetes… Puedes detener la carga (máx. 60 s).",
+    "running": "Ejecutando… Puedes detenerlo (máx. 15 s).",
+    "stopped": "Detenido. Tu código sigue en el editor; Python se reiniciará al ejecutar de nuevo.",
+    "timeout": "Se ha detenido al superar el tiempo: 60 s de preparación o 15 s de ejecución. Tu código sigue en el editor; Python se reiniciará.",
+    "outputLimit": "Salida limitada a 64.000 caracteres. Revisa el programa antes de ejecutarlo otra vez.",
+    "codeLimit": "El código supera los 50.000 caracteres. Reduce el tamaño antes de ejecutarlo.",
+    "unsupported": "Este navegador no permite ejecutar Python de forma independiente. Prueba con un navegador actualizado.",
+    "done": "Programa terminado sin salida."
   },
   "assistant": {
     "name": "Alan",

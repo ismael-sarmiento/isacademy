@@ -77,7 +77,8 @@
     "linkedin": "See LinkedIn profile ↗",
     "photoAlt": "Ismael Sarmiento, founder of IsAcademy",
     "cv": "View CV Online",
-    "cvHref": "/cv/?lang=en"
+    "cvHref": "/cv/?lang=en",
+    "photoLinkedinLabel": "View Ismael Sarmiento’s LinkedIn profile (opens in a new tab)"
   },
   "method": {
     "eyebrow": "Method",
@@ -420,6 +421,7 @@
     "fSend": "Send request",
     "fSending": "Sending…",
     "fOk": "Thank you! We've received your request. We'll write to you soon to do the free assessment of your case.",
+    "fUncertain": "We could not confirm receipt. Your draft is still in the form. Before submitting it again, you can check using the contact options below.",
     "fError": "It couldn't be sent. Please try again in a few minutes.",
     "fRequired": "This field is required.",
     "fBadEmail": "Check the email: it looks incomplete.",
@@ -452,13 +454,13 @@
     "title": "Online Python console",
     "desc": "Practise Python right in your browser, nothing to install. Try the examples, write your own code and watch it run step by step.",
     "open": "Open console",
-    "loading": "Loading Python… (first time only, a few seconds)",
+    "loading": "Preparing Python… The first load may take up to 60 s.",
     "run": "Run",
     "reset": "Reset",
     "examples": "Examples",
     "output": "Output",
-    "ready": "Python ready. Press \"Run\" or Ctrl/⌘ + Enter.",
-    "error": "Python could not be loaded. Check your connection and try again.",
+    "ready": "Python ready. Press “Run” or Ctrl/⌘ + Enter. Stop preserves your code and resets the Python session.",
+    "error": "Python could not be prepared or kept running. Check your connection and press “Run” to try again.",
     "editorLabel": "Python code editor",
     "samples": [
       {
@@ -506,7 +508,16 @@
       "end": "End of the program. These are the final variables.",
       "bp": "Breakpoint on line {l}",
       "hint": "Click a line number to set a breakpoint and use “Continue”. Use ← → to step forwards and back."
-    }
+    },
+    "stop": "Stop",
+    "preparing": "Preparing Python and packages… You can stop loading (up to 60 s).",
+    "running": "Running… You can stop it (up to 15 s).",
+    "stopped": "Stopped. Your code is still in the editor; Python will restart when you run it again.",
+    "timeout": "Stopped after the time limit: 60 s to prepare or 15 s to run. Your code is still in the editor; Python will restart.",
+    "outputLimit": "Output limited to 64,000 characters. Review the program before running it again.",
+    "codeLimit": "The code exceeds 50,000 characters. Shorten it before running.",
+    "unsupported": "This browser cannot run Python independently. Try an up-to-date browser.",
+    "done": "Program finished without output."
   },
   "assistant": {
     "name": "Alan",

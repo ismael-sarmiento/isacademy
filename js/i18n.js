@@ -1,5 +1,6 @@
 // Loads i18n/<lang>.json and applies it to [data-i18n] / [data-i18n-html] / [data-i18n-aria] nodes.
 import { SITE } from './config.js';
+import { rememberReadingPosition } from '/assets/ds/ds.js';
 const SUPPORTED = ['es', 'en'];
 // the import map in index.html loads every module as file.js?v=<version>: the texts follow the same version
 const VERSION = new URL(import.meta.url).searchParams.get('v') || 'dev';
@@ -47,6 +48,7 @@ export function dictionary(code) {
 export async function setLang(next, persist = false) {
   lang = SUPPORTED.includes(next) ? next : 'es';
   dict = await dictionary(lang);
+  const restorePosition = persist ? rememberReadingPosition() : () => {};
   // only an explicit choice is remembered
   if (persist) store(lang);
   document.documentElement.lang = lang;
@@ -60,4 +62,5 @@ export async function setLang(next, persist = false) {
   document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = t(el.dataset.i18nAlt); });
   document.querySelectorAll('[data-i18n-href]').forEach(el => { el.setAttribute('href', t(el.dataset.i18nHref)); });
   listeners.forEach(fn => fn(lang));
+  restorePosition();
 }
