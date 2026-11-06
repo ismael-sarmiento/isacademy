@@ -1,5 +1,7 @@
 # IsAcademy
 
+> **Se ha mudado.** IsAcademy vive ahora en https://isuniverse.dev/academy/ (repositorio [`academy`](https://github.com/ismael-sarmiento/academy), copia con historial de este). Este repositorio solo publica la redirección de `/isacademy/` a `/academy/` y copias de los PDF: enlaces compartidos y QR impresos llegan aquí, así que **no se borra**.
+
 > *Website of IsAcademy by Ismael Sarmiento, an online academy for programming, data and AI. Spanish and English.*
 
 > La Inteligencia Artificial (IA) te da respuestas. *Aquí te enseñamos a pensar.*

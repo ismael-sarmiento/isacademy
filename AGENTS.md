@@ -1,5 +1,9 @@
 # AGENTS.md — isacademy
 
+> **Moved.** IsAcademy now lives at https://isuniverse.dev/academy/ (repository `academy`, a copy with history of
+> this one). This repository only publishes the redirect from `/isacademy/` to `/academy/` and copies of the PDFs.
+> Shared links and printed QR codes arrive here: never delete it. Work happens in `academy`.
+
 ## Parent
 
 Global roots (L0):
